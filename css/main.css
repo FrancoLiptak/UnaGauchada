@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+*:focus {
+    outline: none;
+}
+head, body{
+  height: 100%;
+}
+a:hover{text-decoration: none!important;}
+a:active{text-decoration: none!important;}
+body {overflow-x:hidden!important;}
+.titulo:hover{ color:#374140;}
+.titulo{transition:color .5s;-webkit-transition:color .5s;-moz-transition:color .5s;-ms-transition:color .5s;border-radius:100%;}
+#title:before{content:"\f13b"}
+.box:hover.html5{border-color:#e45126} 
+.box:hover.html5 h2{color:#e45126}
+.box{transition:border .5s;-webkit-transition:border .5s;-moz-transition:border .5s;-ms-transition:border .5s;padding:25px;margin:5px 0;border:1px solid transparent;border-radius:5px;text-align:center;height:300px}
+.box h2 {transition:color .5s;-webkit-transition:color .5s;-moz-transition:color .5s;-ms-transition:color .5s;border-radius:100%;}
+ ::-webkit-scrollbar {
+      width: 9px;
+      height: 13px;
+    }
+::-webkit-scrollbar-button {
+width: 0px;
+height: 0px;
+}
+::-webkit-scrollbar-thumb {
+background: #3a3a3a;
+border: 72px none #ffffff;
+border-radius: 78px;
+}
+::-webkit-scrollbar-thumb:hover {
+background: #2c2c2c;
+}
+::-webkit-scrollbar-thumb:active {
+background: #3e3e3e;
+}
+::-webkit-scrollbar-track {
+background: #ffffff;
+border: 74px none #80ffff;
+border-radius: 18px;
+}
+::-webkit-scrollbar-track:hover {
+background: #ffffff;
+}
+::-webkit-scrollbar-track:active {
+background: #ffffff;
+}
+::-webkit-scrollbar-corner {
+background: transparent;
+}
+#gradBlue {
+      background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+      color:white;
+      opacity:0.95;
+      }
+.orange {background-color: #FF2D00;}
+#gradOrange {
+      background: linear-gradient(141deg, #FB8C00 0%, #FF8C00 51%, #FB7C00 75%);
+      color:white;
+      opacity:0.95;
+      }
+.fondoGaucho{
+	background-image: url("../imgs/at2.jpg");
+}
+ul.gray li a{ color: gray!important;}
+ul.gray li a:hover{color: white!important;
+      background-color: transparent!important;}
+.styled-select {
+      background: transparent;
+      width: 120px;
+      font-size: 15px;
+      border:0;
+      border-radius: 0px;
+      height:20px;
+      display: inline;
+}
+.glyphicon-bookmark{color: red; font-size: 8px;}
+input[class=titulo] {
+    background: transparent!important;
+    width: 110px;  
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 15px;
+    color: white!important;
+    border-radius: 0px!important;
+}
+input[type=date] {
+   width:200px!important;
+   }
