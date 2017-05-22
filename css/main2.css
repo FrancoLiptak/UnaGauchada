@@ -1,0 +1,269 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+*:focus {
+    outline: none;
+}
+head, body{
+  height: 100%;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+a:hover{
+  color: rgba(0,0,0,0.6);
+  text-decoration: none;
+}
+#brand{
+  font-size: 40px;
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+  margin-top:-12px;
+}
+#brand:hover{
+  color:#374140;
+}
+img{
+  max-width:100%; 
+  height:auto;
+  margin: auto;
+  padding: 10px;
+}
+a img{
+  max-width:100%; 
+  height:auto;
+  margin: auto;
+}
+body{
+  padding: 70px 0 0 0;
+  overflow-x:hidden;
+}
+nav{
+  padding-top: 20px;
+}
+.dotted_blue img:hover{
+  border: 1.5px dotted lightblue;
+}
+.dotted_pink img:hover{
+  border: 1.5px dotted lightpink;
+}
+.dotted_brown img:hover{
+  border: 1.5px dotted #BD8D46;
+}
+.carousel .item {
+    size: cover;
+    position: center bottom;
+}
+header .navbar {
+  background: rgba(255,255,255,0.9);
+
+}
+.navbar ul li {
+  margin-left: 5px;
+}
+input[class=product] {
+    background: transparent!important;
+    width: 110px;  
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 15px;
+}
+.navbar-nav li {
+   font-size: 15px;
+}
+.dropdown-menu li a{
+  font-size: 11px;
+}
+.f1{
+  font-family: 'Amaranth', sans-serif;
+}
+.f2{
+  font-family: 'Poppins', sans-serif;
+}
+
+.f3{
+ font-family: 'Syncopate', sans-serif;
+}
+.f4{
+  font-family: 'Pacifico', cursive;
+}
+.f5{
+  font-family: 'Satisfy', cursive
+}
+.f6{
+  font-family: 'Montserrat', sans-serif;
+}
+.phrase{
+ font-size: 20px;
+  font-family: 'Pacifico', cursive;
+ text-align: center;
+ border-top:1px double black;
+ border-bottom: 1px double black;
+ padding-top: 15px;
+ padding-bottom: 15px;
+ margin-bottom:20px;
+ margin-top:20px;
+}
+.footer{
+  text-align: center;
+  height: 40px;
+  background-color: rgba(0,0,0,0.83);
+  color: white;
+}
+.social_nets p{
+  bottom: 20px;
+  text-align: center;
+  word-spacing: 80px;
+  border:3px dotted black;
+  font-size: 25px;
+  margin-top: 10px;
+  
+}
+.social_nets p a{
+  text-decoration: none;
+  color: #0E3142;
+}
+.social_nets p a:hover{
+  color: black;
+}
+.fin{
+  width: 100%;
+  bottom: 0px;
+  margin: auto;
+  padding: auto;
+}
+
+.form_wrapper{
+  border: none;
+  border-bottom: 3px solid #E80C7A;
+  border-top: 3px solid #E80C7A;
+  text-align: center;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.form_wrapper:hover{
+  border-top: 3px dashed #E80C7A;
+  border-bottom: 3px dashed #E80C7A;
+}
+.form_wrapper p{
+  font-size: 20px;
+  font-family: 'Pacifico', cursive;
+}
+.form input{
+    background: transparent!important;
+    width: 170px;
+    border: none;
+    border-bottom: 3px solid black;
+    font-size: 15px;
+    font-family: 'Syncopate', sans-serif;
+}
+.form:focus input{
+   border-bottom: 3px solid gray;
+}
+input[type=submit]{
+    border:3px solid black ;
+    padding: 1px;
+    border-radius: 30px;
+    font-family: 'Pacifico', cursive;
+}
+input[type=submit]:hover {
+    border:3px inset #6B2626 ;
+}
+.styled-select {
+	background: transparent;
+	width: 120px;
+	font-size: 15px;
+	border:0;
+	border-radius: 0px;
+	height:20px;
+  display: inline;
+}
+.img_table {
+  width:150px;
+  height:auto;
+}
+.img_producto{
+  max-width:300px!important;
+  height:auto;
+  border: 1.5px dotted black;
+}
+.nombre_prod{
+  font-size: 30px;
+  font-family: 'Montserrat', sans-serif;
+}
+.descripcion_prod{
+  font-size: 20px;
+  font-family: 'Pacifico', cursive;
+}
+div .otros_datos p{
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+}
+.precio{
+  font-size: 30px;
+}
+.cat{
+  font-size: 25px;
+}
+.quienes_somos{
+  text-align:center;
+  font-family: 'Montserrat', sans-serif;
+  font-size:16px;
+}
+.positive{
+  background:rgba(220,255,255,0.4); position:relative; color:black;border:1px solid #2DE894;font-size:18px;text-align: center;
+}
+.nota{
+  font-size:30px;font-family:'Dancing Script', cursive;color:black;
+}
+.inside_nota{
+  font-family: 'Montserrat', sans-serif;
+}
+.link{
+  font-size:15px;  font-family: 'Montserrat', sans-serif; text-align: center;
+}
+.negative{
+  background:rgba(255,255,225,0.4); position:relative; color:black;border:1px solid #E80C7A;font-size:18px;text-align: center;
+}
+.diferenteInput{
+  width:200px!important;
+}
+.fake_place_holder{
+  border-bottom: 3px solid black; font-size:15px; font-weight: 400; color: darkgrey;
+}
+.span_area_texto{
+  width:350px;
+}
+.area_texto{
+  font-size:15px; font-weight: 400; color: black; text-align:center;
+}
+.span_choose_f{
+  width:200px;text-align:center;
+}
+.choose_f{
+  display:inline; width:150px;
+}
+.caducidad{
+  width:130px; border-bottom:none!important;
+}
+.middle_social.nets{
+  padding-left:20px; padding-right:20px;
+}
+.span_back{
+  width:70px; margin-left:auto; margin-rigth:auto;text-align:center;
+}
+.ul_paginacion{
+  text-align:center;width:105px;margin-left:auto; margin-rigth:auto;font-size:15px;
+}
+.btn_go{
+  background: rgba(255,255,255,0.9); padding:4px 5px!important; border:1px inset black!important;
+}
+.bigger_icon{
+  font-size:22px; 
+}
+.form_edit{
+  width:235px; opacity: 0.6;
+}

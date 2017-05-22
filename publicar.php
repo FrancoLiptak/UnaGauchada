@@ -15,12 +15,10 @@
            hacerAlert("No se ha podido publicar su gauchada ya que no se han completado todos los campos.");
            unset($_SESSION['mal_completado']);
         } 
-        /* no se para q era...
+        
         Include("connect.php"); 
         $link=connect();
-        $email=$_SESSION['email'];
-        $idUs= mysqli_query($link, "SELECT * FROM usuarios WHERE email='$email'");
-        $US = mysqli_fetch_array($idUs); */
+        
   			?>
         <br>
   			<form enctype="multipart/form-data" class="col-md-2 col-md-offset-5" action="procesarPublicar.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="off" name="publicar_form" onsubmit="return validateFormPublicar()">
@@ -28,7 +26,7 @@
             <br><br>
             <label class="fake_place_holder"> Categoría...</label> &nbsp;<select class="styled-select" name="cat">
                  <?php
-                $categorias=mysqli_query($link, "SELECT * FROM categorias_productos");
+                $categorias=mysqli_query($link, "SELECT * FROM categorias");
                 Include ("hacerOption.php");
                 while ($filaCat = mysqli_fetch_array($categorias)){
                 mostrarCat($filaCat);

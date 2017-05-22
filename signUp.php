@@ -1,7 +1,8 @@
 <html>
 	<head>
 	<title>Sing Up</title>
-  <?php Include("header.php");?>
+  <?php Include("header.php");
+  session_start();?>
   		<div class="row">
         <div class="container-fluid col-md-4 col-md-offset-4">
          <br><br><br>

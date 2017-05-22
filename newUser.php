@@ -2,16 +2,14 @@
 
 include_once 'connect.php';
 include_once 'validate.php';
+session_start();
 
-	function newUser($email, $pass, $name, $surname, $birthDate, $phone, $photo) {
+	function newUser($email, $pass, $name, $surname, $birthDate, $phone) {
 		// Crea un nuevo usuario con los parametros enviados. Devuelve true si el query se realizo correctamente, false caso contrario. Setear los valores default de $startingCredits and $startingReputation.
-
+		
 		$link = connect();
 
 		if ( validate($email) && validate($pass) && validate($name) && validate($surname) && validateDate($birthDate) ) {
-
-			// FALTA MANEJO DE IMAGENES.
-			$photo = "";
 
 			if (!validate($phone)) {
 				$phone = "";
@@ -19,25 +17,25 @@ include_once 'validate.php';
 			$startingCredits = 1;
 			$startingReputation = 1;
 
-	        $query = "INSERT INTO 'users' ( 'idUser', 'email', 'pass', 'name', 'surname', 'birthDate', 'phone', 'credits', 'reputation', 'photo' ) "; 
-	        $query = $query."VALUES ( NULL, '$email', '$pass', '$name', '$surname', '$birthDate', '$phone' '$startingCredits', '$reputation', '$photo' );";
+	        $query = "INSERT INTO users ( email, pass, name, surname, birthDate, credits, reputation ) "; 
+	        $query = $query."VALUES ( '$email', '$pass', '$name', '$surname', '$birthDate', $startingCredits, $startingReputation );";
 	        $result = $link->query($query);
 
-	        return $result;
+	        $_SESSION['registrado']=$email.'/'.$pass1;
+			header("Location: signUp.php");
+	     	return $result;
 		}
-
+		$_SESSION['mal_completado']= '';
+		header("Location: signUp.php");
 		return false;
 	}
 
-	function newAdmin($email, $pass, $name, $surname, $birthDate, $phone, $photo) {
+	function newAdmin($email, $pass, $name, $surname, $birthDate, $phone) {
 		// Crea un nuevo usuario con los parametros enviados. Devuelve true si el query se realizo correctamente, false caso contrario. Setear los valores default de $startingCredits and $startingReputation.
 
 		$link = connect();
 
 		if ( validate($email) && validate($pass) && validate($name) && validate($surname) && validateDate($birthDate) ) {
-
-			// FALTA MANEJO DE IMAGENES.
-			$photo = "";
 
 			if (!validate($phone)) {
 				$phone = "";
@@ -45,8 +43,8 @@ include_once 'validate.php';
 			$startingCredits = 1;
 			$startingReputation = 1;
 
-	        $query = "INSERT INTO 'admins' ( 'idUser', 'email', 'pass', 'name', 'surname', 'birthDate', 'phone', 'credits', 'reputation', 'photo' ) "; 
-	        $query = $query."VALUES ( NULL, '$email', '$pass', '$name', '$surname', '$birthDate', '$phone' '$startingCredits', '$reputation', '$photo' );";
+	        $query = "INSERT INTO 'admins' ( 'idUser', 'email', 'pass', 'name', 'surname', 'birthDate', 'phone', 'credits', 'reputation') "; 
+	        $query = $query."VALUES ( NULL, '$email', '$pass', '$name', '$surname', '$birthDate', '$phone' '$startingCredits', '$reputation' );";
 	        $result = $link->query($query);
 
 	        return $result;

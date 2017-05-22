@@ -24,13 +24,13 @@
          
           if (isset($_GET['search'])){
             $search=$_GET['search'];
-            $titulo=$_GET['titulo'];
+            $title=$_GET['title'];
             $cat=$_GET['cat'];
             if ($cat=='All categories'){
-                $condition.=" AND titulo LIKE '%$titulo%'"; //concatena
+                $condition.=" AND title LIKE '%$title%'"; //concatena
             }
             else {
-                $condition.= " AND titulo LIKE '%$titulo%' AND idCategoria=$cat";
+                $condition.= " AND title LIKE '%$title%' AND idCategoria=$cat";
             }
           }
          
@@ -42,14 +42,14 @@
             <br>
             <br>
             <br>
-            <?php if($titulo=="" ||  $titulo == null){ 
+            <?php if($title=="" ||  $title == null){ 
                   if($cat != 'All categories'){ 
                       $categorias = mysqli_query($link, "SELECT * FROM  categorias WHERE idCategoria=$cat");
                       $categoria = mysqli_fetch_array($categorias);
                       hacerAlert("La categoria".$categoria['nombre']." no posee gauchadas asociadas a ella.");
                  } 
-            }else{ // titulo tiene un valor
-                 hacerAlert("No se encontraron gauchadas acordes a ".$titulo);
+            }else{ // title tiene un valor
+                 hacerAlert("No se encontraron gauchadas acordes a ".$title);
             } 
             ?>
           <br>
@@ -95,7 +95,7 @@
           <?php
            if (($pag - 1) > 0){ ?>
               <li>
-                <a href="gauchadas.php?pagina=<?php echo $pag-1; if(isset($_GET['search'])){ ?>&titulo=<?php echo $_GET['titulo'];?>&search=<?php echo $_GET['search']; ?>&cat=<?php echo $_GET['cat']; }?>" aria-label="Previous">
+                <a href="gauchadas.php?pagina=<?php echo $pag-1; if(isset($_GET['search'])){ ?>&title=<?php echo $_GET['title'];?>&search=<?php echo $_GET['search']; ?>&cat=<?php echo $_GET['cat']; }?>" aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
                 </a>
               </li>
@@ -108,7 +108,7 @@
           
           if(($pag + 1) <= $cantTotalPaginas){ ?>
               <li>
-                <a href="shop.php?pagina=<?php echo $pag+1; if(isset($_GET['search'])){ ?>&titulo=<?php echo $_GET['titulo'];?>&search=<?php echo $_GET['search']; ?>&cat=<?php echo $_GET['cat']; }?>" aria-label="Next">
+                <a href="shop.php?pagina=<?php echo $pag+1; if(isset($_GET['search'])){ ?>&title=<?php echo $_GET['title'];?>&search=<?php echo $_GET['search']; ?>&cat=<?php echo $_GET['cat']; }?>" aria-label="Next">
                   <span aria-hidden="true">&raquo;</span>
                 </a>
               </li>
