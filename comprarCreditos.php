@@ -3,7 +3,7 @@
 	<title>Comprar créditos</title>
   <?php Include("header.php");
   Include("alert.php");
-  session_start();
+
   ?>
   <br>
   <div class="row">
@@ -29,15 +29,15 @@
         unset($_SESSION['mal_completado']); 
     }?>
      
-		<form class="col-md-2 col-md-offset-5" action="procesarComprar.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on" >
+		<form class="col-md-2 col-md-offset-5" action="procesarComprar.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on">
       <label>Créditos a comprar</label>&nbsp;
-      <input class="form-control" type="number" name="credits" placeholder="Cantidad de créditos" title="50 ARS c/u">
+      <input class="form-control" type="number" name="credits" placeholder="Cantidad de créditos" title="50 ARS c/u" required>
       <br>
       <label>Numero de tarjeta</label>&nbsp;
-      <input class="form-control" type="number" name="nro" placeholder="Numero de tarjeta">
+      <input class="form-control" type="number" name="nro" placeholder="Numero de tarjeta" required>
       <br>
       <label>Contraseña de tarjeta</label>&nbsp;
-      <input class="form-control" type="password" name="pass" placeholder="Contraseña de tarjeta">
+      <input class="form-control" type="password" name="pass" placeholder="Contraseña de tarjeta" required>
       <br>
       <input type="submit" name="submit" value="Comprar" class=" center-block btn btn-warning">
 	 </form>

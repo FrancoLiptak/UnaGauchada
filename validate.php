@@ -46,10 +46,11 @@ include_once 'connect.php';
 		}
 	}
 	function validateCompra($nro, $pass, $idUser) {
-		// Devuelve true si la tarjeta pertenece a ese usuario, la contraseña es correcta, y se puede hacer la compra.
+		// Devuelve true si la contraseña es correcta, y se puede hacer la compra.
 		$link= connect();
-		$query=mysql_query($link, "SELECT * FROM tarjetas WHERE nro=$nro and pass=$pass and idUser=$idUser;" );
-		$tarjeta= mysql_fetch_array($query);
-		return $pass=$tarjeta['pass'] && $idUser=$tarjeta['idUser'] && $tarjeta['estado']=true;
+		$query=mysqli_query($link, "SELECT * FROM tarjetas WHERE nro=$nro and pass=$pass and idUser=$idUser;" );
+		$tarjeta= mysqli_fetch_array($query);
+
+		return  $query && $tarjeta['estado'];
 	}
 ?>

@@ -3,20 +3,20 @@
 	include_once 'connect.php';
 	include_once 'validate.php';
 	include_once 'getUser.php';
-	session_start();
 
 	function getCredits($idUser) {
 		// Devuelve los creditos del usuario con id = $idUser. Si hay un error en la consulta, devuelve false.
 
 		$link = connect();
 
-        $query = "SELECT credits FROM users WHERE idUser = '$idUser'";
+        $query = "SELECT credits FROM users WHERE idUsers = '$idUser'";
 		$result = $link->query($query);
 
-		if ($result->num_rows = 1) {
-			$row = $result->fetch_assoc();
+		if ($result->num_rows == 1) {
+			$row = $result->fetch_array(MYSQLI_ASSOC);
 			return $row['credits'];
 		}
+
 
 		return false;
 	}
@@ -32,7 +32,7 @@
 
 		$credits = getCredits($idUser) + $amount;
 		$link = connect();
-		$query = "UPDATE users SET credits=$credits WHERE idUser=$idUser";
+		$query = "UPDATE users SET credits=$credits WHERE idUsers=$idUser";
 		return $link->query($query);
 	}
 
