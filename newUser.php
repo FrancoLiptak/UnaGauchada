@@ -4,12 +4,12 @@ include_once 'connect.php';
 include_once 'validate.php';
 session_start();
 
-	function newUser($email, $pass, $name, $surname, $birthDate, $phone) {
+	function newUser($email, $pass1, $pass2, $name, $surname, $birthDate, $phone) {
 		// Crea un nuevo usuario con los parametros enviados. Devuelve true si el query se realizo correctamente, false caso contrario. Setear los valores default de $startingCredits and $startingReputation.
 		
 		$link = connect();
 
-		if ( validate($email) && validate($pass) && validate($name) && validate($surname) && validateDate($birthDate) ) {
+		if ( validateEmail($email) && validatePasswords($pass1, $pass2) && validate($name) && validate($surname) && validateDate($birthDate) ) {
 
 			if (!validate($phone)) {
 				$phone = "";
@@ -21,13 +21,13 @@ session_start();
 	        $query = $query."VALUES ( '$email', '$pass', '$name', '$surname', '$birthDate', $startingCredits, $startingReputation );";
 	        $result = $link->query($query);
 
-	        $_SESSION['registrado']=$email.'/'.$pass1;
-			header("Location: signUp.php");
+	        $_SESSION['registrado']="Se ha realizado el Sign up con éxito!";
 	     	return $result;
 		}
-		$_SESSION['mal_completado']= '';
-		header("Location: signUp.php");
+		else{
+		$_SESSION['mal_completado']= "Verifica si has completado todos los campos. Son de caracter obligatorio!<br>También recuerda que deben coincidir las passwords...";
 		return false;
+		}
 	}
 
 	function newAdmin($email, $pass, $name, $surname, $birthDate, $phone) {

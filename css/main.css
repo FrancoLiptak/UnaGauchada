@@ -90,3 +90,6 @@ input[class=titulo] {
 input[type=date] {
    width:200px!important;
    }
+.alert{
+  text-align: center;
+}

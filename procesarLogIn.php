@@ -1,10 +1,15 @@
 <?php 
-Include("loginFx.php"); 
-userLogin($_POST['email'], $_POST['pass']);
-if (!(	userLogin($_POST['email'], $_POST['pass'])	)){ 
-	$_SESSION['mal']='mal';
+Include("loginFx.php");
+session_start();
+
+userLogin(	$_POST['email'], $_POST['pass']	);
+
+if(isset($_SESSION['idUsers']))
+	header("Location: gauchadas.php");
+
+else
 	header("Location: logIn.php");
-}
+
 
 
 ?>

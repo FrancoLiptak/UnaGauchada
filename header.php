@@ -1,5 +1,14 @@
 <?php
 	Include("links.html");
+  session_start();
+  if(isset($_SESSION['idUsers'])){
+            Include("connect.php");
+            $link= connect();
+            $sql="select name from users where idUsers=".$_SESSION['idUsers'].";";
+            $result= mysqli_query($link, $sql);
+            $us = mysqli_fetch_array($result);
+            $name=$us['name'];
+}
 ?>
 </head>
 <body>
@@ -19,6 +28,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
            <ul class="nav navbar-nav navbar-right"> <!-- nav der -->
+                <li class=""><a href=""><?php if(isset($_SESSION['idUsers'])) echo "Hola ".$name."!"; ?></a></li>
                 <li class="dropdown">
                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Buscar <span class="glyphicon glyphicon-search"></span> <span class="caret"></span></a>
                   <ul class="dropdown-menu fondoGaucho gray">
