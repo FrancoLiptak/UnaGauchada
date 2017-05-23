@@ -1,7 +1,7 @@
 <html>
 	<head>
 	<title>Gauchadas</title>
-  <?php Include("header.php");?>
+  <?php include_once "header.php";?>
   <div class="row center-block">
 	  <br><br><br>
     <div class="container-fluid  col-md-4 col-md-offset-4">
@@ -19,7 +19,7 @@
           $date=date("Y-m-d");
           $condition= "caducidad >= '$date'";
 
-          $totalTuplas= getGauchadas(10000, 0, $condition); //me traigo todas
+          $totalTuplas = getGauchadas(10000, 0, $condition); //me traigo todas
           $cantTotalTuplas = mysqli_num_rows($totalTuplas);
          
           if (isset($_GET['search'])){

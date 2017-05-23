@@ -18,7 +18,7 @@ session_start();
 			$startingReputation = 1;
 
 	        $query = "INSERT INTO users ( email, pass, name, surname, birthDate, credits, reputation ) "; 
-	        $query = $query."VALUES ( '$email', '$pass', '$name', '$surname', '$birthDate', $startingCredits, $startingReputation );";
+	        $query = $query."VALUES ( '$email', '$pass1', '$name', '$surname', '$birthDate', $startingCredits, $startingReputation );";
 	        $result = $link->query($query);
 
 	        $_SESSION['registrado']="Se ha realizado el Sign up con éxito!";

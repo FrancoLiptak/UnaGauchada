@@ -4,6 +4,13 @@
   <?php Include("header.php");
   Include("alert.php");
   session_start();
+  include_once "validate.php";
+  if (!validateLogin()) {
+		$_SESSION['msg'] = "No puede ingresar a signUp.php sin antes iniciar sesion.";
+		header('Location: index.php');
+        die;
+  }
+
   ?>
     <div class="row">
         <div class="container-fluid col-md-4 col-md-offset-4">

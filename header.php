@@ -1,6 +1,7 @@
 <?php
-	Include("links.html");
-  Include("connect.php");
+	include_once "links.html";
+  include_once "connect.php";
+  include_once "doSelect.php";
   session_start();
   if(isset($_SESSION['idUsers'])){
             $link= connect();
@@ -8,7 +9,7 @@
             $result= mysqli_query($link, $sql);
             $us = mysqli_fetch_array($result);
             $name=$us['name'];
-}
+  }
 ?>
 </head>
 <body>
@@ -36,22 +37,8 @@
                           <form id="shop"action="gauchadas.php?search=search&titulo=titulo&cat=cat" method="get">
                              <input class="titulo" type="text" name="titulo" placeholder=" Ingrese titulo"> <!-- se supone que tambien es por ciudad -->
                              <select class="styled-select" name="cat">
-                                  <option>All categories</option>
-                                  <?php /* hay que hacer el listado dinamico de categorias desde la BD */
-                                  /*zInclude("connect.php");
-                                  $link=connect();
-                                  $categorias=mysqli_query($link, "SELECT * FROM categorias_productos");
-                                  Include ("hacerOption.php");
-                                  if(isset($_GET['cat']))
-                                     $idC=$_GET['cat'];
-                                  else 
-                                    $idC=null;
-                                     
-                                  while ($filaCat = mysqli_fetch_array($categorias)){
-                                  mostrarCat($filaCat, $idC);
-                                  }
-                                  mysqli_close($link);*/
-                                  ?>
+                                <option value="0">Todas las categorias</option>
+                                <?php selectCates(); ?>
                             </select>&nbsp;
                         <input type="submit" name="search" value="Ir" class="btn btn-warning">
                       </form>

@@ -1,7 +1,18 @@
 <html>
 	<head>
 	<title>Publicar gauchada</title>
-  <?php Include("header.php"); ?>
+  <?php 
+    include_once "header.php";
+    include_once "doSelect.php";
+    include_once "validate.php";
+    session_start();
+    if (!validateLogin()) {
+        $_SESSION['msg'] = "No puede ingresar a publicar.php sin antes iniciar sesion.";
+        header('Location: index.php');
+        die;
+    }
+  ?>
+  </head>
 <br>
 <br>
   	<div class="row">
@@ -16,41 +27,38 @@
            unset($_SESSION['mal_completado']);
         } 
         
-        Include("connect.php"); 
+        include_once "connect.php"; 
         $link=connect();
         
   			?>
-        <br>
-  			<form enctype="multipart/form-data" class="col-md-2 col-md-offset-5" action="procesarPublicar.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="off" name="publicar_form" onsubmit="return validateFormPublicar()">
-            <input type="text" name="nombreProd" class="diferenteInput" placeholder=" Titulo ...">
-            <br><br>
-            <label class="fake_place_holder"> Categoría...</label> &nbsp;<select class="styled-select" name="cat">
-                 <?php
-                $categorias=mysqli_query($link, "SELECT * FROM categorias");
-                Include ("hacerOption.php");
-                while ($filaCat = mysqli_fetch_array($categorias)){
-                mostrarCat($filaCat);
-                }
-                mysqli_close($link);
-                ?>
-            </select>
-            <br><br>   <!-- con width 210 queda todo alineado -->
-            <span class="row center-block span_area_texto"> 
-               <textarea name="desc" class="form-control area_texto" rows="8" placeholder=" Descripción ..." ></textarea>
-            </span>
-            <br><br>
-            <span class="center-block span_choose_f">
-              <input type="file"  name="img" class="filestyle col-md-2 choose_f" data-input="true" data-size="md" data-buttonName="btn btn-danger" data-placeholder="Img..." ><br><p style="color:red; font-size:10px; font-family:'Montserrat', sans-serif;">Nota: el tamaño del archivo debe ser menor a 65,536 Bytes ó 8,2045 KB.</p>      
-            </span>
-            <br>
-            <input type="number" name="precio" class="diferenteInput" placeholder=" Precio...">
-            <br><br><br>
-            <label class="fake_place_holder"> Fecha de caducidad..</label>&nbsp;&nbsp;
-            <input type="date" class="caducidad" name="caducidad" step="1" min="2016-01-01" max="2019-12-31" "<?php echo date("Y-m-d");?>" >
-            <input type="hidden" name="id" value="<?php echo  $US['idUsuario'] ?>">
-            <br><br><br>
-      			&nbsp;<input type="submit" name="submit" class="btn btn-warning" value="Publicar gauchada">
-			</form>
+        <br><div class="container">
+<form class="col-md-2 col-md-offset-5" action="procesarPublicar.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on" name="publucar_form" onsubmit="return validateFormPublicar()">
+  <div class="form-group">
+    <label for="title">Titulo:</label>
+    <input type="text" class="form-control" id="title" name="title">
+  </div>
+  <div class="form-group">
+    <label for="description">Description:</label>
+    <input type="text-area" class="form-control" id="description" name="description">
+  </div>
+  <div class="form-group">
+    <label for="expiration">Fecha limite:</label>
+    <input type="date" class="form-control" id="expiration" name="expiration">
+  </div>
+  <div class="form-group">
+    <label for="category">Categoria:</label>
+    <select class="form-control" id="category" name="category">
+        <?php selectCates(); ?>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="city">Ciudad:</label>
+    <select class="form-control" id="city" name="city">
+        <?php selectCity(); ?>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form> </div>
 			<br><br><br>
   		
 

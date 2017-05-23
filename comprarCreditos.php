@@ -3,6 +3,12 @@
 	<title>Comprar créditos</title>
   <?php Include("header.php");
   Include("alert.php");
+  include_once "validate.php";
+  if (!validateLogin()) {
+		$_SESSION['msg'] = "No puede ingresar a comprarCreditos.php sin antes iniciar sesion.";
+		header('Location: index.php');
+        die;
+  }
 
   ?>
   <br>

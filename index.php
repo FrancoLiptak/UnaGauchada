@@ -3,13 +3,24 @@
   <head>
     <title>unaGauchada</title>
     <?php
-      Include("header.php");
+      include_once "header.php";
+      include_once "alert.php";
+      include_once "validate.php";
     ?>
     <!-- Main jumbotron for a primary marketing message or call to action -->
+
     <div class="jumbotron fondoGaucho" id="fondoGaucho" style="width:100%;">
       <br><br>
       <div class="container" id="gradOrange">
-        <br><br><br><br>
+      <br>
+<?php
+      if (isset($_SESSION['msg']) && $_SESSION['msg'] != "" ) {
+        hacerAlert($_SESSION['msg']);
+        $_SESSION['msg'] = "";
+      }
+?>
+
+        <br><br><br>
         <img class="col-md-2 img-responsive" src="imgs/logoUnaGauchada.png"><h2 class="titulo" style="font-size:60px;">Bienvenido a #unaGauchada!</h2>
         <p style="font-size:19px;">un sitio en donde podrás contactarte con cualquier persona a lo largo y ancho de todo el país para darle una mano, y también recibir la ayuda de un noble gaucho.
           <br>Ya somos miles y miles los que elegimos ser parte de esta enorme comunidad.

@@ -19,7 +19,7 @@ include_once 'connect.php';
 	function validateLogin() {
 		// Devuelve true si hay un usuario logueado.
 
-		return isset($_SESSION['idUser']);
+		return isset($_SESSION['idUsers']);
 	}
 	function validatePasswords($p1, $p2) {
 			// Devuelve true si las contraseñas no son vacias y coinciden.
