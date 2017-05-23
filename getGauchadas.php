@@ -6,15 +6,15 @@
 		// Retorna las proximas $limit gauchadas comenzando desde la tupla numero $first que cumplen la condicion $condition.
 
 		$link = connect();
-		$query = "SELECT * FROM gauchadas ORDER BY $date LIMIT $first, $limit WHERE ".$condition.";";
-
+		$query = "SELECT * FROM gauchadas ORDER BY endDate LIMIT $first, $limit WHERE ".$condition.";";
+		
 		return $link->query($query);
 	}
 
-	function getOneGauchada($idGauchada) {
+	function getOneGauchada($idGauchadas) {
 		// Retorna la gauchada con idGauchada = $idGauchada.
 
-		return getGauchadas(1, 0, "idGauchada = $idGauchada");
+		return getGauchadas(1, 1, "idGauchadas = $idGauchadas");
 	}
 
 ?>

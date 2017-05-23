@@ -1,8 +1,8 @@
 <?php
 	Include("links.html");
+  Include("connect.php");
   session_start();
   if(isset($_SESSION['idUsers'])){
-            Include("connect.php");
             $link= connect();
             $sql="select name from users where idUsers=".$_SESSION['idUsers'].";";
             $result= mysqli_query($link, $sql);
@@ -38,7 +38,7 @@
                              <select class="styled-select" name="cat">
                                   <option>All categories</option>
                                   <?php /* hay que hacer el listado dinamico de categorias desde la BD */
-                                  /*Include("connect.php");
+                                  /*zInclude("connect.php");
                                   $link=connect();
                                   $categorias=mysqli_query($link, "SELECT * FROM categorias_productos");
                                   Include ("hacerOption.php");
