@@ -29,7 +29,6 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
            <ul class="nav navbar-nav navbar-right"> <!-- nav der -->
-                <li class=""><a href=""><?php if(isset($_SESSION['idUsers'])) echo "Hola ".$name."!"; ?></a></li>
                 <li class="dropdown">
                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Buscar <span class="glyphicon glyphicon-search"></span> <span class="caret"></span></a>
                   <ul class="dropdown-menu fondoGaucho gray">
@@ -47,7 +46,11 @@
               </ul>
             </li> <!-- /cierro el search dropdown -->   
             <li><a href="gauchadas.php">Ver gauchadas <span class="glyphicon glyphicon-globe"></span></a></li>
-            <?php Include("miCuenta.php"); ?>
+            <?php if(!(isset($_SESSION['idUsers']))){?>
+              <li><a target="_self" href="logIn.php">Iniciar sesion</a></li>
+              <li><a target="_self" href="signUp.php">Registrarme</a></li>
+             <?php }?>
+            <?php if(isset($_SESSION['idUsers'])){?><li><a target="_self" href="publicar.php">Publicar gauchada</a></li><?php Include("miCuenta.php"); }?>
           </ul> <!-- hasta aca nav derecha -->
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container fluid-->

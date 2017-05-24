@@ -37,13 +37,13 @@ include_once 'connect.php';
 		$link= connect();
 		$totalTuplas= mysqli_query($link, "SELECT * FROM users WHERE email='$email'"); //me traigo todas
         $cantTotalTuplas = mysqli_num_rows($totalTuplas);
+
 		if ($cantTotalTuplas != 0 ){
 			$_SESSION['otro_email']= "Ingesa otro email. Ese email ya existe!";
 			return false;
 		}
-		else{
-			return true;
-		}
+
+		return true;
 	}
 	function validateCompra($nro, $pass, $idUser) {
 		// Devuelve true si la contraseña es correcta, y se puede hacer la compra.
@@ -52,5 +52,9 @@ include_once 'connect.php';
 		$tarjeta= mysqli_fetch_array($query);
 
 		return  $query && $tarjeta['estado'];
+	}
+
+	function isAdmin() {
+		return $_SESSION["admin"];
 	}
 ?>

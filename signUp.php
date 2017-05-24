@@ -26,7 +26,7 @@
     <?php
        /* a continuacion van todas las validaciones en php ... */
        if(isset($_SESSION['registrado'])){ 
-            hacerAlert($_SESSION['registrado'], "success");
+           hacerAlert($_SESSION['registrado'], "success");
            unset($_SESSION['registrado']);
        }
        else if(isset($_SESSION['otro_email'])){

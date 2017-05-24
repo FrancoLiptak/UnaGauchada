@@ -5,11 +5,8 @@ session_start();
 userLogin(	$_POST['email'], $_POST['pass']	);
 
 if(isset($_SESSION['idUsers']))
-	header("Location: gauchadas.php");
+	header("Location: index.php");
 
 else
 	header("Location: logIn.php");
-
-
-
 ?>

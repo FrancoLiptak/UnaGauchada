@@ -27,41 +27,24 @@
         </div>
       </div>
     </div>
-    <br>
-
     <div class="container">
     <div class="page-header">
-        <h1>Echa un vistazo a los últimos posts:</h1>
-      </div>
+        <h2>Echa un vistazo a los últimos posts:</h2>
+    </div>
     </div>
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4  box html5">
-          <h2>Busco acompañante <br>de viaje</h2>
+          <h2>Busco acompañante de viaje</h2>
             <p style="font-size:18px;">Soy camionero y busco una persona que me acompañe en mi viaje hasta Rawson porque sufro problemas de sueño. 
             Saldríamos el primer fin de semana de octubre y retornaríamos ...</p>
             <p><a class="btn btn-default" href="detalle.php" role="button">Ver detalle &raquo;</a></p>
         </div>
-        <div class="col-md-4 box html5">
-          <h2>Reencontrarme con Ramirez</h2>
-            <p style="font-size:18px;">Ramirez es un burrito que tenía de mascota en un campo en Tucumán. Quisiera reencontrarme con él pero no puedo moverme por un problema físico. 
-            Me gustaría que alguien ...</p>
-            <p><a class="btn btn-default" href="detalle.php" role="button">Ver detalle &raquo;</a></p>
-       </div>
-        <div class="col-md-4 box html5">
-          <h2>Restaurar obra de arte arruinada</h2>
-           <p style="font-size:18px;">La imagen de la izquierda es la original y la de la derecha mi intento por restaurarla. ¿Alguien me haría la gauchada de ...</p>
-          <p><a class="btn btn-default" href="detalle.php" role="button">Ver detalle &raquo;</a></p>
-        </div>
       </div>
-      <br><br>
-      <div class="page-header">
-        <h3>Contacto</h3>
-      </div>
-      <div class="well" id="">
-        <p style=""> <span class="glyphicon glyphicon glyphicon-user" aria-hidden="true">&nbsp;</span>nancy.netramanti@unaGauchada.com</p>
-        <p style=""> <span class="glyphicon glyphicon glyphicon-user" aria-hidden="true">&nbsp;</span>ulises.netramanti@unaGauchada.com</p>
+      <br>
+      <div class="well col-md-6 col-md-offset-3" id="" style="text-align:center;">
+        <p style=""><span class="glyphicon glyphicon glyphicon-envelope" aria-hidden="true">&nbsp;</span>nancy.netramanti@unaGauchada.com &nbsp;<span class="glyphicon glyphicon glyphicon-phone" aria-hidden="true">&nbsp;4720996</p>
       </div>
       <?php
         Include("footer.html");

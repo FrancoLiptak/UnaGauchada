@@ -9,11 +9,16 @@ session_start();
 		
 		$link = connect();
 
-		if ( validateEmail($email) && validatePasswords($pass1, $pass2) && validate($name) && validate($surname) && validateDate($birthDate) ) {
+		if ( !validateEmail($email) ) {
+			return false;
+		}
+
+		if ( validatePasswords($pass1, $pass2) && validate($name) && validate($surname) && validateDate($birthDate) ) {
 
 			if (!validate($phone)) {
 				$phone = "";
 			}
+
 			$startingCredits = 1;
 			$startingReputation = 1;
 
@@ -24,10 +29,9 @@ session_start();
 	        $_SESSION['registrado']="Se ha realizado el Sign up con éxito!";
 	     	return $result;
 		}
-		else{
+
 		$_SESSION['mal_completado']= "Verifica si has completado todos los campos. Son de caracter obligatorio!<br>También recuerda que deben coincidir las passwords...";
 		return false;
-		}
 	}
 
 	function newAdmin($email, $pass, $name, $surname, $birthDate, $phone) {
