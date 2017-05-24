@@ -60,7 +60,8 @@ background: transparent;
 #gradOrange {
       background: linear-gradient(141deg, #FB8C00 0%, #FF8C00 51%, #FB7C00 75%);
       color:white;
-      opacity:0.95;
+      opacity:0.90;
+      border-radius: 35px;
       }
 .fondoGaucho{
 	background-image: url("../imgs/at2.jpg");
@@ -93,3 +94,12 @@ input[type=date] {
 .alert{
   text-align: center;
 }
+.jumbotron.fondoGaucho{
+      padding-bottom: 20px;
+      padding-top: 30px;
+}
+#fondoGris {
+     background:rgba(0,0,0,0.5);
+      color:white;
+      border-radius: 35px;
+      }
