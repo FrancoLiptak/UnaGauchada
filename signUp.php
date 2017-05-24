@@ -1,12 +1,15 @@
 <html>
 	<head>
 	<title>Sing Up</title>
-  <?php Include("header.php");
-  Include("alert.php");
-  session_start();
+  <?php 
+  include_once "header.php";
+  include_once "alert.php";
+	if (session_status() == PHP_SESSION_NONE) {
+		session_start();
+	}
   include_once "validate.php";
-  if (!validateLogin()) {
-		$_SESSION['msg'] = "No puede ingresar a signUp.php sin antes iniciar sesion.";
+  if (validateLogin()) {
+		$_SESSION['msg'] = "No puede ingresar a signUp.php si ya tiene una sesion iniciada.";
 		header('Location: index.php');
         die;
   }
