@@ -2,7 +2,9 @@
 
     include_once 'connect.php';
     include_once 'validate.php';
-    session_start();
+	if (session_status() == PHP_SESSION_NONE) {
+		session_start();
+	}
 
     function userLogin($email, $pass){
         // Retorna true si ambos parametros estan seteados y existe una y solo una tupla con el email y pass enviadas.
