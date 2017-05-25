@@ -107,3 +107,12 @@ input[type=date] {
     color: black;
     background-color: transparent!important;
  }
+ form .col-md-2 input{
+  padding: 10px;
+ }
+ input[type=submit]{
+  width: 200px;
+ }
+ #ir{
+  width: 40px;
+ }

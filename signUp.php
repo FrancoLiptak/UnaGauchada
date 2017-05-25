@@ -39,23 +39,36 @@
        } ?>
 
        <form class="col-md-2 col-md-offset-5" action="procesarSignUp.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on" name="signUp_form" onsubmit="return validateFormSignUp()">
-    			<input class="form-control" type="text" name="name" placeholder=" Nombre..." required>
-    			<br>
-    			<input class="form-control" type="text" name="surname" placeholder=" Apellido..."required>
-    			<br>
-    			<input class="form-control" type="email" name="email" placeholder=" E-mail..."required>
-    			<br>
-    			<input class="form-control" type="tel" name="phone" placeholder=" Teléfono..."required>
-          <br>
-          <input class="form-control" type="date" name="birthDate" required>
-    			<br>
-    			<input class="form-control" type="password" name="pass1" placeholder=" Password..." onfocus="nota()"required>
-    			<br>
-    			<input class="form-control" type="password" name="pass2" placeholder=" Comfirmar password..."required>
-    			<br><br>
+    			 <div class="form-group">
+            <label> Nombre:</label>
+            <input class="form-control" type="text" name="name" placeholder=" Nombre..." required>
+    			</div>
+    			<div class="form-group">
+            <label> Apellido:</label>
+            <input class="form-control" type="text" name="surname" placeholder=" Apellido..."required>
+    			</div>
+    			<div class="form-group">
+            <label> Email:</label>
+            <input class="form-control" type="email" name="email" placeholder=" E-mail..."required>
+    			</div>
+    			<div class="form-group">
+            <label> Teléfono:</label>
+            <input class="form-control" type="tel" name="phone" placeholder=" Teléfono..."required>
+          </div>
+          <div class="form-group">
+              <label> Fecha de Nacimiento:</label>
+             <input class="form-control" type="date" name="birthDate" required>
+    			</div>
+    			<div class="form-group">
+            <label> Contraseña:</label>
+            <input class="form-control" type="password" name="pass1" placeholder=" Password..." onfocus="nota()"required>
+    			</div>
+          <div class="form-group">
+            <label> Confirmar contraseña:</label>
+    			  <input class="form-control" type="password" name="pass2" placeholder=" Comfirmar password..."required>
+    		 </div>
     		  <input type="submit" name="submit" class="btn btn-warning center-block" value="Sign up">
 			 </form>
-			 <br><br>
   	</div>
 <!----------------------------------- Script para validar el Sign Up -->
   <script rel="text/javascript" src="js/signUp.js"></script>

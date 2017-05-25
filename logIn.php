@@ -20,11 +20,15 @@
     }?>
      
 		<form class="col-md-2 col-md-offset-5" action="procesarLogIn.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on" name="logIn_form" onsubmit="return validateFormLogIn()">
-      <input class="form-control" type="email" name="email" placeholder=" E-mail...">
-      <br><br>
-			<input class="form-control" type="password" name="pass" placeholder=" Contraseña...">
-			<br><br><br>
-      <input type="submit" name="submit" value="Log in" class=" center-block btn btn-warning">
+      <div class="form-group">
+        <label>Email:</label>
+        <input class="form-control" type="email" name="email" placeholder=" E-mail...">
+      </div>
+      <div class="form-group">
+			 <label>Contraseña:</label>
+       <input class="form-control" type="password" name="pass" placeholder=" Contraseña...">
+		  </div>
+      <input type="submit" name="submit" value="Log in" class="center-block btn btn-warning">
 	 </form>
   </div> <!-- Cierro row -->
  
