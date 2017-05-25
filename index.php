@@ -18,14 +18,15 @@
                 $_SESSION['msg'] = "";
               }
         ?>
-        <div>
-          <img class="col-md-2 img-responsive" src="imgs/logoUnaGauchada.png"><h2 style="">Bienvenido a unaGauchada!</h2>
+        <div class="col-md-10">
+          <h2 style="">Bienvenido a unaGauchada!</h2>
           <p style="font-size:19px;">Un sitio en donde podrás contactarte con cualquier persona a lo largo y ancho de todo el país para darle una mano, y también recibir la ayuda de un noble gaucho.
             <br>Ya somos miles y miles los que elegimos ser parte de esta enorme comunidad.
             <br>Qué esperas para sumarte?!</p>
         </div>
-      </div>
-    </div>
+        <img class="col-md-2 img-responsive" src="imgs/logoUnaGauchada.png">
+      </div> <!-- fondo transparente -->
+    </div> <!-- jumbotron fondoGaucho -->
     <div class="row">
     <div class="container">
     <div class="page-header">
@@ -37,14 +38,15 @@
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4  box html5">
-          <h3>Busco acompañante de viaje</h3>
-            <p style="font-size:14px;">Soy camionero y busco una persona que me acompañe en mi viaje hasta Rawson porque sufro problemas de sueño. 
-            Saldríamos el primer fin de semana de octubre y retornaríamos ...</p>
-            <p><a class="btn btn-default" href="detalle.php" role="button">Ver detalle &raquo;</a></p>
+          <h3 id="insideBoxTitle">Busco acompañante de viaje</h3>
+            <p> Soy camionero y busco una persona que me acompañe en mi viaje hasta Rawson porque sufro problemas de sueño. 
+            Saldríamos el primer fin de semana de octubre y retornaríamos ... <br>
+            <a class="btn btn-default" href="detalle.php" role="button" id="verDetalle">Ver detalle &raquo;</a>
+            </p>
         </div>
       </div>
-      <div class="well col-md-6 col-md-offset-3" id="" style="text-align:center;">
-        <p style=""><span class="glyphicon glyphicon glyphicon-envelope" aria-hidden="true">&nbsp;</span>nancy.netramanti@unaGauchada.com &nbsp;<span class="glyphicon glyphicon glyphicon-phone" aria-hidden="true">&nbsp;4720996</p>
+      <div class="well container" style="text-align:center;">
+        <p style=""><span class="glyphicon glyphicon glyphicon-envelope" aria-hidden="true"> Email:</span><span id="mail"> nancy.netramanti@unaGauchada.com</span><span class="glyphicon glyphicon glyphicon-phone-alt" aria-hidden="true"> Teléfono:</span> 4720996</p>
       </div>
       <?php
         Include("footer.html");

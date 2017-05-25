@@ -15,9 +15,9 @@ body {overflow-x:hidden!important;}
 .titulo{transition:color .5s;-webkit-transition:color .5s;-moz-transition:color .5s;-ms-transition:color .5s;border-radius:100%;}
 #title:before{content:"\f13b"}
 .box:hover.html5{border-color:#e45126} 
-.box:hover.html5 h2{color:#e45126}
-.box{transition:border .5s;-webkit-transition:border .5s;-moz-transition:border .5s;-ms-transition:border .5s;padding:25px;margin:5px 0;border:1px solid transparent;border-radius:5px;text-align:center;height:300px}
-.box h2 {transition:color .5s;-webkit-transition:color .5s;-moz-transition:color .5s;-ms-transition:color .5s;border-radius:100%;}
+.box:hover.html5 #insideBoxTitle{color:#e45126}
+.box{transition:border .5s;-webkit-transition:border .5s;-moz-transition:border .5s;-ms-transition:border .5s;padding:0px;margin:0px;margin-bottom:30px;border:1px solid transparent;border-radius:5px;text-align:center;}
+.box #insideBoxTitle {transition:color .5s;-webkit-transition:color .5s;-moz-transition:color .5s;-ms-transition:color .5s;border-radius:100%;}
  ::-webkit-scrollbar {
       width: 9px;
       height: 13px;
@@ -96,7 +96,7 @@ input[class=search] {
       padding-top: 30px;
 }
 #fondoGris {
-     background:rgba(0,0,0,0.5);
+     background:rgba(0,0,0,0.6);
       color:white;
       border-radius: 35px;
       }
@@ -130,7 +130,21 @@ input[type=date]{
 }
 .container .page-header {
   padding: 0px;
+  margin: 0px;
+  margin-bottom: 20px;
 }
-.container-fluid .page-header {
+.container-fluid .page-header{
   padding: 0px;
+  }
+  .box h3 p {
+  padding-bottom: 20px;
+  padding-top: 0px;
+  margin: 0px;
+  font-size:14px;
+  }
+  #verDetalle{
+    margin-top: 15px;
+  }
+  #mail{
+    margin-right: 60px;
   }
