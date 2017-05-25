@@ -35,7 +35,7 @@
 		<form class="col-md-4 col-md-offset-4" action="procesarComprar.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on">
       <div class="form-group">
         <label>Créditos a comprar:</label>&nbsp;
-        <input class="form-control" type="number" name="credits" placeholder="Cantidad de créditos" title="50 ARS c/u" required>
+        <input class="form-control" type="number" name="credits" placeholder="Cantidad de créditos" title="50 ARS c/u" min= "0" required>
       </div>
       <div class="form-group">
         <label>Numero de tarjeta:</label>&nbsp;
@@ -43,7 +43,7 @@
       </div>
       <div class="form-group">
         <label>Clave de seguridad:</label>&nbsp;
-        <input class="form-control" type="password" name="pass" placeholder="Contraseña de tarjeta" required>
+        <input class="form-control" type="password" name="pass" placeholder="Clave de seguridad" required>
       </div>
       <div class="form-group">
         <label>Fecha de vencimiento:</label>&nbsp;
