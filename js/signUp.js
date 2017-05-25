@@ -9,10 +9,18 @@ function validateFormSignUp() {
       alert("El valor ' " + document.signUp_form.surname.value +" '"+" no parece válido para un Apellido ");
       return false;
     }
-    if (!/^([0-9]{2,20})+$/.test(document.signUp_form.phone.value)) {
+    if (!/^([0-9]{5,20})+$/.test(document.signUp_form.phone.value)) {
       alert("El valor ' " + document.signUp_form.phone.value + " ' no parece válido para un Número de Teléfono");
       return false;
     }
+    
+    var year = document.signUp_form.birthDate.value.substring(0, 4) - 0; 
+    // test year range 
+    if (year > 1998) { 
+        alert("Debes ser mayor de 18 para poder registrarte!");
+        return false;
+    }
+
     var email = document.signUp_form.email.value;
     if (email == null || email.length == 0 || /^\s*$/.test(email)){
         alert("El campo 'Email' no puede estar vacio o contener sólo espacios en blanco");
