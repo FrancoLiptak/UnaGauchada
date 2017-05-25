@@ -46,7 +46,7 @@
             </div>
             <div class="form-group">
               <label for="expiration"><span class="glyphicon glyphicon-bookmark"></span> Fecha limite:</label>
-              <input type="date" class="form-control" id="expiration" name="expiration">
+              <input type="date" class="form-control" id="expiration" name="expiration" min="<?php echo date('Y-m-d');?>">
             </div>
             <div class="form-group">
               <label for="category"><span class="glyphicon glyphicon-bookmark"></span> Categoria:</label>

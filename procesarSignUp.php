@@ -2,10 +2,10 @@
 Include("newUser.php"); 
 
 if (newUser($_POST['email'], $_POST['pass1'], $_POST['pass2'], $_POST['name'], $_POST['surname'], $_POST['birthDate'], $_POST['phone'])) {
-    include_once 'loginFx.php';
-    login($_POST['email'], $_POST['pass1']);
-    header ("Location: index.php");
-    die;
+    if(login($_POST['email'])){
+	    header ("Location: index.php");
+	    die;
+	}
 }
 
 header("Location: signUp.php");
