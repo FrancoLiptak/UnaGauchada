@@ -4,7 +4,7 @@
 			<!--	<li><a target="_self" href="categorias.php">Categorias</a></li>
 					<li><a target="_self" href="editarPerfil.php">Editar perfil</a></li>
 					<li><a target="_self" href="misGauchadas.php">Mis gauchadas</a></li> -->
-					<li><a target="_self" href="comprarCreditos.php">Comprar creditos</a></li>
-					<li><a target="_self" href="logOut.php">Cerrar sesion</a></li>
+					<li><a target="_self" href="comprarCreditos.php">Comprar creditos <span class="glyphicon glyphicon-credit-card"></span></a></li>
+					<li><a target="_self" href="logOut.php">Cerrar sesion <span class="glyphicon glyphicon-log-out"></span></a></a></li>
 	  </ul>
 </li>

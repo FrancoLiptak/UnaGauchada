@@ -47,10 +47,10 @@
             </li> <!-- /cierro el search dropdown -->   
             <li><a href="gauchadas.php">Ver gauchadas <span class="glyphicon glyphicon-globe"></span></a></li>
             <?php if(!(isset($_SESSION['idUsers']))){?>
-              <li><a target="_self" href="logIn.php">Iniciar sesion</a></li>
-              <li><a target="_self" href="signUp.php">Registrarme</a></li>
+              <li><a target="_self" href="logIn.php">Iniciar sesion <span class="glyphicon glyphicon-log-in"></span></a></li>
+              <li><a target="_self" href="signUp.php">Registrarme <span class="glyphicon glyphicon-user"></span></a></a></li>
              <?php }?>
-            <?php if(isset($_SESSION['idUsers'])){?><li><a target="_self" href="publicar.php">Publicar gauchada</a></li><?php Include("miCuenta.php"); }?>
+            <?php if(isset($_SESSION['idUsers'])){?><li><a target="_self" href="publicar.php">Publicar gauchada <span class="glyphicon glyphicon-plus-sign"></a></li><?php Include("miCuenta.php"); }?>
           </ul> <!-- hasta aca nav derecha -->
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container fluid-->
