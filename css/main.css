@@ -107,7 +107,7 @@ input[class=search] {
  form .col-md-2 input{
   padding: 10px;
  }
- input[type=submit], input[type=date]{
+ #submit, input[type=date]{
   position: relative;
   min-height: 1px;
   padding-right: 15px;
@@ -115,7 +115,7 @@ input[class=search] {
   width: 100%;
  }
  @media (min-width: 992px) {
-   input[type=submit], input[type=date]{
+  #submit, input[type=date]{
     float: left;
   }
 }

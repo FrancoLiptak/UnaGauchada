@@ -39,7 +39,7 @@
                                 <option value="0">Todas las categorias</option>
                                 <?php selectCates(); ?>
                             </select>&nbsp;
-                        <input type="submit" id="ir" value="Ir" class="btn btn-warning">
+                        <input type="submit" id="ir" name="ir" value="Ir" class="btn btn-warning">
                       </form>
                     </a>
                  </li>

@@ -66,7 +66,7 @@
             <label> Confirmar contraseña:</label>
     			  <input class="form-control" type="password" name="pass2" placeholder=" Comfirmar password..."required>
     		 </div>
-    		  <input type="submit" name="submit" class="btn btn-warning center-block" value="Sign up">
+    		  <input type="submit" name="submit" id="submit" class="btn btn-warning center-block" value="Sign up">
 			 </form>
   	</div>
 <!----------------------------------- Script para validar el Sign Up -->

@@ -28,7 +28,7 @@
 			 <label>Contraseña:</label>
        <input class="form-control" type="password" name="pass" placeholder=" Contraseña...">
 		  </div>
-      <input type="submit" name="submit" value="Log in" class="center-block btn btn-warning">
+      <input type="submit" name="submit" id="submit" value="Log in" class="center-block btn btn-warning">
 	 </form>
   </div> <!-- Cierro row -->
  

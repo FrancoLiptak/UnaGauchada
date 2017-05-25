@@ -52,7 +52,8 @@
         <label>Fecha de vencimiento:</label>&nbsp;
         <input class="form-control" type="date" name="endDateCredCard" required>
       </div>
-      <input type="submit" name="submit" value="Comprar" class=" center-block btn btn-warning">
+      <br><br>
+      <input type="submit" name="submit" id="submit" value="Comprar" class=" center-block btn btn-warning">
 	 </form>
   </div> <!-- Cierro row -->
  

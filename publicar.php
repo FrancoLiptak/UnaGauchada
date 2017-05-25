@@ -60,7 +60,7 @@
                 <?php selectCity(); ?>
             </select>
             </div>
-            <input type="submit" name="submit" value="Publicar" class="center-block btn btn-warning">
+            <input type="submit" name="submit" id="submit" value="Publicar" class="center-block btn btn-warning">
         </form>
 
   	</div> <!-- fin row -->
