@@ -88,9 +88,6 @@ input[class=search] {
     color: white!important;
     border-radius: 0px!important;
 }
-input[type=date] {
-   width:200px!important;
-   }
 .alert{
   text-align: center;
 }
@@ -110,9 +107,18 @@ input[type=date] {
  form .col-md-2 input{
   padding: 10px;
  }
- input[type=submit]{
-  width: 200px;
+ input[type=submit], input[type=date]{
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  width: 100%;
  }
+ @media (min-width: 992px) {
+   input[type=submit], input[type=date]{
+    float: left;
+  }
+}
  #ir{
   width: 40px;
  }

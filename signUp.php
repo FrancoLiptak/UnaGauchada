@@ -21,7 +21,6 @@
         <div class="page-header">
           <h4 style="text-align:center;"> No olvides completar los campos. Son todos de carácter obligatorio. </h4> 
         </div>
-        <br>
     </div>
     <?php
        /* a continuacion van todas las validaciones en php ... */
