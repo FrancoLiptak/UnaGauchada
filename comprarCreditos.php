@@ -11,15 +11,12 @@
   }
 
   ?>
-  <br>
   <div class="row">
     <div class="container-fluid  col-md-4 col-md-offset-4">
-         <br><br><br>
-        <div class="page-header">
+        <div class="page-header ">
           <h4 style="text-align:center;"> <strong>Recuerda:</strong> necesitas créditos para poder publicar! 
             Completa el siguiente formulario para realizar la compra. No olvides completar con tus datos de tarjeta. Es la única forma de poder efectuar la transaccion. </h4> 
         </div>
-        <br>
     </div>
 		<?php  /* por si ocurre algun error al comprar */
     if(isset($_SESSION['errorEnCompra'])){
@@ -52,7 +49,6 @@
         <label>Fecha de vencimiento:</label>&nbsp;
         <input class="form-control" type="date" name="endDateCredCard" required>
       </div>
-      <br><br>
       <input type="submit" name="submit" id="submit" value="Comprar" class=" center-block btn btn-warning">
 	 </form>
   </div> <!-- Cierro row -->

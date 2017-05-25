@@ -17,7 +17,6 @@
   ?>
     <div class="row">
         <div class="container-fluid col-md-4 col-md-offset-4">
-         <br><br><br>
         <div class="page-header">
           <h4 style="text-align:center;"> No olvides completar los campos. Son todos de carácter obligatorio. </h4> 
         </div>

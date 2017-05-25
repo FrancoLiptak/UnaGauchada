@@ -4,11 +4,9 @@
   <?php Include("header.php");
   Include("alert.php");
   ?>
-  <br>
   <div class="row">
     <div class="container-fluid  col-md-4 col-md-offset-4">
-         <br><br><br>
-        <div class="page-header">
+        <div class="page-header ">
           <h4 style="text-align:center;"> Si aún no te has <a href="signUp.php">registrado</a>, no dudes en hacerlo. </h4> 
         </div>
         <br>

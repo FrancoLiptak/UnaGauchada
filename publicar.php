@@ -16,7 +16,7 @@
     <div class="row">
     <div class="container-fluid  col-md-4 col-md-offset-4">
         <div class="page-header">
-          <h4 style="text-align:center;"> <strong>Recuerda:</strong> necesitas créditos para poder publicar! 
+          <h4 style="text-align:center;">
             Completa el siguiente formulario para realizar la publicación. No olvides completar los campos obligatorios marcados con un "<span class="glyphicon glyphicon-bookmark"></span>".</h4> 
         </div>
     </div>
