@@ -19,7 +19,7 @@
         unset($_SESSION['mal']); 
     }?>
      
-		<form class="col-md-2 col-md-offset-5" action="procesarLogIn.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on" name="logIn_form" onsubmit="return validateFormLogIn()">
+		<form class="col-md-4 col-md-offset-4" action="procesarLogIn.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on" name="logIn_form" onsubmit="return validateFormLogIn()">
       <div class="form-group">
         <label>Email:</label>
         <input class="form-control" type="email" name="email" placeholder=" E-mail...">

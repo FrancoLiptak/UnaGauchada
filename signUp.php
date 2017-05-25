@@ -37,7 +37,7 @@
           unset($_SESSION['mal_completado']);
        } ?>
 
-       <form class="col-md-2 col-md-offset-5" action="procesarSignUp.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on" name="signUp_form" onsubmit="return validateFormSignUp()">
+       <form class="col-md-4 col-md-offset-4" action="procesarSignUp.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on" name="signUp_form" onsubmit="return validateFormSignUp()">
     			 <div class="form-group">
             <label> Nombre:</label>
             <input class="form-control" type="text" name="name" placeholder=" Nombre..." required>

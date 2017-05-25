@@ -35,7 +35,7 @@
         unset($_SESSION['mal_completado']); 
     }?>
      
-		<form class="col-md-2 col-md-offset-5" action="procesarComprar.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on">
+		<form class="col-md-4 col-md-offset-4" action="procesarComprar.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on">
       <div class="form-group">
         <label>Créditos a comprar:</label>&nbsp;
         <input class="form-control" type="number" name="credits" placeholder="Cantidad de créditos" title="50 ARS c/u" required>

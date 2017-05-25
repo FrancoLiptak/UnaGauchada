@@ -35,13 +35,13 @@
         $link=connect();
         
   			?>
-        <form enctype="multipart/form-data" class="col-md-2 col-md-offset-5" action="procesarPublicar.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on" name="publucar_form" onsubmit="return validateFormPublicar()">
+        <form enctype="multipart/form-data" class="col-md-4 col-md-offset-4" action="procesarPublicar.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on" name="publucar_form" onsubmit="return validateFormPublicar()">
             <div class="form-group">
-              <label for="title"><span class="glyphicon glyphicon-bookmark"></span> Titulo:</label>
+              <label for="title"><span class="glyphicon glyphicon-bookmark"></span> Título:</label>
               <input type="text" class="form-control" id="title" name="title">
             </div>
             <div class="form-group">
-              <label for="description"><span class="glyphicon glyphicon-bookmark"></span> Description:</label>
+              <label for="description"><span class="glyphicon glyphicon-bookmark"></span> Descripción:</label>
               <input type="text-area" class="form-control" id="description" name="description">
             </div>
             <div class="form-group">
