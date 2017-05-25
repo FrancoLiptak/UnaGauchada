@@ -135,7 +135,7 @@ input[type=date]{
 }
 .container-fluid .page-header{
   padding: 0px;
-  margin-top: 90px;
+  margin-top: 110px;
   }
   .box h3 p {
   padding-bottom: 20px;
@@ -149,3 +149,20 @@ input[type=date]{
   #mail{
     margin-right: 60px;
   }
+  .fakeSubmit{
+    border-color: orange!important;
+    background-color: white!important;
+    color: orange!important;
+  }
+.fakeSubmit:hover{
+  color: #FF8C00!important;
+  background-color: #e6e6e6!important;
+  border-color: #FF8C00!important;
+}
+.agrupado{
+  float: left;
+  width: 18%;
+}
+.agrupado2{
+  margin-left: 15px;
+}

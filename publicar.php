@@ -14,7 +14,7 @@
   ?>
   </head>
     <div class="row">
-    <div class="container-fluid  col-md-4 col-md-offset-4">
+    <div class="container-fluid  col-md-4 col-md-offset-4" style="margin-top: -50px;">
         <div class="page-header">
           <h4 style="text-align:center;">
             Completa el siguiente formulario para realizar la publicación. No olvides completar los campos obligatorios marcados con un "<span class="glyphicon glyphicon-bookmark"></span>".</h4> 
@@ -46,7 +46,7 @@
             </div>
             <div class="form-group">
               <label for="expiration"><span class="glyphicon glyphicon-bookmark"></span> Fecha limite:</label>
-              <input type="date" class="form-control" id="expiration" name="expiration">
+              <input type="date" class="form-control" id="expiration" name="expiration" min="<?php echo date('Y-m-d');?>">
             </div>
             <div class="form-group">
               <label for="category"><span class="glyphicon glyphicon-bookmark"></span> Categoria:</label>

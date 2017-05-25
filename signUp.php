@@ -16,9 +16,10 @@
 
   ?>
     <div class="row">
-        <div class="container-fluid col-md-4 col-md-offset-4">
+        <div class="container-fluid col-md-6 col-md-offset-3">
         <div class="page-header">
-          <h4 style="text-align:center;"> No olvides completar los campos. Son todos de carácter obligatorio. </h4> 
+          <h4 style="text-align:center;"> <strong>Recuerda:</strong> necesitas ser mayor de 18 años para poder registrarte! <br>
+           No olvides completar los campos. Son todos de carácter obligatorio. </h4> 
         </div>
     </div>
     <?php
@@ -37,14 +38,16 @@
        } ?>
 
        <form class="col-md-4 col-md-offset-4" action="procesarSignUp.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on" name="signUp_form" onsubmit="return validateFormSignUp()">
-    			 <div class="form-group">
-            <label> Nombre:</label>
-            <input class="form-control" type="text" name="name" placeholder=" Nombre..." required>
-    			</div>
-    			<div class="form-group">
-            <label> Apellido:</label>
-            <input class="form-control" type="text" name="surname" placeholder=" Apellido..."required>
-    			</div>
+    			<div class="row ">
+            <div class="form-group col-md-6">
+                <label> Nombre:</label>
+                <input class="form-control" type="text" name="name" placeholder=" Nombre..." required>
+          	</div>
+          	<div class="form-group col-md-6">
+                <label> Apellido:</label>
+                <input class="form-control" type="text" name="surname" placeholder=" Apellido..."required>
+       			</div>
+          </div> <!-- fin row -->
     			<div class="form-group">
             <label> Email:</label>
             <input class="form-control" type="email" name="email" placeholder=" E-mail..."required>
@@ -55,16 +58,18 @@
           </div>
           <div class="form-group">
               <label> Fecha de Nacimiento:</label>
-             <input class="form-control" type="date" name="birthDate" required>
+             <input class="form-control" type="date" name="birthDate" min="1998-01-01" required>
     			</div>
-    			<div class="form-group">
-            <label> Contraseña:</label>
-            <input class="form-control" type="password" name="pass1" placeholder=" Password..." onfocus="nota()"required>
-    			</div>
-          <div class="form-group">
-            <label> Confirmar contraseña:</label>
-    			  <input class="form-control" type="password" name="pass2" placeholder=" Comfirmar password..."required>
-    		 </div>
+          <div class="row ">
+        			<div class="form-group col-md-6">
+                <label> Contraseña:</label>
+                <input class="form-control" type="password" name="pass1" placeholder=" Password..." onfocus="nota()"required>
+        			</div>
+              <div class="form-group col-md-6">
+                <label> Confirmar contraseña:</label>
+        			  <input class="form-control" type="password" name="pass2" placeholder=" Comfirmar password..."required>
+        		 </div>
+          </div> <!-- fin row -->
     		  <input type="submit" name="submit" id="submit" class="btn btn-warning center-block" value="Sign up">
 			 </form>
   	</div>
