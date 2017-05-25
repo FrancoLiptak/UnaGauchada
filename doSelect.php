@@ -9,7 +9,7 @@
             while ($row = $result->fetch_array(MYSQLI_NUM)) {
                 ?>
 
-                <option value="<?php echo($row[0]); ?>" > <?php echo($row[1]); ?> </option>
+                <option class="fondoGaucho" value="<?php echo($row[0]); ?>" > <?php echo($row[1]); ?> </option>
 
                 <?php
             }

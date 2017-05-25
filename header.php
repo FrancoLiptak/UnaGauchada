@@ -33,9 +33,9 @@
                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Buscar <span class="glyphicon glyphicon-search"></span> <span class="caret"></span></a>
                   <ul class="dropdown-menu fondoGaucho gray">
                         <li><a href="#">
-                          <form id="shop"action="gauchadas.php?search=search&titulo=titulo&cat=cat" method="get">
-                             <input class="titulo" type="text" name="titulo" placeholder=" Ingrese titulo"> <!-- se supone que tambien es por ciudad -->
-                             <select class="styled-select" name="cat">
+                          <form id="search"action="gauchadas.php?search=search&titulo=titulo&cat=cat" method="get">
+                             <input class="search" type="text" name="titulo" placeholder=" Ingrese titulo"> <!-- se supone que tambien es por ciudad -->
+                             <select class="styled-select" id="styled-select" name="cat">
                                 <option value="0">Todas las categorias</option>
                                 <?php selectCates(); ?>
                             </select>&nbsp;
