@@ -63,13 +63,13 @@ background: transparent;
       opacity:0.90;
       }
 .fondoGaucho{
-    	background-image: url("../imgs/at2.jpg")  ;
+    	background-image: url("../imgs/gauchada.jpeg")  ;
       -webkit-background-size: cover;
       background-size: cover;
 }
 
 ul.gray li a{ color: gray!important;}
-ul.gray li a:hover{color: white!important;
+ul.gray li a:hover{color: black!important;
       background-color: transparent!important;}
 .styled-select {
       background: transparent;
@@ -151,20 +151,13 @@ input[type=date]{
   #mail{
     margin-right: 60px;
   }
-  .fakeSubmit{
+  .inverseWarningBtn{
     border-color: orange!important;
     background-color: white!important;
     color: orange!important;
   }
-.fakeSubmit:hover{
+.inverseWarningBtn:hover{
   color: #FF8C00!important;
   background-color: #e6e6e6!important;
   border-color: #FF8C00!important;
-}
-.agrupado{
-  float: left;
-  width: 18%;
-}
-.agrupado2{
-  margin-left: 15px;
 }

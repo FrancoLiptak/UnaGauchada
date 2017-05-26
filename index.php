@@ -9,7 +9,7 @@
     ?>
     <!-- Main jumbotron for a primary marketing message or call to action -->
 
-    <div class="jumbotron fondoGaucho" id="fondoGaucho" style="width:100%;">
+    <div class="jumbotron fondoGaucho" id="" style="width:100%;">
       <br><br>
       <div class="container" id="fondoGris">
         <?php

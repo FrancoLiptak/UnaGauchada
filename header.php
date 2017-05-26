@@ -14,7 +14,7 @@
 </head>
 <body>
   <header>
-    <nav class="navbar navbar-inverse navbar-fixed-top fondoGaucho">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -31,7 +31,7 @@
            <ul class="nav navbar-nav navbar-right"> <!-- nav der -->
                 <li class="dropdown">
                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Buscar <span class="glyphicon glyphicon-search"></span> <span class="caret"></span></a>
-                  <ul class="dropdown-menu fondoGaucho gray">
+                  <ul class="dropdown-menu gray">
                         <li><a href="#">
                           <form id="search"action="gauchadas.php?search=search&titulo=titulo&cat=cat" method="get">
                              <input class="search" type="text" name="titulo" placeholder=" Ingrese titulo"> <!-- se supone que tambien es por ciudad -->
