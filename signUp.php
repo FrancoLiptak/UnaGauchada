@@ -45,42 +45,44 @@
     			<div class="row ">
             <div class="form-group col-md-6">
                 <label> Nombre:</label>
-                <input class="form-control" type="text" name="name" placeholder=" Nombre..." required>
+                <input class="form-control" type="text" name="name" placeholder=" Nombre" required>
           	</div>
           	<div class="form-group col-md-6">
                 <label> Apellido:</label>
-                <input class="form-control" type="text" name="surname" placeholder=" Apellido..."required>
+                <input class="form-control" type="text" name="surname" placeholder=" Apellido"required>
        			</div>
           </div> <!-- fin row -->
     			<div class="form-group">
             <label> Email:</label>
-            <input class="form-control" type="email" name="email" placeholder=" E-mail..."required>
-    			</div>
-    			<div class="form-group">
-            <label> Teléfono:</label>
-            <input class="form-control" type="tel" name="phone" placeholder=" Teléfono..."required>
-          </div>
-          <div class="form-group">
-              <label> Fecha de Nacimiento:</label>
-              <?php  
-                $fecha = date('Y-m-d');
-                $nuevafecha = strtotime ( '-18 year' , strtotime ( $fecha ) ) ;
-                $nuevafecha = date ( 'Y-m-j' , $nuevafecha );
-               ?>
-             <input class="form-control" type="date" name="birthDate" max="<?php echo $nuevafecha;?>" required>
+            <input class="form-control" type="email" name="email" placeholder=" E-mail"required>
     			</div>
           <div class="row ">
         			<div class="form-group col-md-6">
-                <label> Contraseña:</label>
-                <input class="form-control" type="password" name="pass1" placeholder=" Password..." onfocus="nota()"required>
+                <label> Teléfono: <span class="form-note">(Sólo numeros)</span></label>
+                <input class="form-control" type="tel" name="phone" placeholder=" Teléfono"required>
+              </div>
+              <div class="form-group col-md-6">
+                  <label> Fecha de Nacimiento:</label>
+                  <?php  
+                    $fecha = date('Y-m-d');
+                    $nuevafecha = strtotime ( '-18 year' , strtotime ( $fecha ) ) ;
+                    $nuevafecha = date ( 'Y-m-j' , $nuevafecha );
+                   ?>
+                 <input class="form-control" type="date" name="birthDate" max="<?php echo $nuevafecha;?>" required>
+        			</div>
+          </div> <!-- fin row -->
+          <div class="row ">
+        			<div class="form-group col-md-6">
+                <label> Contraseña: <span class="form-note">(Maximo 20 chars)</span></label>
+                <input class="form-control" type="password" name="pass1" placeholder=" Contraseña" onfocus="nota()"required>
         			</div>
               <div class="form-group col-md-6">
                 <label> Confirmar contraseña:</label>
-        			  <input class="form-control" type="password" name="pass2" placeholder=" Comfirmar password..."required>
+        			  <input class="form-control" type="password" name="pass2" placeholder=" Comfirmar contraseña"required>
         		 </div>
           </div> <!-- fin row -->
           <div class="form-group">
-              <label for="file"> Imagen: <span style="color:red; font-size:10px; font-family:'Montserrat', sans-serif;">(El tamaño del archivo debe ser menor igual a 15 MB. Solo se aceptan formatos JPG, JPEG y PNG)</span></label> 
+              <label for="file"> Imagen: <span class="form-note">(El archivo debe ser menor a 15 MB, en formato JPG, JPEG o PNG)</span></label> 
               <input type="file" class="form-control filestyle" name="file" id="file" data-buttonText=" Selecciona una imágen" data-placeholder="No hay ninguna img cargada">
           </div>
     		  <input type="submit" name="submit" id="submit" class="btn btn-warning center-block" value="Sign up">

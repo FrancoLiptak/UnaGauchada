@@ -171,3 +171,6 @@ input[type=date]{
   width:80px;
   height:auto;
 }
+.form-note{
+  color:red; font-size:10px; font-family:'Montserrat', sans-serif;
+}
