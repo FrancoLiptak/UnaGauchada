@@ -16,7 +16,9 @@ function newGauchada($title, $description, $expiration, $category, $city, $img =
 {
 // Inserta una gauchada en la BD para el usuario logueado y decrementa en 1 sus creditos. Retorna true si se inserto correctamente, false si hubo algun error en la validacion o en la insercion.
     $link = connect();
+
     if (validateLogin() && validateCredits($_SESSION['idUsers']) && validate($title) && validate($description) && validateDate($expiration) && validate($category) && validate($city)) {
+        
         if (isset($img['name']) && $img['name'] !== "") {
             $target_dir = "uploads/";
             $file = rand(1000, 100000)."-".$img['name'];
@@ -67,7 +69,12 @@ function newGauchada($title, $description, $expiration, $category, $city, $img =
 
         return $result;
     }
-    $_SESSION['msg'] = "No completo todos los campos.";
-
+    
+    if (!(validateCredits($_SESSION['idUsers']))){
+        $_SESSION['msg'] = "No posee créditos suficientes para realizar la publicación.";  
+    }else{
+        $_SESSION['msg'] = "No completo todos los campos.";
+    }
+    
     return false;
 }
