@@ -5,7 +5,6 @@
     include_once "header.php";
     include_once "doSelect.php";
     include_once "validate.php";
-    session_start();
     if (!validateLogin()) {
         $_SESSION['msg'] = "No puede ingresar a publicar.php sin antes iniciar sesion.";
         header('Location: index.php');
@@ -14,7 +13,7 @@
   ?>
   </head>
     <div class="row">
-    <div class="container-fluid  col-md-4 col-md-offset-4" style="margin-top: -50px;">
+    <div class="container-fluid  col-md-4 col-md-offset-4">
         <div class="page-header">
           <h4 style="text-align:center;">
             Completa el siguiente formulario para realizar la publicación. No olvides completar los campos obligatorios marcados con un "<span class="glyphicon glyphicon-bookmark"></span>".</h4> 
