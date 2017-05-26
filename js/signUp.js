@@ -14,10 +14,11 @@ function validateFormSignUp() {
       return false;
     }
     
-    var year = document.signUp_form.birthDate.value.substring(0, 4) - 0; 
-    // test year range 
-    if (year > 1998) { 
-        alert("Debes ser mayor de 18 para poder registrarte!");
+    fecha = new Date(document.signUp_form.birthDate.value);
+    hoy = new Date();
+    ed = parseInt((hoy - fecha)/365/24/60/60/1000)
+    if(ed < 18){
+        alert("Tenes que ser mayor de edad para registrarte en este sitio. Vos tenes "+ ed + " años." );
         return false;
     }
 
