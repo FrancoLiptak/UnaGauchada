@@ -22,7 +22,7 @@ function getOneGauchada($idGauchadas)
 {
     // Retorna la gauchada con idGauchada = $idGauchada.
 
-    return getGauchadas(1, 1, "idGauchadas = $idGauchadas");
+    return getGauchadas(1, 0, "idGauchadas = $idGauchadas")->fetch_assoc();
 }
 
 function showGauchadaForAll($gauchada)
@@ -35,12 +35,12 @@ function showGauchadaForAll($gauchada)
         ?>
         <tr> 
             <td><img class="img-thumbnail"src="<?php if($gauchada['image'] == null) { echo "uploads/63229-logoUnaGauchada.png"; }else { echo $gauchada['image']; }?>"></td>
-            <td><?php echo $user['name']; ?></td>
+            <td><?php echo ($user['name'] . " " . $user['surname'] ) ; ?></td>
             <td><?php echo $cate['name']; ?></td>
             <td><?php echo $city['name']; ?></td>
             <td><?php echo $gauchada['title']; ?></td>
             <td><?php echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a'); ?></td>
-            <td><a class="details" href="detalle.php?idGauchadas=<?php echo $gauchada['idGauchadas']; ?>">&raquo; Ver detalle</a>
+            <td><a class="details" href="gauchadaVer.php?idGauchadas=<?php echo $gauchada['idGauchadas']; ?>">&raquo; Ver detalle</a>
             <?php 
                 if(isset($_SESSION['idUsers'])) { 
                     if($_SESSION['idUsers'] ==  $user['idUsers']){?>
@@ -58,4 +58,25 @@ function showGauchadaForAll($gauchada)
             </td>
     <?php 
     }
+
+function showOneGauchada($gauchada)
+{   
+    $user = getUser($gauchada['idUser'])->fetch_assoc();
+    $cate = getCategory($gauchada['idCategory'])->fetch_assoc();
+    $city = getCity($gauchada['idCity'])->fetch_assoc();
+    $hoy = date("Y-m-d");
+
+        ?>
+            <img class="img-thumbnail"src="<?php if($gauchada['image'] == null) { echo "uploads/63229-logoUnaGauchada.png"; }else { echo $gauchada['image']; }?>">
+            <?php echo ($user['name'] . " " . $user['surname'] ) ; ?>
+            <img class="img-thumbnail"src="<?php if($user['photo'] == null) { echo "uploads/nophoto.png"; }else { echo $user['photo']; }?>">
+            <?php echo $cate['name']; ?>
+            <?php echo $city['name']; ?>
+            <?php echo $gauchada['title']; ?>
+            <?php echo $gauchada['description']; ?>
+            <?php echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a'); ?>
+    <?php 
+    }
+
+
 ?>
