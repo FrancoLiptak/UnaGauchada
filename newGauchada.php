@@ -19,7 +19,7 @@ function newGauchada($title, $description, $expiration, $category, $city, $img =
 
     if (validateLogin() && validateCredits($_SESSION['idUsers']) && validate($title) && validate($description) && validateDate($expiration) && validate($category) && validate($city)) {
         
-        if (!$img == null) {
+        if (!$img['name'] == "") {
             $target_dir = "uploads/";
             $file = rand(1000, 100000)."-".$img['name'];
             $target_file = $target_dir . basename($file);

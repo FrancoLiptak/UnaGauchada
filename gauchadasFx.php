@@ -36,6 +36,7 @@ function showGauchadaForAll($gauchada)
         <tr> 
             <td><img class="img-thumbnail"src="<?php if($gauchada['image'] == null) { echo "uploads/63229-logoUnaGauchada.png"; }else { echo $gauchada['image']; }?>"></td>
             <td><?php echo $user['name']; ?></td>
+            <td><img class="img-thumbnail"src="<?php if($user['photo'] == null) { echo "uploads/nophoto.png"; }else { echo $user['photo']; }?>"></td>
             <td><?php echo $cate['name']; ?></td>
             <td><?php echo $city['name']; ?></td>
             <td><?php echo $gauchada['title']; ?></td>
