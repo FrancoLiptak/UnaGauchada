@@ -32,10 +32,10 @@
         unset($_SESSION['mal_completado']); 
     }?>
      
-		<form class="col-md-4 col-md-offset-4" action="procesarComprar.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on">
+		<form class="col-md-4 col-md-offset-4" action="procesarComprar.php" name="comprar_form" method="post" target="_self" accept-charset="UTF-8" autocomplete="on" onsubmit="return validateFormComprar()">
       <div class="form-group">
         <label>Créditos a comprar:</label>&nbsp;
-        <input class="form-control" type="number" name="credits" placeholder="Cantidad de créditos" title="50 ARS c/u" min= "0" required>
+        <input class="form-control" type="number" name="credits" placeholder="Cantidad de créditos" title="50 ARS c/u" min="0" required>
       </div>
       <div class="form-group">
         <label>Numero de tarjeta:</label>&nbsp;
@@ -49,12 +49,12 @@
         <label>Fecha de vencimiento:</label>&nbsp;
         <input class="form-control" type="date" name="endDateCredCard" required>
       </div>
-      <input type="submit" name="submit" id="submit" value="Comprar" class=" center-block btn btn-warning">
+      <input type="submit" name="submit" id="submit" value="Comprar" min="<?php echo date(Y-m-d); ?>" class=" center-block btn btn-warning">
 	 </form>
   </div> <!-- Cierro row -->
  
- <!-------------------------------------------- Script para validar el login -->
-  <script rel="text/javascript" src=""></script>
+ <!-------------------------------------------- Script para validar el comprar -->
+  <script rel="text/javascript" src="js/comprarCreditos.js"></script>
  
   <?php 
   Include("footer.html"); ?>
