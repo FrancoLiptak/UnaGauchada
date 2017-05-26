@@ -49,14 +49,12 @@
       <thead>
        <tr>
           <th>Imágen</th>
+          <th>Titulo</th>
           <th>Publicante</th>
           <th>Categoría</th>
           <th>Ciudad</th>
-          <th>Titulo</th>
           <th>Días restantes</th>
-          <?php if(isset($_SESSION['idUsers'])){?>
-             <th>Opciones</th> 
-          <?php } ?>     
+          <th>Opciones</th>    
        </tr>
      </thead>
     <?php } ?>
