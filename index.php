@@ -9,13 +9,17 @@
     ?>
     <!-- Main jumbotron for a primary marketing message or call to action -->
 
-    <div class="jumbotron fondoGaucho" id="fondoGaucho" style="width:100%;">
+    <div class="jumbotron fondoGaucho" id="" style="width:100%;">
       <br><br>
       <div class="container" id="fondoGris">
         <?php
               if (isset($_SESSION['msg']) && $_SESSION['msg'] != "" ) {
                 hacerAlert($_SESSION['msg']);
                 $_SESSION['msg'] = "";
+              }
+              elseif (isset($_SESSION['success']) && $_SESSION['success'] != "" ) {
+                hacerAlert($_SESSION['success'],'success');
+                $_SESSION['success'] = "";
               }
         ?>
         <div class="col-md-10">
