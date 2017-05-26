@@ -5,7 +5,6 @@
     include_once "header.php";
     include_once "doSelect.php";
     include_once "validate.php";
-    session_start();
   if (!validateLogin()) {
       $_SESSION['msg'] = "No puede ingresar a publicar.php sin antes iniciar sesion.";
       header('Location: index.php');
@@ -61,11 +60,11 @@
                       <?php selectCity(); ?>
                   </select>
                   </div>
-            <div class="form-group">
-              <label for="file"><span class="glyphicon glyphicon-bookmark"></span> Imagen:</label>
-              <input type="file" class="form-control" name="file" id="file">
-            </div>
             </div> <!-- row -->
+            <div class="form-group">
+              <label for="file"> Imagen:</label>
+              <input type="file" class="form-control filestyle" name="file" id="file" data-buttonText=" Selecciona una imágen" data-placeholder="No hay ninguna img cargada">
+            </div>
             <input type="submit" name="submit" id="submit" value="Publicar" class="center-block btn btn-warning">
         </form>
 
