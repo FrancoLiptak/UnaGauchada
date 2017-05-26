@@ -5,10 +5,11 @@
   session_start();
   if(isset($_SESSION['idUsers'])){
             $link= connect();
-            $sql="select name from users where idUsers=".$_SESSION['idUsers'].";";
+            $sql="select * from users where idUsers=".$_SESSION['idUsers'].";";
             $result= mysqli_query($link, $sql);
             $us = mysqli_fetch_array($result);
             $name=$us['name'];
+            $surname=$us['surname'];
   }
 ?>
 </head>
@@ -24,13 +25,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">Inicio &nbsp;<span class="glyphicon glyphicon-home" aria-hidden=""></span></a>
+          <a class="navbar-brand" href="index.php"><span class="glyphicon glyphicon-home" aria-hidden=""></span> Inicio &nbsp;</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
            <ul class="nav navbar-nav navbar-right"> <!-- nav der -->
                 <li class="dropdown">
-                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Buscar <span class="glyphicon glyphicon-search"></span> <span class="caret"></span></a>
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-search"></span> Buscar <span class="caret"></span></a>
                   <ul class="dropdown-menu gray">
                         <li><a href="#">
                           <form id="search"action="gauchadas.php?search=search&titulo=titulo&cat=cat" method="get">
@@ -45,12 +46,13 @@
                  </li>
               </ul>
             </li> <!-- /cierro el search dropdown -->   
-            <li><a href="gauchadas.php">Ver gauchadas <span class="glyphicon glyphicon-globe"></span></a></li>
+            <li><a href="gauchadas.php"><span class="glyphicon glyphicon-globe"></span> Ver gauchadas </a></li>
             <?php if(!(isset($_SESSION['idUsers']))){?>
-              <li><a target="_self" href="logIn.php">Iniciar sesion <span class="glyphicon glyphicon-log-in"></span></a></li>
-              <li><a target="_self" href="signUp.php">Registrarme <span class="glyphicon glyphicon-user"></span></a></a></li>
+              <li><a target="_self" href="logIn.php"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesion </a></li>
+              <li><a target="_self" href="signUp.php"><span class="glyphicon glyphicon-user"></span> Registrarme </a></li>
              <?php }?>
-            <?php if(isset($_SESSION['idUsers'])){?><li><a target="_self" href="publicar.php">Publicar gauchada <span class="glyphicon glyphicon-plus-sign"></a></li><?php Include("miCuenta.php"); }?>
+            <?php if(isset($_SESSION['idUsers'])){?><li><a target="_self" href="publicar.php"><span class="glyphicon glyphicon-plus-sign"></span> Publicar gauchada </a></li>
+            <?php Include("miCuenta.php"); }?>
           </ul> <!-- hasta aca nav derecha -->
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container fluid-->
