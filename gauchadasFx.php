@@ -24,7 +24,7 @@
 	}
 
     function showGauchadaForAll($gauchada) {
-        $user = (getUser($gauchada['idUser']))->fetch_assoc();
+        $user = getUser($gauchada['idUser'])->fetch_assoc();
         $cate = getCategory($gauchada['idCategory'])->fetch_assoc();
         $city = getCity($gauchada['idCity'])->fetch_assoc();
         $hoy = date("Y-m-d");
