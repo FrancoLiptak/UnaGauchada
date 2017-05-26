@@ -30,17 +30,30 @@
         $hoy = date("Y-m-d");
 
         ?>
+        <tr> 
+            <td><img class="img-thumbnail"src="imgs/logoUnaGauchada.png"></td>
+            <td><?php echo $user['name']; ?></td>
+            <td><?php echo $cate['name']; ?></td>
+            <td><?php echo $city['name']; ?></td>
+            <td><?php echo $gauchada['title']; ?></td>
+            <td><?php echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a') ?></td>
+            <td><a class="details" href="detalle.php?idGauchadas=<?php echo $gauchada['idGauchadas']; ?>">&raquo; Ver detalle</a>
 
-        <p>Creada por: <?php echo $user['name']; ?></p>
-        <?php // Falta imagen Usuario ?>
-        <p>Categoria: <?php echo $cate['name']; ?></p>
-        <p>Ciudad: <?php echo $city['name']; ?></p>
-        <p>Titulo: <?php echo $gauchada['title']; ?></p>
-        <p>Descripcion: <?php echo $gauchada['description']; ?></p>
-        <p>Faltan <?php echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a') ?> dias para que esta gauchada expire</p>
-        <?php // Falta imagen Gauchada ?>
-        <?php //<a href=""></a>    LINK A VER GAUCHADA INDIVIDUAL   ?>
-        <?php
-        
+            <?php 
+                if(isset($_SESSION['idUsers'])) { 
+                    if($_SESSION['idUsers'] ==  $user['idUsers']){?>
+                                    <br><br>
+                                    <a class="edit" href=""><span class="glyphicon glyphicon glyphicon-edit" aria-hidden="true"></span> Editar</a>
+                                    <br><br>
+                                    <a onclick="return myFunction()" class="erase" href=""><span class="glyphicon glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</a>
+                                    <br>
+                    <?php 
+                    }
+               }
+           ?>
+
+            </td>
+         </tr>
+    <?php 
     }
 ?>

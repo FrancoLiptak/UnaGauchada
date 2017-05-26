@@ -161,3 +161,9 @@ input[type=date]{
   background-color: #e6e6e6!important;
   border-color: #FF8C00!important;
 }
+.erase{
+  color: red;
+}
+.edit{
+  color: green;
+}
