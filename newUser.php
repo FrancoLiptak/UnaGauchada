@@ -4,6 +4,12 @@ include_once 'connect.php';
 include_once 'validate.php';
 session_start();
 
+define('KB', 1024);
+define('MB', 1048576);
+define('GB', 1073741824);
+define('TB', 1099511627776);
+
+
 	function newUser($email, $pass1, $pass2, $name, $surname, $birthDate, $phone, $img = null) {
 		// Crea un nuevo usuario con los parametros enviados. Devuelve true si el query se realizo correctamente, false caso contrario. Setear los valores default de $startingCredits and $startingReputation.
 		
@@ -58,12 +64,18 @@ session_start();
 			$startingCredits = 1;
 			$startingReputation = 1;
 
-	        $query = "INSERT INTO users ( email, pass, name, surname, birthDate, credits, reputation, image ) "; 
-	        $query = $query."VALUES ( '$email', '$pass1', '$name', '$surname', '$birthDate', $startingCredits, $startingReputation, $target_file );";
+	        $query = "INSERT INTO users ( email, pass, name, surname, birthDate, credits, reputation, photo ) "; 
+	        $query = $query."VALUES ( '$email', '$pass1', '$name', '$surname', '$birthDate', $startingCredits, $startingReputation, '$target_file' );";
 	        $result = $link->query($query);
 
-	        $_SESSION['registrado']="Se ha realizado el Sign up con éxito!";
-	     	return $result;
+			if ($result) {
+		        $_SESSION['registrado']="Se ha realizado el Sign up con éxito!";
+				return true;
+			}
+			else {
+		        $_SESSION['registrado']="Dio mal la consulta.";
+		     	return $result;
+			}
 		}
 
 		$_SESSION['mal_completado']= "Verifica si has completado todos los campos. Son de caracter obligatorio!<br>También recuerda que deben coincidir las passwords...";

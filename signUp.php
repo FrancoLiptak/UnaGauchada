@@ -24,6 +24,10 @@
     </div>
     <?php
        /* a continuacion van todas las validaciones en php ... */
+        if (isset($_SESSION['msg']) && $_SESSION['msg'] != "" ) {
+          hacerAlert($_SESSION['msg']);
+          $_SESSION['msg'] = "";
+        }
        if(isset($_SESSION['registrado'])){ 
            hacerAlert($_SESSION['registrado'], "success");
            unset($_SESSION['registrado']);
@@ -37,7 +41,7 @@
           unset($_SESSION['mal_completado']);
        } ?>
 
-       <form class="col-md-4 col-md-offset-4" action="procesarSignUp.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on" name="signUp_form" onsubmit="return validateFormSignUp()">
+       <form enctype="multipart/form-data" class="col-md-4 col-md-offset-4" action="procesarSignUp.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on" name="signUp_form" onsubmit="return validateFormSignUp()">
     			<div class="row ">
             <div class="form-group col-md-6">
                 <label> Nombre:</label>
@@ -79,7 +83,6 @@
               <label for="file"> Imagen: <span style="color:red; font-size:10px; font-family:'Montserrat', sans-serif;">(El tamaño del archivo debe ser menor igual a 15 MB. Solo se aceptan formatos JPG, JPEG y PNG)</span></label> 
               <input type="file" class="form-control filestyle" name="file" id="file" data-buttonText=" Selecciona una imágen" data-placeholder="No hay ninguna img cargada">
           </div>
-
     		  <input type="submit" name="submit" id="submit" class="btn btn-warning center-block" value="Sign up">
 			 </form>
   	</div>
