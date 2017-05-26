@@ -68,7 +68,7 @@
                     $nuevafecha = strtotime ( '-18 year' , strtotime ( $fecha ) ) ;
                     $nuevafecha = date ( 'Y-m-j' , $nuevafecha );
                    ?>
-                 <input class="form-control" type="date" name="birthDate" max="<?php echo $nuevafecha;?>" required>
+                 <input class="form-control" type="date" name="birthDate" max="<?php echo $nuevafecha;?>" min="1917-05-26"required>
         			</div>
           </div> <!-- fin row -->
           <div class="row ">
