@@ -29,7 +29,7 @@
       <div class="form-group">
       <input type="submit" name="submit" id="submit" value="Log in" class="center-block btn btn-warning">
       <br><br>
-      <input class="center-block btn btn-info" id="submit" type="submit" onclick="location.href='signUp.php';" value="Haz click aquí para registrarte" />
+      <input class="center-block btn btn-info" id="submit" type="submit" onclick="location.href='signUp.php';" value="Click aquí para registrarte" />
 	 </form>
   </div> <!-- Cierro row -->
  

@@ -58,7 +58,12 @@
           </div>
           <div class="form-group">
               <label> Fecha de Nacimiento:</label>
-             <input class="form-control" type="date" name="birthDate" min="1998-01-01" required>
+              <?php  
+                $fecha = date('Y-m-d');
+                $nuevafecha = strtotime ( '-18 year' , strtotime ( $fecha ) ) ;
+                $nuevafecha = date ( 'Y-m-j' , $nuevafecha );
+               ?>
+             <input class="form-control" type="date" name="birthDate" min="<?php echo $nuevafecha;?>" required>
     			</div>
           <div class="row ">
         			<div class="form-group col-md-6">

@@ -14,6 +14,14 @@ function validateFormPublicar() {
       return false;
     }
 
+    fecha = new Date(document.signUp_form.birthDate.value);
+    hoy = new Date();
+    res = parseInt((hoy - fecha)/365/24/60/60/1000)
+    if(res > 0){
+        alert("Debes ingresar una fecha de expiracion posterior a la actual." );
+        return false;
+    }
+
 	//para checkear foto...
 	// Upload == true cuando se subió una foto. Ok = true cuando la extensión del archivo subido es jpg, jpeg, png o gif.
 
@@ -35,30 +43,6 @@ function validateFormPublicar() {
 		alert("La extensión del archvo subido no es aceptada.");
 		return false;
 	}	
-  
-
-
-   /* para controlar la fecha.... parece correcto pero no anda!! 
-
-   // var x=new Date();
-	var fecha = document.publicar_form.caducidad.value.split("/",3);
-   // x.setFullYear(fecha[2],fecha[1],fecha[0]);
-    var today = new Date();
-    var today_aux = today.split("/",3);
-    //cheeckeo años .............. (es lo unico que se puede llegar a ingresar mal)
-    if (fecha[2] >= today_aux[2])
-	    return true;
-	else{
-		alert("La fecha de caducidad debe ser mayor a la fecha actual");
-		return false;
-	}
-	
-	*/
-
-
-
-
-
-
-	return true;
+ 
+ 	return true;
 }
