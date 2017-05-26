@@ -63,10 +63,13 @@ background: transparent;
       opacity:0.90;
       }
 .fondoGaucho{
-	background-image: url("../imgs/at2.jpg");
+    	background-image: url("../imgs/at2.jpg")  ;
+      -webkit-background-size: cover;
+      background-size: cover;
 }
+
 ul.gray li a{ color: gray!important;}
-ul.gray li a:hover{color: black!important;
+ul.gray li a:hover{color: white!important;
       background-color: transparent!important;}
 .styled-select {
       background: transparent;

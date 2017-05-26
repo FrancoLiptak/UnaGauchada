@@ -17,6 +17,10 @@
                 hacerAlert($_SESSION['msg']);
                 $_SESSION['msg'] = "";
               }
+              elseif (isset($_SESSION['success']) && $_SESSION['success'] != "" ) {
+                hacerAlert($_SESSION['success'],'success');
+                $_SESSION['success'] = "";
+              }
         ?>
         <div class="col-md-10">
           <h2 style="">Bienvenido a unaGauchada!</h2>
