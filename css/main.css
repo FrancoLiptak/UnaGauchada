@@ -61,13 +61,12 @@ background: transparent;
       background: linear-gradient(141deg, #FB8C00 0%, #FF8C00 51%, #FB7C00 75%);
       color:white;
       opacity:0.90;
-      border-radius: 35px;
       }
 .fondoGaucho{
 	background-image: url("../imgs/at2.jpg");
 }
 ul.gray li a{ color: gray!important;}
-ul.gray li a:hover{color: white!important;
+ul.gray li a:hover{color: black!important;
       background-color: transparent!important;}
 .styled-select {
       background: transparent;
@@ -91,12 +90,12 @@ input[class=search] {
 .alert{
   text-align: center;
 }
-.jumbotron.fondoGaucho{
+.jumbotron.bienvenida{
       padding-bottom: 20px;
       padding-top: 30px;
 }
 #fondoGris {
-     background:rgba(0,0,0,0.6);
+     background:rgba(0,0,0,0.8);
       color:white;
       border-radius: 35px;
       }
@@ -104,7 +103,7 @@ input[class=search] {
     color: black;
     background-color: transparent!important;
  }
- #submit, input[type=date]{
+ #submit, input[type=date], textarea{
   position: relative;
   min-height: 1px;
   padding-right: 15px;
@@ -112,7 +111,7 @@ input[class=search] {
   width: 100%;
  }
  @media (min-width: 992px) {
-  #submit, input[type=date]{
+  #submit, input[type=date], textarea{
     float: left;
   }
 }
