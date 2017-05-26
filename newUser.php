@@ -4,7 +4,7 @@ include_once 'connect.php';
 include_once 'validate.php';
 session_start();
 
-	function newUser($email, $pass1, $pass2, $name, $surname, $birthDate, $phone) {
+	function newUser($email, $pass1, $pass2, $name, $surname, $birthDate, $phone, $img = null) {
 		// Crea un nuevo usuario con los parametros enviados. Devuelve true si el query se realizo correctamente, false caso contrario. Setear los valores default de $startingCredits and $startingReputation.
 		
 		$link = connect();
@@ -15,6 +15,42 @@ session_start();
 
 		if ( validatePasswords($pass1, $pass2) && validate($name) && validate($surname) && validateDate($birthDate) ) {
 
+		if (!$img == null) {
+            $target_dir = "uploads/";
+            $file = rand(1000, 100000)."-".$img['name'];
+            $target_file = $target_dir . basename($file);
+
+            $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+
+            $check = getimagesize($img["tmp_name"]);
+            if ($check == false) {
+                $_SESSION['msg'] = "El archivo seleccionado no es una imagen.";
+                return false;
+            }
+
+            while (file_exists($target_file)) {
+                $file = rand(1000, 100000)."-".$img['name'];
+                $target_file = $target_dir . basename($file);
+            }
+
+            $file_size = $img['size'];
+            if (!($file_size < 15*MB || $file_size == 0 )) {
+                $_SESSION['msg'] = "La imagen debe pesar menos de 15MB";
+                return false;
+            }
+
+            if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+                $_SESSION['msg'] = 'Solo se aceptan imagenes de tipo JPEG, JPG, PNG.';
+                return false;
+            }
+
+            if (!move_uploaded_file($img["tmp_name"], $target_file)) {
+                $_SESSION['msg'] = 'No se pudo subir tu imagen :(.';
+                return false;
+            }
+        }
+
+
 			if (!validate($phone)) {
 				$phone = "";
 			}
@@ -22,8 +58,8 @@ session_start();
 			$startingCredits = 1;
 			$startingReputation = 1;
 
-	        $query = "INSERT INTO users ( email, pass, name, surname, birthDate, credits, reputation ) "; 
-	        $query = $query."VALUES ( '$email', '$pass1', '$name', '$surname', '$birthDate', $startingCredits, $startingReputation );";
+	        $query = "INSERT INTO users ( email, pass, name, surname, birthDate, credits, reputation, image ) "; 
+	        $query = $query."VALUES ( '$email', '$pass1', '$name', '$surname', '$birthDate', $startingCredits, $startingReputation, $target_file );";
 	        $result = $link->query($query);
 
 	        $_SESSION['registrado']="Se ha realizado el Sign up con éxito!";

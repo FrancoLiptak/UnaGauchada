@@ -75,6 +75,11 @@
         			  <input class="form-control" type="password" name="pass2" placeholder=" Comfirmar password..."required>
         		 </div>
           </div> <!-- fin row -->
+          <div class="form-group">
+              <label for="file"> Imagen: <span style="color:red; font-size:10px; font-family:'Montserrat', sans-serif;">(El tamaño del archivo debe ser menor igual a 15 MB. Solo se aceptan formatos JPG, JPEG y PNG)</span></label> 
+              <input type="file" class="form-control filestyle" name="file" id="file" data-buttonText=" Selecciona una imágen" data-placeholder="No hay ninguna img cargada">
+          </div>
+
     		  <input type="submit" name="submit" id="submit" class="btn btn-warning center-block" value="Sign up">
 			 </form>
   	</div>
