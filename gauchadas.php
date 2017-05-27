@@ -60,12 +60,12 @@
         $next = $first + 9;
         ?>  
         <div class="container col-md-2 col-md-offset-5">     
-                <form action="gauchadas.php" method="post" class"col-md-4 center-block .form-inline.form-inline">
-                    <input type="submit" name='anterior' id='anterior' class="btn btn-daffault" value="&laquo; anterior" <?php if (!$anterior){ echo "disabled"; } ?> >
+                <form action="gauchadas.php" method="post" class"">
+                    <input type="submit" name='anterior' id='anterior' class="btn btn-daffault pag" value="&laquo; anterior" <?php if (!$anterior){ echo "disabled"; } ?> >
                     <input type="numer" name="first" id="first" value=<?php echo $prev;?> hidden >
                 </form>
-                <form action="gauchadas.php" method="post" class"col-md-4 center-block .form-inline.form-inline">
-                    <input type="submit" name='proximo' id='proximo' class="btn btn-daffault" value="siguiente &raquo;"  <?php if (!$siguiente){ echo "disabled"; } ?> >
+                <form action="gauchadas.php" method="post" class"">
+                    <input type="submit" name='proximo' id='proximo' class="btn btn-daffault pag" value="siguiente &raquo;"  <?php if (!$siguiente){ echo "disabled"; } ?> >
                     <input type="numer" name="first" id="first" value=<?php echo $next;?> hidden >
                 </form>
        

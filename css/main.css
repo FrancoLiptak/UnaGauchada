@@ -184,3 +184,10 @@ input[type=date]{
 .gauchadaBox{
   border: 1px solid #ddd;
 }
+.form-note{
+  color:red; font-size:10px; font-family:'Montserrat', sans-serif;
+}
+.pag{
+  width: 50%!important;
+  display: inline;
+}
