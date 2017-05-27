@@ -88,17 +88,19 @@ ul.gray li a:hover{color: black!important;
       border:0;
       border-radius: 0px;
       height:20px;
-      display: inline;
+      display: block;
 }
 .glyphicon-bookmark{color: red; font-size: 8px;}
 input[class=search] {
     background: transparent!important;
-    width: 110px;  
+    width: 100%;  
     border: none;
     border-bottom: 1px solid black;
     font-size: 15px;
     color: black!important;
     border-radius: 0px!important;
+    margin-bottom: 20px;
+    margin-top: 10px
 }
 .alert{
   text-align: center;
