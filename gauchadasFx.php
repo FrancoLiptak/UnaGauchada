@@ -81,10 +81,10 @@ function showGauchadaForAllPrueba($gauchada)
                 <h3><?php echo $title ?></h3>
             </div>
             <p><span class="glyphicon glyphicon-user" ></span> <?php echo ($user['name'] . " " . $user['surname'] ) ; ?></p>
-            <p>Categoria: <?php echo $cate['name']; ?></p>
-            <p>Ciudad: <?php echo $city['name']; ?></p>
-            <p>Expira en: <?php echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a'); ?></p>
-            <p></p>
+            <div class="container" ></div>
+            <p><span class="glyphicon glyphicon-tags"></span> <?php echo $cate['name']; ?></p>
+            <p><span class="glyphicon glyphicon-map-marker" ></span> <?php echo $city['name']; ?></p>
+            <p><span class="glyphicon glyphicon-hourglass" ></span> <?php echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a'); ?> días restantes.</p>
             <p><a class="btn btn-default" href="gauchadaVer.php?idGauchadas=<?php echo $gauchada['idGauchadas']; ?>" role="button">Ver detalle &raquo;</a></p>
         </div><!--/.col-xs-6.col-lg-4-->
 <?php
