@@ -20,7 +20,7 @@ define('TB', 1099511627776);
 		}
 
 		if ( validatePasswords($pass1, $pass2) && validate($name) && validate($surname) && validateDate($birthDate) ) {
-
+		$target_dir = null;
 		if (!$img == null) {
             $target_dir = "uploads/";
             $file = rand(1000, 100000)."-".$img['name'];

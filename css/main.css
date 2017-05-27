@@ -16,7 +16,17 @@ body {overflow-x:hidden!important;}
 #title:before{content:"\f13b"}
 .box:hover.html5{border-color:#e45126} 
 .box:hover.html5 #insideBoxTitle{color:#e45126}
-.box{transition:border .5s;-webkit-transition:border .5s;-moz-transition:border .5s;-ms-transition:border .5s;padding:0px;margin:0px;margin-bottom:30px;border:1px solid transparent;border-radius:5px;text-align:center;}
+.box{
+  transition:border .5s;
+  -webkit-transition:border .5s;
+  -moz-transition:border .5s;
+  -ms-transition:border .5s;
+  padding:0px;margin:0px;
+  margin-bottom:30px;
+  border:1px solid transparent;
+  border-radius:5px;
+  text-align:center;
+}
 .box #insideBoxTitle {transition:color .5s;-webkit-transition:color .5s;-moz-transition:color .5s;-ms-transition:color .5s;border-radius:100%;}
  ::-webkit-scrollbar {
       width: 9px;
@@ -170,4 +180,7 @@ input[type=date]{
 .img-table{
   width:80px;
   height:auto;
+}
+.gauchadaBox{
+  border: 1px solid #ddd;
 }

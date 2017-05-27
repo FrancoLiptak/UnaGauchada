@@ -41,33 +41,17 @@
             $i = 9;
             break;
     }
-    ?>
-
-    <div  <?php if(isset($_SESSION['idUsers'])) { ?>class="row col-md-10 col-md-offset-1"<?php }else{?>class="row col-md-8 col-md-offset-2" <?php } ?>>
-    <?php if(!isset($_SESSION['no_resultados'])) { ?>
-     <table class="table table-hover table-responsive">
-      <thead>
-       <tr>
-          <th>Imágen</th>
-          <th>Titulo</th>
-          <th>Publicante</th>
-          <th>Categoría</th>
-          <th>Ciudad</th>
-          <th>Días restantes</th>
-          <th>Opciones</th>    
-       </tr>
-     </thead>
-    <?php } ?>
-    <tbody>
-      <?php
+?> 
+<div class="container">
+<div class="row">
+<?php
          while ($i > 0) {
-             showGauchadaForAll($gauchadas->fetch_assoc()); 
-             $i--;
-         } ?>
-       
-   </tbody>
-  </table>
- </div>
+                showGauchadaForAllPrueba($gauchadas->fetch_assoc()); 
+                $i--;
+         } 
+?>
+</div>
+</div>
  <br clear="all">
  <div class="row">
 

@@ -48,6 +48,20 @@
             <a class="btn btn-default" href="detalle.php" role="button" id="verDetalle">Ver detalle &raquo;</a>
             </p>
         </div>
+        <div class="col-md-4  box html5">
+          <h3 id="insideBoxTitle">Busco acompañante de viaje</h3>
+            <p> Soy camionero y busco una persona que me acompañe en mi viaje hasta Rawson porque sufro problemas de sueño. 
+            Saldríamos el primer fin de semana de octubre y retornaríamos ... <br>
+            <a class="btn btn-default" href="detalle.php" role="button" id="verDetalle">Ver detalle &raquo;</a>
+            </p>
+        </div>
+        <div class="col-md-4  box html5">
+          <h3 id="insideBoxTitle">Busco acompañante de viaje</h3>
+            <p> Soy camionero y busco una persona que me acompañe en mi viaje hasta Rawson porque sufro problemas de sueño. 
+            Saldríamos el primer fin de semana de octubre y retornaríamos ... <br>
+            <a class="btn btn-default" href="detalle.php" role="button" id="verDetalle">Ver detalle &raquo;</a>
+            </p>
+        </div>
       </div>
       <div class="well container" style="text-align:center;">
         <p style=""><span class="glyphicon glyphicon glyphicon-envelope" aria-hidden="true"> Email:</span><span id="mail"> nancy.netramanti@unaGauchada.com</span><span class="glyphicon glyphicon glyphicon-phone-alt" aria-hidden="true"> Teléfono:</span> 4720996</p>

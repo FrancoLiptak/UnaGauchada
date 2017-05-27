@@ -57,6 +57,40 @@ function showGauchadaForAll($gauchada)
          </tr>
             </td>
     <?php 
+}
+
+function showGauchadaForAllPrueba($gauchada)
+{
+    $user = getUser($gauchada['idUser'])->fetch_assoc();
+    $cate = getCategory($gauchada['idCategory'])->fetch_assoc();
+    $city = getCity($gauchada['idCity'])->fetch_assoc();
+    $hoy = date("Y-m-d");
+    $maxStrLength = 40;
+    $largo = false;
+
+    if (strlen($gauchada['title']) > $maxStrLength){
+        $largo=true;
+    }
+    $title = substr($gauchada['title'], 0, $maxStrLength);
+    if ($largo) {
+        $title = $title . "...";
+    }
+?>
+        <div class="col-xs-6 col-md-4 gauchadaBox" >
+            <div style="height: 60px" >
+                <h3><?php echo $title ?></h3>
+            </div>
+            <p>Publicante: <?php echo ($user['name'] . " " . $user['surname'] ) ; ?></p>
+            <p>Categoria: <?php echo $cate['name']; ?></p>
+            <p>Ciudad: <?php echo $city['name']; ?></p>
+            <p>Expira en: <?php echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a'); ?></p>
+            <p></p>
+            <p><a class="btn btn-default" href="gauchadaVer.php?idGauchadas=<?php echo $gauchada['idGauchadas']; ?>" role="button">Ver detalle &raquo;</a></p>
+        </div><!--/.col-xs-6.col-lg-4-->
+<?php
+
+        // <td><img class="img-thumbnail"src="<?php if($gauchada['image'] == null) { echo "uploads/63229-logoUnaGauchada.png"; }else { echo $gauchada['image']; }?>
+    <?php 
     }
 
 function showOneGauchada($gauchada)
