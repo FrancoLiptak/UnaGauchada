@@ -80,7 +80,7 @@ function showGauchadaForAllPrueba($gauchada)
             <div style="height: 60px" >
                 <h3><?php echo $title ?></h3>
             </div>
-            <p>Publicante: <?php echo ($user['name'] . " " . $user['surname'] ) ; ?></p>
+            <p><span class="glyphicon glyphicon-user" ></span> <?php echo ($user['name'] . " " . $user['surname'] ) ; ?></p>
             <p>Categoria: <?php echo $cate['name']; ?></p>
             <p>Ciudad: <?php echo $city['name']; ?></p>
             <p>Expira en: <?php echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a'); ?></p>
