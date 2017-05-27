@@ -97,7 +97,7 @@ input[class=search] {
     border: none;
     border-bottom: 1px solid black;
     font-size: 15px;
-    color: white!important;
+    color: black!important;
     border-radius: 0px!important;
 }
 .alert{
