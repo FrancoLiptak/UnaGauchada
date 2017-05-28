@@ -105,15 +105,39 @@ function showOneGauchada($gauchada)
     $city = getCity($gauchada['idCity'])->fetch_assoc();
     $hoy = date("Y-m-d");
 
-        ?>
-            <img class="img-thumbnail"src="<?php if($gauchada['image'] == null) { echo "uploads/63229-logoUnaGauchada.png"; }else { echo $gauchada['image']; }?>"></span>
-            <?php echo ($user['name'] . " " . $user['surname'] ) ; ?>
-            <img class="img-thumbnail"src="<?php if($user['photo'] == null) { echo "uploads/nophoto.png"; }else { echo $user['photo']; }?>">
-            <?php echo $cate['name']; ?>
-            <?php echo $city['name']; ?>
-            <?php echo $gauchada['title']; ?>
-            <?php echo $gauchada['description']; ?>
-            <?php echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a'); ?>
+    ?>  
+    <div class="centered">
+        <div class="page-header">
+            <h3> <?php echo $gauchada['title']; ?></h3> 
+        </div>
+        <img class="img-thumbnail"src="<?php if($gauchada['image'] == null) { echo "uploads/63229-logoUnaGauchada.png"; }else { echo $gauchada['image']; }?>"></span>
+        <p>Descripción: <?php echo $gauchada['description']; ?></p>
+        <div>
+            <p>
+                <img class="img-thumbnail img-table-user"src="<?php if($user['photo'] == null) { echo "uploads/nophoto.png"; }else { echo $user['photo']; }?>">
+                <?php echo ($user['name'] . " " . $user['surname'] ) ; ?>
+            </p>
+            <p class="centered">
+                <span class="glyphicon glyphicon-tags box-item"></span>&nbsp;<?php echo $cate['name']; ?>
+                <span class="glyphicon glyphicon-map-marker box-item"></span><?php echo $city['name']; ?>
+                <span class="glyphicon glyphicon-hourglass box-item"></span><?php echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a'); ?> días restantes.
+           </p>
+           <div class="col-md-6 col-md-offset-3">
+               <?php 
+                    if(isset($_SESSION['idUsers'])){
+                 ?>
+                    <p><a class="btn btn-success" id="submit" href="" role="button"><span class="glyphicon glyphicon-edit"></span> Editar </a></p>
+                    <p><a class="btn btn-danger" id="submit" href="" role="button"> <span class="glyphicon glyphicon-trash"></span> Eliminar </a></p>
+                <?php 
+                    }
+                else{
+                ?>
+                    <p><a class="btn btn-warning" id="submit" href="" role="button">Ayudar &raquo;</a></p>
+                <?php 
+                    }
+                 ?>
+            </div> <!-- de los botones -->
+    </div> <!-- del centered div -->
     <?php 
     }
 
