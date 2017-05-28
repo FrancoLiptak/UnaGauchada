@@ -38,6 +38,19 @@
             $title=$_GET['titulo'];
             $cat=$_GET['cat'];
             $city=$_GET['city'];
+            
+            if (validate($title)) {
+                $condition.=" AND title LIKE '%$title%'"; 
+            }
+            if (validate($title)) {
+                $condition.= " AND idCategory=$cat";
+            }
+            if (validate($title)) {
+                $condition.= " AND idCity=$city";
+            }
+        }
+
+/*
             if ($cat==0){
                 $condition.=" AND title LIKE '%$title%'"; //concatena
             }
@@ -51,7 +64,7 @@
                 $condition.= " AND title LIKE '%$title%' AND idCity=$city";
             }
         }
-
+*/
 
         $gauchadas = getGauchadas(10, $first, $condition);
         $i = $gauchadas->num_rows;
@@ -104,4 +117,4 @@
         </div>
     </div>
             <!-- pagination -->
-            <?php include("footer.html");?>
+            <?php include_once "footer.html" ;?>
