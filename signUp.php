@@ -19,7 +19,7 @@
         <div class="container-fluid col-md-6 col-md-offset-3">
         <div class="page-header">
           <h4 style="text-align:center;"> <strong>Recuerda:</strong> necesitas ser mayor de 18 años para poder registrarte! <br>
-           No olvides completar los campos. Son todos de carácter obligatorio. </h4> 
+          No olvides completar los campos obligatorios marcados con un "<span class="glyphicon glyphicon-bookmark"></span>". </h4> 
         </div>
     </div>
     <?php
@@ -44,25 +44,25 @@
        <form enctype="multipart/form-data" class="col-md-4 col-md-offset-4" action="procesarSignUp.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on" name="signUp_form" onsubmit="return validateFormSignUp()">
     			<div class="row ">
             <div class="form-group col-md-6">
-                <label> Nombre:</label>
+                <label><span class="glyphicon glyphicon-bookmark"></span> Nombre:</label>
                 <input class="form-control" type="text" name="name" placeholder=" Nombre" required>
           	</div>
           	<div class="form-group col-md-6">
-                <label> Apellido:</label>
+                <label><span class="glyphicon glyphicon-bookmark"></span> Apellido:</label>
                 <input class="form-control" type="text" name="surname" placeholder=" Apellido"required>
        			</div>
           </div> <!-- fin row -->
     			<div class="form-group">
-            <label> Email:</label>
+            <label><span class="glyphicon glyphicon-bookmark"></span> Email:</label>
             <input class="form-control" type="email" name="email" placeholder=" E-mail"required>
     			</div>
           <div class="row ">
         			<div class="form-group col-md-6">
-                <label> Teléfono: <span class="form-note">(Sólo numeros)</span></label>
+                <label><span class="glyphicon glyphicon-bookmark"></span> Teléfono: <span class="form-note">(Sólo numeros)</span></label>
                 <input class="form-control" type="tel" name="phone" placeholder=" Teléfono"required>
               </div>
               <div class="form-group col-md-6">
-                  <label> Fecha de Nacimiento:</label>
+                  <label><span class="glyphicon glyphicon-bookmark"></span> Fecha de Nacimiento:</label>
                   <?php  
                     $fecha = date('Y-m-d');
                     $nuevafecha = strtotime ( '-18 year' , strtotime ( $fecha ) ) ;
@@ -73,11 +73,11 @@
           </div> <!-- fin row -->
           <div class="row ">
         			<div class="form-group col-md-6">
-                <label> Contraseña: <span class="form-note">(Maximo 20 chars)</span></label>
+                <label><span class="glyphicon glyphicon-bookmark"></span> Contraseña: <span class="form-note">(Maximo 20 chars)</span></label>
                 <input class="form-control" type="password" name="pass1" placeholder=" Contraseña" onfocus="nota()"required>
         			</div>
               <div class="form-group col-md-6">
-                <label> Confirmar contraseña:</label>
+                <label><span class="glyphicon glyphicon-bookmark"></span> Confirmar contraseña:</label>
         			  <input class="form-control" type="password" name="pass2" placeholder=" Comfirmar contraseña"required>
         		 </div>
           </div> <!-- fin row -->
