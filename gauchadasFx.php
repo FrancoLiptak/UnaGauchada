@@ -86,8 +86,6 @@ function showGauchadaForAllPrueba($gauchada)
              <?php echo ($user['name'] . " " . $user['surname']) ; ?>
             </p>
             <p class="centered">
-                <span class="glyphicon glyphicon-tags box-item"></span>&nbsp;<?php echo $cate['name']; ?>
-                <span class="glyphicon glyphicon-map-marker box-item"></span><?php echo $city['name']; ?>
                 <span class="glyphicon glyphicon-hourglass box-item"></span><?php echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a'); ?> días restantes.
            </p>
             <p><a class="btn btn-default" id="submit" href="gauchadaVer.php?idGauchadas=<?php echo $gauchada['idGauchadas']; ?>" role="button">Ver detalle &raquo;</a></p>
@@ -122,22 +120,24 @@ function showOneGauchada($gauchada)
             <p class="centered">
                 <span class="glyphicon glyphicon-tags box-item"></span>&nbsp;<?php echo $cate['name']; ?>
                 <span class="glyphicon glyphicon-map-marker box-item"></span><?php echo $city['name']; ?>
+                <br><br>
                 <span class="glyphicon glyphicon-hourglass box-item"></span><?php echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a'); ?> días restantes.
            </p>
         </div>
            <div class="col-md-6 col-md-offset-3">
                <?php 
                     if(isset($_SESSION['idUsers'])){
-                 ?>
-                    <p><a class="btn btn-success" id="submit" href="" role="button"><span class="glyphicon glyphicon-edit"></span> Editar </a></p>
-                    <p><a class="btn btn-danger" id="submit" href="" role="button"> <span class="glyphicon glyphicon-trash"></span> Eliminar </a></p>
-                <?php 
-                    }
-                else{
+                        if($_SESSION['idUsers']== $gauchada['idUser']){
+                     ?>
+                        <p><a class="btn btn-success" id="submit" href="" role="button"><span class="glyphicon glyphicon-edit"></span> Editar </a></p>
+                        <p><a class="btn btn-danger" id="submit" href="" role="button"> <span class="glyphicon glyphicon-trash"></span> Eliminar </a></p>
+                    <?php 
+                        }
+                    else{
                 ?>
                     <p><a class="btn btn-warning" id="submit" href="" role="button">Ayudar &raquo;</a></p>
                 <?php 
-                    }
+                    }}
                  ?>
             </div> <!-- de los botones -->
     </div> <!-- del centered div -->
