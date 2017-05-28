@@ -264,3 +264,9 @@ input[type=date]{
 #ver:hover{
   opacity: 0.8;
 }
+textarea.comment{
+  width: 80%!important;
+}
+form .comment{
+  margin-bottom: 90px;
+}

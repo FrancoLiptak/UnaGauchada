@@ -82,7 +82,7 @@ function showGauchadaForAllPrueba($gauchada)
                 <img class="img-thumbnail img-table"src="<?php if($gauchada['image'] == null) { echo "uploads/63229-logoUnaGauchada.png"; }else { echo $gauchada['image']; }?>">
             </div>
             <p class="centered">
-             <img class="img-thumbnail img-table-user"src="<?php if($user['photo'] == null) { echo "uploads/nophoto.png"; }else { echo $user['photo']; }?>">
+             <img class="img-circle img-table-user"src="<?php if($user['photo'] == null) { echo "uploads/nophoto.png"; }else { echo $user['photo']; }?>">
              <?php echo ($user['name'] . " " . $user['surname']) ; ?>
             </p>
             <p class="centered">
@@ -114,7 +114,7 @@ function showOneGauchada($gauchada)
         </div>
         <div class="col-md-6 col-md-offset-3">
             <p>
-                <img class="img-thumbnail img-table-user"src="<?php if($user['photo'] == null) { echo "uploads/nophoto.png"; }else { echo $user['photo']; }?>">
+                <img class="img-circle img-table-user"src="<?php if($user['photo'] == null) { echo "uploads/nophoto.png"; }else { echo $user['photo']; }?>">
                 <?php echo ($user['name'] . " " . $user['surname'] ) ; ?>
             </p>
             <p class="centered">
