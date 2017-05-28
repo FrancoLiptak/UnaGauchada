@@ -4,7 +4,7 @@ include_once 'validate.php';
 include_once 'gauchadasFx.php';
 ?>
  <div class="row center-block">
-    <div class="container-fluid  col-md-6 col-md-offset-3">
+    <div class="container-fluid  col-md-6 col-md-offset-3 box-detail">
         <?php 
         $idGauchada = $_GET['idGauchadas'];
 

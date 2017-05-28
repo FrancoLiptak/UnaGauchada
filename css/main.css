@@ -244,3 +244,11 @@ input[type=date]{
 .box-item{
   margin: 0px 5px;
 }
+.img-detail{
+  width: 250px;
+  height: auto;
+}
+.box-detail{
+  border: 1px solid #ddd;
+  margin-top: 110px;
+}

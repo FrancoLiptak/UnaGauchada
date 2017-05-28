@@ -107,12 +107,14 @@ function showOneGauchada($gauchada)
 
     ?>  
     <div class="centered">
-        <div class="page-header">
-            <h3> <?php echo $gauchada['title']; ?></h3> 
+        <div class="page-header" style="margin-top:0px;">
+            <h2> <?php echo $gauchada['title']; ?></h2> 
         </div>
-        <img class="img-thumbnail"src="<?php if($gauchada['image'] == null) { echo "uploads/63229-logoUnaGauchada.png"; }else { echo $gauchada['image']; }?>"></span>
-        <p>Descripción: <?php echo $gauchada['description']; ?></p>
-        <div>
+        <img class="img-thumbnail img-detail"src="<?php if($gauchada['image'] == null) { echo "uploads/63229-logoUnaGauchada.png"; }else { echo $gauchada['image']; }?>"></span>
+        <div class="col-md-6 col-md-offset-3"> 
+            <h3><?php echo $gauchada['description']; ?></h3>
+        </div>
+        <div class="col-md-6 col-md-offset-3">
             <p>
                 <img class="img-thumbnail img-table-user"src="<?php if($user['photo'] == null) { echo "uploads/nophoto.png"; }else { echo $user['photo']; }?>">
                 <?php echo ($user['name'] . " " . $user['surname'] ) ; ?>
@@ -122,6 +124,7 @@ function showOneGauchada($gauchada)
                 <span class="glyphicon glyphicon-map-marker box-item"></span><?php echo $city['name']; ?>
                 <span class="glyphicon glyphicon-hourglass box-item"></span><?php echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a'); ?> días restantes.
            </p>
+        </div>
            <div class="col-md-6 col-md-offset-3">
                <?php 
                     if(isset($_SESSION['idUsers'])){
