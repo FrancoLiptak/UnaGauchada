@@ -110,7 +110,7 @@ function showOneGauchada($gauchada)
         </div>
         <img class="img-thumbnail img-detail"src="<?php if($gauchada['image'] == null) { echo "uploads/63229-logoUnaGauchada.png"; }else { echo $gauchada['image']; }?>"></span>
         <div class="col-md-6 col-md-offset-3"> 
-            <h3><?php echo $gauchada['description']; ?></h3>
+            <h4><?php echo $gauchada['description']; ?></h4>
         </div>
         <div class="col-md-6 col-md-offset-3">
             <p>

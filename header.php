@@ -10,6 +10,7 @@
             $us = mysqli_fetch_array($result);
             $name=$us['name'];
             $surname=$us['surname'];
+            $credits=$us['credits'];
   }
 ?>
 </head>
@@ -56,7 +57,8 @@
               <li><a target="_self" href="signUp.php"><span class="glyphicon glyphicon-user"></span> Registrarme </a></li>
              <?php }?>
             <?php if(isset($_SESSION['idUsers'])){?><li><a target="_self" href="publicar.php"><span class="glyphicon glyphicon-plus-sign"></span> Publicar gauchada </a></li>
-            <?php Include("miCuenta.php"); }?>
+            <?php Include("miCuenta.php"); ?>
+           <li><a target="_self"><span class="glyphicon glyphicon-asterisk"></span> <?php echo $credits ?> créditos </a></li> <?php } ?>
           </ul> <!-- hasta aca nav derecha -->
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container fluid-->
