@@ -257,5 +257,10 @@ input[type=date]{
   height:20px!important;
 }
 #ver{
-  width: 10%;
+  width: 11%;
+  background-color: black;
+  border-color: red;
+}
+#ver:hover{
+  opacity: 0.8;
 }
