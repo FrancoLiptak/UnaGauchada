@@ -59,7 +59,7 @@
     <div class="row">
       <div class="container">
         <div class="page-header">
-          <h2>Visualiza todas las publicaciones hasta el momento y comienza a participar!<a href="gauchadas.php" class="center-block btn btn-info" style="float:right;" id="ver">Ver &raquo;</a></h2>
+          <h2>Visualiza todas las publicaciones hasta el momento y comienza a participar!<a href="gauchadas.php" class="center-block btn btn-info" style="float:right;" id="ver"><span class="glyphicon glyphicon-globe"></span> Gauchadas </a></h2>
           
         </div>
       </div>
