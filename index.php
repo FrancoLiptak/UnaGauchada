@@ -5,7 +5,8 @@
     <?php
       include_once "header.php";
       include_once "alert.php";
-      include_once "validate.php";
+      include_once 'validate.php';
+      include_once 'gauchadasFx.php';
     ?>
     <!-- Main jumbotron for a primary marketing message or call to action -->
 
@@ -38,31 +39,26 @@
     </div>
     </div>
     </div>
-    <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-4  box html5">
-          <h3 id="insideBoxTitle">Busco acompañante de viaje</h3>
-            <p> Soy camionero y busco una persona que me acompañe en mi viaje hasta Rawson porque sufro problemas de sueño. 
-            Saldríamos el primer fin de semana de octubre y retornaríamos ... <br>
-            <a class="btn btn-default" href="detalle.php" role="button" id="verDetalle">Ver detalle &raquo;</a>
-            </p>
+    <?php 
+      $gauchadas = getGauchadas(1000,0);
+      $i = $gauchadas->num_rows;
+      $first = $i -3;
+      $gauchadas = getGauchadas(3,$first); //hay q arreglarlo si se borra una se rompe porque los ids no irian de 1 en 1... sirve por ahora. Intente cambiar la funcion getGauchadas para sumarle un criterio pero no concatenaba con el where ni idea
+      $i = $gauchadas->num_rows;
+     ?>
+    <div class="col-md-12">
+            <div class="container">
+                <div class="row">
+                    <?php
+                    while ($i > 0) {
+                        showGauchadaForAllPrueba($gauchadas->fetch_assoc());
+                        $i--;
+                    }
+?>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4  box html5">
-          <h3 id="insideBoxTitle">Busco acompañante de viaje</h3>
-            <p> Soy camionero y busco una persona que me acompañe en mi viaje hasta Rawson porque sufro problemas de sueño. 
-            Saldríamos el primer fin de semana de octubre y retornaríamos ... <br>
-            <a class="btn btn-default" href="detalle.php" role="button" id="verDetalle">Ver detalle &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4  box html5">
-          <h3 id="insideBoxTitle">Busco acompañante de viaje</h3>
-            <p> Soy camionero y busco una persona que me acompañe en mi viaje hasta Rawson porque sufro problemas de sueño. 
-            Saldríamos el primer fin de semana de octubre y retornaríamos ... <br>
-            <a class="btn btn-default" href="detalle.php" role="button" id="verDetalle">Ver detalle &raquo;</a>
-            </p>
-        </div>
-      </div>
+      <br clear="all">
       <div class="well container" style="text-align:center;">
         <p style=""><span class="glyphicon glyphicon glyphicon-envelope" aria-hidden="true"> Email:</span><span id="mail"> nancy.netramanti@unaGauchada.com</span><span class="glyphicon glyphicon glyphicon-phone-alt" aria-hidden="true"> Teléfono:</span> 4720996</p>
       </div>

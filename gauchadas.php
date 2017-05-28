@@ -14,7 +14,7 @@
                 </div>
             </div>
         </div>
-
+        <br>
         <?php
         $anterior = false;
         $siguiente = false;
@@ -43,12 +43,8 @@
                 break;
         }
 ?>
-    <div class="row row-offcanvas row-offcanvas-right">
-        <div class="col-xs-6 col-sm-3 sidebar-offcanvas">
-            <div class="sidebar-module sidebar-module-inset" >
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-9">
+    
+        <div class="col-md-12">
             <div class="container">
                 <div class="row">
                     <?php
@@ -59,6 +55,8 @@
 ?>
                 </div>
             </div>
+        </div>
+           
             <br clear="all">
             <div class="container" style="width: 300px">
 

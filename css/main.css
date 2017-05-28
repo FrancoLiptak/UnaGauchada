@@ -12,7 +12,13 @@ a:hover{text-decoration: none!important;}
 a:active{text-decoration: none!important;}
 body {overflow-x:hidden!important;}
 .titulo:hover{ color:#374140;}
-.titulo{transition:color .5s;-webkit-transition:color .5s;-moz-transition:color .5s;-ms-transition:color .5s;border-radius:100%;}
+.titulo{
+  transition:color .5s;
+  -webkit-transition:color .5s;
+  -moz-transition:color .5s;
+  -ms-transition:color .5s;
+  border-radius:100%;
+}
 #title:before{content:"\f13b"}
 .box:hover.html5{border-color:#e45126} 
 .box:hover.html5 #insideBoxTitle{color:#e45126}
@@ -130,6 +136,9 @@ input[class=search] {
     float: left;
   }
 }
+#submit{
+  margin-bottom: 10px;
+}
  #ir{
   width: 40px;
  }
@@ -180,16 +189,58 @@ input[type=date]{
   color: green;
 }
 .img-table{
-  width:80px;
-  height:auto;
+  width:auto;
+  height:100px!important;
 }
 .gauchadaBox{
+  transition:border .5s;
+  -webkit-transition:border .5s;
+  -moz-transition:border .5s;
+  -ms-transition:border .5s;
   border: 1px solid #ddd;
+  padding: 10px;
+  border-radius:5px;
+  text-align:center;
+  opacity: 0.90;
+  margin-bottom: 20px;
+}
+.gauchadaBox:hover{
+  border-color:gray;
+  opacity: 1;
+}
+.gauchadaBox div legend{
+  transition:border .5s;
+  -webkit-transition:border .5s;
+  -moz-transition:border .5s;
+  -ms-transition:border .5s;
+  border-bottom: 1px solid #e5e5e5;
+}
+.gauchadaBox:hover div legend{
+  color: gray;
+  border-bottom: 1px solid #e45126;
+}
+.box-title{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transition:color .5s;
+  -webkit-transition:color .5s;
+  -moz-transition:color .5s;
+  -ms-transition:color .5s;
 }
 .form-note{
   color:red; font-size:10px; font-family:'Montserrat', sans-serif;
 }
-.pag{
-  width: 50%!important;
-  display: inline;
+.centered{
+  text-align: center;
+}
+.img-table-user{
+  width:auto;
+  height:30px!important;
+}
+.box-main{
+  margin-bottom: 20px;
+}
+.box-item{
+  margin: 0px 5px;
 }

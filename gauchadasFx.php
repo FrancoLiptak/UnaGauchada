@@ -77,15 +77,20 @@ function showGauchadaForAllPrueba($gauchada)
     }
 ?>
         <div class="col-xs-6 col-md-4 gauchadaBox" >
-            <div style="height: 60px" >
-                <h3><?php echo $title ?></h3>
+            <div class="centered box-main">
+                <legend class="box-title"><?php echo $title ?></legend>
+                <img class="img-thumbnail img-table"src="<?php if($gauchada['image'] == null) { echo "uploads/63229-logoUnaGauchada.png"; }else { echo $gauchada['image']; }?>">
             </div>
-            <p><span class="glyphicon glyphicon-user" ></span> <?php echo ($user['name'] . " " . $user['surname'] ) ; ?></p>
-            <div class="container" ></div>
-            <p><span class="glyphicon glyphicon-tags"></span> <?php echo $cate['name']; ?></p>
-            <p><span class="glyphicon glyphicon-map-marker" ></span> <?php echo $city['name']; ?></p>
-            <p><span class="glyphicon glyphicon-hourglass" ></span> <?php echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a'); ?> días restantes.</p>
-            <p><a class="btn btn-default" href="gauchadaVer.php?idGauchadas=<?php echo $gauchada['idGauchadas']; ?>" role="button">Ver detalle &raquo;</a></p>
+            <p class="centered">
+             <img class="img-thumbnail img-table-user"src="<?php if($user['photo'] == null) { echo "uploads/nophoto.png"; }else { echo $user['photo']; }?>">
+             <?php echo ($user['name'] . " " . $user['surname']) ; ?>
+            </p>
+            <p class="centered">
+                <span class="glyphicon glyphicon-tags box-item"></span>&nbsp;<?php echo $cate['name']; ?>
+                <span class="glyphicon glyphicon-map-marker box-item"></span><?php echo $city['name']; ?>
+                <span class="glyphicon glyphicon-hourglass box-item"></span><?php echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a'); ?> días restantes.
+           </p>
+            <p><a class="btn btn-default" id="submit" href="gauchadaVer.php?idGauchadas=<?php echo $gauchada['idGauchadas']; ?>" role="button">Ver detalle &raquo;</a></p>
         </div><!--/.col-xs-6.col-lg-4-->
 <?php
 
@@ -101,7 +106,7 @@ function showOneGauchada($gauchada)
     $hoy = date("Y-m-d");
 
         ?>
-            <img class="img-thumbnail"src="<?php if($gauchada['image'] == null) { echo "uploads/63229-logoUnaGauchada.png"; }else { echo $gauchada['image']; }?>">
+            <img class="img-thumbnail"src="<?php if($gauchada['image'] == null) { echo "uploads/63229-logoUnaGauchada.png"; }else { echo $gauchada['image']; }?>"></span>
             <?php echo ($user['name'] . " " . $user['surname'] ) ; ?>
             <img class="img-thumbnail"src="<?php if($user['photo'] == null) { echo "uploads/nophoto.png"; }else { echo $user['photo']; }?>">
             <?php echo $cate['name']; ?>
