@@ -9,7 +9,7 @@ function getGauchadas($limit, $first, $condition = "1 = 1")
     // Retorna las proximas $limit gauchadas comenzando desde la tupla numero $first que cumplen la condicion $condition.
 
     $link = connect();
-    $query = "SELECT * FROM gauchadas WHERE " . $condition . " LIMIT $first, $limit";
+    $query = "SELECT * FROM gauchadas WHERE " . $condition . " order by idGauchadas desc LIMIT $first, $limit ";
     $result = $link->query($query);
     if (!$result) {
         printf("Errormessage: %s\n", $link->error);

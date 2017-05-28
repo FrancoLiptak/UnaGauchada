@@ -40,10 +40,7 @@
     </div>
     </div>
     <?php 
-      $gauchadas = getGauchadas(1000,0);
-      $i = $gauchadas->num_rows;
-      $first = $i -3;
-      $gauchadas = getGauchadas(3,$first); //hay q arreglarlo si se borra una se rompe porque los ids no irian de 1 en 1... sirve por ahora. Intente cambiar la funcion getGauchadas para sumarle un criterio pero no concatenaba con el where ni idea
+      $gauchadas = getGauchadas(3,0);
       $i = $gauchadas->num_rows;
      ?>
     <div class="col-md-12">
