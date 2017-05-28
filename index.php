@@ -54,7 +54,16 @@
 ?>
                 </div>
             </div>
+    </div>
+    <br clear="all">
+    <div class="row">
+      <div class="container">
+        <div class="page-header">
+          <h2>Visualiza todas las publicaciones hasta el momento y comienza a participar!<a href="gauchadas.php" class="center-block btn btn-info" style="float:right;" id="ver">Ver &raquo;</a></h2>
+          
         </div>
+      </div>
+    </div>
       <br clear="all">
       <div class="well container" style="text-align:center;">
         <p style=""><span class="glyphicon glyphicon glyphicon-envelope" aria-hidden="true"> Email:</span><span id="mail"> nancy.netramanti@unaGauchada.com</span><span class="glyphicon glyphicon glyphicon-phone-alt" aria-hidden="true"> Teléfono:</span> 4720996</p>
