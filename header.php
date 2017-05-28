@@ -2,7 +2,9 @@
 	include_once "links.html";
   include_once "connect.php";
   include_once "doSelect.php";
-  session_start();
+	if (session_status() == PHP_SESSION_NONE) {
+		session_start();
+	}
   if(isset($_SESSION['idUsers'])){
             $link= connect();
             $sql="select * from users where idUsers=".$_SESSION['idUsers'].";";

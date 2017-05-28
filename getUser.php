@@ -2,7 +2,9 @@
 
     include_once 'validate.php';
     include_once 'connect.php';
-    session_start();
+	if (session_status() == PHP_SESSION_NONE) {
+		session_start();
+	}
 
     function getLoggedUser(){
         if (validateLogin()) {

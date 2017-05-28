@@ -1,7 +1,9 @@
 <?php
-Include("header.php");
+	session_start();
+include_once "header.php";
 include_once 'validate.php';
 include_once 'gauchadasFx.php';
+include_once 'fxComments.php';
 ?>
  <div class="row center-block">
     <div class="container-fluid  col-md-6 col-md-offset-3 box-detail">
@@ -24,8 +26,20 @@ include_once 'gauchadasFx.php';
 <br><br><br>
 <div class="container col-md-8 col-md-offset-2">
 	<legend>Comentarios relacionados</legend>
-	
 
+	<?php 
+
+	$comments = getCommentsForGauchada($idGauchada);
+	if ($comments->num_rows > 0) {
+		while ($row = $comments->fetch_assoc()){
+			showComment($row);
+		}
+	}
+
+	?>
+
+<?php	
+/*
 	<p><span class='badge'>2</span> Comentarios:</p><br>
 
 	<div class='row'>
@@ -57,6 +71,8 @@ include_once 'gauchadasFx.php';
 		        </div>
 	        </div>
 	</div>
+*/
+?>
 
 	<?php 
 	    if(isset($_SESSION['idUsers'])){?>
