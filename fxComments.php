@@ -45,7 +45,7 @@ function showComment($comment)
     <div class="container" >
 
         <img src="<?php if ($userPhoto == null) {
-            echo " uploads/63229-logoUnaGauchada.png ";
+            echo " uploads/nophoto.png ";
         } else {
             echo $userPhoto;
         }?>">
