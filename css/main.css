@@ -235,7 +235,7 @@ input[type=date]{
   text-align: center;
 }
 .img-table-user{
-  width:auto;
+  width:30px;
   height:30px!important;
 }
 .box-main{
@@ -253,7 +253,7 @@ input[type=date]{
   margin-top: 100px;
 }
 .img-nav-user{
-  width:auto;
+  width:20px;
   height:20px!important;
 }
 #ver{
