@@ -5,7 +5,9 @@
     <?php include_once "header.php";?>
     <?php
     include_once 'validate.php';
-    include_once 'gauchadasFx.php';?>
+    include_once 'gauchadasFx.php';
+    include_once 'alert.php';
+    ?>
 
         <div class="row">
             <div class="container-fluid  col-md-4 col-md-offset-4">
@@ -30,12 +32,33 @@
         }
 
         $hoy = date("Y-m-d");
-        $condition = "";
-        $gauchadas = getGauchadas(10, $first);
+        $condition = "1=1";
+
+        if (isset($_GET['ir'])){
+            $title=$_GET['titulo'];
+            $cat=$_GET['cat'];
+            $city=$_GET['city'];
+            if ($cat==0){
+                $condition.=" AND title LIKE '%$title%'"; //concatena
+            }
+            else {
+                $condition.= " AND title LIKE '%$title%' AND idCategory=$cat";
+            }
+            if ($city==0){
+                $condition.=" AND title LIKE '%$title%'"; //concatena
+            }
+            else {
+                $condition.= " AND title LIKE '%$title%' AND idCity=$city";
+            }
+        }
+
+
+        $gauchadas = getGauchadas(10, $first, $condition);
         $i = $gauchadas->num_rows;
         switch ($i) {
             case 0:
                 $_SESSION['msg'] = "No se encontraron resultados.";
+                hacerAlert( $_SESSION['msg']);
                 break;
             case 10:
                 $siguiente = true;
