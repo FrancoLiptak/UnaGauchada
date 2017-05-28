@@ -33,10 +33,14 @@ function validateFormSignUp() {
    if (x == null || x.length == 0 || /^\s*$/.test(x) || y == null || y.length == 0 || /^\s*$/.test(y)){    
         alert("Las passwords no pueden estar vacías o contener sólo espacios en blanco");
         return false;
-   }else if (x != y) {
-    	 alert("Las passwords no coinciden!");
+   }else if (x.length > 20) {
+    	 alert("Las passwords no pueden tener más de 20 caracteres!");
     	 return false;
-    	}  
+    	} 
+    else if (x != y) {
+       alert("Las passwords no coinciden!");
+       return false;
+      }  
 
 
     return true;
