@@ -20,6 +20,7 @@
         <?php
         $anterior = false;
         $siguiente = false;
+        $cantidadAMostrar = 6;
 
         if (isset($_POST['first'])) {
             $first = $_POST['first'];
@@ -52,16 +53,16 @@
             }
         }
 
-        $gauchadas = getGauchadas(10, $first, $condition);
+        $gauchadas = getGauchadas(($cantidadAMostrar + 1), $first, $condition);
         $i = $gauchadas->num_rows;
         switch ($i) {
             case 0:
                 $_SESSION['msg'] = "No se encontraron resultados.";
                 hacerAlert( $_SESSION['msg']);
                 break;
-            case 10:
+            case ($cantidadAMostrar + 1):
                 $siguiente = true;
-                $i = 9;
+                $i = $cantidadAMostrar;
                 break;
         }
 ?>
@@ -83,8 +84,8 @@
             <div class="container" style="width: 300px">
 
                 <?php
-                $prev = $first - 9;
-                $next = $first + 9;
+                $prev = $first - $cantidadAMostrar;
+                $next = $first + $cantidadAMostrar;
         ?>
 
                     <form action="gauchadas.php" method="post" style="float: left;">
