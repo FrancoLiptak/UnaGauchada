@@ -252,3 +252,7 @@ input[type=date]{
   border: 1px solid #ddd;
   margin-top: 100px;
 }
+.img-nav-user{
+  width:auto;
+  height:20px!important;
+}

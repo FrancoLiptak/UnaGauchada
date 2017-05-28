@@ -11,6 +11,7 @@
             $name=$us['name'];
             $surname=$us['surname'];
             $credits=$us['credits'];
+            $photo=$us['photo'];
   }
 ?>
 </head>
@@ -51,12 +52,12 @@
                  </li>
               </ul>
             </li> <!-- /cierro el search dropdown -->   
-            <li><a href="gauchadas.php"><span class="glyphicon glyphicon-globe"></span> Ver gauchadas </a></li>
+            <li><a href="gauchadas.php"><span class="glyphicon glyphicon-globe"></span> Gauchadas </a></li>
             <?php if(!(isset($_SESSION['idUsers']))){?>
               <li><a target="_self" href="logIn.php"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesion </a></li>
               <li><a target="_self" href="signUp.php"><span class="glyphicon glyphicon-user"></span> Registrarme </a></li>
              <?php }?>
-            <?php if(isset($_SESSION['idUsers'])){?><li><a target="_self" href="publicar.php"><span class="glyphicon glyphicon-plus-sign"></span> Publicar gauchada </a></li>
+            <?php if(isset($_SESSION['idUsers'])){?><li><a target="_self" href="publicar.php"><span class="glyphicon glyphicon-plus"></span> Publicar </a></li>
             <?php Include("miCuenta.php"); ?>
            <li><a target="_self"><span class="glyphicon glyphicon-asterisk"></span> <?php echo $credits ?> créditos </a></li> <?php } ?>
           </ul> <!-- hasta aca nav derecha -->
