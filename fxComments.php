@@ -28,7 +28,7 @@ function getCommentsForGauchada($idGauchada) {
     return $result;
 }
 
-function showComment($comment, $isReply = false)
+function showComment($comment, $idGauchada, $isReply = false)
 {
     $link = connect();
     $idComment = $comment['idComment'];
@@ -46,7 +46,7 @@ function showComment($comment, $isReply = false)
     <div class="container">
 
             <div class='col-md-12'>
-                <div class='<?php if($isReply){ ?>col-xs-10 <?php }else{?> col-sm-10 <?php } ?>'>
+                <div class='<?php if($isReply){ ?>col-xs-10 <?php }else{?> col-sm-8 <?php } ?>'>
                     <img class='img-circle <?php if($isReply){ ?>img-reply-user <?php }else{?>img-comment-user <?php } ?>    ' style="float: left;"height='65' width='65' src="<?php if ($userPhoto == null) {
                     echo " uploads/nophoto.png ";
                     } else {
@@ -55,7 +55,31 @@ function showComment($comment, $isReply = false)
                 
                     <h5><?php echo $userName." ".$userSurName; ?> <small><?php echo $date;?></small></h5>
                     <p><?php echo $text; ?></p>
+
+
+
+                    
                     <br>
+                </div>
+                <div class="col-sm-4">
+                    <?php  
+                    $link= connect();
+                    $sql="select idUser from gauchadas where idGauchadas=$idGauchada;";
+                    $query=$link->query($sql);
+                    $row=mysqli_fetch_array($query);
+                    $idUserGauchada=$row['idUser'];
+
+                    $notMyComment= $user['idUsers'] != $idUserGauchada;
+                    $notRepliedYet=($reply->num_rows == 0);
+                    $isMyPublication=($_SESSION['idUsers'] == $idUserGauchada);
+
+                    if (isset($_SESSION['idUsers']) and $isMyPublication and $notRepliedYet and $notMyComment ){?>
+                        <a href="" class="btn btn-default col-sm-4">Responder</a>
+                    
+
+
+
+                    <?php } ?>
                 </div>
             </div> <!-- engloba a un comentario -->
 
@@ -63,7 +87,7 @@ function showComment($comment, $isReply = false)
            if ($reply->num_rows > 0) {?>
                     <p style="margin-left:30px;"><span class='badge'>1</span> Respuesta para <?php echo  $userName ?>:</p><br>
                     <?php 
-                    showComment($reply->fetch_assoc(), true);
+                    showComment($reply->fetch_assoc(),$idGauchada, true);
                     ?>
         
                 <?php }

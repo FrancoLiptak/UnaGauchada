@@ -28,6 +28,11 @@ include_once 'fxComments.php';
 	<legend>Comentarios relacionados</legend>
 
 	<?php 
+	$link= connect();
+	$sql="select idUser from gauchadas where idGauchadas=$idGauchada;";
+	$query=$link->query($sql);
+	$row=mysqli_fetch_array($query);
+	$idUsers=$row['idUser'];
 
 	$comments = getCommentsForGauchada($idGauchada);
 	$cant_comments= $comments->num_rows;
@@ -37,19 +42,13 @@ include_once 'fxComments.php';
 
 		<?php 
 		while ($row = $comments->fetch_assoc()){
-			showComment($row);
+			showComment($row, $idGauchada);
 		}
 	}else{
 	?>
-		<div>No hay comentarios hasta el momento.</div>
+		<div <?php if(isset($_SESSION['idUsers']) and ($_SESSION['idUsers'] == $idUsers)){?> style="margin-bottom: 100px;" <?php } ?>>No hay comentarios hasta el momento.</div>
 	<?php 
 	}
-
-	$link= connect();
-	$sql="select idUser from gauchadas where idGauchadas=$idGauchada;";
-	$query=$link->query($sql);
-	$row=mysqli_fetch_array($query);
-	$idUsers=$row['idUser'];
 
     if(isset($_SESSION['idUsers']) and ($_SESSION['idUsers'] != $idUsers)){?>
     <br><br>
