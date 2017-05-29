@@ -57,8 +57,7 @@
         $i = $gauchadas->num_rows;
         switch ($i) {
             case 0:
-                $_SESSION['msg'] = "No se encontraron resultados.";
-                hacerAlert( $_SESSION['msg']);
+                hacerAlert(  "No se encontraron resultados.");
                 break;
             case ($cantidadAMostrar + 1):
                 $siguiente = true;
