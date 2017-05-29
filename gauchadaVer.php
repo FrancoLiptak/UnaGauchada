@@ -38,7 +38,7 @@ include_once 'fxComments.php';
 	$cant_comments= $comments->num_rows;
 	if ( $cant_comments > 0) {
 		?>
-            <p><span class='badge'><?php echo $cant_comments ?></span> Comentarios:</p><br>
+            <p><span class='badge'><?php echo $cant_comments ?></span><?php if ($cant_comments > 1){ echo " Comentarios:";}else{echo " Comentario:";}  ?> </p><br>
 
 		<?php 
 		while ($row = $comments->fetch_assoc()){
