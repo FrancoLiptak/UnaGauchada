@@ -46,7 +46,7 @@ include_once 'fxComments.php';
 		}
 	}else{
 	?>
-		<div <?php if(isset($_SESSION['idUsers']) and ($_SESSION['idUsers'] == $idUsers)){?> style="margin-bottom: 100px;" <?php } ?>>No hay comentarios hasta el momento.</div>
+		<div <?php if(!(isset($_SESSION['idUsers'])) || (isset($_SESSION['idUsers']) and ($_SESSION['idUsers'] == $idUsers))){?> style="margin-bottom: 100px;" <?php } ?>>No hay comentarios hasta el momento.</div>
 	<?php 
 	}
 
