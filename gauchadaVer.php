@@ -30,65 +30,41 @@ include_once 'fxComments.php';
 	<?php 
 
 	$comments = getCommentsForGauchada($idGauchada);
-	if ($comments->num_rows > 0) {
+	$cant_comments= $comments->num_rows;
+	if ( $cant_comments > 0) {
+		?>
+            <p><span class='badge'><?php echo $cant_comments ?></span> Comentarios:</p><br>
+
+		<?php 
 		while ($row = $comments->fetch_assoc()){
 			showComment($row);
 		}
+	}else{
+	?>
+		<div>No hay comentarios hasta el momento.</div>
+	<?php 
 	}
 
-	?>
+	$link= connect();
+	$sql="select idUser from gauchadas where idGauchadas=$idGauchada;";
+	$query=$link->query($sql);
+	$row=mysqli_fetch_array($query);
+	$idUsers=$row['idUser'];
 
-<?php	
-/*
-	<p><span class='badge'>2</span> Comentarios:</p><br>
-
-	<div class='row'>
-	        <div class='col-sm-2 text-center'>
-	       		 <img src='uploads/nophoto.png' class='img-circle' height='65' width='65' alt='Avatar'>
-	        </div>
-	        <div class='col-sm-10'>
-		        <h4>Franco Liptak <small>Sep 29, 2015, 9:12 PM</small></h4>
-		        <p>Genial! Muy interesante.</p>
-		        <br>
-	        </div>
-	        <div class='col-sm-2 text-center'>
-	        	<img src='uploads/nophoto.png' class='img-circle' height='65' width='65' alt='Avatar'>
-	        </div>
-	        <div class='col-sm-10'>
-		        <h4>Sebastián Raimondi <small>Sep 25, 2015, 8:25 PM</small></h4>
-		        <p>Quiero ayudar.</p>
-		        <br>
-		        <p><span class='badge'>1</span> Respuesta:</p><br>
-		        <div class='row'>
-		            <div class='col-sm-2 text-center'>
-		           		 <img src='uploads/yo.jpg' class='img-circle' height='65' width='65' alt='Avatar'>
-		            </div>
-		            <div class='col-xs-10'>
-			            <h4>Camila Onofri <small>Sep 25, 2015, 8:28 PM</small></h4>
-			            <p>Gracias!!</p>
-			            <br>
-		            </div>
-		        </div>
-	        </div>
-	</div>
-*/
+    if(isset($_SESSION['idUsers']) and ($_SESSION['idUsers'] != $idUsers)){?>
+    <br><br>
+    <legend>Deja un comentario!</legend>
+        <form role='form' class="comment">
+		    <div class='form-group  col-md-offset-1'>
+		    <textarea class='form-control comment' rows='3' placeholder="Ingresa tu comentario aquí" required></textarea>
+		    </div>
+		    <br>
+		    &nbsp;<button type='submit' id="comment" class='btn btn-default'>Comentar &raquo;</button>
+		</form>
+    <?php 
+   }
 ?>
-
-	<?php 
-	    if(isset($_SESSION['idUsers'])){?>
-	    <br><br>
-	    <legend>Deja un comentario!</legend>
-	        <form role='form' class="comment">
-			    <div class='form-group  col-md-offset-1'>
-			    <textarea class='form-control comment' rows='3' placeholder="Ingresa tu comentario aquí" required></textarea>
-			    </div>
-			    <br>
-			    &nbsp;<button type='submit' id="comment" class='btn btn-default'>Comentar &raquo;</button>
-			</form>
-	    <?php 
-	   }
- ?>
 
 </div>
 
-  <?php Include("footer.html");?>
+<?php Include("footer.html");?>

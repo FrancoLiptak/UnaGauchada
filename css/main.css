@@ -270,3 +270,11 @@ textarea.comment{
 form .comment{
   margin-bottom: 90px;
 }
+.img-comment-user{
+  width:auto;
+  height:10%!important;
+}
+.img-reply-user{
+  width:auto;
+  height:7%!important;
+}
