@@ -272,9 +272,11 @@ form .comment{
 }
 .img-comment-user{
   width:auto;
+  margin-right: 10px;
   height:10%!important;
 }
 .img-reply-user{
   width:auto;
   height:7%!important;
+  margin-right: 10px;
 }

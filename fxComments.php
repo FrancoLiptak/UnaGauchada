@@ -71,9 +71,8 @@ function showComment($comment, $idGauchada, $isReply = false)
 
                     $notMyComment= $user['idUsers'] != $idUserGauchada;
                     $notRepliedYet=($reply->num_rows == 0);
-                    $isMyPublication=($_SESSION['idUsers'] == $idUserGauchada);
-
-                    if (isset($_SESSION['idUsers']) and $isMyPublication and $notRepliedYet and $notMyComment ){?>
+                
+                    if (isset($_SESSION['idUsers']) and ($_SESSION['idUsers'] == $idUserGauchada) and $notRepliedYet and $notMyComment ){?>
                         <a href="" class="btn btn-default col-sm-4">Responder</a>
                     
 
