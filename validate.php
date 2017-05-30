@@ -13,6 +13,14 @@ function validate($var)
     return isset($var) && $var != "";
 }
 
+function isMayor($date, $format = 'Y-m-d')
+{
+    $d = DateTime::createFromFormat($format, $date);
+    $hoy = date($format);
+    $hoy->sub($d);
+    return $fecha->format('Y') >= 18;
+}
+
 function validateDate($date, $format = 'Y-m-d')
 {
     // Devuelve true si la fecha existe. Por defecto usa el formato YYYY - MM - DD .
