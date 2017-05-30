@@ -11,7 +11,7 @@ function userLogin($email, $pass)
     // Retorna true si ambos parametros estan seteados y existe una y solo una tupla con el email y pass enviadas.
     // Setea la variable $_SESSION["idUsers"] con el id del usuario que cumple esta condicion. $_SESSION["admin"] = false.
 
-    if (validate($email) && validate($pass)) {
+    if (validateEmail($email) && validate($pass)) {
         $link = connect();
         $queryEmail = "SELECT idUsers FROM users WHERE email = '$email'";
 
