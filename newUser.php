@@ -15,6 +15,13 @@ define('TB', 1099511627776);
 		
 		$link = connect();
 
+		$email = trim($email);
+		$pass1 = trim($pass1);
+		$pass2 = trim($pass2);
+		$name = trim($name);
+		$surname = trim($surname);
+		$phone = trim($phone);
+
 		if ( !validateEmail($email) ) {
 			return false;
 		}

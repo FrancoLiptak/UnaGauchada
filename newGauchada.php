@@ -17,6 +17,9 @@ function newGauchada($title, $description, $expiration, $category, $city, $img =
 // Inserta una gauchada en la BD para el usuario logueado y decrementa en 1 sus creditos. Retorna true si se inserto correctamente, false si hubo algun error en la validacion o en la insercion.
     $link = connect();
 
+    $title = trim($title);
+    $description = trim($description);
+
     if (validateLogin() && validateCredits($_SESSION['idUsers']) && validate($title) && validate($description) && validateDate($expiration) && validate($category) && validate($city)) {
         $target_file = null;
         if (!$img['name'] == "") {

@@ -1,8 +1,8 @@
 <html>
 	<head>
 	<title>Log In</title>
-  <?php Include("header.php");
-  Include("alert.php");
+  <?php include_once "header.php";
+  include_once "alert.php";
   ?>
   <div class="row">
     <div class="container-fluid  col-md-4 col-md-offset-4">
@@ -37,6 +37,6 @@
   <script rel="text/javascript" src="js/logIn.js"></script>
  
   <?php 
-  Include("footer.html"); ?>
+  include_once "footer.html"; ?>
  </body>
 </html>
