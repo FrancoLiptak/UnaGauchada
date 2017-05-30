@@ -1,4 +1,5 @@
 <?php
+include_once 'validate.php';
 
 if (!validateLogin()) {
     $_SESSION['msg'] = "No puede ingresar a logout.php si no tiene una sesion iniciada.";

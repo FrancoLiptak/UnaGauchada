@@ -4,6 +4,7 @@
   <?php 
   include_once "header.php";
   include_once "alert.php";
+  include_once "validate.php";
 	if (session_status() == PHP_SESSION_NONE) {
 		session_start();
 	}
