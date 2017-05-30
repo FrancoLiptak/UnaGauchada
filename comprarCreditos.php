@@ -6,8 +6,8 @@
   include_once "header.php";
   include_once "alert.php";
   include_once "validate.php";
-  if (!validateLogin()) {
-        $_SESSION['msg'] = "No puede ingresar a comprarCreditos.php sin antes iniciar sesion.";
+  if (validateLogin()) {
+        $_SESSION['msg'] = "No puede ingresar a comprarCreditos.php si ya tiene una sesion iniciada.";
         header('Location: index.php');
         die;
     }
@@ -21,7 +21,7 @@
           </h4>
         </div>
       </div>
-      <?php  /* por si ocurre algun error al comprar */
+        <?php  /* por si ocurre algun error al comprar */
         if (isset($_SESSION['errorEnCompra'])) {
             hacerAlert($_SESSION['errorEnCompra']);
             unset($_SESSION['errorEnCompra']);

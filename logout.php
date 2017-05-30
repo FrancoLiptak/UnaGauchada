@@ -1,7 +1,12 @@
 <?php
 
-	session_start();
-	session_destroy();
-	header("Location: index.php");
+if (!validateLogin()) {
+    $_SESSION['msg'] = "No puede ingresar a logout.php si no tiene una sesion iniciada.";
+    header('Location: index.php');
+    die;
+}
 
-?>
+
+    session_start();
+    session_destroy();
+    header("Location: index.php");
