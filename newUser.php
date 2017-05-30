@@ -10,24 +10,25 @@ define('GB', 1073741824);
 define('TB', 1099511627776);
 
 
-	function newUser($email, $pass1, $pass2, $name, $surname, $birthDate, $phone, $img = null) {
-		// Crea un nuevo usuario con los parametros enviados. Devuelve true si el query se realizo correctamente, false caso contrario. Setear los valores default de $startingCredits and $startingReputation.
-		
-		$link = connect();
+function newUser($email, $pass1, $pass2, $name, $surname, $birthDate, $phone, $img = null)
+{
+// Crea un nuevo usuario con los parametros enviados. Devuelve true si el query se realizo correctamente, false caso contrario. Setear los valores default de $startingCredits and $startingReputation.
 
-		$email = trim($email);
-		$pass1 = trim($pass1);
-		$pass2 = trim($pass2);
-		$name = trim($name);
-		$surname = trim($surname);
-		$phone = trim($phone);
+    $link = connect();
 
-		if ( !validateEmail($email) ) {
-			return false;
-		}
+    $email = trim($email);
+    $pass1 = trim($pass1);
+    $pass2 = trim($pass2);
+    $name = trim($name);
+    $surname = trim($surname);
+    $phone = trim($phone);
 
-		if ( validatePasswords($pass1, $pass2) && validate($name) && validate($surname) && validateDate($birthDate) ) {
-		$target_dir = null;
+    if (!validateEmail($email)) {
+        return false;
+    }
+
+    if (validatePasswords($pass1, $pass2) && validate($name) && validate($surname) && validateDate($birthDate)) {
+        $target_dir = null;
         if (!$img['name'] == "") {
             $target_dir = "uploads/";
             $file = rand(1000, 100000)."-".$img['name'];
@@ -64,53 +65,49 @@ define('TB', 1099511627776);
         }
 
 
-			if (!validate($phone)) {
-				$phone = "";
-			}
+        if (!validate($phone)) {
+            $phone = "";
+        }
 
-			$startingCredits = 1;
-			$startingReputation = 1;
+        $startingCredits = 1;
+        $startingReputation = 1;
 
-	        $query = "INSERT INTO users ( email, pass, name, surname, birthDate, credits, reputation, photo ) "; 
-	        $query = $query."VALUES ( '$email', '$pass1', '$name', '$surname', '$birthDate', $startingCredits, $startingReputation, '$target_file' );";
-	        $result = $link->query($query);
+        $query = "INSERT INTO users ( email, pass, name, surname, birthDate, credits, reputation, photo ) ";
+        $query = $query."VALUES ( '$email', '$pass1', '$name', '$surname', '$birthDate', $startingCredits, $startingReputation, '$target_file' );";
+        $result = $link->query($query);
 
-			if ($result) {
-		        $_SESSION['registrado']="Se ha realizado el Sign up con éxito!";
-				return true;
-			}
-			else {
-		        $_SESSION['registrado']="Dio mal la consulta.";
-		     	return $result;
-			}
-		}
+        if ($result) {
+            $_SESSION['registrado']="Se ha realizado el Sign up con éxito!";
+            return true;
+        } else {
+            $_SESSION['registrado']="Dio mal la consulta.";
+            return $result;
+        }
+    }
 
-		$_SESSION['mal_completado']= "Verifica si has completado todos los campos. Son de caracter obligatorio!<br>También recuerda que deben coincidir las passwords...";
-		return false;
-	}
+    $_SESSION['mal_completado']= "Verifica si has completado todos los campos obligatorios.<br>También recuerda que deben coincidir las passwords...";
+    return false;
+}
 
-	function newAdmin($email, $pass, $name, $surname, $birthDate, $phone) {
-		// Crea un nuevo usuario con los parametros enviados. Devuelve true si el query se realizo correctamente, false caso contrario. Setear los valores default de $startingCredits and $startingReputation.
+function newAdmin($email, $pass, $name, $surname, $birthDate, $phone)
+{
+// Crea un nuevo usuario con los parametros enviados. Devuelve true si el query se realizo correctamente, false caso contrario. Setear los valores default de $startingCredits and $startingReputation.
 
-		$link = connect();
+    $link = connect();
 
-		if ( validate($email) && validate($pass) && validate($name) && validate($surname) && validateDate($birthDate) ) {
+    if (validate($email) && validate($pass) && validate($name) && validate($surname) && validateDate($birthDate)) {
+        if (!validate($phone)) {
+            $phone = "";
+        }
+        $startingCredits = 1;
+        $startingReputation = 1;
 
-			if (!validate($phone)) {
-				$phone = "";
-			}
-			$startingCredits = 1;
-			$startingReputation = 1;
+        $query = "INSERT INTO 'admins' ( 'idUser', 'email', 'pass', 'name', 'surname', 'birthDate', 'phone', 'credits', 'reputation') ";
+        $query = $query."VALUES ( NULL, '$email', '$pass', '$name', '$surname', '$birthDate', '$phone' '$startingCredits', '$reputation' );";
+        $result = $link->query($query);
 
-	        $query = "INSERT INTO 'admins' ( 'idUser', 'email', 'pass', 'name', 'surname', 'birthDate', 'phone', 'credits', 'reputation') "; 
-	        $query = $query."VALUES ( NULL, '$email', '$pass', '$name', '$surname', '$birthDate', '$phone' '$startingCredits', '$reputation' );";
-	        $result = $link->query($query);
+        return $result;
+    }
 
-	        return $result;
-		}
-
-		return false;
-	}
-
-
-?>
+    return false;
+}
