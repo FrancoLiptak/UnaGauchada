@@ -2,9 +2,17 @@
 	<head>
 	<title>Sing Up</title>
   <?php 
+  include_once "validate.php";
+  if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+  }
+  if (validateLogin()) {
+    $_SESSION['msg'] = "No puede ingresar a signUp.php si ya tiene una sesion iniciada.";
+    header('Location: index.php');
+    die;
+  }
   include_once "header.php";
   include_once "alert.php";
-  include_once "validate.php";
 	if (session_status() == PHP_SESSION_NONE) {
 		session_start();
 	}
@@ -12,16 +20,6 @@
 
   ?>
     <div class="row">
-        <?php 
-         if (validateLogin()) { ?> <div class="logged-error"><?php 
-                  hacerAlert("No puede ingresar a signUp.php si ya tiene una sesion iniciada.");
-                  
-                  ?>
-                  </div>
-                  <?php  
-                  die;
-        }
-        ?>
         <div class="container-fluid col-md-6 col-md-offset-3">
         <div class="page-header">
           <h4 style="text-align:center;"> <strong>Recuerda:</strong> necesitas ser mayor de 18 años para poder registrarte! <br>
