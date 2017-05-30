@@ -9,7 +9,12 @@
       $_SESSION['msg'] = "No puede ingresar a logIn.php si ya tiene una sesion iniciada.";
       header('Location: index.php');
       die;
-  }
+    }
+    if (isset($_SESSION['msg']) && $_SESSION['msg'] != "") {
+        hacerAlert($_SESSION['msg']);
+        $_SESSION['msg'] = "";
+    }
+
 
     ?>
   <div class="row">

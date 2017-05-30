@@ -1,12 +1,13 @@
-<?php 
-Include("loginFx.php");
-session_start();
+<?php
+include_once "loginFx.php";
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
-userLogin(	$_POST['email'], $_POST['pass']	);
+userLogin($_POST['email'], $_POST['pass']);
 
-if(isset($_SESSION['idUsers']))
-	header("Location: index.php");
-
-else
-	header("Location: logIn.php");
-?>
+if (isset($_SESSION['idUsers'])) {
+    header("Location: index.php");
+} else {
+    header("Location: logIn.php");
+}
