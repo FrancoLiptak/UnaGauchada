@@ -62,3 +62,8 @@ function creditValue()
 
     return false;
 }
+
+function purchaseValue($cant)
+{
+    return $cant * creditValue();
+}
