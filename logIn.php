@@ -5,17 +5,7 @@
   <?php include_once "header.php";
   include_once "alert.php";
   include_once "validate.php";
-  if (validateLogin()) {
-      $_SESSION['msg'] = "No puede ingresar a logIn.php si ya tiene una sesion iniciada.";
-      header('Location: index.php');
-      die;
-    }
-    if (isset($_SESSION['msg']) && $_SESSION['msg'] != "") {
-        hacerAlert($_SESSION['msg']);
-        $_SESSION['msg'] = "";
-    }
-
-
+  
     ?>
   <div class="row">
     <div class="container-fluid  col-md-4 col-md-offset-4">
@@ -28,7 +18,17 @@
     if (isset($_SESSION['mal'])) {
         hacerAlert($_SESSION['mal']);
         unset($_SESSION['mal']);
-    }?>
+    }
+    if (validateLogin()) {
+          $_SESSION['msg'] = "No puede ingresar a logIn.php si ya tiene una sesion iniciada.";
+          header('Location: index.php');
+          die;
+        }
+        if (isset($_SESSION['msg']) && $_SESSION['msg'] != "") {
+            hacerAlert($_SESSION['msg']);
+            $_SESSION['msg'] = "";
+        }
+    ?>
 
     <form class="col-md-4 col-md-offset-4" action="procesarLogIn.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on"
       name="logIn_form" onsubmit="return validateFormLogIn()">

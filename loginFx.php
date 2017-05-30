@@ -36,7 +36,7 @@ function userLogin($email, $pass)
                 return true;
             }
         }
-        $_SESSION['mal']= "Verifica si te has registrado previamente en el sistema, o bien si el email y la contraseña que ingresaste son correctos.";
+        $_SESSION['mal']= "La contraseña que ingresaste no corresponde a ese mail. Vuelve a intentarlo.";
         return false;
     }
     $_SESSION['mal']= "Los campos de email y contraseña no fueron completados correctamente.";
