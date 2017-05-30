@@ -280,4 +280,6 @@ form .comment{
   height:7%!important;
   margin-right: 10px;
 }
-
+.logged-error{
+  margin-top: 200px;
+}

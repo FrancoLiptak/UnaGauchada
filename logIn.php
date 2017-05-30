@@ -8,6 +8,16 @@
   
     ?>
   <div class="row">
+    <?php 
+     if (validateLogin()) { ?> <div class="logged-error"><?php 
+              hacerAlert("No puede ingresar a logIn.php si ya tiene una sesion iniciada.");
+              
+              ?>
+              </div>
+              <?php  
+              die;
+    }
+    ?>
     <div class="container-fluid  col-md-4 col-md-offset-4">
       <div class="page-header ">
         <h4 style="text-align:center;"> Si aún no te has <a href="signUp.php">registrado</a>, no dudes en hacerlo. </h4>
@@ -19,15 +29,11 @@
         hacerAlert($_SESSION['mal']);
         unset($_SESSION['mal']);
     }
-    if (validateLogin()) {
-          $_SESSION['msg'] = "No puede ingresar a logIn.php si ya tiene una sesion iniciada.";
-          header('Location: index.php');
-          die;
-        }
-        if (isset($_SESSION['msg']) && $_SESSION['msg'] != "") {
-            hacerAlert($_SESSION['msg']);
-            $_SESSION['msg'] = "";
-        }
+   
+    if (isset($_SESSION['msg']) && $_SESSION['msg'] != "") {
+        hacerAlert($_SESSION['msg']);
+        $_SESSION['msg'] = "";
+    }
     ?>
 
     <form class="col-md-4 col-md-offset-4" action="procesarLogIn.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on"
