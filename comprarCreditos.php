@@ -5,26 +5,27 @@
   <?php
   include_once "validate.php";
   if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-  }
-  if (!(validateLogin())) {
-    $_SESSION['msg'] = "No puede ingresar a comprarCreditos.php si no tiene una sesion iniciada.";
-    header('Location: index.php');
-    die;
-  }
-  include_once "header.php";
-  include_once "alert.php";
-  include_once "validate.php";
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-  if (!validateLogin()) {
+      session_start();
+    }
+    if (!(validateLogin())) {
+        $_SESSION['msg'] = "No puede ingresar a comprarCreditos.php si no tiene una sesion iniciada.";
+        header('Location: index.php');
+        die;
+    }
+    include_once "header.php";
+    include_once "alert.php";
+    include_once 'credits.php';
+    include_once "validate.php";
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+    if (!validateLogin()) {
         $_SESSION['msg'] = "No puede ingresar a comprarCreditos.php si no tiene una sesion iniciada.";
         header('Location: index.php');
         die;
     }
 
-    ?>
+?>
     <div class="row">
       <div class="container-fluid  col-md-4 col-md-offset-4">
         <div class="page-header ">
@@ -67,7 +68,6 @@ if (session_status() == PHP_SESSION_NONE) {
       </form>
     </div>
     <!-- Cierro row -->
-
     <!-------------------------------------------- Script para validar el comprar -->
     <script rel="text/javascript" src="js/comprarCreditos.js"></script>
 
