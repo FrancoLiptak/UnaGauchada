@@ -4,6 +4,7 @@
   <title>Log In</title>
   <?php include_once "header.php";
   include_once "alert.php";
+  include_once "validate.php";
   if (validateLogin()) {
       $_SESSION['msg'] = "No puede ingresar a logIn.php si ya tiene una sesion iniciada.";
       header('Location: index.php');
