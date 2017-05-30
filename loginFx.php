@@ -12,6 +12,15 @@
 
         if ( validate($email) && validate($pass) ) {
             $link = connect();
+            $queryEmail = "SELECT idUsers FROM users WHERE email = '$email'";
+
+            $email = $link->query($query);
+
+            if ($email->num_rows == 0) {
+                $_SESSION['msg'] = "El mail ingresado todavia no fue usado para registrar un usuario.";
+                return false;
+            }
+
             $query = "SELECT idUsers, admin FROM users WHERE email = '$email' and pass = '$pass'";
 
             $result = $link->query($query);
@@ -28,7 +37,7 @@
             return false;
 
         }
-        $_SESSION['mal']= "Verifica si te has registrado previamente en el sistema, o bien si el email y la contraseña que ingresaste son correctos.";
+        $_SESSION['mal']= "Los campos de email y contraseña no fueron completados correctamente.";
         return false;
     }
 
