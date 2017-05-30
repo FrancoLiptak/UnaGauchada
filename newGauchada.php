@@ -46,7 +46,7 @@ function newGauchada($title, $description, $expiration, $category, $city, $img =
                 return false;
             }
 
-            if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+            if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
                 $_SESSION['msg'] = 'Solo se aceptan imagenes de tipo JPEG, JPG, PNG.';
                 return false;
             }
@@ -65,17 +65,16 @@ function newGauchada($title, $description, $expiration, $category, $city, $img =
 
         if ($result = $link->query($query)) {
             decrementCredits($_SESSION['idUsers']);
+        } else {
+            $_SESSION['msg'] = $link->error;
         }
-		else {
-			$_SESSION['msg'] = $link->error;
-		}
 
         return $result;
     }
     
-    if (!(validateCredits($_SESSION['idUsers']))){
-        $_SESSION['msg'] = "No posee créditos suficientes para realizar la publicación.";  
-    }else{
+    if (!(validateCredits($_SESSION['idUsers']))) {
+        $_SESSION['msg'] = "No posee créditos suficientes para realizar la publicación.";
+    } else {
         $_SESSION['msg'] = "No completo todos los campos.";
     }
     
