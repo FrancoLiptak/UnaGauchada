@@ -44,14 +44,20 @@ if (isset($_SESSION['idUsers'])) {
                     <a href="#">
                       <form id="search" action="gauchadas.php?titulo=titulo&cat=cat&city=city" method="get">
                         <input class="search" type="text" name="titulo" placeholder=" Ingrese titulo">
-                        <select class="styled-select select2" id="styled-select" name="city">
-                                  <option value="0">Todas las ciudades</option>
-                                    <?php selectCity(); ?>
-                              </select>&nbsp;
+
+
+    <select class="styled-select example" id="style-select" name="city">
+        <option value="0">Todas las ciudades</option>
+        <?php selectCity(); ?>
+    </select>&nbsp;
+                        
+
+
+
                         <select class="styled-select" id="styled-select" name="cat">
-                                <option value="0">Todas las categorias</option>
-                                <?php selectCates(); ?>
-                             </select>&nbsp;
+                          <option value="0">Todas las categorias</option>
+                          <?php selectCates(); ?>
+                        </select>&nbsp;
                         <input type="submit" id="submit" name="ir" value="Ir" class="btn btn-warning">
                       </form>
                     </a>
@@ -66,10 +72,10 @@ if (isset($_SESSION['idUsers'])) {
               <?php }?>
               <?php if (isset($_SESSION['idUsers'])) {
                   if (!($_SESSION['admin'])) { ?>
-                    <li><a target="_self" href="publicar.php"><span class="glyphicon glyphicon-plus"></span> Publicar </a></li>
+              <li><a target="_self" href="publicar.php"><span class="glyphicon glyphicon-plus"></span> Publicar </a></li>
               <?php } include_once "miCuenta.php"; 
                   if (!($_SESSION['admin'])) { ?>
-                    <li><a target="_self"><span class="glyphicon glyphicon-asterisk"></span> <?php echo $credits ?> créditos </a></li>
+              <li><a target="_self"><span class="glyphicon glyphicon-asterisk"></span> <?php echo $credits ?> créditos </a></li>
               <?php }
 } ?>
             </ul>
