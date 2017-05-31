@@ -44,7 +44,7 @@ if (isset($_SESSION['idUsers'])) {
                     <a href="#">
                       <form id="search" action="gauchadas.php?titulo=titulo&cat=cat&city=city" method="get">
                         <input class="search" type="text" name="titulo" placeholder=" Ingrese titulo">
-                        <select class="styled-select" id="styled-select" name="city">
+                        <select class="styled-select select2" id="styled-select" name="city">
                                   <option value="0">Todas las ciudades</option>
                                     <?php selectCity(); ?>
                               </select>&nbsp;

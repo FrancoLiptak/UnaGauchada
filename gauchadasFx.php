@@ -175,10 +175,10 @@ function showOneGauchada($gauchada)
                             if (isset($_SESSION['idUsers'])) {
                                 if ($_SESSION['idUsers']== $gauchada['idUser']) {
                                     ?>
-                                <div class="col-md-4 col-md-offset-1">
+                                <div class="col-md-6">
                                     <a class="btn btn-success" id="submit" href="" role="button"><span class="glyphicon glyphicon-edit"></span> Editar </a>
                                 </div>
-                                <div class="col-md-4 col-md-offset-1">
+                                <div class="col-md-6">
                                     <a class="btn btn-danger" id="submit" href="" role="button"> <span class="glyphicon glyphicon-trash"></span> Eliminar </a>
                                 </div>
                                 <?php
@@ -194,7 +194,7 @@ function showOneGauchada($gauchada)
                     </div>
                     <div class="col-md-12" style="margin-bottom: 30px">
                         <div class="page-header" style="margin: 30px">
-                            <h3>Descripcion:</h3>
+                            
                         </div>
                         <div style="margin: 30px">
                             <h4 style="text-align: left;">
