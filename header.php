@@ -44,16 +44,12 @@ if (isset($_SESSION['idUsers'])) {
                     <a href="#">
                       <form id="search" action="gauchadas.php?titulo=titulo&cat=cat&city=city" method="get">
                         <input class="search" type="text" name="titulo" placeholder=" Ingrese titulo">
-
-
-    <select class="styled-select example" id="style-select" name="city">
-        <option value="0">Todas las ciudades</option>
-        <?php selectCity(); ?>
-    </select>&nbsp;
-                        
-
-
-
+                        <div style="margin-bottom: 15px" >
+                        <select class="styled-select example" id="style-select" name="city">
+                            <option value="0">Todas las ciudades</option>
+                            <?php selectCity(); ?>
+                        </select>&nbsp;
+                        </div>
                         <select class="styled-select" id="styled-select" name="cat">
                           <option value="0">Todas las categorias</option>
                           <?php selectCates(); ?>
