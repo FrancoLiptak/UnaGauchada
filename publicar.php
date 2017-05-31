@@ -12,6 +12,11 @@
     header('Location: index.php');
     die;
   }
+  if (isAdmin()) {
+    $_SESSION['msg'] = "No puede ingresar a publicar.php si es administrador.";
+    header('Location: index.php');
+    die;
+  }
     include_once "header.php";
     include_once "doSelect.php";
     ?>
