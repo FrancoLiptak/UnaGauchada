@@ -46,7 +46,7 @@ function newUser($email, $pass1, $pass2, $name, $surname, $birthDate, $phone, $i
             return false;
         }
 
-        $target_dir = "uploads/nophoto.php";
+        $target_file = "uploads/nophoto.png";
         if (!$img['name'] == "") {
             $target_dir = "uploads/";
             $file = rand(1000, 100000)."-".$img['name'];
