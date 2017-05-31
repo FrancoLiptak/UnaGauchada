@@ -65,11 +65,12 @@ if (isset($_SESSION['idUsers'])) {
               <li><a target="_self" href="signUp.php"><span class="glyphicon glyphicon-user"></span> Registrarme </a></li>
               <?php }?>
               <?php if (isset($_SESSION['idUsers'])) {
-?>
-              <li><a target="_self" href="publicar.php"><span class="glyphicon glyphicon-plus"></span> Publicar </a></li>
-              <?php include_once "miCuenta.php"; ?>
-              <li><a target="_self"><span class="glyphicon glyphicon-asterisk"></span> <?php echo $credits ?> créditos </a></li>
-              <?php
+                  if (!($_SESSION['admin'])) { ?>
+                    <li><a target="_self" href="publicar.php"><span class="glyphicon glyphicon-plus"></span> Publicar </a></li>
+              <?php } include_once "miCuenta.php"; 
+                  if (!($_SESSION['admin'])) { ?>
+                    <li><a target="_self"><span class="glyphicon glyphicon-asterisk"></span> <?php echo $credits ?> créditos </a></li>
+              <?php }
 } ?>
             </ul>
             <!-- hasta aca nav derecha -->
