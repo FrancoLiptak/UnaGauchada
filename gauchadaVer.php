@@ -60,7 +60,7 @@ include_once 'fxComments.php';
     	    <?php
         }
 
-        if (isset($_SESSION['idUsers']) and ($_SESSION['idUsers'] != $idUsers)) {?>
+        if (isset($_SESSION['idUsers']) and ($_SESSION['idUsers'] != $idUsers) && (!($_SESSION['admin']))) {?>
     		<br><br>
             <div>
                 <legend>Deja un comentario!</legend>
