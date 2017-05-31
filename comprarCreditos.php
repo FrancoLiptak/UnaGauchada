@@ -54,7 +54,7 @@ if (isAdmin()) {
 
 ?>
     <div class="row">
-      <div class="container-fluid  col-md-4 col-md-offset-4">
+      <div class="container-fluid  col-md-6 col-md-offset-3">
         <div class="page-header ">
           <h4 style="text-align:center;"> <strong>Recuerda:</strong> necesitas créditos para poder publicar! Completa el siguiente formulario para realizar
             la compra. No olvides completar con tus datos de tarjeta. Es la única forma de poder efectuar la transaccion.
@@ -76,25 +76,29 @@ if (isAdmin()) {
 
       <form class="col-md-4 col-md-offset-4" action="procesarComprar.php" name="comprar_form" method="post" target="_self" accept-charset="UTF-8"
         autocomplete="on" onsubmit="return validateFormComprar()">
-        <div class="form-group col-sm-6">
-          <label>Créditos a comprar:</label>&nbsp;
-          <input class="form-control" type="number" name="credits" id="cantidadAComprar" placeholder="Cantidad de créditos" title="50 ARS c/u" min="0" required>
-        </div>
-        <div class="form-group col-sm-6">
-          <label>Monto en $:</label>&nbsp;
-          <input class="form-control" type="text" id="informarValor" disabled>
+        <div class="row">
+          <div class="form-group col-sm-6">
+            <label>Créditos a comprar:</label>&nbsp;
+            <input class="form-control" type="number" name="credits" id="cantidadAComprar" placeholder="Cantidad de créditos" title="50 ARS c/u" min="0" required>
+          </div>
+          <div class="form-group col-sm-6">
+            <label>Monto en $:</label>&nbsp;
+            <input class="form-control" type="text" id="informarValor" disabled>
+          </div>
         </div>
         <div class="form-group">
           <label>Numero de tarjeta:</label>&nbsp;
           <input class="form-control" type="number" name="nro" placeholder="Numero de tarjeta" required>
         </div>
-        <div class="form-group col-sm-6">
-          <label>Clave de seguridad:</label>&nbsp;
-          <input class="form-control" type="password" name="pass" placeholder="Clave de seguridad" required>
-        </div>
-        <div class="form-group col-sm-6">
-          <label>Fecha de vencimiento:</label>&nbsp;
-          <input class="form-control" type="date" name="endDateCredCard" required>
+        <div class="row">
+            <div class="form-group col-sm-6">
+              <label>Clave de seguridad:</label>&nbsp;
+              <input class="form-control" type="password" name="pass" placeholder="Clave de seguridad" required>
+            </div>
+            <div class="form-group col-sm-6">
+              <label>Fecha de vencimiento:</label>&nbsp;
+              <input class="form-control" type="date" name="endDateCredCard" required>
+            </div>
         </div>
         <input type="submit" name="submit" id="submit" value="Comprar" min="<?php echo date('Y-m-d'); ?>" class=" center-block btn btn-warning">
       </form>
