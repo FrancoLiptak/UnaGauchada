@@ -21,7 +21,13 @@ function newGauchada($title, $description, $expiration, $category, $city, $img =
     $description = trim($description);
 
     if (validateLogin() && validateCredits($_SESSION['idUsers']) && validate($title) && validate($description) && validateDate($expiration) && validate($category) && validate($city)) {
-        $target_file = null;
+
+        if (!validateSize($title)) {
+            $_SESSION['msg'] = 'El titulo tiene mas de 50 caracteres.';
+            return false;
+        }
+
+        $target_file = "/uploads/3827-logoUnaGauchada.png";
         if (!$img['name'] == "") {
             $target_dir = "uploads/";
             $file = rand(1000, 100000)."-".$img['name'];

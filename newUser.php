@@ -29,7 +29,24 @@ function newUser($email, $pass1, $pass2, $name, $surname, $birthDate, $phone, $i
     }
 
     if (validatePasswords($pass1, $pass2) && validate($name) && validate($surname) && validateDate($birthDate)) {
-        $target_dir = null;
+        if (!validateSize($name)) {
+            $_SESSION['msg'] = 'El nombre tiene mas de 50 caracteres.';
+            return false;
+        }
+        if (!validateSize($surname)) {
+            $_SESSION['msg'] = 'El apellido tiene mas de 50 caracteres.';
+            return false;
+        }
+        if (!validateSize($pass, 20)) {
+            $_SESSION['msg'] = 'La contraseña tiene mas de 20 caracteres.';
+            return false;
+        }
+        if (!validateSize($email)) {
+            $_SESSION['msg'] = 'El email tiene mas de 50 caracteres.';
+            return false;
+        }
+
+        $target_dir = "uploads/nophoto.php";
         if (!$img['name'] == "") {
             $target_dir = "uploads/";
             $file = rand(1000, 100000)."-".$img['name'];
