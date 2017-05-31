@@ -24,13 +24,13 @@
     echo '<script>
         $(document).ready(function () {
             $("#cantidadAComprar").keyup(function () {
-                value = $(this).val(); 
-                if(Number.isInteger(value)){
-                    value = value * "'.$valorActual.'" ;
+                var value = $(this).val()
+                if(!(value.indexOf(".") != -1)){
+                  value = value * "'.$valorActual.'" ;
                 }else{
-                    value = "Número no permitido.";
+                  value = "Número no permitido."
                 }
-                $("#informarValor").val(value);
+                 $("#informarValor").val(value);
             });
         });
     </script>';
