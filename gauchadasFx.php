@@ -25,7 +25,7 @@ function getOneGauchada($idGauchadas)
     return getGauchadas(1, 0, "idGauchadas = $idGauchadas")->fetch_assoc();
 }
 
-function showGauchadaForAll($gauchada)
+/* function showGauchadaForAll($gauchada)
 {
     $user = getUser($gauchada['idUser'])->fetch_assoc();
     $cate = getCategory($gauchada['idCategory'])->fetch_assoc();
@@ -71,7 +71,7 @@ function showGauchadaForAll($gauchada)
     </tr>
     </td>
     <?php
-}
+}*/
 
 function showGauchadaForAllPrueba($gauchada)
 {
@@ -182,12 +182,16 @@ function showOneGauchada($gauchada)
                                     <a class="btn btn-danger" id="submit" href="" role="button"> <span class="glyphicon glyphicon-trash"></span> Eliminar </a>
                                 </div>
                                 <?php
-                                } else {
-                            ?>
-                                    <p><a class="btn btn-warning" id="submit" href="" role="button">Ayudar &raquo;</a></p>
+                                } elseif ($_SESSION['admin']) { 
+                                ?>
+                                <div>
+                                    <a class="btn btn-danger" id="submit" href="" role="button"> <span class="glyphicon glyphicon-trash"></span> Eliminar </a>
+                                </div>  
                                     <?php
-                                }
-                            }
+                                }elseif (!($_SESSION['admin'])) {
+                                ?><p><a class="btn btn-warning" id="submit" href="" role="button">Ayudar &raquo;</a></p>
+                           <?php } 
+                       }
                     ?>
                         </div>
                         <!-- de los botones -->
