@@ -43,7 +43,7 @@ function showComment($comment, $idGauchada, $isReply = false)
     $date = $comment['date'];
 
     ?>
-    <div class="well" style="border: 1px solid black; margin-bottom: 5px; overflow: hidden; border-radius: 50px" >
+    <div>
 
             <div class='col-md-12'>
                 <div class='<?php if($isReply){ ?>col-xs-10 <?php }else{?> col-sm-8 <?php } ?>'>
