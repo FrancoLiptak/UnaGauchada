@@ -2,6 +2,16 @@
 
 <head>
   <title>Comprar créditos</title>
+  <script src='js/jquery.min.js' type='text/javascript'/>
+  <script src="js/jquery-1.0.4.js"></script>
+  <script>
+        $(document).ready(function () {
+            $("#cantidadAComprar").keyup(function () {
+                var value = $(this).val() * 50;
+                $("#informarValor").val(value);
+            });
+        });
+  </script>
   <?php
   include_once "validate.php";
   if (session_status() == PHP_SESSION_NONE) {
@@ -32,6 +42,7 @@
           <h4 style="text-align:center;"> <strong>Recuerda:</strong> necesitas créditos para poder publicar! Completa el siguiente formulario para realizar
             la compra. No olvides completar con tus datos de tarjeta. Es la única forma de poder efectuar la transaccion.
           </h4>
+          <h4 class="centered">Cada crédito vale ARS <?php echo creditValue() ?></h4>
         </div>
       </div>
         <?php  /* por si ocurre algun error al comprar */
@@ -50,7 +61,11 @@
         autocomplete="on" onsubmit="return validateFormComprar()">
         <div class="form-group">
           <label>Créditos a comprar:</label>&nbsp;
-          <input class="form-control" type="number" name="credits" placeholder="Cantidad de créditos" title="50 ARS c/u" min="0" required>
+          <input class="form-control" type="text" name="credits" id="cantidadAComprar" placeholder="Cantidad de créditos" title="50 ARS c/u" min="0" required>
+        </div>
+        <div class="form-group">
+          <label>El monto en $ de su compra es:</label>&nbsp;
+          <input class="form-control" type="text" id="informarValor" disabled>
         </div>
         <div class="form-group">
           <label>Numero de tarjeta:</label>&nbsp;
