@@ -9,7 +9,7 @@ function validateFormSignUp() {
       alert("El valor ' " + document.signUp_form.surname.value +" '"+" no parece válido para un Apellido ");
       return false;
     }
-    if (!/^([0-9]{5,20})+$/.test(document.signUp_form.phone.value)) {
+    if (!/^([0-9]{4,20})+$/.test(document.signUp_form.phone.value)) {
       alert("El valor ' " + document.signUp_form.phone.value + " ' no parece válido para un Número de Teléfono");
       return false;
     }
