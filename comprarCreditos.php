@@ -88,7 +88,7 @@
           <label>Fecha de vencimiento:</label>&nbsp;
           <input class="form-control" type="date" name="endDateCredCard" required>
         </div>
-        <input type="submit" name="submit" id="submit" value="Comprar" min="<?php echo date(Y-m-d); ?>" class=" center-block btn btn-warning">
+        <input type="submit" name="submit" id="submit" value="Comprar" min="<?php echo date('Y-m-d'); ?>" class=" center-block btn btn-warning">
       </form>
     </div>
     <!-- Cierro row -->
