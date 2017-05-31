@@ -47,6 +47,10 @@ function validateEmail($email)
 
     return validate($email) && boolval(filter_var($email, FILTER_VALIDATE_EMAIL)) && isUnique($email);
 }
+function validateEmailLogin($email){
+
+    return validate($email) && boolval(filter_var($email, FILTER_VALIDATE_EMAIL));
+}
 function isUnique($email)
 {
     // Devuelve true si el email es unico en la DB
