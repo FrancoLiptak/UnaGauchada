@@ -24,7 +24,12 @@
     echo '<script>
         $(document).ready(function () {
             $("#cantidadAComprar").keyup(function () {
-                var value = parseInt($(this).val()) * "'.$valorActual.'" ;
+                value = $(this).val(); 
+                if(Number.isInteger(value)){
+                    value = value * "'.$valorActual.'" ;
+                }else{
+                    value = "Número no permitido.";
+                }
                 $("#informarValor").val(value);
             });
         });
@@ -69,9 +74,9 @@
         </div>
         <div class="form-group col-sm-6">
           <label>Monto en $:</label>&nbsp;
-          <input class="form-control" type="number" id="informarValor" disabled>
+          <input class="form-control" type="text" id="informarValor" disabled>
         </div>
-        <div class="form-group col-sm-6">
+        <div class="form-group">
           <label>Numero de tarjeta:</label>&nbsp;
           <input class="form-control" type="number" name="nro" placeholder="Numero de tarjeta" required>
         </div>
@@ -79,7 +84,7 @@
           <label>Clave de seguridad:</label>&nbsp;
           <input class="form-control" type="password" name="pass" placeholder="Clave de seguridad" required>
         </div>
-        <div class="form-group">
+        <div class="form-group col-sm-6">
           <label>Fecha de vencimiento:</label>&nbsp;
           <input class="form-control" type="date" name="endDateCredCard" required>
         </div>
