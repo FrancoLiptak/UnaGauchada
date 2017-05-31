@@ -47,7 +47,7 @@ function showComment($comment, $idGauchada, $isReply = false)
     <div <?php if(!($isReply)){ ?> class="well" style="margin-bottom: 10px; overflow: hidden; border-radius: 8px;"<?php } ?>>
 
             <div class='col-md-12'>
-                <div class='col-sm-8' <?php if($isReply){ ?> style="margin-left:50px; font-size: 12px; margin-bottom: -20px;"<?php } ?>>
+                <div class='col-sm-6' <?php if($isReply){ ?> style=" font-size: 12px; margin-bottom: -20px;"<?php } ?>>
                     <img class='img-circle <?php if($isReply){ ?>img-reply-user <?php }else{?>img-comment-user <?php } ?>    ' style="float: left;"height='65' width='65' src="<?php if ($userPhoto == null) {
                     echo " uploads/nophoto.png ";
                     } else {
@@ -72,14 +72,14 @@ function showComment($comment, $idGauchada, $isReply = false)
                 
                     if (isset($_SESSION['idUsers']) and ($_SESSION['idUsers'] == $idUserGauchada) and $notRepliedYet and $notMyComment ){?>
                         <div class="col-sm-6">
-                            <a href="" id="submit" class="btn btn-default ">Responder &raquo;</a>
+                            <a href=""  class="btn btn-default ">Responder &raquo;</a>
                         </div>
                     <?php } ?>
                     <?php
                     if ( validateLogin() && ( isAdmin() || $_SESSION['idUsers'] == $idUserGauchada) ){
                         ?> 
-                        <div class="col-sm-6">
-                            <a href="" id="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Eliminar</a>
+                        <div class="col-sm-6" >
+                            <a href=""  class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Eliminar</a>
                         </div>
                     <?php }
                     ?>
