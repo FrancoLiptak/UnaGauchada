@@ -4,14 +4,7 @@
   <title>Comprar créditos</title>
   <script src='js/jquery.min.js' type='text/javascript'/>
   <script src="js/jquery-1.0.4.js"></script>
-  <script>
-        $(document).ready(function () {
-            $("#cantidadAComprar").keyup(function () {
-                var value = $(this).val() * 50;
-                $("#informarValor").val(value);
-            });
-        });
-  </script>
+  
   <?php
   include_once "validate.php";
   if (session_status() == PHP_SESSION_NONE) {
@@ -26,6 +19,17 @@
     include_once "alert.php";
     include_once 'credits.php';
     include_once "validate.php";
+
+    $valorActual = creditValue();
+    echo '<script>
+        $(document).ready(function () {
+            $("#cantidadAComprar").keyup(function () {
+                var value = $(this).val() * "'.$valorActual.'" ;
+                $("#informarValor").val(value);
+            });
+        });
+    </script>';
+
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
