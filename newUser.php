@@ -71,7 +71,7 @@ function newUser($email, $pass1, $pass2, $name, $surname, $birthDate, $phone, $i
                 return false;
             }
 
-            if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+            if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
                 $_SESSION['msg'] = 'Solo se aceptan imagenes de tipo JPEG, JPG, PNG.';
                 return false;
             }
@@ -82,16 +82,11 @@ function newUser($email, $pass1, $pass2, $name, $surname, $birthDate, $phone, $i
             }
         }
 
-
-        if (!validate($phone)) {
-            $phone = "";
-        }
-
         $startingCredits = 1;
         $startingReputation = 1;
 
-        $query = "INSERT INTO users ( email, pass, name, surname, birthDate, credits, reputation, photo ) ";
-        $query = $query."VALUES ( '$email', '$pass1', '$name', '$surname', '$birthDate', $startingCredits, $startingReputation, '$target_file' );";
+        $query = "INSERT INTO users ( email, pass, name, surname, birthDate, phone, credits, reputation, photo ) ";
+        $query = $query."VALUES ( '$email', '$pass1', '$name', '$surname', '$birthDate', $phone, $startingCredits, $startingReputation, '$target_file' );";
         $result = $link->query($query);
 
         if ($result) {
