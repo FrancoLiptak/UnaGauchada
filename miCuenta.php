@@ -1,9 +1,5 @@
 <li class="dropdown">
-	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="img-circle img-nav-user"src="<?php if ($photo == null) {
-                            echo " uploads/nophoto.png ";
-                        } else {
-                            echo $photo;
-                        } ?>">&nbsp;<?php echo $name." ".$surname;?><span class="caret"></span></a>
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $name." ".$surname;?><span class="caret"></span></a>
     <ul class="dropdown-menu gray">
         <?php
         if ($_SESSION['admin']) {

@@ -71,12 +71,17 @@ function showComment($comment, $idGauchada, $isReply = false)
                     $notRepliedYet=($reply->num_rows == 0);
                 
                     if (isset($_SESSION['idUsers']) and ($_SESSION['idUsers'] == $idUserGauchada) and $notRepliedYet and $notMyComment ){?>
-                        <a href="" class="btn btn-default col-sm-4">Responder</a>
+                        <div class="col-sm-6">
+                            <a href="" id="submit" class="btn btn-default ">Responder &raquo;</a>
+                        </div>
                     <?php } ?>
                     <?php
-                    if ( validateLogin() && ( isAdmin() || $_SESSION['idUser'] == $comment['idUser'] ) ){
-                        echo "Borrar esto y poner boton de borrar.";
-                    }
+                    if ( validateLogin() && ( isAdmin() || $_SESSION['idUsers'] == $idUserGauchada) ){
+                        ?> 
+                        <div class="col-sm-6">
+                            <a href="" id="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Eliminar</a>
+                        </div>
+                    <?php }
                     ?>
                 </div>
             </div> <!-- engloba a un comentario -->
