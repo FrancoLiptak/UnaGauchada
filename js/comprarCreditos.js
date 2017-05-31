@@ -1,6 +1,6 @@
 function validateFormComprar(){
 	if (! validateCredits()){
-		alert("La cantidad de creditos a comprar debe ser mayor igual a 0.");
+		alert("La cantidad de creditos a comprar debe ser un número sin coma, y mayor igual a 0.");
 		return false;
 	}
 	if (! validateNro()){
@@ -21,7 +21,11 @@ function validateFormComprar(){
 }
 
 function validateCredits(){
-	return document.comprar_form.credits.value >= 0;
+	var patron =  /^\d*$/;
+	if (patron.test(document.comprar_form.credits.value)){
+		return document.comprar_form.credits.value >= 0;
+	}
+	return false;
 }
 
 function validateNro(){

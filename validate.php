@@ -13,6 +13,13 @@ function validate($var)
     return isset($var) && $var != "";
 }
 
+function validarCantidadCreditos($var)
+{
+    // Retorna true si el parametro esta seteado y es distinto de "".
+
+    return isset($var) && $var != "" && is_int($var);
+}
+
 function isMayor($date, $format = 'Y-m-d')
 {
     $d = DateTime::createFromFormat($format, $date);

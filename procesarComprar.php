@@ -2,8 +2,11 @@
 include_once 'validate.php';
 include_once 'credits.php';
 
-if (!	(	validate($_POST['pass']) && validate($_POST['nro']) && validate($_POST['credits'])	)	){
+if (!	(	validate($_POST['pass']) && validate($_POST['nro'])	)	){
 	$_SESSION['mal_completado']="Debes completar todos los campos!";
+	if (! (validarCantidadCreditos($_POST['credits'] ) ) ){
+		$_SESSION['mal_completado']= "El campo 'Créditos a comprar:' debe ser completado con un número sin coma!";
+	}
 }
 elseif (validateCompra($_POST['nro'],$_POST['pass'],$_SESSION['idUsers'])) {
 	incrementCredits($_SESSION['idUsers']);

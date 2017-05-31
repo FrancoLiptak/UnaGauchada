@@ -65,7 +65,7 @@
         autocomplete="on" onsubmit="return validateFormComprar()">
         <div class="form-group col-sm-6">
           <label>Créditos a comprar:</label>&nbsp;
-          <input class="form-control" type="number" name="credits" id="cantidadAComprar" placeholder="Cantidad de créditos" title="50 ARS c/u" min="0" required>
+          <input class="form-control" type="number" step="1" name="credits" id="cantidadAComprar" placeholder="Cantidad de créditos" title="50 ARS c/u" min="0" required>
         </div>
         <div class="form-group col-sm-6">
           <label>Monto en $:</label>&nbsp;
