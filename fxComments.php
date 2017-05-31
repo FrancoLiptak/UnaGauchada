@@ -1,5 +1,6 @@
 <?php
     include_once 'connect.php';
+    include_once 'validate.php';
     include_once 'gauchadasFx.php';
     include_once 'getUser.php';
 
@@ -71,11 +72,12 @@ function showComment($comment, $idGauchada, $isReply = false)
                 
                     if (isset($_SESSION['idUsers']) and ($_SESSION['idUsers'] == $idUserGauchada) and $notRepliedYet and $notMyComment ){?>
                         <a href="" class="btn btn-default col-sm-4">Responder</a>
-                    
-
-
-
                     <?php } ?>
+                    <?php
+                    if ( validateLogin() && ( isAdmin() || $_SESSION['idUser'] == $comment['idUser'] ) ){
+                        echo "Borrar esto y poner boton de borrar.";
+                    }
+                    ?>
                 </div>
             </div> <!-- engloba a un comentario -->
 
