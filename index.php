@@ -43,7 +43,7 @@
       $hoy = date('Y-m-d');
       $gauchadas = getGauchadas(3,0,"expiration >= '$hoy'");
       $i = $gauchadas->num_rows;
-     ?>
+     ?> 
     <div class="col-md-12">
             <div class="container">
                 <div class="row">
