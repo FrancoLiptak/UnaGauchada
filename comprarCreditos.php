@@ -59,19 +59,19 @@
 
       <form class="col-md-4 col-md-offset-4" action="procesarComprar.php" name="comprar_form" method="post" target="_self" accept-charset="UTF-8"
         autocomplete="on" onsubmit="return validateFormComprar()">
-        <div class="form-group">
+        <div class="form-group col-sm-6">
           <label>Créditos a comprar:</label>&nbsp;
-          <input class="form-control" type="text" name="credits" id="cantidadAComprar" placeholder="Cantidad de créditos" title="50 ARS c/u" min="0" required>
+          <input class="form-control" type="number" name="credits" id="cantidadAComprar" placeholder="Cantidad de créditos" title="50 ARS c/u" min="0" required>
         </div>
-        <div class="form-group">
-          <label>El monto en $ de su compra es:</label>&nbsp;
-          <input class="form-control" type="text" id="informarValor" disabled>
+        <div class="form-group col-sm-6">
+          <label>Monto en $:</label>&nbsp;
+          <input class="form-control" type="number" id="informarValor" disabled>
         </div>
-        <div class="form-group">
+        <div class="form-group col-sm-6">
           <label>Numero de tarjeta:</label>&nbsp;
           <input class="form-control" type="number" name="nro" placeholder="Numero de tarjeta" required>
         </div>
-        <div class="form-group">
+        <div class="form-group col-sm-6">
           <label>Clave de seguridad:</label>&nbsp;
           <input class="form-control" type="password" name="pass" placeholder="Clave de seguridad" required>
         </div>

@@ -38,11 +38,11 @@ include_once "alert.php";
         name="logIn_form" onsubmit="return validateFormLogIn()">
         <div class="form-group">
           <label>Email:</label>
-          <input class="form-control" type="email" name="email" placeholder=" E-mail...">
+          <input class="form-control" type="email" name="email" placeholder=" E-mail..." required>
         </div>
         <div class="form-group">
           <label>Contraseña:</label>
-          <input class="form-control" type="password" name="pass" placeholder=" Contraseña...">
+          <input class="form-control" type="password" name="pass" placeholder=" Contraseña..." required>
         </div>
         <div class="form-group">
           <input type="submit" name="submit" id="submit" value="Log in" class="center-block btn btn-warning">
