@@ -44,7 +44,6 @@
           hacerAlert($_SESSION['mal_completado']);
           unset($_SESSION['mal_completado']);
        } ?>
-
        <form enctype="multipart/form-data" class="col-md-4 col-md-offset-4" action="procesarSignUp.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on" name="signUp_form" onsubmit="return validateFormSignUp()">
     			<div class="row ">
             <div class="form-group col-md-6">
