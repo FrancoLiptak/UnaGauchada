@@ -1,3 +1,20 @@
+<?php
+include_once "validate.php";
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+if (!(validateLogin())) {
+    $_SESSION['msg'] = "No puede ingresar a comprarCreditos.php si no tiene una sesion iniciada.";
+    header('Location: index.php');
+    die;
+}
+if (isAdmin()) {
+    $_SESSION['msg'] = "No puede ingresar a comprarCreditos.php si es administrador.";
+    header('Location: index.php');
+    die;
+}
+?>
+
 <html>
 
 <head>
@@ -5,16 +22,7 @@
   <script src='js/jquery.min.js' type='text/javascript'/>
   <script src="js/jquery-1.0.4.js"></script>
   
-  <?php
-  include_once "validate.php";
-  if (session_status() == PHP_SESSION_NONE) {
-      session_start();
-    }
-    if (!(validateLogin())) {
-        $_SESSION['msg'] = "No puede ingresar a comprarCreditos.php si no tiene una sesion iniciada.";
-        header('Location: index.php');
-        die;
-    }
+    <?php
     include_once "header.php";
     include_once "alert.php";
     include_once 'credits.php';
