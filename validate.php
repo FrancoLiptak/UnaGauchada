@@ -87,3 +87,7 @@ function isAdmin()
 {
     return $_SESSION["admin"];
 }
+
+function validateSize($var, $max = 50){
+    return strlen($var) <= $max;
+}
