@@ -43,15 +43,15 @@
       accept-charset="UTF-8" autocomplete="on" name="publucar_form" onsubmit="return validateFormPublicar()">
       <div class="form-group">
         <label for="title"><span class="glyphicon glyphicon-bookmark"></span> Título:</label>
-        <input type="text" class="form-control" id="title" name="title" placeholder="Titulo">
+        <input type="text" class="form-control" id="title" name="title" placeholder="Titulo" required>
       </div>
       <div class="form-group">
         <label for="description"><span class="glyphicon glyphicon-bookmark"></span> Descripción:</label>
-        <textarea class="form-control" id="description" name="description" placeholder="Descripcion"></textarea>
+        <textarea class="form-control" id="description" name="description" placeholder="Descripcion" required></textarea>
       </div>
       <div class="form-group">
         <label for="expiration"><span class="glyphicon glyphicon-bookmark"></span> Fecha limite:</label>
-        <input type="date" class="form-control" id="expiration" name="expiration" min="<?php echo date('Y-m-d');?>">
+        <input type="date" class="form-control" id="expiration" name="expiration" min="<?php echo date('Y-m-d');?>" required>
       </div>
       <div class="row ">
         <div class="form-group col-md-6">
