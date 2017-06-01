@@ -17,7 +17,7 @@ function validarCantidadCreditos($var)
 {
     // Retorna true si el parametro esta seteado y es distinto de "".
 
-    return isset($var) && $var != "" && intval($var);
+    return isset($var) && $var != "" && intval($var) && ($var > 0);
 }
 
 function isMayor($date, $format = 'Y-m-d')
