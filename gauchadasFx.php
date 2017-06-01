@@ -114,7 +114,6 @@ function showGauchadaForAllPrueba($gauchada)
                 <?php echo $cate['name']; ?>
                 <span class="glyphicon glyphicon-map-marker box-item"></span>
                 <?php echo $city['name']; ?>
-                <br><br>
             </span>
 
             <p class="centered">
