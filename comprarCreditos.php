@@ -63,16 +63,29 @@ if (isAdmin()) {
         </div>
       </div>
         <?php  /* por si ocurre algun error al comprar */
-        if (isset($_SESSION['errorEnCompra'])) {
-            hacerAlert($_SESSION['errorEnCompra']);
-            unset($_SESSION['errorEnCompra']);
+        if (isset($_SESSION['no-existe'])) {
+            hacerAlert($_SESSION['no-existe']);
+            unset($_SESSION['no-existe']);
         } elseif (isset($_SESSION['bien'])) {
             hacerAlert($_SESSION['bien'], "success");
             unset($_SESSION['bien']);
         } elseif (isset($_SESSION['mal_completado'])) {
             hacerAlert($_SESSION['mal_completado']);
             unset($_SESSION['mal_completado']);
-        }?>
+        }
+        elseif (isset($_SESSION['pass-incorrecta'])) {
+            hacerAlert($_SESSION['pass-incorrecta']);
+            unset($_SESSION['pass-incorrecta']);
+        }
+        elseif (isset($_SESSION['errorCompra'])) {
+            hacerAlert($_SESSION['errorCompra']);
+            unset($_SESSION['errorCompra']);
+        }
+        elseif (isset($_SESSION['estado-false'])) {
+            hacerAlert($_SESSION['estado-false']);
+            unset($_SESSION['estado-false']);
+        }
+        ?>
 
       <form class="col-md-4 col-md-offset-4" action="procesarComprar.php" name="comprar_form" method="post" target="_self" accept-charset="UTF-8"
         autocomplete="on" onsubmit="return validateFormComprar()">

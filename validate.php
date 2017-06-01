@@ -73,14 +73,66 @@ function isUnique($email)
 
     return true;
 }
-function validateCompra($nro, $pass, $idUser)
+function validateTarjeta($nro, $pass)
 {
-    // Devuelve true si la contraseña es correcta, y se puede hacer la compra.
+    // Devuelve true si la tarjeta existe.
+    $link= connect();
+    $query=mysqli_query($link, "SELECT * FROM tarjetas WHERE nro=$nro ;" );
+    if ($query){
+        if ($query->num_rows == 0) {
+            $_SESSION['no-existe']='La tarjeta no existe!';
+            return false;
+        }
+        else{
+        return true;
+        }
+    }
+    else{
+        $_SESSION['errorCompra']='Error en la consulta!';
+        return false;
+    }
+}
+function validatePassTarjeta($nro, $pass)
+{
+    // Devuelve true si la tarjeta pass coincide para esa tarjeta.
     $link= connect();
     $query=mysqli_query($link, "SELECT * FROM tarjetas WHERE nro=$nro and pass=$pass;" );
     $tarjeta= mysqli_fetch_array($query);
 
-    return  $query && $tarjeta['estado'];
+    if ($query){
+        if ($query->num_rows == 0) {
+            $_SESSION['no-existe']='La tarjeta no se corresponde con esa contraseña!';
+            return false;
+        }
+        else{
+        return true;
+        }
+    }
+    else{
+        $_SESSION['errorCompra']='Error en la consulta!';
+        return false;
+    }
+}
+function validateEstadoTarjeta($nro, $pass)
+{
+    // Devuelve true si la tarjeta no pasó el límite.
+    $link= connect();
+    $query=mysqli_query($link, "SELECT estado FROM tarjetas WHERE nro=$nro and pass=$pass;" );
+    $tarjeta= mysqli_fetch_array($query);
+
+   if (!($tarjeta['estado'])){
+        $_SESSION['estado-false']='La tarjeta ha alcanzado el límite!';
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+function validateCompra($nro, $pass)
+{
+    // Devuelve true si la tarjeta existe, la contraseña es correcta, y se puede hacer la compra.
+   
+    return  validateTarjeta($nro, $pass) && validatePassTarjeta($nro, $pass) && validateEstadoTarjeta($nro, $pass);
 }
 
 function isAdmin()

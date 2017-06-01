@@ -8,12 +8,10 @@ if (!	(	validateCardNumber($_POST['nro']) && validatePin($_POST['pass'])	)	){
 elseif ( ! ( validarCantidadCreditos($_POST['credits'] ) ) ){
 		$_SESSION['mal_completado']= "El campo 'Créditos a comprar' debe ser completado con un número positivo sin coma!";
 }
-elseif (validateCompra($_POST['nro'],$_POST['pass'],$_SESSION['idUsers'] )) {
+elseif (validateCompra($_POST['nro'],$_POST['pass'])) {
 	incrementCredits($_SESSION['idUsers'], $_POST['credits']);
 	$_SESSION['bien']="Se ha efectuado la compra!";
 }
-else{
-	$_SESSION['errorEnCompra']="Error al efectuarse la compra. Datos incorrectos o límite alcanzado.";
-}
+
 header("Location: comprarCreditos.php");
  ?>
