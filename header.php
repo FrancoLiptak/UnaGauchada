@@ -54,7 +54,7 @@ if (isset($_SESSION['idUsers'])) {
                           <option value="0">Todas las categorias</option>
                           <?php selectCates(); ?>
                         </select>&nbsp;
-                        <input type="submit" id="submit" name="ir" value="Ir" class="btn btn-warning">
+                        <input type="submit" id="submit" name="ir" value="Ir" class="btn btn-warning ir">
                       </form>
                     </a>
                   </li>
