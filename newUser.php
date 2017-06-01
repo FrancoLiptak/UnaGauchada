@@ -27,6 +27,9 @@ function newUser($email, $pass1, $pass2, $name, $surname, $birthDate, $phone, $i
         $_SESSION['msg']= "El email ingresado no es un email valido.";
         return false;
     }
+    if (!isUnique($email)) {
+        return false;
+    }
 
     if (validatePasswords($pass1, $pass2) && validate($name) && validate($surname) && validateDate($birthDate)) {
         if (!validateSize($name)) {

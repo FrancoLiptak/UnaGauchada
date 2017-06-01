@@ -47,7 +47,7 @@ function showComment($comment, $idGauchada, $isReply = false)
     <div <?php if(!($isReply)){ ?> class="well" style="margin-bottom: 10px; overflow: hidden; border-radius: 8px;"<?php } ?>>
 
             <div class='col-md-12'>
-                <div class='col-sm-6' <?php if($isReply){ ?> style=" font-size: 12px; margin-bottom: -20px;"<?php } ?>>
+                <div class='col-sm-8' <?php if($isReply){ ?> style=" font-size: 12px; margin-bottom: -20px;"<?php } ?>>
                     <img class='img-circle <?php if($isReply){ ?>img-reply-user <?php }else{?>img-comment-user <?php } ?>    ' style="float: left;"height='65' width='65' src="<?php if ($userPhoto == null) {
                     echo " uploads/nophoto.png ";
                     } else {
@@ -59,7 +59,7 @@ function showComment($comment, $idGauchada, $isReply = false)
 
                     <br>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4" style="float:right;">
                     <?php  
                     $link= connect();
                     $sql="select idUser from gauchadas where idGauchadas=$idGauchada;";
@@ -70,11 +70,11 @@ function showComment($comment, $idGauchada, $isReply = false)
                     $notMyComment= $user['idUsers'] != $idUserGauchada;
                     $notRepliedYet=($reply->num_rows == 0);
                 
-                    if (isset($_SESSION['idUsers']) and ($_SESSION['idUsers'] == $idUserGauchada) and $notRepliedYet and $notMyComment ){?>
-                        <div class="col-sm-6">
+                        ?><div class="col-sm-6">
+                     <?php if (isset($_SESSION['idUsers']) and ($_SESSION['idUsers'] == $idUserGauchada) and $notRepliedYet and $notMyComment ){?>
                             <a href=""  class="btn btn-default ">Responder &raquo;</a>
-                        </div>
                     <?php } ?>
+                        </div>
                     <?php
                     if ( validateLogin() && ( isAdmin() || $_SESSION['idUsers'] == $idUserGauchada) ){
                         ?> 

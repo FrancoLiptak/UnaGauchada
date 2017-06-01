@@ -52,7 +52,7 @@ function validateEmail($email)
 {
     // Devuelve true si el email no esta en uso en la db, false caso contrario.
 
-    return validate($email) && boolval(filter_var($email, FILTER_VALIDATE_EMAIL)) && isUnique($email);
+    return validate($email) && boolval(filter_var($email, FILTER_VALIDATE_EMAIL)) ;
 }
 function validateEmailLogin($email){
 
