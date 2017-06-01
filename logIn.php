@@ -4,7 +4,7 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 if (validateLogin()) {
-    $_SESSION['msg'] = "No puede ingresar a login.php si no tiene una sesion iniciada.";
+    $_SESSION['msg'] = "No puede ingresar a login.php si tiene una sesión iniciada.";
     header('Location: index.php');
     die;
 }

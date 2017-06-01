@@ -33,7 +33,7 @@ if (isAdmin()) {
         $(document).ready(function () {
             $("#cantidadAComprar").keyup(function () {
                 var value = $(this).val()
-                if(!(value.indexOf(".") != -1)){
+                if(!(value.indexOf(".") != -1) && (parseInt(value) > 0)){
                   value = value * "'.$valorActual.'" ;
                 }else{
                   value = "Número no permitido."
