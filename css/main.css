@@ -191,6 +191,7 @@ input[type=date]{
 .img-table{
   width:auto;
   height:100px!important;
+  margin-bottom: 20px;
 }
 .gauchadaBox{
   transition:border .5s;

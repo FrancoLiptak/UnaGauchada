@@ -93,32 +93,37 @@ function showGauchadaForAllPrueba($gauchada)
     }
 ?>
         <div class="col-xs-6 col-md-4 gauchadaBox">
-            <div class="centered box-main">
+            <div class="box-main" style="text-align:left;">
                 <legend class="box-title">
                     <?php echo $title ?>
                 </legend>
+                </div>
+            <p class="" style="text-align:left;">
+                <img class="img-circle img-table-user" src="<?php if ($user['photo'] == null) {
+                                    echo " uploads/nophoto.png ";
+                } else {
+                    echo $user['photo'];
+                }?>">
+                <?php echo ($user['name'] . " " . $user['surname']) ; ?>
+            </p>
+                 
                 <img class="img-thumbnail img-table" src="<?php if ($gauchada['image'] == null) {
                     echo " uploads/63229-logoUnaGauchada.png ";
 } else {
     echo $gauchada['image'];
 }?>">
+            
+           <div class="row" style="text-align:left; margin-left:20px;">
+                <p>
+                    <span class="glyphicon glyphicon-hourglass box-item"></span>
+                    <?php echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a'); ?> días restantes.
+                </p>
+                <p> <span class="glyphicon glyphicon-tags box-item"></span> <?php echo $cate['name']; ?> </p>
+                <p> <span class="glyphicon glyphicon-map-marker box-item"></span> <?php echo $prov['name'].", ".$city['name'] ?> </p>
             </div>
-            <p class="centered">
-                <img class="img-circle img-table-user" src="<?php if ($user['photo'] == null) {
-                    echo " uploads/nophoto.png ";
-} else {
-    echo $user['photo'];
-}?>">
-                <?php echo ($user['name'] . " " . $user['surname']) ; ?>
-            </p>
-            <p class="centered">
-                <span class="glyphicon glyphicon-hourglass box-item"></span>
-                <?php echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a'); ?> días restantes.
-            </p>
             <p><a class="btn btn-default" id="submit" href="gauchadaVer.php?idGauchadas=<?php echo $gauchada['idGauchadas']; ?>"
                     role="button">Ver detalle &raquo;</a></p>
-            <?php echo $cate['name']; ?>
-            <?php echo $prov['name'].", ".$city['name'] ?>
+            
         </div>
         <!--/.col-xs-6.col-lg-4-->
         <?php
