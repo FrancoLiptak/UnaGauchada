@@ -137,6 +137,7 @@ function showOneGauchada($gauchada)
     $user = getUser($gauchada['idUser'])->fetch_assoc();
     $cate = getCategory($gauchada['idCategory'])->fetch_assoc();
     $city = getCity($gauchada['idCity'])->fetch_assoc();
+    $prov = getProv($city['idProvince'])->fetch_assoc();
     $hoy = date("Y-m-d");
 
     ?>
@@ -176,7 +177,7 @@ function showOneGauchada($gauchada)
                             <span class="glyphicon glyphicon-tags box-item"></span>&nbsp;
                             <?php echo $cate['name']; ?>
                             <span class="glyphicon glyphicon-map-marker box-item"></span>
-                            <?php echo $city['name']; ?>
+                            <?php echo $prov['name'].", ".$city['name']; ?>
                             <br><br>
                             
                         </p>
