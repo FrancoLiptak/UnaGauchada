@@ -4,6 +4,7 @@
     include_once 'usersFx.php';
     include_once 'fxCategory.php';
     include_once 'fxCity.php';
+    include_once 'fxProvince.php';
 function getGauchadas($limit, $first, $condition = "1 = 1")
 {
     // Retorna las proximas $limit gauchadas comenzando desde la tupla numero $first que cumplen la condicion $condition.
@@ -78,6 +79,7 @@ function showGauchadaForAllPrueba($gauchada)
     $user = getUser($gauchada['idUser'])->fetch_assoc();
     $cate = getCategory($gauchada['idCategory'])->fetch_assoc();
     $city = getCity($gauchada['idCity'])->fetch_assoc();
+    $prov = getProv($city['idProvince'])->fetch_assoc();
     $hoy = date("Y-m-d");
     $maxStrLength = 40;
     $largo = false;
@@ -122,6 +124,8 @@ function showGauchadaForAllPrueba($gauchada)
             </p>
             <p><a class="btn btn-default" id="submit" href="gauchadaVer.php?idGauchadas=<?php echo $gauchada['idGauchadas']; ?>"
                     role="button">Ver detalle &raquo;</a></p>
+            <?php echo $cate['name']; ?>
+            <?php echo $prov['name'].", ".$city['name'] ?>
         </div>
         <!--/.col-xs-6.col-lg-4-->
         <?php
