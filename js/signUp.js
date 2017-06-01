@@ -1,13 +1,23 @@
 function validateFormSignUp() {
 	  //usamos expresiones regulares.... hay que agregar lo del mail y lo de que las contraseñas no estén vacias
 	
-    if (!/^([A-z])+$/.test(document.signUp_form.name.value)) {
-      alert("El valor ' " + document.signUp_form.name.value +" '"+" no parece válido para un Nombre"); //antes no andaban pq habia un * al final en vez del + que hay ahora;
-      return false;                                                                                   //el * significa 0 ó + elementos (por eso cuando no tomaba nada del campo te lo ponia como bien) y el + significa 1 ó mas elementos (si hay un campo vacio ahora si salta el alerta!!)
+    if (document.signUp_form.name.value.trim().length > 0){
+      if (!/^[A-Za-z ]+$/.test(document.signUp_form.name.value)) {
+        alert("El valor ' " + document.signUp_form.name.value +" '"+" no parece válido para un Nombre"); //antes no andaban pq habia un * al final en vez del + que hay ahora;
+        return false;                                                                                   //el * significa 0 ó + elementos (por eso cuando no tomaba nada del campo te lo ponia como bien) y el + significa 1 ó mas elementos (si hay un campo vacio ahora si salta el alerta!!)
+      }
+    }else{
+      alert("No puedes poner solo espacios en blanco en el campo 'Nombre'!"); //antes no andaban pq habia un * al final en vez del + que hay ahora;
+        return false;    
     }
-    if (!/^([A-z])+$/.test(document.signUp_form.surname.value)) {
-      alert("El valor ' " + document.signUp_form.surname.value +" '"+" no parece válido para un Apellido ");
-      return false;
+    if (document.signUp_form.surname.value.trim().length > 0){
+      if (!/^[A-Za-z ]+$/.test(document.signUp_form.surname.value)) {
+        alert("El valor ' " + document.signUp_form.surname.value +" '"+" no parece válido para un Nombre"); //antes no andaban pq habia un * al final en vez del + que hay ahora;
+        return false;                                                                                   //el * significa 0 ó + elementos (por eso cuando no tomaba nada del campo te lo ponia como bien) y el + significa 1 ó mas elementos (si hay un campo vacio ahora si salta el alerta!!)
+      }
+    }else{
+      alert("No puedes poner solo espacios en blanco en el campo 'Apellido'!"); //antes no andaban pq habia un * al final en vez del + que hay ahora;
+        return false;    
     }
     if (!/^([0-9]{4,20})+$/.test(document.signUp_form.phone.value)) {
       alert("El valor ' " + document.signUp_form.phone.value + " ' no parece válido para un Número de Teléfono");

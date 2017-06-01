@@ -51,7 +51,7 @@ function creditValue()
 // Retorna el precio de los creditos o false en caso de error.
     $link = connect();
 
-    $query = "SELECT * FROM credit WHERE idCredit = 1";
+    $query = "SELECT price FROM credit WHERE idCredit = 1";
     $result = $link->query($query);
 
     if ($result) {
