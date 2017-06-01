@@ -27,7 +27,7 @@
           <h2 style="">Bienvenido a unaGauchada!</h2>
           <p style="font-size:19px;">Un sitio en donde podrás contactarte con cualquier persona a lo largo y ancho de todo el país para darle una mano, y también recibir la ayuda de un noble gaucho.
             <br>Ya somos miles y miles los que elegimos ser parte de esta enorme comunidad.
-            <br>Qué esperas para sumarte?!</p>
+            <br>¡¿Qué esperas para sumarte?!</p>
         </div>
         <img class="col-md-2 img-responsive" src="imgs/logoUnaGauchada.png">
       </div> <!-- fondo transparente -->
