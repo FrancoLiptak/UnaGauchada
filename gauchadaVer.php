@@ -77,5 +77,5 @@ include_once 'fxComments.php';
 ?>
 
     </div>
-
+    <br><br><br><br>
     <?php include("footer.html");?>
