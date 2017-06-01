@@ -61,13 +61,13 @@
       <div class="row ">
         <div class="form-group col-md-6">
           <label for="category"><span class="glyphicon glyphicon-bookmark"></span> Categoria:</label>
-          <select class="form-control" id="category" name="category">
+          <select class="form-control example" id="category" name="category">
                         <?php selectCates(); ?>
                   </select>
         </div>
         <div class="form-group col-md-6">
           <label for="city"><span class="glyphicon glyphicon-bookmark"></span> Ciudad:</label>
-          <select class="form-control" id="city" name="city">
+          <select class="form-control example" id="city" name="city">
                         <?php selectCity(); ?>
                   </select>
         </div>

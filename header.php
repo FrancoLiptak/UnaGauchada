@@ -50,7 +50,7 @@ if (isset($_SESSION['idUsers'])) {
                             <?php selectCity(); ?>
                         </select>&nbsp;
                         </div>
-                        <select class="styled-select" id="styled-select" name="cat">
+                        <select class="styled-select example" id="styled-select" name="cat">
                           <option value="0">Todas las categorias</option>
                           <?php selectCates(); ?>
                         </select>&nbsp;
