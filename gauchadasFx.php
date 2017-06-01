@@ -154,8 +154,9 @@ function showOneGauchada($gauchada)
                         } else {
                             echo $gauchada['image'];
                         }
-                        ?>
-                        "></span>
+                        ?> 
+                        "> <br><br><span class="glyphicon glyphicon-hourglass box-item"></span>
+                            <?php echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a'); ?> días restantes.
                     </div>
                     <div class="col-md-6" style="margin-top: 40px">
                         <p>
@@ -169,6 +170,7 @@ function showOneGauchada($gauchada)
                             ?>
                             ">
                             <?php echo ($user['name'] . " " . $user['surname'] ) ; ?>
+
                         </p>
                         <p class="centered">
                             <span class="glyphicon glyphicon-tags box-item"></span>&nbsp;
@@ -176,8 +178,7 @@ function showOneGauchada($gauchada)
                             <span class="glyphicon glyphicon-map-marker box-item"></span>
                             <?php echo $city['name']; ?>
                             <br><br>
-                            <span class="glyphicon glyphicon-hourglass box-item"></span>
-                            <?php echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a'); ?> días restantes.
+                            
                         </p>
                         <div class="col-md-12">
                             <?php
