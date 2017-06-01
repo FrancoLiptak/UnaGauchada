@@ -45,7 +45,7 @@ include_once "alert.php";
           <input class="form-control" type="password" name="pass" placeholder=" Contraseña..." required>
         </div>
         <div class="form-group">
-          <input type="submit" name="submit" id="submit" value="Log in" class="center-block btn btn-warning">
+          <input type="submit" name="submit" id="submit" value="Iniciar Sesión" class="center-block btn btn-warning">
           <br><br>
           <input class="center-block btn btn-info" id="submit" type="link" onclick="location.href='signUp.php';" value="Click aquí para registrarte"
           />

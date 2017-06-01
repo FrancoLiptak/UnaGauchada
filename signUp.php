@@ -88,7 +88,7 @@
               <label for="file"> Imagen: <span class="form-note">(El archivo debe ser menor a 15 MB, en formato JPG, JPEG o PNG)</span></label> 
               <input type="file" class="form-control filestyle" name="file" id="file" data-buttonText=" Selecciona una imágen" data-placeholder="No hay ninguna img cargada">
           </div>
-    		  <input type="submit" name="submit" id="submit" class="btn btn-warning center-block" value="Sign up">
+    		  <input type="submit" name="submit" id="submit" class="btn btn-warning center-block" value="Registrarse">
 			 </form>
   	</div>
 <!----------------------------------- Script para validar el Sign Up -->
