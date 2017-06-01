@@ -24,7 +24,7 @@ function newUser($email, $pass1, $pass2, $name, $surname, $birthDate, $phone, $i
     $phone = trim($phone);
 
     if (!validateEmail($email)) {
-        $_SESSION['registrado']= "El email ingresado no es un email valido.";
+        $_SESSION['msg']= "El email ingresado no es un email valido.";
         return false;
     }
 
