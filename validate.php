@@ -17,7 +17,7 @@ function validarCantidadCreditos($var)
 {
     // Retorna true si el parametro esta seteado y es distinto de "".
 
-    return isset($var) && $var != "" && is_int($var);
+    return isset($var) && $var != "" && intval($var);
 }
 
 function isMayor($date, $format = 'Y-m-d')
@@ -77,7 +77,7 @@ function validateCompra($nro, $pass, $idUser)
 {
     // Devuelve true si la contraseña es correcta, y se puede hacer la compra.
     $link= connect();
-    $query=mysqli_query($link, "SELECT * FROM tarjetas WHERE nro=$nro and pass=$pass and idUser=$idUser;" );
+    $query=mysqli_query($link, "SELECT * FROM tarjetas WHERE nro=$nro and pass=$pass;" );
     $tarjeta= mysqli_fetch_array($query);
 
     return  $query && $tarjeta['estado'];
@@ -90,4 +90,13 @@ function isAdmin()
 
 function validateSize($var, $max = 50){
     return strlen($var) <= $max;
+}
+
+function validateCardNumber($number){
+    return (((strlen($number)) >= 13 && (strlen($number)) <= 16));
+}
+
+function validatePin($number){
+    $tamaño = strlen($number);
+    return ($tamaño = 3);
 }
