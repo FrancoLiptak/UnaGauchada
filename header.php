@@ -42,7 +42,7 @@ if (isset($_SESSION['idUsers'])) {
                 <ul class="dropdown-menu gray">
                   <li>
                     <a href="#">
-                      <form id="search" action="gauchadas.php?titulo=titulo&cat=cat&city=city" method="get">
+                      <form id="search" name="gauchadas" action="gauchadas.php?titulo=titulo&cat=cat&city=city" method="get">
                         <input class="search" type="text" name="titulo" placeholder=" Ingrese titulo">
                         <div style="margin-bottom: 15px" >
                         <select class="styled-select example" id="style-select" name="city">

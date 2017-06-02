@@ -87,12 +87,12 @@
                 $next = $first + $cantidadAMostrar;
         ?>
 
-                    <form action="gauchadas.php" method="post" style="float: left;">
+                    <form name="gauchadas" action="gauchadas.php" method="post" style="float: left;">
                         <input type="submit" name='anterior' id='anterior' class="btn" value="&laquo; anterior" <?php if (!$anterior) { echo
                             "disabled"; } ?> >
                         <input type="numer" name="first" id="first" value=<?php echo $prev;?> hidden >
                     </form>
-                    <form action="gauchadas.php" method="post" style="float: right;">
+                    <form name="gauchadas" action="gauchadas.php" method="post" style="float: right;">
                         <input type="submit" name='proximo' id='proximo' class="btn " value="siguiente &raquo;" <?php if (!$siguiente) { echo
                             "disabled"; } ?> >
                         <input type="numer" name="first" id="first" value=<?php echo $next;?> hidden >
