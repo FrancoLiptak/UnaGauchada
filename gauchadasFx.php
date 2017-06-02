@@ -91,8 +91,8 @@ function showGauchadaForAllPrueba($gauchada)
     if ($largo) {
         $title = $title . "...";
     }
-?>
-        <div class="col-xs-6 col-md-4 gauchadaBox">
+?><div  class="col-md-4">
+        <div class="col-md-11 gauchadaBox">
             <div class="box-main" style="text-align:left;">
                 <legend class="box-title">
                     <?php echo $title ?>
@@ -125,6 +125,7 @@ function showGauchadaForAllPrueba($gauchada)
                     role="button">Ver detalle &raquo;</a></p>
             
         </div>
+</div>
         <!--/.col-xs-6.col-lg-4-->
         <?php
 
