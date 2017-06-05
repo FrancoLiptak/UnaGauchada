@@ -72,14 +72,14 @@ function showComment($comment, $idGauchada, $isReply = false)
                 
                         ?><div class="col-sm-6">
                      <?php if (isset($_SESSION['idUsers']) and ($_SESSION['idUsers'] == $idUserGauchada) and $notRepliedYet and $notMyComment ){?>
-                            <a href=""  class="btn btn-default ">Responder &raquo;</a>
+                            <a href=""  id="submit" class="btn btn-info "><span class="glyphicon glyphicon-comment"></span> Reply </a>
                     <?php } ?>
                         </div>
                     <?php
                     if ( validateLogin() && ( isAdmin() || $_SESSION['idUsers'] == $idUserGauchada) ){
                         ?> 
                         <div class="col-sm-6" >
-                            <a href=""  class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Eliminar</a>
+                            <a href="" id="submit"  class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Eliminar</a>
                         </div>
                     <?php }
                     ?>

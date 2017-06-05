@@ -65,11 +65,11 @@ include_once 'fxComments.php';
             <div>
                 <legend>Deja un comentario!</legend>
     			<form role='form' class="comment">
-    				<div class='form-group  col-md-offset-1'>
+    				<div class='form-group'>
     					<textarea class='form-control comment' rows='3' placeholder="Ingresa tu comentario aquí" required></textarea>
     				</div>
     				<br> &nbsp;
-    				<button type='submit' id="comment" class='btn btn-default'>Comentar &raquo;</button>
+    				<button type='submit' id="comment" class='btn btn-info'><span class="glyphicon glyphicon-comment"></span> Comentar </button>
     			</form>
             </div>
 			<?php

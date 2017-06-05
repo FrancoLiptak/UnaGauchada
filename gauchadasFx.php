@@ -198,11 +198,11 @@ function showOneGauchada($gauchada)
                                 } elseif ($_SESSION['admin']) { 
                                 ?>
                                 <div>
-                                    <a class="btn btn-danger" id="submit" href="" role="button"> <span class="glyphicon glyphicon-trash"></span> Eliminar </a>
+                                    <a class="btn btn-danger" id="submit" href="" role="button"><span class="glyphicon glyphicon-trash"></span> Eliminar </a>
                                 </div>  
                                     <?php
                                 }elseif (!($_SESSION['admin'])) {
-                                ?><p><a class="btn btn-warning" id="submit" href="" role="button">Ayudar &raquo;</a></p>
+                                ?><p><a class="btn btn-warning" id="submit" href="" role="button"><span class="glyphicon glyphicon-thumbs-up"></span> Ayudar </a></p>
                            <?php } 
                        }
                     ?>
