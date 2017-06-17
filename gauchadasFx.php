@@ -207,34 +207,6 @@ $hoy = date("Y-m-d");
                         </div>
                         <?php
                     }
-                    elseif (!($_SESSION['admin'])) {
-                        if (getOneHelp($gauchada['idGauchadas'], $_SESSION['idUsers'])->num_rows > 0) {    
-                            ?>
-                            <p>
-                                <a class="btn btn-warning" id="submit" href=<?php echo "deleteHelp.php?idGauchadas=".$gauchada[ 'idGauchadas']; ?> role="button">
-                                    <span class="glyphicon glyphicon-thumbs-up"></span>
-                                Cancelar ayuda </a>
-                            </p>
-                            <?php
-                        }
-                        else {
-                            ?>
-                            <form action="newHelp.php" method="post">
-                                <input type="text" name="idGauchadas" hidden value="<?php echo $gauchada['idGauchadas']; ?>"><br>
-                                Descripcion: <input type="text" name="description"><br>
-                                <input type="submit">
-                            </form>
-                            <?php
-                        }
-                        ?> 
-                        Borrar este boton
-                        <p>
-                            <a class="btn btn-warning" id="submit" href=<?php echo "newHelp.php?idGauchadas=".$gauchada[ 'idGauchadas']; ?> role="button">
-                                <span class="glyphicon glyphicon-thumbs-up"></span>
-                            Ayudar </a>
-                        </p>
-                        <?php 
-                    }
                 }
             ?>
             </div>
@@ -251,10 +223,49 @@ $hoy = date("Y-m-d");
             </div>
         </div>
     <?php
-    if (validateLogin() && $_SESSION['idUsers'] == $gauchada['idUser']) {
-        listHelps($gauchada['idGauchadas']);
+    if (validateLogin()) {
+        ?>
+        <div class="col-md-12">
+            <?php
+            $loggedUser = $_SESSION['idUsers'];
+            $gauchadaUser = $gauchada['idUser'];
+            $gauchadaId = $gauchada['idGauchadas'];
+
+            if ($loggedUser == $gauchadaUser) {
+                listHelps($gauchadaId);
+            }
+            elseif (!isAdmin()){
+                if ($acceptedUser = hasAccepted($gauchadaId)) {
+                    if ($acceptedUser == $loggedUser) {
+                        echo "Tu ayuda fue aceptada.";
+                    }
+                    elseif (getOneHelp($gauchadaId, $loggedUser)->num_rows > 0) {
+                        echo "Otro ayudante fue elegido para esta gauchada :(";                    
+                    }
+                }
+                elseif (getOneHelp($gauchadaId, $loggedUser)->num_rows == 0) {
+                    ?>
+                    <form action="newHelp.php" method="post">
+                        <input type="text" name="idGauchadas" hidden value="<?php echo $gauchada['idGauchadas']; ?>"><br>
+                        Descripcion: <input type="text" name="description"><br>
+                        <input type="submit">
+                    </form>
+                    <?php
+                }
+                elseif (getOneHelp($gauchadaId, $loggedUser)->num_rows > 0) {
+                    ?>
+                    <form action="deleteHelp.php" method="post">
+                        <input type="text" name="idGauchadas" hidden value="<?php echo $gauchada['idGauchadas']; ?>"><br>
+                        <input type="submit" value="Cancelar Ayuda">
+                    </form>
+                    <?php
+                }
+            }
+            ?>
+        </div>
+        <?php
     }
-    ?>
+    ?> 
     </div>
     <!-- del centered div -->
     <?php

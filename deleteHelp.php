@@ -12,19 +12,19 @@ if (!isset($_POST['idGauchadas'])) {
 $idGauchada = $_POST['idGauchadas'];
 
 if (!(validateLogin())) {
-    $_SESSION['msg'] = "No puede ayudar si no tiene una sesion iniciada.";
+    $_SESSION['msg'] = "No puede cancelar ayudas si no tiene una sesion iniciada.";
     header('Location: gauchadaVer.php?idGauchadas='.$idGauchada);
     die;
 }
 
 if (isAdmin()) {
-    $_SESSION['msg'] = "No puede ayudar si es admin.";
+    $_SESSION['msg'] = "No puede cancelar ayudas si es admin.";
     header('Location: gauchadaVer.php?idGauchadas='.$idGauchada);
     die;
 }
 
 $idUser = $_SESSION['idUsers'];
 
-deleteHelp($idUser, $idGauchada);
+deleteHelp($idGauchada, $idUser);
 header('Location: gauchadaVer.php?idGauchadas='.$idGauchada);
 die;

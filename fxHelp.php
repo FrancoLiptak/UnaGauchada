@@ -39,7 +39,7 @@ function getOneHelp($idGauchada, $idUser)
     return false;
 }
 
-function deleteHelpFrom($idGauchada, $idUser)
+function deleteHelp($idGauchada, $idUser)
 {
     if (validateGauchada($idGauchada) && validateUser($idUser)) {
         $link = connect();
@@ -50,39 +50,81 @@ function deleteHelpFrom($idGauchada, $idUser)
     return false;
 }
 
+function acceptHelp($idGauchada, $idUser)
+{
+    if (validateGauchada($idGauchada) && validateUser($idUser)) {
+        $link = connect();
+        $query = "UPDATE help SET selected=1 WHERE idUsers=$idUser AND idGauchada=$idGauchada";
+        if ($link->query($query)) {
+            $_SESSION['msg'] = "Se acepto la ayuda.";
+            return true;
+        }
+    }
+    $_SESSION['msg'] = $link->error;
+    return false;
+}
+
+function hasAccepted($idGauchada){
+    if (validateGauchada($idGauchada)) {
+        $link = connect();
+        $query = "SELECT * FROM help WHERE idGauchada = $idGauchada AND selected=1;";
+        $result = $link->query($query);
+        if ($result && $result->num_rows > 0) {
+            $result = $result->fetch_assoc();
+            return $result['idUsers'];
+        }
+    }
+    $_SESSION['msg'] = $link->error;
+    return false;
+}
+
 function listHelps($idGauchada)
 {
+    $accepted = hasAccepted($idGauchada);
     if ($ayudas = getHelps($idGauchada)) {
-    }
-?>
-    <div class="col-md-12">
-        <?php
-        while ($help = $ayudas->fetch_assoc()) {
+        ?>
+        <div class="col-md-12">
+            <h4>Ayudantes</h4>
+            <?php
+            while ($help = $ayudas->fetch_assoc()) {
                 $gauchada = getOneGauchada($help['idGauchada']);
                 $user = getUser($help['idUsers'])->fetch_assoc();
                 ?>
-            <div class="row">
-                <div class="col-md-4">
-                    <p>
-                        <?php echo $user['name']." ".$user['surname']; ?>
-                    </p>
-                </div>
-                <div class="col-md-4">
-                    <p>
-                        <?php echo $help['description']; ?>
-                    </p>
-                </div>
-                <div class="col-md-4">
-                            <form action="acceptHelp.php">
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>
+                            <?php echo $user['name']." ".$user['surname']; ?>
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>
+                            <?php echo $help['description']; ?>
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <?php
+                        if (!$accepted) {
+                            ?>
+                            <form action="acceptHelp.php" method="post">
                                 <input type="text" name="idUsers" value="<?php echo $help['idUsers'] ?>" hidden>
                                 <input type="text" name="idGauchadas" value="<?php echo $help['idGauchada'] ?>" hidden>
                                 <input type="submit" name="submit" value="Aceptar ayuda">
                             </form>
+                            <?php
+                        }
+                        elseif ($help['idUsers'] == $accepted) {
+                            echo "Aceptada!";
+                        }
+                        elseif (condition) {
+                            echo "Rechazada!";
+                        }
+                        ?>
+                    </div>
                 </div>
-            </div>
+            <?php
+            }
+        ?>
+        </div>
         <?php
-        }
-    ?>
-    </div>
-    <?php
+    }
 }
