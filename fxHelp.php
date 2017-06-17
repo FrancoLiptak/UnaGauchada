@@ -8,9 +8,20 @@ function newHelp($idUser, $idGauchada, $description = "")
         $query = "INSERT INTO help ( idUser, idGauchada, description ) ";
         $query = $query."VALUES ( $idUsers, $idGauchada, '$description');";
         if ($result = $link->query($query)) {
-            return $true;
+            return $result;
         }
         $_SESSION['msg'] = $link->error;
-        return false;
     }
+    return false;
+}
+
+function getHelps($idGauchada)
+{
+    if(validateGauchada($idGauchada)){
+        $link = connect();
+        $query = "SELECT * FROM help WHERE idGauchada = $idGauchada;";
+        $result = $link->query($query);
+        return $result;
+    }
+    return false;
 }

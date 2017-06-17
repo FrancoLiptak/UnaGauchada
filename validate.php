@@ -156,7 +156,7 @@ function validateUser($idUser)
 {
     if (validate($idUser)) {
         $link = connect();
-        $query = "SELECT users WHERE idUser = $idUser";
+        $query = "SELECT idUser FROM users WHERE idUser = $idUser";
         if ($result = $link->query($query)) {
             return $result->num_rows == 1;
         }
@@ -168,7 +168,7 @@ function validateGauchada($idGauchada)
 {
     if (validate($idGauchada)) {
         $link = connect();
-        $query = "SELECT gauchadas WHERE idGauchada = $idGauchada";
+        $query = "SELECT idGauchada FROM gauchadas WHERE idGauchada = $idGauchada";
         if ($result = $link->query($query)) {
             return $result->num_rows == 1;
         }
