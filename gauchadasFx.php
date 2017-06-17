@@ -1,45 +1,45 @@
 <?php
 
-    include_once 'connect.php';
-    include_once 'usersFx.php';
-    include_once 'fxCategory.php';
-    include_once 'fxCity.php';
-    include_once 'fxProvince.php';
-    include_once 'fxHelp.php';
+include_once 'connect.php';
+include_once 'usersFx.php';
+include_once 'fxCategory.php';
+include_once 'fxCity.php';
+include_once 'fxProvince.php';
+include_once 'fxHelp.php';
 function getGauchadas($limit, $first, $condition = "1 = 1")
 {
-    // Retorna las proximas $limit gauchadas comenzando desde la tupla numero $first que cumplen la condicion $condition.
+// Retorna las proximas $limit gauchadas comenzando desde la tupla numero $first que cumplen la condicion $condition.
 
-    $link = connect();
-    $query = "SELECT * FROM gauchadas WHERE " . $condition . " order by idGauchadas desc LIMIT $first, $limit ";
-    $result = $link->query($query);
-    if (!$result) {
-        printf("Errormessage: %s\n", $link->error);
-        return false;
-    }
-    return $result;
+$link = connect();
+$query = "SELECT * FROM gauchadas WHERE " . $condition . " order by idGauchadas desc LIMIT $first, $limit ";
+$result = $link->query($query);
+if (!$result) {
+printf("Errormessage: %s\n", $link->error);
+return false;
+}
+return $result;
 }
 
 function getOneGauchada($idGauchadas)
 {
-    // Retorna la gauchada con idGauchada = $idGauchada.
+// Retorna la gauchada con idGauchada = $idGauchada.
 
-    return getGauchadas(1, 0, "idGauchadas = $idGauchadas")->fetch_assoc();
+return getGauchadas(1, 0, "idGauchadas = $idGauchadas")->fetch_assoc();
 }
 
 /* function showGauchadaForAll($gauchada)
 {
-    $user = getUser($gauchada['idUser'])->fetch_assoc();
-    $cate = getCategory($gauchada['idCategory'])->fetch_assoc();
-    $city = getCity($gauchada['idCity'])->fetch_assoc();
-    $hoy = date("Y-m-d");
+$user = getUser($gauchada['idUser'])->fetch_assoc();
+$cate = getCategory($gauchada['idCategory'])->fetch_assoc();
+$city = getCity($gauchada['idCity'])->fetch_assoc();
+$hoy = date("Y-m-d");
 
-        ?>
+?>
     <tr>
         <td><img class="img-thumbnail img-table" src="<?php if ($gauchada['image'] == null) {
-                echo " uploads/63229-logoUnaGauchada.png ";
+echo " uploads/63229-logoUnaGauchada.png ";
 } else {
-    echo $gauchada['image'];
+echo $gauchada['image'];
 }?>"></td>
         <td>
             <?php echo ($user['name'] . " " . $user['surname'] ) ; ?>
@@ -58,17 +58,17 @@ function getOneGauchada($idGauchadas)
         </td>
         <td><a class="details" href="gauchadaVer.php?idGauchadas=<?php echo $gauchada['idGauchadas']; ?>">&raquo; Ver detalle</a>
             <?php
-            if (isset($_SESSION['idUsers'])) {
-                if ($_SESSION['idUsers'] ==  $user['idUsers']) {?>
+if (isset($_SESSION['idUsers'])) {
+if ($_SESSION['idUsers'] ==  $user['idUsers']) {?>
                 <br><br>
                 <a class="edit" href=""><span class="glyphicon glyphicon glyphicon-edit" aria-hidden="true"></span> Editar</a>
                 <br><br>
                 <a onclick="return myFunction()" class="erase" href=""><span class="glyphicon glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</a>
                 <br>
                 <?php
-                }
-            }
-            ?>
+}
+}
+?>
 
     </tr>
     </td>
@@ -77,179 +77,186 @@ function getOneGauchada($idGauchadas)
 
 function showGauchadaForAllPrueba($gauchada)
 {
-    $user = getUser($gauchada['idUser'])->fetch_assoc();
-    $cate = getCategory($gauchada['idCategory'])->fetch_assoc();
-    $city = getCity($gauchada['idCity'])->fetch_assoc();
-    $prov = getProv($city['idProvince'])->fetch_assoc();
-    $hoy = date("Y-m-d");
-    $maxStrLength = 40;
-    $largo = false;
+$user = getUser($gauchada['idUser'])->fetch_assoc();
+$cate = getCategory($gauchada['idCategory'])->fetch_assoc();
+$city = getCity($gauchada['idCity'])->fetch_assoc();
+$prov = getProv($city['idProvince'])->fetch_assoc();
+$hoy = date("Y-m-d");
+$maxStrLength = 40;
+$largo = false;
 
-    if (strlen($gauchada['title']) > $maxStrLength) {
-        $largo=true;
-    }
-    $title = substr($gauchada['title'], 0, $maxStrLength);
-    if ($largo) {
-        $title = $title . "...";
-    }
-?><div  class="col-md-4">
-        <div class="col-md-11 gauchadaBox">
-            <div class="box-main" style="text-align:left;">
-                <legend class="box-title">
-                    <?php echo $title ?>
-                </legend>
+if (strlen($gauchada['title']) > $maxStrLength) {
+$largo=true;
+}
+$title = substr($gauchada['title'], 0, $maxStrLength);
+if ($largo) {
+$title = $title . "...";
+}
+?>
+        <div class="col-md-4">
+            <div class="col-md-11 gauchadaBox">
+                <div class="box-main" style="text-align:left;">
+                    <legend class="box-title">
+                        <?php echo $title ?>
+                    </legend>
                 </div>
-            <p class="" style="text-align:left;">
-                <img class="img-circle img-table-user" src="<?php if ($user['photo'] == null) {
-                                    echo " uploads/nophoto.png ";
-                } else {
-                    echo $user['photo'];
-                }?>">
-                <?php echo ($user['name'] . " " . $user['surname']) ; ?>
-            </p>
-                 
+                <p class="" style="text-align:left;">
+                    <img class="img-circle img-table-user" src="<?php if ($user['photo'] == null) {
+                        echo " uploads/nophoto.png ";
+                        } else {
+                        echo $user['photo'];
+                        }?>">
+                    <?php echo ($user['name'] . " " . $user['surname']) ; ?>
+                </p>
+
                 <img class="img-thumbnail img-table" src="<?php if ($gauchada['image'] == null) {
                     echo " uploads/63229-logoUnaGauchada.png ";
-} else {
-    echo $gauchada['image'];
-}?>">
-            
-           <div class="row" style="text-align:left; margin-left:20px;">
-                <p>
-                    <span class="glyphicon glyphicon-hourglass box-item"></span>
-                    <?php echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a'); ?> días restantes.
-                </p>
-                <p> <span class="glyphicon glyphicon-tags box-item"></span> <?php echo $cate['name']; ?> </p>
-                <p> <span class="glyphicon glyphicon-map-marker box-item"></span> <?php echo $prov['name'].", ".$city['name'] ?> </p>
+                    } else {
+                    echo $gauchada['image'];
+                    }?>">
+
+                <div class="row" style="text-align:left; margin-left:20px;">
+                    <p>
+                        <span class="glyphicon glyphicon-hourglass box-item"></span>
+                        <?php echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a'); ?> días restantes.
+                    </p>
+                    <p> <span class="glyphicon glyphicon-tags box-item"></span>
+                        <?php echo $cate['name']; ?> </p>
+                    <p> <span class="glyphicon glyphicon-map-marker box-item"></span>
+                        <?php echo $prov['name'].", ".$city['name'] ?> </p>
+                </div>
+                <p><a class="btn btn-default" id="submit" href="gauchadaVer.php?idGauchadas=<?php echo $gauchada['idGauchadas']; ?>"
+                        role="button">Ver detalle &raquo;</a></p>
+
             </div>
-            <p><a class="btn btn-default" id="submit" href="gauchadaVer.php?idGauchadas=<?php echo $gauchada['idGauchadas']; ?>"
-                    role="button">Ver detalle &raquo;</a></p>
-            
         </div>
-</div>
         <!--/.col-xs-6.col-lg-4-->
         <?php
 
-        // <td><img class="img-thumbnail"src="<?php if($gauchada['image'] == null) { echo "uploads/63229-logoUnaGauchada.png"; }else { echo $gauchada['image']; }?>
+// <td><img class="img-thumbnail"src="<?php if($gauchada['image'] == null) { echo "uploads/63229-logoUnaGauchada.png"; }else { echo $gauchada['image']; }?>
             <?php
 }
 
 function showOneGauchada($gauchada)
 {
-    $user = getUser($gauchada['idUser'])->fetch_assoc();
-    $cate = getCategory($gauchada['idCategory'])->fetch_assoc();
-    $city = getCity($gauchada['idCity'])->fetch_assoc();
-    $prov = getProv($city['idProvince'])->fetch_assoc();
-    $hoy = date("Y-m-d");
+$user = getUser($gauchada['idUser'])->fetch_assoc();
+$cate = getCategory($gauchada['idCategory'])->fetch_assoc();
+$city = getCity($gauchada['idCity'])->fetch_assoc();
+$prov = getProv($city['idProvince'])->fetch_assoc();
+$hoy = date("Y-m-d");
 
-    ?>
-                <div class="centered">
-                    <div class="page-header" style="margin-top:0px;">
-                        <h2>
-                            <?php echo $gauchada['title']; ?>
-                        </h2>
-                    </div>
-                    <div class="col-md-6">
-                        <img class="img-thumbnail img-detail" src="
+?>
+    <div class="centered">
+        <div class="page-header" style="margin-top:0px;">
+            <h2>
+                <?php echo $gauchada['title']; ?>
+            </h2>
+        </div>
+        <div class="col-md-6">
+            <img class="img-thumbnail img-detail" src="
+                <?php
+                if ($gauchada['image'] == null) {
+                echo " uploads/63229-logoUnaGauchada.png ";
+                } else {
+                echo $gauchada['image'];
+                }
+                ?> 
+                "> <br><br>
+        </div>
+        <div class="col-md-6" style="margin-top: 40px">
+            <p>
+                <img class="img-circle img-table-user" src="
+                    <?php
+                    if ($user['photo'] == null) {
+                    echo " uploads/nophoto.png ";
+                    } else {
+                    echo $user['photo'];
+                    }
+                    ?>
+                    ">
+                <?php echo ($user['name'] . " " . $user['surname'] ) ; ?>
+
+            </p>
+            <p class="centered">
+                <span class="glyphicon glyphicon-tags box-item"></span>&nbsp;
+                <?php echo $cate['name']; ?>
+                <span class="glyphicon glyphicon-map-marker box-item"></span>
+                <?php echo $prov['name'].", ".$city['name']; ?>
+                <br>
+                <p><span class="glyphicon glyphicon-hourglass box-item"></span>
+                    <?php echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a'); ?> días restantes.
+                </p>
+            </p>
+            <div class="col-md-12">
+                <?php
+                if (isset($_SESSION['idUsers'])) {
+                    if ($_SESSION['idUsers']== $gauchada['idUser']) {
+                        ?>
+                        <div class="col-md-6">
+                            <a class="btn btn-success" id="submit" href="" role="button"><span class="glyphicon glyphicon-edit"></span> Editar </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="btn btn-danger" id="submit" href="" role="button"> <span class="glyphicon glyphicon-trash"></span> Eliminar </a>
+                        </div>
                         <?php
-                        if ($gauchada['image'] == null) {
-                            echo " uploads/63229-logoUnaGauchada.png ";
-                        } else {
-                            echo $gauchada['image'];
+                    }
+                    elseif ($_SESSION['admin']) { 
+                        ?>
+                        <div>
+                            <a class="btn btn-danger" id="submit" href="" role="button"><span class="glyphicon glyphicon-trash"></span> Eliminar </a>
+                        </div>
+                        <?php
+                    }
+                    elseif (!($_SESSION['admin'])) {
+                        if (getOneHelp($gauchada['idGauchadas'], $_SESSION['idUsers'])->num_rows > 0) {    
+                            ?>
+                            <p>
+                                <a class="btn btn-warning" id="submit" href=<?php echo "deleteHelp.php?idGauchadas=".$gauchada[ 'idGauchadas']; ?> role="button">
+                                    <span class="glyphicon glyphicon-thumbs-up"></span>
+                                Cancelar ayuda </a>
+                            </p>
+                            <?php
+                        }
+                        else {
+                            ?>
+                            <form action="newHelp.php" method="post">
+                                <input type="text" name="idGauchadas" hidden value="<?php echo $gauchada['idGauchadas']; ?>"><br>
+                                Descripcion: <input type="text" name="description"><br>
+                                <input type="submit">
+                            </form>
+                            <?php
                         }
                         ?> 
-                        "> <br><br>
-                    </div>
-                    <div class="col-md-6" style="margin-top: 40px">
+                        Borrar este boton
                         <p>
-                            <img class="img-circle img-table-user" src="
-                            <?php
-                            if ($user['photo'] == null) {
-                                echo " uploads/nophoto.png ";
-                            } else {
-                                echo $user['photo'];
-                            }
-                            ?>
-                            ">
-                            <?php echo ($user['name'] . " " . $user['surname'] ) ; ?>
+                            <a class="btn btn-warning" id="submit" href=<?php echo "newHelp.php?idGauchadas=".$gauchada[ 'idGauchadas']; ?> role="button">
+                                <span class="glyphicon glyphicon-thumbs-up"></span>
+                            Ayudar </a>
+                        </p>
+                        <?php 
+                    }
+                }
+            ?>
+            </div>
+            <!-- de los botones -->
+        </div>
+        <div class="col-md-12" style="margin-bottom: 30px">
+            <div class="page-header" style="margin: 30px">
 
-                        </p>
-                        <p class="centered">
-                            <span class="glyphicon glyphicon-tags box-item"></span>&nbsp;
-                            <?php echo $cate['name']; ?>
-                            <span class="glyphicon glyphicon-map-marker box-item"></span>
-                            <?php echo $prov['name'].", ".$city['name']; ?>
-                            <br>
-                            <p><span class="glyphicon glyphicon-hourglass box-item"></span>
-                            <?php echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a'); ?> días restantes.
-                            </p>                            
-                        </p>
-                        <div class="col-md-12">
-                            <?php
-                            if (isset($_SESSION['idUsers'])) {
-                                if ($_SESSION['idUsers']== $gauchada['idUser']) {
-                                    ?>
-                                <div class="col-md-6">
-                                    <a class="btn btn-success" id="submit" href="" role="button"><span class="glyphicon glyphicon-edit"></span> Editar </a>
-                                </div>
-                                <div class="col-md-6">
-                                    <a class="btn btn-danger" id="submit" href="" role="button"> <span class="glyphicon glyphicon-trash"></span> Eliminar </a>
-                                </div>
-                                <?php
-                                } elseif ($_SESSION['admin']) { 
-                                ?>
-                                <div>
-                                    <a class="btn btn-danger" id="submit" href="" role="button"><span class="glyphicon glyphicon-trash"></span> Eliminar </a>
-                                </div>  
-                                    <?php
-                                } elseif (!($_SESSION['admin'])) {
-                                ?>
-<?php
-if (getOneHelp($gauchada['idGauchadas'], $_SESSION['idUsers'])->num_rows > 0) {    
-    ?>
-    <p><a class="btn btn-warning" id="submit" href=<?php echo "deleteHelp.php?idGauchadas=".$gauchada['idGauchadas']; ?> role="button"><span class="glyphicon glyphicon-thumbs-up"></span> Cancelar ayuda </a></p>
+            </div>
+            <div style="margin: 30px">
+                <h4 style="text-align: left;">
+                    <?php echo $gauchada['description']; ?>
+                </h4>
+            </div>
+        </div>
     <?php
-}
-else {
-?>
-<form action="newHelp.php" method="post">
-    <input type="text" name="idGauchadas" hidden value="<?php echo $gauchada['idGauchadas']; ?>"><br>
-    Descripcion: <input type="text" name="description"><br>
-    <input type="submit">
-</form>
-<?php
-}
-?>
-
-
-Borrar este boton
-<p><a class="btn btn-warning" id="submit" href=<?php echo "newHelp.php?idGauchadas=".$gauchada['idGauchadas']; ?> role="button"><span class="glyphicon glyphicon-thumbs-up"></span> Ayudar </a></p>
-                           <?php } 
-                       }
-                    ?>
-                        </div>
-                        <!-- de los botones -->
-                    </div>
-                    <div class="col-md-12" style="margin-bottom: 30px">
-                        <div class="page-header" style="margin: 30px">
-                            
-                        </div>
-                        <div style="margin: 30px">
-                            <h4 style="text-align: left;">
-                                <?php echo $gauchada['description']; ?>
-                            </h4>
-                        </div>
-                    </div>
-<?php
-    if (validateLogin() && ($_SESSION['idUsers'] == $gauchada['idUser'] || isAdmin())) {
+    if (validateLogin() && $_SESSION['idUsers'] == $gauchada['idUser']) {
         listHelps($gauchada['idGauchadas']);
     }
-?>
-
-                </div>
-                <!-- del centered div -->
-                <?php
+    ?>
+    </div>
+    <!-- del centered div -->
+    <?php
 }
-
-
 ?>

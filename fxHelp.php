@@ -73,26 +73,11 @@ function listHelps($idGauchada)
                     </p>
                 </div>
                 <div class="col-md-4">
-                    <?php
-                    if (isAdmin()) {
-                            ?>
-                            <form action="deleteHelp.php">
-                                <input type="text" name="idUsers" value="<?php echo $help['idUsers'] ?>" hidden>
-                                <input type="text" name="idGauchadas" value="<?php echo $help['idGauchada'] ?>" hidden>
-                                <input type="submit" name="submit" value="Borrar ayuda">
-                            </form>
-                            <?php
-                    }
-                    else {
-                        ?>
                             <form action="acceptHelp.php">
                                 <input type="text" name="idUsers" value="<?php echo $help['idUsers'] ?>" hidden>
                                 <input type="text" name="idGauchadas" value="<?php echo $help['idGauchada'] ?>" hidden>
                                 <input type="submit" name="submit" value="Aceptar ayuda">
                             </form>
-                        <?php
-                    }
-                ?>
                 </div>
             </div>
         <?php
