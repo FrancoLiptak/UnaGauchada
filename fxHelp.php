@@ -115,7 +115,7 @@ function listHelps($idGauchada)
                         elseif ($help['idUsers'] == $accepted) {
                             echo "Aceptada!";
                         }
-                        elseif (condition) {
+                        else {
                             echo "Rechazada!";
                         }
                         ?>
