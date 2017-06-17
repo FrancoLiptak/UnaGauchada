@@ -54,7 +54,8 @@ function validateEmail($email)
 
     return validate($email) && boolval(filter_var($email, FILTER_VALIDATE_EMAIL)) ;
 }
-function validateEmailLogin($email){
+function validateEmailLogin($email)
+{
 
     return validate($email) && boolval(filter_var($email, FILTER_VALIDATE_EMAIL));
 }
@@ -78,16 +79,14 @@ function validateTarjeta($nro, $pass)
     // Devuelve true si la tarjeta existe.
     $link= connect();
     $query=mysqli_query($link, "SELECT * FROM tarjetas WHERE nro=$nro ;" );
-    if ($query){
+    if ($query) {
         if ($query->num_rows == 0) {
             $_SESSION['no-existe']='La tarjeta no existe!';
             return false;
+        } else {
+            return true;
         }
-        else{
-        return true;
-        }
-    }
-    else{
+    } else {
         $_SESSION['errorCompra']='Error en la consulta!';
         return false;
     }
@@ -99,16 +98,14 @@ function validatePassTarjeta($nro, $pass)
     $query=mysqli_query($link, "SELECT * FROM tarjetas WHERE nro=$nro and pass=$pass;" );
     $tarjeta= mysqli_fetch_array($query);
 
-    if ($query){
+    if ($query) {
         if ($query->num_rows == 0) {
             $_SESSION['no-existe']='La tarjeta no se corresponde con esa contraseña!';
             return false;
+        } else {
+            return true;
         }
-        else{
-        return true;
-        }
-    }
-    else{
+    } else {
         $_SESSION['errorCompra']='Error en la consulta!';
         return false;
     }
@@ -120,11 +117,10 @@ function validateEstadoTarjeta($nro, $pass)
     $query=mysqli_query($link, "SELECT estado FROM tarjetas WHERE nro=$nro and pass=$pass;" );
     $tarjeta= mysqli_fetch_array($query);
 
-   if (!($tarjeta['estado'])){
+    if (!($tarjeta['estado'])) {
         $_SESSION['estado-false']='La tarjeta ha alcanzado el límite!';
         return false;
-    }
-    else{
+    } else {
         return true;
     }
 }
@@ -140,15 +136,43 @@ function isAdmin()
     return $_SESSION["admin"];
 }
 
-function validateSize($var, $max = 50){
+function validateSize($var, $max = 50)
+{
     return strlen($var) <= $max;
 }
 
-function validateCardNumber($number){
+function validateCardNumber($number)
+{
     return (((strlen($number)) >= 13 && (strlen($number)) <= 16));
 }
 
-function validatePin($number){
+function validatePin($number)
+{
     $tamaño = strlen($number);
     return ($tamaño = 3);
+}
+
+function validateUser($idUser)
+{
+    if (validate($idUser)) {
+        $link = connect();
+        $query = "SELECT users WHERE idUser = $idUser";
+        if ($result = $link->query($query)) {
+            return $result->num_rows == 1;
+        }
+        $_SESSION['msg'] = $link->error;
+        return false;
+    }
+}
+function validateGauchada($idGauchada)
+{
+    if (validate($idGauchada)) {
+        $link = connect();
+        $query = "SELECT gauchadas WHERE idGauchada = $idGauchada";
+        if ($result = $link->query($query)) {
+            return $result->num_rows == 1;
+        }
+        $_SESSION['msg'] = $link->error;
+        return false;
+    }
 }
