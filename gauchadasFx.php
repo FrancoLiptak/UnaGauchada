@@ -201,8 +201,8 @@ function showOneGauchada($gauchada)
                                     <a class="btn btn-danger" id="submit" href="" role="button"><span class="glyphicon glyphicon-trash"></span> Eliminar </a>
                                 </div>  
                                     <?php
-                                }elseif (!($_SESSION['admin'])) {
-                                ?><p><a class="btn btn-warning" id="submit" href="" role="button"><span class="glyphicon glyphicon-thumbs-up"></span> Ayudar </a></p>
+                                } elseif (!($_SESSION['admin'])) {
+                                ?><p><a class="btn btn-warning" id="submit" href=<?php echo "newHelp.php?idGauchadas=".$gauchada['idGauchadas']; ?> role="button"><span class="glyphicon glyphicon-thumbs-up"></span> Ayudar </a></p>
                            <?php } 
                        }
                     ?>

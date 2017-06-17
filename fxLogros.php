@@ -1,5 +1,5 @@
-<?
-include 'validate.php';
+<?php
+include_once 'validate.php';
 
 function getLogros()
 {
