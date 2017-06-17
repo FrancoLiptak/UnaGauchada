@@ -18,7 +18,8 @@ if (!isset($_POST['idUsers'])) {
 }
 
 $idUser = $_POST['idUsers'];
-
-acceptHelp($idGauchada, $idUser);
+if (acceptHelp($idGauchada, $idUser)) {
+    incrementCredits($idUser);
+}
 header('Location: gauchadaVer.php?idGauchadas='.$idGauchada);
 die;
