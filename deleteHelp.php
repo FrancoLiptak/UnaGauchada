@@ -3,13 +3,13 @@ session_start();
 include_once 'validate.php';
 include_once 'fxHelp.php';
 
-if (!isset($_POST['idGauchadas'])) {
+if (!isset($_GET['idGauchadas'])) {
     $_SESSION['msg'] = "No hay idGauchada para hacer help.";
     header('Location: index.php');
     die;
 }
 
-$idGauchada = $_POST['idGauchadas'];
+$idGauchada = $_GET['idGauchadas'];
 
 if (!(validateLogin())) {
     $_SESSION['msg'] = "No puede ayudar si no tiene una sesion iniciada.";
@@ -25,18 +25,8 @@ if (isAdmin()) {
 
 $idUser = $_SESSION['idUsers'];
 
-if (getOneHelp($idGauchada, $idUser)->num_rows > 0) {
-    $_SESSION['msg'] = "Ya ayudaste en esa gauchada.";
-    header('Location: gauchadaVer.php?idGauchadas='.$idGauchada);
-    die;
+if (deleteHelp($idGauchada, $idUser)) {
+    $_SESSION['msg'] = "Tu ayuda se ha eliminado correctamente.";
 }
-
-
-$description = null;
-if (isset($_POST['description'])) {
-    $description = $_POST['description'];
-}
-
-newHelp($idUser, $idGauchada, $description);
 header('Location: gauchadaVer.php?idGauchadas='.$idGauchada);
 die;

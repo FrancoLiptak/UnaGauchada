@@ -36,3 +36,14 @@ function getOneHelp($idGauchada, $idUser)
     }
     return false;
 }
+
+function deleteHelp($idGauchada, $idUser)
+{
+    if(validateGauchada($idGauchada) && validateUser($idUser)){
+        $link = connect();
+        $query = "DELETE FROM help WHERE idUsers=$idUser AND idGauchada=$idGauchada";
+        $result = $link->query($query);
+        return $result;
+    }
+    return false;
+}

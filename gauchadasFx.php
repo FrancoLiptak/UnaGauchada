@@ -5,6 +5,7 @@
     include_once 'fxCategory.php';
     include_once 'fxCity.php';
     include_once 'fxProvince.php';
+    include_once 'fxHelp.php';
 function getGauchadas($limit, $first, $condition = "1 = 1")
 {
     // Retorna las proximas $limit gauchadas comenzando desde la tupla numero $first que cumplen la condicion $condition.
@@ -202,7 +203,26 @@ function showOneGauchada($gauchada)
                                 </div>  
                                     <?php
                                 } elseif (!($_SESSION['admin'])) {
-                                ?><p><a class="btn btn-warning" id="submit" href=<?php echo "newHelp.php?idGauchadas=".$gauchada['idGauchadas']; ?> role="button"><span class="glyphicon glyphicon-thumbs-up"></span> Ayudar </a></p>
+                                ?>
+<?php
+if (getOneHelp($gauchada['idGauchadas'], $_SESSION['idUsers'])->num_rows > 0) {    
+    ?>
+    <p><a class="btn btn-warning" id="submit" href=<?php echo "deleteHelp.php?idGauchadas=".$gauchada['idGauchadas']; ?> role="button"><span class="glyphicon glyphicon-thumbs-up"></span> Cancelar ayuda </a></p>
+    <?php
+}
+else {
+?>
+<form action="newHelp.php" method="post">
+    <input type="text" name="idGauchadas" hidden value="<?php echo $gauchada['idGauchadas']; ?>"><br>
+    Descripcion: <input type="text" name="description"><br>
+    <input type="submit">
+</form>
+<?php
+}
+?>
+
+Borrar este boton
+<p><a class="btn btn-warning" id="submit" href=<?php echo "newHelp.php?idGauchadas=".$gauchada['idGauchadas']; ?> role="button"><span class="glyphicon glyphicon-thumbs-up"></span> Ayudar </a></p>
                            <?php } 
                        }
                     ?>
