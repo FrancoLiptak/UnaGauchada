@@ -37,7 +37,7 @@ function getOneHelp($idGauchada, $idUser)
     return false;
 }
 
-function deleteHelp($idGauchada, $idUser)
+function deleteHelpFrom($idGauchada, $idUser)
 {
     if(validateGauchada($idGauchada) && validateUser($idUser)){
         $link = connect();

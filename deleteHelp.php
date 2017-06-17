@@ -25,7 +25,7 @@ if (isAdmin()) {
 
 $idUser = $_SESSION['idUsers'];
 
-if (deleteHelp($idGauchada, $idUser)) {
+if (deleteHelpFrom($idGauchada, $idUser)) {
     $_SESSION['msg'] = "Tu ayuda se ha eliminado correctamente.";
 }
 header('Location: gauchadaVer.php?idGauchadas='.$idGauchada);
