@@ -221,6 +221,7 @@ else {
 }
 ?>
 
+
 Borrar este boton
 <p><a class="btn btn-warning" id="submit" href=<?php echo "newHelp.php?idGauchadas=".$gauchada['idGauchadas']; ?> role="button"><span class="glyphicon glyphicon-thumbs-up"></span> Ayudar </a></p>
                            <?php } 
@@ -239,6 +240,12 @@ Borrar este boton
                             </h4>
                         </div>
                     </div>
+<?php
+    if (validateLogin() && ($_SESSION['idUsers'] == $gauchada['idUser'] || isAdmin())) {
+        listHelps($gauchada['idGauchadas']);
+    }
+?>
+
                 </div>
                 <!-- del centered div -->
                 <?php
