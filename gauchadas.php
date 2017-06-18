@@ -10,7 +10,7 @@
     ?>
 
         <div class="row">
-            <div class="container-fluid  col-md-4 col-md-offset-4">
+            <div class="container-fluid  col-md-4 col-md-offset-4 ph">
                 <div class="page-header">
                     <h3 style="text-align:center;">Gauchadas</h3>
                 </div>

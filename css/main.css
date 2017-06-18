@@ -148,8 +148,11 @@ input[type=date]{
 .page-header {
   padding-bottom: 5px;
   padding-top: 30px;
-  margin: 40px 0 20px;
+  margin: 40px 0 20px!important;
   border-bottom: 1px solid #eee;
+}
+.ph{
+  margin-top: 50px;
 }
 .container .page-header {
   padding: 0px;

@@ -20,7 +20,7 @@
 
   ?>
     <div class="row">
-        <div class="container-fluid col-md-6 col-md-offset-3">
+        <div class="container-fluid col-md-6 col-md-offset-3 ph">
         <div class="page-header">
           <h4 style="text-align:center;"> <strong>Recuerda:</strong> necesitas ser mayor de 18 años para poder registrarte! <br>
           No olvides completar los campos obligatorios marcados con un "<span class="glyphicon glyphicon-bookmark"></span>". </h4> 

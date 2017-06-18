@@ -16,7 +16,7 @@ include_once "alert.php";
   <head>
     <title>Log In</title>
     <div class="row">
-      <div class="container-fluid  col-md-4 col-md-offset-4">
+      <div class="container-fluid  col-md-4 col-md-offset-4 ph">
         <div class="page-header ">
           <h4 style="text-align:center;"> Si aún no te has <a href="signUp.php">registrado</a>, no dudes en hacerlo. </h4>
         </div>

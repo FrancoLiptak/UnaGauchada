@@ -54,7 +54,7 @@ if (isAdmin()) {
 
 ?>
     <div class="row">
-      <div class="container-fluid  col-md-6 col-md-offset-3">
+      <div class="container-fluid  col-md-6 col-md-offset-3 ph">
         <div class="page-header ">
           <h4 style="text-align:center;"> <strong>Recuerda:</strong> necesitas créditos para poder publicar! Completa el siguiente formulario para realizar
             la compra. No olvides completar con tus datos de tarjeta. Es la única forma de poder efectuar la transaccion.
