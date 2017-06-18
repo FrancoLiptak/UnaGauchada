@@ -13,7 +13,7 @@
 
     function showUser($user) {?>
         
-    <div class="container col-md-12 centered">
+    <div class="container col-md-12 centered gauchadaBox ph">
         <div class="page-header">
             <h2>
                 <?php echo $user['name'],' ',$user['surname'] ; ?>
@@ -23,13 +23,24 @@
             <img class="img-thumbnail img-detail" src="
                 <?php
                 if ($user['photo'] == null) {
-                echo " uploads/63229-logoUnaGauchada.png ";
+                echo " uploads/nophoto.png ";
                 } else {
                 echo $user['photo'];
                 }
                 ?> 
                 "> <br><br>
+        <a href="" class="btn btn-info">Editar Perfil</a>
         </div>
+        <div class="col-md-6">
+            <?php echo $user['birthDate']; ?>
+            <?php echo $user['credits']; ?>
+            <?php echo $user['email']; ?>
+            <?php echo $user['phone']; ?>
+            <?php echo $user['reputation']; ?>
+            <?php echo $user['birthDate']; ?>
+        </div>
+
+
 
 
     </div>
