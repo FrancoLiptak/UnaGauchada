@@ -15,7 +15,7 @@ include_once 'alert.php';
     <title>Perfil</title>
     <?php
         include("footer.html");
-        getUser($_SESSION['idUsers']); //En una consulta traigo todos los datos
+        $user = mysqli_fetch_array(getUser($_SESSION['idUsers']));
     ?>
 </head>
 
@@ -33,7 +33,7 @@ include_once 'alert.php';
             <div class="panel-body">
               <div class="row">
                 <div class="col-md-3 col-lg-3 " align="center"> 
-                    <img alt="User Pic" class="img-rounded img-responsive" src='<?php getPhoto(); ?>'>
+                    <img alt="User Pic" class="img-rounded img-responsive" src='<?php echo $user['photo']; ?>'>
                 </div>
                 <div class=" col-md-9 col-lg-9 "> 
                   <table class="table table-user-information">
@@ -42,7 +42,7 @@ include_once 'alert.php';
                         <td>Nombre:</td>
                         <td>
                             <?php
-                                getName();
+                                echo $user['name'];
                             ?>
                         </td>
                       </tr>
@@ -50,7 +50,7 @@ include_once 'alert.php';
                         <td>Apellido:</td>
                         <td>
                             <?php
-                                getSurname();
+                                echo $user['surname'];
                             ?>
                         </td>
                       </tr>
@@ -58,7 +58,7 @@ include_once 'alert.php';
                         <td>Reputación:</td>
                         <td>
                             <?php
-                                getReputation();
+                                echo $user['reputation'];
                             ?>
                         </td>
                       </tr>
@@ -66,7 +66,7 @@ include_once 'alert.php';
                         <td>Créditos:</td>
                         <td>
                             <?php
-                                getCredits();
+                               echo $user['credits'];
                             ?>
                         </td>
                       </tr>
@@ -74,7 +74,7 @@ include_once 'alert.php';
                         <td>Fecha de nacimiento:</td>
                         <td>
                             <?php
-                                getBirthDate();
+                               echo $user['birthDate'];
                             ?>
                         </td>
                       </tr>
@@ -82,7 +82,7 @@ include_once 'alert.php';
                         <td>Teléfono:</td>
                         <td>
                             <?php
-                                getPhone();
+                                echo $user['phone'];
                             ?>
                         </td>
                       </tr>
@@ -90,7 +90,7 @@ include_once 'alert.php';
                         <td>E-mail</td>
                         <td>
                             <?php
-                                getEmail();
+                                echo $user['email'];
                             ?>
                         </td>
                       </tr>
