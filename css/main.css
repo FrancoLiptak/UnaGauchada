@@ -295,9 +295,6 @@ input[type=number]::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance:textfield;
 }
-div .ayuda{
-  padding-bottom: 30px;
-}
 #comment{
   margin-left: 15px;
 }

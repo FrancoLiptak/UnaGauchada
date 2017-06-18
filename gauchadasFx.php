@@ -245,25 +245,46 @@ $hoy = date("Y-m-d");
                 }
                 elseif (getOneHelp($gauchadaId, $loggedUser)->num_rows == 0) {
                     ?>
-                    <div class="dropdown">
-                        <a href="#" id="submit"class="dropdown-toggle btn btn-warning col-md-2" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                          <span class="glyphicon glyphicon-thumbs-up"></span> Ayudar
+                  <!--  <div class="dropdown col-md-6 col-md-offset-3" style="margin-bottom: 10px;">
+                        <a href="#" class="dropdown-toggle btn btn-warning" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" onclick="style.display = 'none'">
+                          Me interesa ayudar en ésta publicación
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu gray" style="width: 100%">
                           <li>
                             <a href="#">
                               <form action="newHelp.php" method="post">
-                                <div class="form-group col-md-9 ayuda"> 
+                                <div class="form-group"> 
                                     <input type="text" name="idGauchadas" hidden value="<?php echo $gauchada['idGauchadas']; ?>">
                                     <textarea style="width:100%;"class="form-control" name="description" placeholder="Envía una descripción opcional de por qué quieres ayudar"></textarea>
                                 </div>
-                                <br>
-                                <button type="submit" class="btn btn-warning col-md-3"><span class="glyphicon glyphicon-thumbs-up"></span> Ayudar</button>
+                                <br clear="all">&nbsp;
+                                <button type="submit" id="submit" class="btn btn-warning ir"><span class="glyphicon glyphicon-thumbs-up"></span> Ayudar</button>
                             </form>
                             </a>
                           </li>
                         </ul>
+                    </div>-->
+
+
+                    <div class="col-md-6 col-md-offset-3" style="margin-bottom: 10px;">
+                        <a href="#" class="dropdown-toggle btn btn-warning" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" onclick="style.display = 'none'; formAyuda.style.display = 'block'">
+                          Me interesa ayudar en ésta publicación
+                        </a>
+                        
+                         
+                        <form action="newHelp.php" method="post" style="display:none" id="formAyuda">
+                                <div class="form-group"> 
+                                    <input type="text" name="idGauchadas" hidden value="<?php echo $gauchada['idGauchadas']; ?>">
+                                    <textarea style="width:100%;"class="form-control" name="description" placeholder="Envía una descripción opcional de por qué quieres ayudar"></textarea>
+                                </div>
+                                <br clear="all">&nbsp;
+                                <button type="submit" id="submit" class="btn btn-warning ir"><span class="glyphicon glyphicon-thumbs-up"></span> Ayudar</button>
+                        </form>
+                          
                     </div>
+
+
+
                     <?php
                 }
                 elseif (getOneHelp($gauchadaId, $loggedUser)->num_rows > 0) {
