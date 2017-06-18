@@ -68,7 +68,7 @@ if (isset($_SESSION['idUsers'])) {
               <?php }?>
               <?php if (isset($_SESSION['idUsers'])) {
                   if (!($_SESSION['admin'])) { ?>
-              <li><a target="_self" href="publicar.php"><span class="glyphicon glyphicon-plus"></span> Publicar </a></li>
+              <li><a target="_self" href="publicar.php"><span class="glyphicon glyphicon-share"></span> Publicar </a></li>
               <?php } include_once "miCuenta.php"; 
                   if (!($_SESSION['admin'])) { ?>
               <li><a target="_self"><span class="glyphicon glyphicon-piggy-bank"></span> <?php echo $credits ?> créditos </a></li>
