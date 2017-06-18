@@ -81,8 +81,8 @@ if (isset($_SESSION['msg']) && $_SESSION['msg'] != "") {
                     <div class='form-group'>
                         <textarea class='form-control comment' rows='3' placeholder="Ingresa tu comentario aquí" required></textarea>
                     </div>
-                    <br> &nbsp;
-                    <button type='submit' id="comment" class='btn btn-info'><span class="glyphicon glyphicon-comment"></span> Comentar </button>
+                    <br>
+                    <button type='submit' id="comment" class='btn btn-info col-md-2'><span class="glyphicon glyphicon-comment"></span> Comentar </button>
                 </form>
             </div>
             <?php

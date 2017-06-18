@@ -212,7 +212,7 @@ $hoy = date("Y-m-d");
             </div>
             <!-- de los botones -->
         </div>
-        <div class="col-md-12" style="margin-bottom: 30px">
+        <div class="col-md-12" style="margin-bottom:">
             <div class="page-header" style="margin: 30px">
 
             </div>
@@ -245,18 +245,32 @@ $hoy = date("Y-m-d");
                 }
                 elseif (getOneHelp($gauchadaId, $loggedUser)->num_rows == 0) {
                     ?>
-                    <form action="newHelp.php" method="post">
-                        <input type="text" name="idGauchadas" hidden value="<?php echo $gauchada['idGauchadas']; ?>"><br>
-                        Descripcion: <input type="text" name="description"><br>
-                        <input type="submit">
-                    </form>
+                    <div class="dropdown">
+                        <a href="#" id="submit"class="dropdown-toggle btn btn-warning col-md-2" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                          <span class="glyphicon glyphicon-thumbs-up"></span> Ayudar
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <a href="#">
+                              <form action="newHelp.php" method="post">
+                                <div class="form-group col-md-9 ayuda"> 
+                                    <input type="text" name="idGauchadas" hidden value="<?php echo $gauchada['idGauchadas']; ?>">
+                                    <textarea style="width:100%;"class="form-control" name="description" placeholder="Envía una descripción opcional de por qué quieres ayudar"></textarea>
+                                </div>
+                                <br>
+                                <button type="submit" class="btn btn-warning col-md-3"><span class="glyphicon glyphicon-thumbs-up"></span> Ayudar</button>
+                            </form>
+                            </a>
+                          </li>
+                        </ul>
+                    </div>
                     <?php
                 }
                 elseif (getOneHelp($gauchadaId, $loggedUser)->num_rows > 0) {
                     ?>
                     <form action="deleteHelp.php" method="post">
                         <input type="text" name="idGauchadas" hidden value="<?php echo $gauchada['idGauchadas']; ?>"><br>
-                        <input type="submit" value="Cancelar Ayuda">
+                        <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle"></span> Cancelar Ayuda</button>
                     </form>
                     <?php
                 }
