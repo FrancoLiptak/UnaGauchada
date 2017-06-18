@@ -12,6 +12,7 @@
         }
 		global $user;
         $user = mysqli_fetch_array($result);
+        return $result;
 	}
 
     function getName(){
