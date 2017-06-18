@@ -2,6 +2,7 @@
 session_start();
 include_once 'validate.php';
 include_once 'fxHelp.php';
+include_once 'credits.php';
 
 if (!isset($_POST['idGauchadas'])) {
     $_SESSION['msg'] = "No hay idGauchada para aceptar help.";
