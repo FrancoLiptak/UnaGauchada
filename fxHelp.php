@@ -82,9 +82,22 @@ function listHelps($idGauchada)
 {
     $accepted = hasAccepted($idGauchada);
     if ($ayudas = getHelps($idGauchada)) {
-        ?>
-        <div class="col-md-12">
-            <h4>Ayudantes</h4>
+        $cant_ayudas= $ayudas->num_rows; 
+            if ($cant_ayudas > 0) {
+            ?>
+                <legend><span class='badge'><?php echo $cant_ayudas ?></span>
+            <?php
+            if ($cant_ayudas > 1) {
+                echo " Postulantes:";
+            } else {
+                echo " Postulante:";
+            }?>
+            </legend>
+            <?php 
+            } else {
+                 echo "No hay postulantes hasta el momento.";
+            }
+            ?> 
             <?php
             while ($help = $ayudas->fetch_assoc()) {
                 $gauchada = getOneGauchada($help['idGauchada']);
@@ -98,7 +111,7 @@ function listHelps($idGauchada)
                     </div>
                     <div class="col-md-4">
                         <p>
-                            <?php echo $help['description']; ?>
+                            <?php if($help['description']) echo $help['description']; else echo "---";?>
                         </p>
                     </div>
                     <div class="col-md-4">
@@ -108,7 +121,7 @@ function listHelps($idGauchada)
                             <form action="acceptHelp.php" method="post">
                                 <input type="text" name="idUsers" value="<?php echo $help['idUsers'] ?>" hidden>
                                 <input type="text" name="idGauchadas" value="<?php echo $help['idGauchada'] ?>" hidden>
-                                <input type="submit" name="submit" value="Aceptar ayuda">
+                                <button type="submit" class="btn btn-warning" style="<?php if(!($help['description'])) ?> margin-bottom: 20px;"><span class="glyphicon glyphicon-ok-circle"></span> Aceptar Ayuda</button>
                             </form>
                             <?php
                         }
@@ -120,6 +133,7 @@ function listHelps($idGauchada)
                         }
                         ?>
                     </div>
+                    <br>
                 </div>
             <?php
             }

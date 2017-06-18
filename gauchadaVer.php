@@ -1,3 +1,7 @@
+<html>
+
+<head>
+    <title>Detalle</title>
 <?php
 session_start();
 include_once "header.php";
@@ -33,10 +37,8 @@ if (isset($_SESSION['msg']) && $_SESSION['msg'] != "") {
 ?>
         </div>
     </div>
-
-
-    <br><br><br>
-    <div class="container col-md-8 col-md-offset-2">
+    <BR><BR>
+    <div class="container col-md-8 col-md-offset-2 comments">
         <legend>Comentarios relacionados</legend>
 
         <?php

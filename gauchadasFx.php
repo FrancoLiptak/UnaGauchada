@@ -27,54 +27,6 @@ function getOneGauchada($idGauchadas)
 return getGauchadas(1, 0, "idGauchadas = $idGauchadas")->fetch_assoc();
 }
 
-/* function showGauchadaForAll($gauchada)
-{
-$user = getUser($gauchada['idUser'])->fetch_assoc();
-$cate = getCategory($gauchada['idCategory'])->fetch_assoc();
-$city = getCity($gauchada['idCity'])->fetch_assoc();
-$hoy = date("Y-m-d");
-
-?>
-    <tr>
-        <td><img class="img-thumbnail img-table" src="<?php if ($gauchada['image'] == null) {
-echo " uploads/63229-logoUnaGauchada.png ";
-} else {
-echo $gauchada['image'];
-}?>"></td>
-        <td>
-            <?php echo ($user['name'] . " " . $user['surname'] ) ; ?>
-        </td>
-        <td>
-            <?php echo $cate['name']; ?>
-        </td>
-        <td>
-            <?php echo $city['name']; ?>
-        </td>
-        <td>
-            <?php echo $gauchada['title']; ?>
-        </td>
-        <td>
-            <?php echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a'); ?>
-        </td>
-        <td><a class="details" href="gauchadaVer.php?idGauchadas=<?php echo $gauchada['idGauchadas']; ?>">&raquo; Ver detalle</a>
-            <?php
-if (isset($_SESSION['idUsers'])) {
-if ($_SESSION['idUsers'] ==  $user['idUsers']) {?>
-                <br><br>
-                <a class="edit" href=""><span class="glyphicon glyphicon glyphicon-edit" aria-hidden="true"></span> Editar</a>
-                <br><br>
-                <a onclick="return myFunction()" class="erase" href=""><span class="glyphicon glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</a>
-                <br>
-                <?php
-}
-}
-?>
-
-    </tr>
-    </td>
-    <?php
-}*/
-
 function showGauchadaForAllPrueba($gauchada)
 {
 $user = getUser($gauchada['idUser'])->fetch_assoc();
@@ -245,54 +197,31 @@ $hoy = date("Y-m-d");
                 }
                 elseif (getOneHelp($gauchadaId, $loggedUser)->num_rows == 0) {
                     ?>
-                  <!--  <div class="dropdown col-md-6 col-md-offset-3" style="margin-bottom: 10px;">
-                        <a href="#" class="dropdown-toggle btn btn-warning" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" onclick="style.display = 'none'">
-                          Me interesa ayudar en ésta publicación
-                        </a>
-                        <ul class="dropdown-menu gray" style="width: 100%">
-                          <li>
-                            <a href="#">
-                              <form action="newHelp.php" method="post">
-                                <div class="form-group"> 
-                                    <input type="text" name="idGauchadas" hidden value="<?php echo $gauchada['idGauchadas']; ?>">
-                                    <textarea style="width:100%;"class="form-control" name="description" placeholder="Envía una descripción opcional de por qué quieres ayudar"></textarea>
-                                </div>
-                                <br clear="all">&nbsp;
-                                <button type="submit" id="submit" class="btn btn-warning ir"><span class="glyphicon glyphicon-thumbs-up"></span> Ayudar</button>
-                            </form>
-                            </a>
-                          </li>
-                        </ul>
-                    </div>-->
 
-
-                    <div class="col-md-6 col-md-offset-3" style="margin-bottom: 10px;">
-                        <a href="#" class="dropdown-toggle btn btn-warning" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" onclick="style.display = 'none'; formAyuda.style.display = 'block'">
+                    <div style="margin-bottom: 50px;">
+                        <a href="#" class="col-md-6 col-md-offset-3 btn btn-warning" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" onclick="style.display = 'none'; formAyuda.style.display = 'block'">
                           Me interesa ayudar en ésta publicación
                         </a>
                         
                          
                         <form action="newHelp.php" method="post" style="display:none" id="formAyuda">
-                                <div class="form-group"> 
+                                <div class="form-group col-md-9"> 
                                     <input type="text" name="idGauchadas" hidden value="<?php echo $gauchada['idGauchadas']; ?>">
                                     <textarea style="width:100%;"class="form-control" name="description" placeholder="Envía una descripción opcional de por qué quieres ayudar"></textarea>
                                 </div>
-                                <br clear="all">&nbsp;
-                                <button type="submit" id="submit" class="btn btn-warning ir"><span class="glyphicon glyphicon-thumbs-up"></span> Ayudar</button>
+                               
+                                <button type="submit" class="btn btn-warning ir col-md-3"><span class="glyphicon glyphicon-thumbs-up"></span> Postularme</button>
                         </form>
-                          
-                    </div>
-
-
 
                     <?php
                 }
                 elseif (getOneHelp($gauchadaId, $loggedUser)->num_rows > 0) {
                     ?>
-                    <form action="deleteHelp.php" method="post">
+                    <form action="deleteHelp.php" method="post" style="margin-bottom: 22px;">
                         <input type="text" name="idGauchadas" hidden value="<?php echo $gauchada['idGauchadas']; ?>"><br>
-                        <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle"></span> Cancelar Ayuda</button>
+                        <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle"></span> Cancelar Postulación</button>
                     </form>
+
                     <?php
                 }
             }
