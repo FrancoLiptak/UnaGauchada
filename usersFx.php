@@ -15,7 +15,7 @@
         return $result;
 	}
 
-    function getName(){
+   /* function getName(){
         global $user;
         echo $user['name'];
     }
@@ -53,5 +53,5 @@
     function getPhoto(){
         global $user;
         echo $user['photo'];
-    }
+    }*/
 ?>
