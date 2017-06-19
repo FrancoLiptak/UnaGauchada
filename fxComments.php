@@ -98,12 +98,12 @@ function showComment($comment, $idGauchada, $isReply = false)
                     <form action="replyComment.php" method="post" style="display:none;" id="formReplyComment">
                                     <div class="form-group col-md-9"> 
                                         <input type="text" name="idGauchadas" hidden value="<?php echo $gauchada['idGauchadas']; ?>">
-                                        <textarea style="width:100%;"class="form-control" name="replyComment" placeholder="Responde a <?php echo  $userName ?>."></textarea>
+                                        <textarea style="width:100%;"class="form-control" name="replyComment" placeholder="Responde a <?php echo  $userName ?>." required></textarea>
                                         <input type="text" name="idUsers" value="<?php echo $_SESSION['idUsers'] ?>" hidden>
                                         <input type="text" name="idGauchadas" value="<?php echo $comment['idGauchada'] ?>" hidden>
                                         <input type="text" name="idComment" value="<?php echo $comment['idComment'] ?>" hidden>
                                     </div>
-                                    <button type="submit" class="btn btn-info col-md-3" style="<?php if(!($replyComment['replyComment'])) ?> margin-bottom: 20px;"> Responder </button>
+                                    <button type="submit" class="btn btn-info col-md-3" id="submit" style="<?php if(!($replyComment['replyComment'])) ?> ;margin-bottom: 20px; float: right; width:14%;"> Responder </button>
                             </form>
                 </div>
             </div> <!-- engloba a un comentario -->
