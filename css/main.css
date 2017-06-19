@@ -275,13 +275,13 @@ form .comment{
   margin-bottom: 90px;
 }
 .img-comment-user{
-  width:auto;
+  width:64px;
   margin-right: 10px;
-  height:10%!important;
+  height:64px!important;
 }
 .img-reply-user{
-  width:auto;
-  height:7%!important;
+  width:45px;
+  height:45px!important;
   margin-right: 10px;
 }
 .logged-error{
