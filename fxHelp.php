@@ -161,9 +161,9 @@ function listHelps($idGauchada)
                                         <textarea style="width:100%;"class="form-control" name="description" placeholder="Envía una descripción opcional de la participación de <?php echo $user['name']." ".$user['surname']; ?>"></textarea>
                                     </div>
                                     <div class="form-group col-md-3"> 
-                                        <input type="radio" name="score" value="negative"> -
-                                        <input type="radio" name="score" value="neutral" checked> 0
-                                        <input type="radio" name="score" value="positive"> +
+                                        <input type="radio" name="score" value="0"> <span class="glyphicon glyphicon-thumbs-down"></span>
+                                        <input type="radio" name="score" value="1" checked> <span class="glyphicon glyphicon-thumbs-up"></span><span class="glyphicon glyphicon-thumbs-down"></span>
+                                        <input type="radio" name="score" value="2"> <span class="glyphicon glyphicon-thumbs-up"></span>
                                     </div>                                   
                                     <button type="submit" name="submit" class="btn btn-warning ir col-md-3"> Calificar a <?php echo $user['name'] ?></button>
                             </form>
