@@ -136,7 +136,14 @@ $hoy = date("Y-m-d");
                 <?php echo $prov['name'].", ".$city['name']; ?>
                 <br>
                 <p><span class="glyphicon glyphicon-hourglass box-item"></span>
-                    <?php echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a'); ?> días restantes.
+                    <?php 
+                        if (($restantes = date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a')) >= 0) {
+                            echo $restantes." días restantes.";
+                        }
+                        else {
+                            echo "La gauchada ya expiro!";
+                        }
+                    ?>
                 </p>
             </p>
             <div class="col-md-12">
@@ -233,5 +240,17 @@ $hoy = date("Y-m-d");
     </div>
     <!-- del centered div -->
     <?php
+}
+
+function finishGauchada($idGauchada){
+    $link = connect();
+    if (validateGauchada($idGauchada)) {
+        $query = "UPDATE gauchadas SET finished=1 WHERE idGauchadas=$idGauchada";
+        if ($link->query($query)) {
+            return true;
+        }
+    }
+    $_SESSION['msg'] = $link->error;
+    return false;
 }
 ?>

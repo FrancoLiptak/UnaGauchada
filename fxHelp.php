@@ -2,6 +2,8 @@
 include_once  'validate.php';
 include_once 'gauchadasFx.php';
 include_once 'usersFx.php';
+include_once 'credits.php';
+include_once 'gauchadasFx.php';
 
 function newHelp($idUser, $idGauchada, $description = "")
 {
@@ -56,7 +58,8 @@ function acceptHelp($idGauchada, $idUser)
         $link = connect();
         $query = "UPDATE help SET selected=1 WHERE idUsers=$idUser AND idGauchada=$idGauchada";
         if ($link->query($query)) {
-            $_SESSION['msg'] = "Se acepto la ayuda.";
+            incrementCredits($idUser);
+            finishGauchada($idGauchada);
             return true;
         }
     }

@@ -41,7 +41,7 @@
     </div>
     <?php 
       $hoy = date('Y-m-d');
-      $gauchadas = getGauchadas(3,0,"expiration >= '$hoy'");
+      $gauchadas = getGauchadas(3,0,"expiration >= '$hoy' AND finished = 0");
       $i = $gauchadas->num_rows;
      ?> 
     <div class="col-md-12">
