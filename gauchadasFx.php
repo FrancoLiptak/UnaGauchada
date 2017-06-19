@@ -70,7 +70,15 @@ $title = $title . "...";
                 <div class="row" style="text-align:left; margin-left:20px;">
                     <p>
                         <span class="glyphicon glyphicon-hourglass box-item"></span>
-                        <?php echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a'); ?> días restantes.
+                        <?php
+                        if ($gauchada['finished']){
+                            echo "Terminada";
+                        }
+                        else {
+                            echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a'); ?> días restantes.
+                        <?php                            
+                        }
+                        ?>
                     </p>
                     <p> <span class="glyphicon glyphicon-tags box-item"></span>
                         <?php echo $cate['name']; ?> </p>
