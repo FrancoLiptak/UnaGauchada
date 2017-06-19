@@ -72,7 +72,28 @@ function showComment($comment, $idGauchada, $isReply = false)
                 
                         ?><div class="col-sm-6">
                      <?php if (isset($_SESSION['idUsers']) and ($_SESSION['idUsers'] == $idUserGauchada) and $notRepliedYet and $notMyComment ){?>
-                            <a href=""  id="submit" class="btn btn-info "><span class="glyphicon glyphicon-comment"></span> Reply </a>
+                            
+                            <!-- <a href=""  id="submit" class="btn btn-info "><span class="glyphicon glyphicon-comment"></span> Reply </a> -->
+
+                        <div style="margin-bottom: 50px;">
+                            <a href="#" class="btn btn-info" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" onclick="style.display = 'none'; formReplyComment.style.display = 'block'">
+                            Responder
+                            </a>
+                            
+                            <form action="replyComment.php" method="post" style="display:none" id="formReplyComment">
+                                    <div class="form-group col-md-12"> 
+                                        <input type="text" name="idGauchadas" hidden value="<?php echo $gauchada['idGauchadas']; ?>">
+                                        <textarea style="width:100%;"class="form-control" name="replyComment" placeholder="Responde a un comentario."></textarea>
+                                        <input type="text" name="idUsers" value="<?php echo $_SESSION['idUsers'] ?>" hidden>
+                                        <input type="text" name="idGauchadas" value="<?php echo $comment['idGauchada'] ?>" hidden>
+                                        <input type="text" name="idComment" value="<?php echo $comment['idComment'] ?>" hidden>
+                                        <button type="submit" class="btn btn-warning" style="<?php if(!($replyComment['replyComment'])) ?> margin-bottom: 20px;"><span class="glyphicon glyphicon-ok-circle"></span> Responder </button>
+                                    </div>
+                            </form>
+                        </div>
+
+
+
                     <?php } ?>
                         </div>
                     <?php
@@ -120,6 +141,20 @@ function deleteComment($idGauchada, $idUser, $idComment){ //LLAMAR EN SHOWCOMMEN
         $query = "DELETE FROM comments WHERE idUsers=$idUser AND idGauchada=$idGauchada AND idComment = $idComment";
         $result = $link->query($query);
         return $result;
+    }
+    return false;
+}
+
+function replyComment($idGauchada, $idUser, $idComment, $reply){
+   if (validateUser($idUser) && validateGauchada($idGauchada) && !validateComment($idComment) && validate($reply)) {
+        $link = connect();
+        $date = date('Y-m-d H:i:s');
+        $query = "INSERT INTO comments (idUser, idGauchada, idReplied, text, date)";
+        $query = $query."VALUES ($idUser, $idGauchada, $idComment, '$reply', '$date')";
+        if ($result = $link->query($query)) {
+            return $result;
+        }
+        $_SESSION['msg'] = $link->error;
     }
     return false;
 }
