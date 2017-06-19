@@ -4,6 +4,7 @@ include_once 'gauchadasFx.php';
 include_once 'usersFx.php';
 include_once 'credits.php';
 include_once 'gauchadasFx.php';
+include_once 'fxScore.php';
 
 function newHelp($idUser, $idGauchada, $description = "")
 {
@@ -130,6 +131,35 @@ function listHelps($idGauchada)
                         }
                         elseif ($help['idUsers'] == $accepted) {
                             echo "Aceptada!";
+                            if (hasScore($help['idGauchada'])) {
+                                $score = getScoreForGauchada($idGauchada)->fetch_assoc();
+                                switch ($score['points']) {
+                                    case -2:
+                                        echo "Puntuado negativamente.";
+                                        break;
+                                    case 0:
+                                        echo "Puntuado neutro.";
+                                        break;
+                                    case 1:
+                                        echo "Puntuado positivamente.";
+                                        break;
+                                }
+                                echo "Descripcion: ".$score['description'];
+                            }
+                            else {
+                                ?>
+                                <form method="post" action="score.php">
+                                    <input type="number" name="idGauchadas" value=<?php echo '"'.$idGauchada.'"' ?> hidden>
+                                    <input type="text" name="description" value="">
+                                    <select name="score">
+                                        <option value="0">Negativo</option>
+                                        <option value="1">Neutro</option>
+                                        <option value="2">Positivo</option>
+                                    </select>
+                                    <input type="submit" name="submit" value="submit">
+                                </form>
+                                <?php
+                            }
                         }
                         else {
                             echo "Rechazada!";
