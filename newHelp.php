@@ -4,7 +4,7 @@ include_once 'validate.php';
 include_once 'fxHelp.php';
 
 if (!isset($_POST['idGauchadas'])) {
-    $_SESSION['msg'] = "No hay idGauchada para hacer help.";
+    $_SESSION['msg'] = "No hay gauchada para ayudar.";
     header('Location: index.php');
     die;
 }

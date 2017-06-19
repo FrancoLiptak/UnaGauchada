@@ -114,3 +114,12 @@ function newComment($idUser, $idGauchada, $comment){
     return false;
 }
 
+function deleteComment($idGauchada, $idUser, $idComment){ //LLAMAR EN SHOWCOMMENT
+    if (validateGauchada($idGauchada) && validateUser($idUser) && validateComment($idComment)) {
+        $link = connect();
+        $query = "DELETE FROM comments WHERE idUsers=$idUser AND idGauchada=$idGauchada AND idComment = $idComment";
+        $result = $link->query($query);
+        return $result;
+    }
+    return false;
+}
