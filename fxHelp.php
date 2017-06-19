@@ -136,16 +136,30 @@ function listHelps($idGauchada)
                                 $score = getScoreForGauchada($idGauchada)->fetch_assoc();
                                 switch ($score['points']) {
                                     case -2:
-                                        echo "Puntuado negativamente.";
+                                        ?>
+                                        <span style="color: red" class="glyphicon glyphicon-thumbs-down"></span>
+                                        <?php 
                                         break;
                                     case 0:
-                                        echo "Puntuado neutro.";
+                                        ?>
+                                        <span style="color: orange" class="glyphicon glyphicon-thumbs-down"></span><span style="color: orange" class="glyphicon glyphicon-thumbs-down"></span>
+                                        <?php
                                         break;
                                     case 1:
-                                        echo "Puntuado positivamente.";
+                                        ?>
+                                        <span style="color: green" class="glyphicon glyphicon-thumbs-up"></span>
+                                        <?php
                                         break;
                                 }
-                                //echo "Descripcion: ".$score['description'];
+                                ?>
+                                <span>
+                                    <a href="#" class="btn btn-default" onclick="style.display = 'none'; desc.style.display = 'block'">Desc</a>
+                                </span><br>
+                                <div style="display:none" id="desc">
+                                    <p class="well"><?php if($score['description'] == null) echo "---";  else echo "Descripcion: ".$score['description']; ?></p>
+                                </div>
+
+                            <?php 
                             }
                             else {
                                 ?>
@@ -170,7 +184,7 @@ function listHelps($idGauchada)
                             </div>
 
 
-                            <!--    <form method="post" action="score.php">
+                            <!--   <form method="post" action="score.php">
                                     <input type="number" name="idGauchadas" value=<?php echo '"'.$idGauchada.'"' ?> hidden>
                                     <input type="text" name="description" value="">
                                     <select name="score">
@@ -180,6 +194,7 @@ function listHelps($idGauchada)
                                     </select>
                                     <input type="submit" name="submit" value="submit">
                                 </form> -->
+                                
                                 <?php
                             }
                         }
