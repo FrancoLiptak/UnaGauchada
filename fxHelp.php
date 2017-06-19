@@ -132,7 +132,6 @@ function listHelps($idGauchada)
                             <?php
                         }
                         elseif ($help['idUsers'] == $accepted) {
-                            echo "Aceptada!";
                             if (hasScore($help['idGauchada'])) {
                                 $score = getScoreForGauchada($idGauchada)->fetch_assoc();
                                 switch ($score['points']) {
@@ -150,7 +149,28 @@ function listHelps($idGauchada)
                             }
                             else {
                                 ?>
-                                <form method="post" action="score.php">
+
+                            <div>
+                                <a href="#" class="btn btn-warning" onclick="style.display = 'none'; formPuntuar.style.display = 'block'">Puntuar</a>
+                            </div>
+                            <div class="col-md-12">
+                            <br>
+                            <form method="post" action="score.php" style="display:none" id="formPuntuar">
+                                    <div class="form-group col-md-6"> 
+                                        <input type="text" name="idGauchadas" hidden value="<?php echo $gauchada['idGauchadas']; ?>">
+                                        <textarea style="width:100%;"class="form-control" name="description" placeholder="Envía una descripción opcional de la participación de <?php echo $user['name']." ".$user['surname']; ?>"></textarea>
+                                    </div>
+                                    <div class="form-group col-md-3"> 
+                                        <input type="radio" name="score" value="negative"> -
+                                        <input type="radio" name="score" value="neutral" checked> 0
+                                        <input type="radio" name="score" value="positive"> +
+                                    </div>                                   
+                                    <button type="submit" name="submit" class="btn btn-warning ir col-md-3"> Calificar a <?php echo $user['name'] ?></button>
+                            </form>
+                            </div>
+
+
+                            <!--    <form method="post" action="score.php">
                                     <input type="number" name="idGauchadas" value=<?php echo '"'.$idGauchada.'"' ?> hidden>
                                     <input type="text" name="description" value="">
                                     <select name="score">
@@ -159,7 +179,7 @@ function listHelps($idGauchada)
                                         <option value="2">Positivo</option>
                                     </select>
                                     <input type="submit" name="submit" value="submit">
-                                </form>
+                                </form> -->
                                 <?php
                             }
                         }
