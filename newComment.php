@@ -4,7 +4,7 @@ include_once 'validate.php';
 include_once 'fxComments.php';
 
 if (!isset($_POST['idGauchadas'])) {
-    $_SESSION['msg'] = "No hay idGauchada para comentar.";
+    $_SESSION['msg'] = "No hay gauchada para comentar.";
     header('Location: index.php');
     die;
 }
