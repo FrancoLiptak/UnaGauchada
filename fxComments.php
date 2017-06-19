@@ -80,10 +80,10 @@ function showComment($comment, $idGauchada, $isReply = false)
                             <?php } ?>
                         </div>
                     <?php
-                    if ( validateLogin() && ( isAdmin() || $_SESSION['idUsers'] == $idUserGauchada) ){
+                    if ( validateLogin() && ( isAdmin() || $_SESSION['idUsers'] == $idUserGauchada || $_SESSION['idUsers'] == $comment['idUser']) ){
                         ?> 
                         <div class="col-sm-6" >
-                            <a href="" id="submit"  class="btn btn-danger"></span> Eliminar</a>
+                            <a href="" id="submit"  class="btn btn-danger" onclick=""></span> Eliminar</a>
                         </div>
                     <?php }
                     ?>
