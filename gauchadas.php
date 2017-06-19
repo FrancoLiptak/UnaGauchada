@@ -33,7 +33,7 @@
         }
 
         $hoy = date("Y-m-d");
-        $condition = "expiration >= '$hoy'";
+        $condition = "expiration >= '$hoy' AND finished=0 ";
 
         if (isset($_GET['ir'])){
             $title=$_GET['titulo'];
