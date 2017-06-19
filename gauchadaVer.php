@@ -79,11 +79,12 @@ if (isset($_SESSION['msg']) && $_SESSION['msg'] != "") {
             <br><br>
             <div>
                 <legend>Deja un comentario!</legend>
-                <form role='form' class="comment">
+                <form action="newComment.php" method="post" role='form' class="comment">
                     <div class='form-group'>
-                        <textarea class='form-control comment' rows='3' placeholder="Ingresa tu comentario aquí" required></textarea>
+                        <textarea class='form-control comment' name='comment' rows='3' placeholder="Ingresa tu comentario aquí" required></textarea>
                     </div>
                     <br>
+                    <input type="text" name="idGauchadas" hidden value="<?php echo $_GET['idGauchadas']; ?>">
                     <button type='submit' id="comment" class='btn btn-info col-md-2'><span class="glyphicon glyphicon-comment"></span> Comentar </button>
                 </form>
             </div>

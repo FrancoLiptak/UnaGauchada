@@ -98,3 +98,29 @@ function showComment($comment, $idGauchada, $isReply = false)
     </div> <!-- container por cada par comentario-reply -->
     <?php
 }
+
+function newComment($idUser, $idGauchada, $comment){
+    if (validateUser($idUser) && validateGauchada($idGauchada) && validate($comment)) {
+        $link = connect();
+        $date = date('Y-m-d H:i:s');
+        $query = "INSERT INTO comments (idUser, idGauchada, text, date)";
+        $query = $query."VALUES ($idUser, $idGauchada, '$comment', '$date')";
+        if ($result = $link->query($query)) {
+            return $result;
+        }
+        $_SESSION['msg'] = $link->error;
+        echo $_SESSION['msg'];
+    }
+    return false;
+}
+
+function getOneComment($idGauchada, $idUser){
+    if (validateGauchada($idGauchada) && validateUser($idUser)) {
+        $link = connect();
+        $query = "SELECT * FROM comments WHERE idGauchada = $idGauchada AND idUser = $idUser;";
+        $result = $link->query($query);
+        return $result;
+    }
+    return false;
+}
+

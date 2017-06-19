@@ -176,3 +176,15 @@ function validateGauchada($idGauchada)
         return false;
     }
 }
+
+function validateComment($idComment){
+    if (validate($idComment)) {
+        $link = connect();
+        $query = "SELECT idComment FROM comments WHERE idGauchada = $idGauchada";
+        if ($result = $link->query($query)) {
+            return $result->num_rows == 1;
+        }
+        $_SESSION['msg'] = $link->error;
+        return false;
+    }
+}
