@@ -94,7 +94,7 @@ function showComment($comment, $idGauchada, $isReply = false)
                     <?php }
                     ?>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-12"><br>
                     <form action="replyComment.php" method="post" style="display:none;" id="formReplyComment">
                                     <div class="form-group col-md-9"> 
                                         <input type="text" name="idGauchadas" hidden value="<?php echo $gauchada['idGauchadas']; ?>">
