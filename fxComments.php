@@ -79,17 +79,6 @@ function showComment($comment, $idGauchada, $isReply = false)
                             <a href="#" class="btn btn-info" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" onclick="style.display = 'none'; formReplyComment.style.display = 'block'">
                             Responder
                             </a>
-                            
-                            <form action="replyComment.php" method="post" style="display:none" id="formReplyComment">
-                                    <div class="form-group col-md-12"> 
-                                        <input type="text" name="idGauchadas" hidden value="<?php echo $gauchada['idGauchadas']; ?>">
-                                        <textarea style="width:100%;"class="form-control" name="replyComment" placeholder="Responde a un comentario."></textarea>
-                                        <input type="text" name="idUsers" value="<?php echo $_SESSION['idUsers'] ?>" hidden>
-                                        <input type="text" name="idGauchadas" value="<?php echo $comment['idGauchada'] ?>" hidden>
-                                        <input type="text" name="idComment" value="<?php echo $comment['idComment'] ?>" hidden>
-                                        <button type="submit" class="btn btn-warning" style="<?php if(!($replyComment['replyComment'])) ?> margin-bottom: 20px;"><span class="glyphicon glyphicon-ok-circle"></span> Responder </button>
-                                    </div>
-                            </form>
                         </div>
 
 
@@ -104,6 +93,18 @@ function showComment($comment, $idGauchada, $isReply = false)
                         </div>
                     <?php }
                     ?>
+                </div>
+                <div class="col-md-12">
+                    <form action="replyComment.php" method="post" style="display:none;" id="formReplyComment">
+                                    <div class="form-group col-md-9"> 
+                                        <input type="text" name="idGauchadas" hidden value="<?php echo $gauchada['idGauchadas']; ?>">
+                                        <textarea style="width:100%;"class="form-control" name="replyComment" placeholder="Responde a <?php echo  $userName ?>."></textarea>
+                                        <input type="text" name="idUsers" value="<?php echo $_SESSION['idUsers'] ?>" hidden>
+                                        <input type="text" name="idGauchadas" value="<?php echo $comment['idGauchada'] ?>" hidden>
+                                        <input type="text" name="idComment" value="<?php echo $comment['idComment'] ?>" hidden>
+                                    </div>
+                                    <button type="submit" class="btn btn-info col-md-3" style="<?php if(!($replyComment['replyComment'])) ?> margin-bottom: 20px;"> Responder </button>
+                            </form>
                 </div>
             </div> <!-- engloba a un comentario -->
 
