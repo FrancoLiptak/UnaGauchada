@@ -72,16 +72,20 @@ include_once 'alert.php';
                       </tr>
                       <tr>
                         <td>Fecha de nacimiento:</td>
-                        <td>
+                        <td><small>
                             <?php
                                echo $user['birthDate'];
                             ?>
+                            </small>
                         </td>
                       </tr>
                       <tr>
                         <td>Teléfono:</td>
                         <td>
                             <?php
+                            if ($user['phone'] == null)
+                              echo "---";
+                            else
                                 echo $user['phone'];
                             ?>
                         </td>

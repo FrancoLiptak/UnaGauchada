@@ -100,7 +100,7 @@ function showComment($comment, $idGauchada, $isReply = false)
                     if ( validateLogin() && ( isAdmin() || $_SESSION['idUsers'] == $idUserGauchada) ){
                         ?> 
                         <div class="col-sm-6" >
-                            <a href="" id="submit"  class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Eliminar</a>
+                            <a href="" id="submit"  class="btn btn-danger"></span> Eliminar</a>
                         </div>
                     <?php }
                     ?>
