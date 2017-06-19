@@ -134,6 +134,22 @@ function listHelps($idGauchada)
                         elseif ($help['idUsers'] == $accepted) {
                             if (hasScore($help['idGauchada'])) {
                                 $score = getScoreForGauchada($idGauchada)->fetch_assoc();
+                                ?>
+                                <script type="text/javascript">
+                                function switchDesc(){
+                                    if (down.style.display == 'none') {
+                                        down.style.display = 'inline';
+                                        up.style.display = 'none';
+                                        desc.style.display = 'none';
+                                    } else { 
+                                        down.style.display = 'none';
+                                        up.style.display = 'inline';
+                                        desc.style.display = 'block';
+                                    }
+                                }
+                                </script>
+                                <a href="#" class="btn btn-default" onclick="return switchDesc();">
+                                <?php 
                                 switch ($score['points']) {
                                     case -2:
                                         ?>
@@ -152,9 +168,11 @@ function listHelps($idGauchada)
                                         break;
                                 }
                                 ?>
-                                <span>
-                                    <a href="#" class="btn btn-default" onclick="style.display = 'none'; desc.style.display = 'block'">Desc</a>
-                                </span><br>
+                                
+                                    <span style="display:inline"id="down" class="glyphicon glyphicon-chevron-down"></span>
+                                    <span style="display:none"id="up" class="glyphicon glyphicon-chevron-up"></span>
+                                </a>
+                                <br><br>
                                 <div style="display:none" id="desc">
                                     <p class="well"><?php if($score['description'] == null) echo "---";  else echo "Descripcion: ".$score['description']; ?></p>
                                 </div>
