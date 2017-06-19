@@ -65,8 +65,8 @@ function acceptHelp($idGauchada, $idUser)
 }
 
 function hasAccepted($idGauchada){
+    $link = connect();
     if (validateGauchada($idGauchada)) {
-        $link = connect();
         $query = "SELECT * FROM help WHERE idGauchada = $idGauchada AND selected=1;";
         $result = $link->query($query);
         if ($result && $result->num_rows > 0) {
@@ -141,4 +141,14 @@ function listHelps($idGauchada)
         </div>
         <?php
     }
+}
+
+function getUserHelp($idUser){
+    if (validateUser($idUser)) {
+        $link = connect();
+        $query = "SELECT * FROM help WHERE idUsers = $idUser;";
+        $result = $link->query($query);
+        return $result;
+    }
+    return false;
 }
