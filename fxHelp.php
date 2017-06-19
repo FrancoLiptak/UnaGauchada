@@ -86,7 +86,9 @@ function listHelps($idGauchada)
 {
     $accepted = hasAccepted($idGauchada);
     if ($ayudas = getHelps($idGauchada)) {
-        $cant_ayudas= $ayudas->num_rows; 
+            $cant_ayudas= $ayudas->num_rows; ?>
+            <div class="row">
+            <?php 
             if ($cant_ayudas > 0) {
             ?>
                 <legend><span class='badge'><?php echo $cant_ayudas ?></span>
@@ -118,11 +120,11 @@ function listHelps($idGauchada)
                             <?php if($help['description']) echo $help['description']; else echo "---";?>
                         </p>
                     </div>
-                    <div class="col-md-4">
+                  
                         <?php
                         if (!$accepted) {
                             ?>
-                            <form action="acceptHelp.php" method="post">
+                            <form action="acceptHelp.php" method="post" class="col-md-4">
                                 <input type="text" name="idUsers" value="<?php echo $help['idUsers'] ?>" hidden>
                                 <input type="text" name="idGauchadas" value="<?php echo $help['idGauchada'] ?>" hidden>
                                 <button type="submit" class="btn btn-warning" style="<?php if(!($help['description'])) ?> margin-bottom: 20px;"><span class="glyphicon glyphicon-ok-circle"></span> Aceptar Ayuda</button>
@@ -161,12 +163,13 @@ function listHelps($idGauchada)
                                 <?php
                             }
                         }
-                        else {
-                            echo "Rechazada!";
+                        else {?>
+                           <div class="col-md-4">
+                            <p>Rechazado/a</p>
+                           </div>
+                        <?php 
                         }
                         ?>
-                    </div>
-                    <br>
                 </div>
             <?php
             }
@@ -185,3 +188,22 @@ function getUserHelp($idUser){
     }
     return false;
 }
+
+
+
+
+?><!--
+
+<div class="col-md-12">
+                            <form action="newHelp.php" method="post" style="display:none" id="formPuntuar">
+                                    <div class="form-group col-md-6"> 
+                                        <input type="text" name="idGauchadas" hidden value="<?php //echo $gauchada['idGauchadas']; ?>">
+                                        <textarea style="width:100%;"class="form-control" name="description" placeholder="Envía una descripción opcional de la participación de <?php echo $user['name']." ".$user['surname']; ?>"></textarea>
+                                    </div>
+                                    <div class="form-group col-md-3"> 
+                                        
+                                    </div>                                   
+                                    <button type="submit" class="btn btn-warning ir col-md-3"> Calificar a <?php //echo $user['name'] ?></button>
+                            </form>
+                            </div>
+ -->

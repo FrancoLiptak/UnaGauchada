@@ -155,3 +155,6 @@ function replyComment($idGauchada, $idUser, $idComment, $reply){
     }
     return false;
 }
+
+
+?>
