@@ -70,31 +70,26 @@ function showComment($comment, $idGauchada, $isReply = false)
                     $notMyComment= $user['idUsers'] != $idUserGauchada;
                     $notRepliedYet=($reply->num_rows == 0);
                 
-                        ?><div class="col-sm-6">
-                     <?php if (isset($_SESSION['idUsers']) and ($_SESSION['idUsers'] == $idUserGauchada) and $notRepliedYet and $notMyComment ){?>
-                            
-                            <!-- <a href=""  id="submit" class="btn btn-info "><span class="glyphicon glyphicon-comment"></span> Reply </a> -->
+                    ?>  <div class="col-sm-6"> <!-- este div siempre esta ocupando el lugar para mantener el diseño. Despues su boton interno puede mostrarse o no-->
+                             <?php if (isset($_SESSION['idUsers']) and ($_SESSION['idUsers'] == $idUserGauchada) and $notRepliedYet and $notMyComment ){?>
 
-                        <div style="margin-bottom: 50px;">
-                            <a href="#" class="btn btn-info" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" onclick="style.display = 'none'; formReplyComment.style.display = 'block'">
-                            Responder
-                            </a>
-                        </div>
+                                <div style="margin-bottom: 50px;">
+                                    <a href="#" class="btn btn-info" onclick="style.display = 'none'; formReplyComment.style.display = 'block'">Responder</a>
+                                </div>
 
-
-
-                    <?php } ?>
+                            <?php } ?>
                         </div>
                     <?php
-                    if ( validateLogin() && ( isAdmin() || $_SESSION['idUsers'] == $idUserGauchada) ){
+                    if ( validateLogin() && ( isAdmin() || $_SESSION['idUsers'] == $idUserGauchada || $_SESSION['idUsers'] == $comment['idUser']) ){
                         ?> 
                         <div class="col-sm-6" >
-                            <a href="" id="submit"  class="btn btn-danger"></span> Eliminar</a>
+                            <a href="" id="submit"  class="btn btn-danger" onclick=""></span> Eliminar</a>
                         </div>
                     <?php }
                     ?>
-                </div>
-                <div class="col-md-12"><br>
+                </div> <!-- del responder y eliminar-->
+                <div class="col-md-12">
+                    <br>
                     <form action="replyComment.php" method="post" style="display:none;" id="formReplyComment">
                                     <div class="form-group col-md-9"> 
                                         <input type="text" name="idGauchadas" hidden value="<?php echo $gauchada['idGauchadas']; ?>">
@@ -105,7 +100,8 @@ function showComment($comment, $idGauchada, $isReply = false)
                                     </div>
                                     <button type="submit" class="btn btn-info col-md-3" id="submit" style="<?php if(!($replyComment['replyComment'])) ?> ;margin-bottom: 20px; float: right; width:14%;"> Responder </button>
                             </form>
-                </div>
+                </div> <!-- engloba a un form de respuesta -->
+            
             </div> <!-- engloba a un comentario -->
 
            <?php 

@@ -206,11 +206,10 @@ $hoy = date("Y-m-d");
                     ?>
 
                     <div style="margin-bottom: 50px;">
-                        <a href="#" class="col-md-6 col-md-offset-3 btn btn-warning" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" onclick="style.display = 'none'; formAyuda.style.display = 'block'">
+                        <a href="#" class="col-md-6 col-md-offset-3 btn btn-warning" onclick="style.display = 'none'; formAyuda.style.display = 'block'">
                           Me interesa ayudar en ésta publicación
                         </a>
                         
-                         
                         <form action="newHelp.php" method="post" style="display:none" id="formAyuda">
                                 <div class="form-group col-md-9"> 
                                     <input type="text" name="idGauchadas" hidden value="<?php echo $gauchada['idGauchadas']; ?>">
