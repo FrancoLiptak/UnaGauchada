@@ -114,13 +114,3 @@ function newComment($idUser, $idGauchada, $comment){
     return false;
 }
 
-function getOneComment($idGauchada, $idUser){
-    if (validateGauchada($idGauchada) && validateUser($idUser)) {
-        $link = connect();
-        $query = "SELECT * FROM comments WHERE idGauchada = $idGauchada AND idUser = $idUser;";
-        $result = $link->query($query);
-        return $result;
-    }
-    return false;
-}
-

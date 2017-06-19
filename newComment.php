@@ -25,13 +25,6 @@ if (isAdmin()) {
 
 $idUser = $_SESSION['idUsers'];
 
-if (getOneComment($idGauchada, $idUser)->num_rows > 0) {
-    $_SESSION['msg'] = "Ya comentaste en esta gauchada.";
-    header('Location: gauchadaVer.php?idGauchadas='.$idGauchada);
-    die;
-}
-
-
 $comment = null;
 if (isset($_POST['comment'])) {
     $comment = $_POST['comment'];
