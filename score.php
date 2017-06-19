@@ -15,6 +15,13 @@ if (hasScore($idGauchada)) {
     die;
 }
 
+if (!isset($_POST['idUser'])) {
+    $_SESSION['msg'] = "No hay idUser para dar score.";
+    header('Location: index.php');
+    die;
+}
+$idUser = $_POST['idUser'];
+
 if (!isset($_POST['score'])) {
     $_SESSION['msg'] = "No hay puntaje para dar score.";
     header('Location: gauchadaVer.php?idGauchadas='.$idGauchada);
@@ -24,12 +31,15 @@ $score = $_POST['score'];
 switch ($score) {
     case '0':
         $rep = -2;
+        $creds = 0;
         break;
     case '1':
         $rep = 0;
+        $creds = 0;
         break;
     case '2':
         $rep = 1;
+        $creds = 1;
         break;
 }
 
@@ -38,7 +48,9 @@ if (isset($_POST['description'])) {
     $description = $_POST['description'];
 }
 
-newScore($idGauchada, $rep, $description);
+if (newScore($idGauchada, $rep, $description)) {
+    updateRep($idUser, $rep, $creds);
+}
 
 header('Location: gauchadaVer.php?idGauchadas='.$idGauchada);
 die;

@@ -11,4 +11,24 @@
         return $result;
 	}
 
+function updateRep($idUser, $rep, $creds)
+{
+    $link = connect();
+    if (validateUser($idUser)) {
+        $user = getUser($idUser)->fetch_assoc();
+
+        $prevRep = $user['reputation'];
+        $newRep = $prevRep + $rep;
+        
+        $prevCreds = $user['credits'];
+        $newCreds = $prevCreds + $creds;
+
+        $query = "UPDATE users SET reputation=$newRep, credits=$newCreds WHERE idUsers=$idUser";
+        if ($result = $link->query($query)) {
+            return $result;
+        }
+    }
+    $_SESSION['msg'] = $link->error;
+    return false;
+}
 ?>

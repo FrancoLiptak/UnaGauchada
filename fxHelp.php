@@ -59,7 +59,6 @@ function acceptHelp($idGauchada, $idUser)
         $link = connect();
         $query = "UPDATE help SET selected=1 WHERE idUsers=$idUser AND idGauchada=$idGauchada";
         if ($link->query($query)) {
-            incrementCredits($idUser);
             finishGauchada($idGauchada);
             return true;
         }
@@ -158,6 +157,7 @@ function listHelps($idGauchada)
                             <form method="post" action="score.php" style="display:none" id="formPuntuar">
                                     <div class="form-group col-md-6"> 
                                         <input type="text" name="idGauchadas" hidden value="<?php echo $gauchada['idGauchadas']; ?>">
+                                        <input type="text" name="idUser" hidden value="<?php echo $help['idUsers']; ?>">
                                         <textarea style="width:100%;"class="form-control" rows="3" name="description" placeholder="Envía una descripción opcional de la participación de <?php echo $user['name']." ".$user['surname']; ?>"></textarea>
                                     </div>
                                     <div class="form-group col-md-3"> 
