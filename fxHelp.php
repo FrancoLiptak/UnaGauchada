@@ -145,7 +145,7 @@ function listHelps($idGauchada)
                                         echo "Puntuado positivamente.";
                                         break;
                                 }
-                                echo "Descripcion: ".$score['description'];
+                                //echo "Descripcion: ".$score['description'];
                             }
                             else {
                                 ?>
@@ -158,13 +158,13 @@ function listHelps($idGauchada)
                             <form method="post" action="score.php" style="display:none" id="formPuntuar">
                                     <div class="form-group col-md-6"> 
                                         <input type="text" name="idGauchadas" hidden value="<?php echo $gauchada['idGauchadas']; ?>">
-                                        <textarea style="width:100%;"class="form-control" name="description" placeholder="Envía una descripción opcional de la participación de <?php echo $user['name']." ".$user['surname']; ?>"></textarea>
+                                        <textarea style="width:100%;"class="form-control" rows="3" name="description" placeholder="Envía una descripción opcional de la participación de <?php echo $user['name']." ".$user['surname']; ?>"></textarea>
                                     </div>
                                     <div class="form-group col-md-3"> 
-                                        <input type="radio" name="score" value="0"> <span class="glyphicon glyphicon-thumbs-down"></span>
-                                        <input type="radio" name="score" value="1" checked> <span class="glyphicon glyphicon-thumbs-up"></span><span class="glyphicon glyphicon-thumbs-down"></span>
-                                        <input type="radio" name="score" value="2"> <span class="glyphicon glyphicon-thumbs-up"></span>
-                                    </div>                                   
+                                        <input type="radio" name="score" value="0">&nbsp;&nbsp;&nbsp; <span style="color: red" class="glyphicon glyphicon-thumbs-down"></span> <br>
+                                        <input type="radio" name="score" value="1" checked> <span style="color: orange" class="glyphicon glyphicon-thumbs-up"></span><span style="color: orange" class="glyphicon glyphicon-thumbs-down"></span><br>
+                                        <input type="radio" name="score" value="2">&nbsp;&nbsp;&nbsp; <span style="color: green" class="glyphicon glyphicon-thumbs-up"></span>
+                                    </div>                                 
                                     <button type="submit" name="submit" class="btn btn-warning ir col-md-3"> Calificar a <?php echo $user['name'] ?></button>
                             </form>
                             </div>
