@@ -10,7 +10,7 @@
         } else {
                 ?>
             <li><a target="_self" href="comprarCreditos.php"><span class="glyphicon glyphicon-credit-card"></span> Comprar creditos </a></li>
-            <li><a target="_self" href=""><span class="glyphicon glyphicon-triangle-right"></span> Mis gauchadas</a></li>
+            <li><a target="_self" href="misGauchadas.php"><span class="glyphicon glyphicon-triangle-right"></span> Mis gauchadas</a></li>
                 <?php
         }
 ?>

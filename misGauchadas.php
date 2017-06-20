@@ -6,10 +6,7 @@
         include_once 'gauchadasFx.php';
         include_once 'alert.php';
         ?>
-        <br>
-        <br>
-        <br>
-        <br>
+        <br><br><br><br>
     </head>
     <body>
         <?php
