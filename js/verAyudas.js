@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
 	$('.star').on('click', function () {
       $(this).toggleClass('star-checked');
     });
