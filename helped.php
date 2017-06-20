@@ -61,57 +61,64 @@
 						<div class="table-container">
 							<table class="table table-filter">
 								<tbody>
-									<tr data-status="onaylanan">
-										<td>
-											<div class="media centered">
-												<?php
-													foreach ($accepted as $i => $value) {
-														$gauchada = getOneGauchada($accepted[$i]['idGauchada']); //CAMBIE ACCEPTED POR PENDING. PREGUNTAR A CAMI
-														?>
-														<H3><?php echo $gauchada['title']; ?> </H3>
-														<img src=<?php echo '"'.$gauchada[ 'image']. '"'; ?>>
-														<br><br>
-														<p><?php echo $gauchada['description']; ?></p>
-														<?php
-													}
-												?>
-											</div>
-										</td>
-									</tr>
-									<tr data-status="iptal">
-										<td>
-											<div class="media centered">
-												<?php
-													foreach ($rejected as $i => $value) {
-														$gauchada = getOneGauchada($rejected[$i]['idGauchada']);
-														?>
-														<H3><?php echo $gauchada['title']; ?> </H3>
-														<img src=<?php echo '"'.$gauchada[ 'image']. '"'; ?>>
-														<br><br>
-														<p><?php echo $gauchada['description']; ?></p>
-														<?php
-													}
-												?>
-											</div>
-										</td>
-									</tr>
+									<?php
+										foreach ($accepted as $i => $value) {
+									?>
 									<tr data-status="bekleyen">
 										<td>
 											<div class="media centered">
 												<?php
-													foreach ($pending as $i => $value) {
-														$gauchada = getOneGauchada($pending[$i]['idGauchada']);
-														?>
-														<H3><?php echo $gauchada['title']; ?> </H3>
-														<img src=<?php echo '"'.$gauchada[ 'image']. '"'; ?>>
-														<br><br>
-														<p><?php echo $gauchada['description']; ?></p>
-														<?php
-													}
+													$gauchada = getOneGauchada($accepted[$i]['idGauchada']);
 												?>
-											</div>
-										</td>
-									</tr>
+													<H3><?php echo $gauchada['title']; ?> </H3>
+													<img src=<?php echo '"'.$gauchada[ 'image']. '"'; ?>>
+													<br><br>
+													<p><?php echo $gauchada['description']; ?></p>
+													</div>
+												</td>
+											</tr>
+									<?php
+										}
+									?>
+									<?php
+										foreach ($rejected as $i => $value) {
+									?>
+									<tr data-status="bekleyen">
+										<td>
+											<div class="media centered">
+												<?php
+													$gauchada = getOneGauchada($rejected[$i]['idGauchada']);
+												?>
+													<H3><?php echo $gauchada['title']; ?> </H3>
+													<img src=<?php echo '"'.$gauchada[ 'image']. '"'; ?>>
+													<br><br>
+													<p><?php echo $gauchada['description']; ?></p>
+													</div>
+												</td>
+											</tr>
+									<?php
+										}
+									?>
+									<?php
+										foreach ($pending as $i => $value) {
+									?>
+									<tr data-status="bekleyen">
+										<td>
+											<div class="media centered">
+												<?php
+													$gauchada = getOneGauchada($pending[$i]['idGauchada']);
+												?>
+													<H3><?php echo $gauchada['title']; ?> </H3>
+													<img src=<?php echo '"'.$gauchada[ 'image']. '"'; ?>>
+													<br><br>
+													<p><?php echo $gauchada['description']; ?></p>
+													</div>
+												</td>
+											</tr>
+									<?php
+										}
+									?>
+											
 								</tbody>
 							</table>
 						</div>
