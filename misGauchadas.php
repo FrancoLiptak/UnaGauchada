@@ -17,14 +17,19 @@
             <div class="container">
                 <div class="row">
                     <?php
-                    if (!$row = $gauchadas->fetch_assoc()){
-                        echo "<div class='alert alert-danger'>Aún no has publicado gauchadas</div>";
-                        echo "<center><a type='button' class='btn btn-default btn-filter' href='publicar.php'>Publicar gauchada</a></center>";
-                    }else{
+                        $iEntered= false;
+
                         while ($row = $gauchadas->fetch_assoc()) {
-                        showGauchadaForAllPrueba($row);
+                            $iEntered= true;
+                            showGauchadaForAllPrueba($row);
                         }
-                    }
+
+                        if(!$iEntered){
+                                echo "<div class='alert alert-danger'>Aún no has publicado gauchadas</div>";
+                                echo "<center><a type='button' class='btn btn-default btn-filter' href='publicar.php'>Publicar gauchada</a></center>";
+                            }
+
+                    
                     ?>
                 </div>
             </div>
