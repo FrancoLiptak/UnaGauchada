@@ -13,10 +13,15 @@
             die;
         }
         ?>
+        <link rel="stylesheet" href="css/verAyudas.css" type="text/css" media="all" />
+
+  <script src='js/jquery.min.js' type='text/javascript'/>
+  <script src="js/jquery-1.0.4.js"></script>
 </head>
 
 <body>
-    <?php
+
+	<?php
         $idUser = $_SESSION['idUsers'];
 
         $AllHelps = getUserHelp($idUser);
@@ -38,54 +43,89 @@
         }
 
     ?>
-    <p>Aceptadas:
-    </p>
-    <?php
-        foreach ($accepted as $i => $value) {
-            $gauchada = getOneGauchada($accepted[$i]['idGauchada']);
-            ?>
-            <p>Gauchada:
-                <?php echo $gauchada['title']; ?>
-            </p>
-            <p>Imagen Gauchada: <img src=<?php echo '"'.$gauchada[ 'image']. '"'; ?>></p>
-            <p>Descripcion:
-                <?php echo $gauchada['description']; ?>
-            </p>
-            <?php
-        }
-    ?>
-    <p>Rechazadas:
-    </p>
-    <?php
-        foreach ($rejected as $i => $value) {
-            $gauchada = getOneGauchada($rejected[$i]['idGauchada']);
-            ?>
-            <p>Gauchada:
-                <?php echo $gauchada['title']; ?>
-            </p>
-            <p>Imagen Gauchada: <img src=<?php echo '"'.$gauchada[ 'image']. '"'; ?>></p>
-            <p>Descripcion:
-                <?php echo $gauchada['description']; ?>
-            </p>
-            <?php
-        }
-    ?>
-    <p>Pendientes:
-    </p>
-    <?php
-        foreach ($pending as $i => $value) {
-            $gauchada = getOneGauchada($pending[$i]['idGauchada']);
-            ?>
-            <p>Gauchada:
-                <?php echo $gauchada['title']; ?>
-            </p>
-            <p>Imagen Gauchada: <img src=<?php echo '"'.$gauchada[ 'image']. '"'; ?>></p>
-            <p>Descripcion:
-                <?php echo $gauchada['description']; ?>
-            </p>
-            <?php
-        }
-    ?>
-</body>
 
+<div class="container helped">
+	<div class="row">
+
+		<section class="content">
+			<h1>Gauchadas en las que ofreciste ayuda</h1>
+			<div class="col-md-8 col-md-offset-2">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="centered">
+							<button type="button" class="btn btn-default btn-filter" data-target="all">Todas</button>
+							<button type="button" class="btn btn-success btn-filter" data-target="onaylanan">Aceptadas</button>
+							<button type="button" class="btn btn-warning btn-filter" data-target="bekleyen">Pendientes</button>
+							<button type="button" class="btn btn-danger btn-filter" data-target="iptal">Rechazadas</button>
+						</div>
+						<div class="table-container">
+							<table class="table table-filter">
+								<tbody>
+									<tr data-status="onaylanan">
+										<td>
+											<div class="media">
+												<?php
+													foreach ($accepted as $i => $value) {
+														$gauchada = getOneGauchada($pending[$i]['idGauchada']);
+														?>
+														<H3><?php echo $gauchada['title']; ?> </H3>
+														<img src=<?php echo '"'.$gauchada[ 'image']. '"'; ?>>
+														<br><br>
+														<p><?php echo $gauchada['description']; ?></p>
+														<?php
+													}
+												?>
+											</div>
+										</td>
+									</tr>
+									<tr data-status="iptal">
+										<td>
+											<div class="media">
+												<?php
+													foreach ($rejected as $i => $value) {
+														$gauchada = getOneGauchada($pending[$i]['idGauchada']);
+														?>
+														<H3><?php echo $gauchada['title']; ?> </H3>
+														<img src=<?php echo '"'.$gauchada[ 'image']. '"'; ?>>
+														<br><br>
+														<p><?php echo $gauchada['description']; ?></p>
+														<?php
+													}
+												?>
+											</div>
+										</td>
+									</tr>
+									<tr data-status="bekleyen">
+										<td>
+											<div class="media centered">
+												<?php
+													foreach ($pending as $i => $value) {
+														$gauchada = getOneGauchada($pending[$i]['idGauchada']);
+														?>
+														<H3><?php echo $gauchada['title']; ?> </H3>
+														<img src=<?php echo '"'.$gauchada[ 'image']. '"'; ?>>
+														<br><br>
+														<p><?php echo $gauchada['description']; ?></p>
+														<?php
+													}
+												?>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+        
+	</div>
+</div>
+
+
+</body>
+<script type="text/javascript" src="js/verAyudas.js"></script>
+<?php include_once "header.php"; include("footer.html");?>
 </html>
