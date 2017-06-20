@@ -52,7 +52,7 @@
 			<div class="col-md-8 col-md-offset-2">
 				<div class="panel panel-default">
 					<div class="panel-body">
-						<div class="centered">
+						<div class="centered helpedButtons">
 							<button type="button" class="btn btn-default btn-filter" data-target="all">Todas</button>
 							<button type="button" class="btn btn-success btn-filter" data-target="onaylanan">Aceptadas</button>
 							<button type="button" class="btn btn-warning btn-filter" data-target="bekleyen">Pendientes</button>
@@ -63,10 +63,10 @@
 								<tbody>
 									<tr data-status="onaylanan">
 										<td>
-											<div class="media">
+											<div class="media centered">
 												<?php
 													foreach ($accepted as $i => $value) {
-														$gauchada = getOneGauchada($pending[$i]['idGauchada']);
+														$gauchada = getOneGauchada($accepted[$i]['idGauchada']); //CAMBIE ACCEPTED POR PENDING. PREGUNTAR A CAMI
 														?>
 														<H3><?php echo $gauchada['title']; ?> </H3>
 														<img src=<?php echo '"'.$gauchada[ 'image']. '"'; ?>>
@@ -80,10 +80,10 @@
 									</tr>
 									<tr data-status="iptal">
 										<td>
-											<div class="media">
+											<div class="media centered">
 												<?php
 													foreach ($rejected as $i => $value) {
-														$gauchada = getOneGauchada($pending[$i]['idGauchada']);
+														$gauchada = getOneGauchada($rejected[$i]['idGauchada']);
 														?>
 														<H3><?php echo $gauchada['title']; ?> </H3>
 														<img src=<?php echo '"'.$gauchada[ 'image']. '"'; ?>>
