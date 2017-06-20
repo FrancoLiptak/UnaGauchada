@@ -48,7 +48,7 @@
 	<div class="row">
 
 		<section class="content">
-			<h1>Gauchadas en las que ofreciste ayuda</h1>
+			<h2 class="centered">Ofrecimientos de ayudas</h2>
 			<div class="col-md-8 col-md-offset-2">
 				<div class="panel panel-default">
 					<div class="panel-body">
