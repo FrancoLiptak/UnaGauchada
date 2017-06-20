@@ -29,7 +29,7 @@ function getCommentsForGauchada($idGauchada) {
     return $result;
 }
 
-function showComment($comment, $idGauchada, $isReply = false)
+function showComment($comment, $idGauchada, $numComment, $isReply = false)
 {
     $link = connect();
     $idComment = $comment['idComment'];
@@ -74,7 +74,7 @@ function showComment($comment, $idGauchada, $isReply = false)
                              <?php if (isset($_SESSION['idUsers']) and ($_SESSION['idUsers'] == $idUserGauchada) and $notRepliedYet and $notMyComment ){?>
 
                                 <div style="margin-bottom: 50px;">
-                                    <a href="#" class="btn btn-info" onclick="style.display = 'none'; formReplyComment.style.display = 'block'">Responder</a>
+                                    <a href="#" class="btn btn-info" onclick="style.display = 'none'; formReplyComment[<?php echo $numComment ?>].style.display = 'block'">Responder</a>
                                 </div>
 
                             <?php } ?>
@@ -90,9 +90,12 @@ function showComment($comment, $idGauchada, $isReply = false)
                 </div> <!-- del responder y eliminar-->
                 <div class="col-md-12">
                     <br>
+                    <?php
+                    if (!$isReply) {
+                    ?>
                     <form action="replyComment.php" method="post" style="display:none;" id="formReplyComment">
                                     <div class="form-group col-md-9"> 
-                                        <input type="text" name="idGauchadas" hidden value="<?php echo $gauchada['idGauchadas']; ?>">
+                                        <input type="text" name="idGauchadas" hidden value="<?php echo $comment['idGauchadas']; ?>">
                                         <textarea style="width:100%;"class="form-control" name="replyComment" placeholder="Responde a <?php echo  $userName ?>." required></textarea>
                                         <input type="text" name="idUsers" value="<?php echo $_SESSION['idUsers'] ?>" hidden>
                                         <input type="text" name="idGauchadas" value="<?php echo $comment['idGauchada'] ?>" hidden>
@@ -100,6 +103,9 @@ function showComment($comment, $idGauchada, $isReply = false)
                                     </div>
                                     <button type="submit" class="btn btn-info col-md-3" id="submit" style="<?php if(!($replyComment['replyComment'])) ?> ;margin-bottom: 20px; float: right; width:14%;"> Responder </button>
                             </form>
+                    <?php
+                    }
+                    ?>
                 </div> <!-- engloba a un form de respuesta -->
             
             </div> <!-- engloba a un comentario -->
@@ -108,7 +114,7 @@ function showComment($comment, $idGauchada, $isReply = false)
            if ($reply->num_rows > 0) {?>
                     <p style="margin-left:30px; margin-bottom: 0px;"><span class='badge'>1</span> Respuesta para <?php echo  $userName ?>:</p><br>
                     <?php 
-                    showComment($reply->fetch_assoc(),$idGauchada, true);
+                    showComment($reply->fetch_assoc(),$idGauchada, 0, true);
                     ?>
                 <?php }
             ?>
