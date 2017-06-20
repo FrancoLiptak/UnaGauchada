@@ -64,7 +64,7 @@
 									<?php
 										foreach ($accepted as $i => $value) {
 									?>
-									<tr data-status="bekleyen">
+									<tr data-status="onaylanan">
 										<td>
 											<div class="media centered">
 												<?php
@@ -83,7 +83,7 @@
 									<?php
 										foreach ($rejected as $i => $value) {
 									?>
-									<tr data-status="bekleyen">
+									<tr data-status="iptal">
 										<td>
 											<div class="media centered">
 												<?php
