@@ -5,6 +5,7 @@
         include_once 'validate.php';
         include_once 'gauchadasFx.php';
         include_once 'alert.php';
+        include("footer.html");
         ?>
         <br><br><br><br>
     </head>
