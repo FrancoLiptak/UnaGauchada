@@ -63,8 +63,10 @@ if (isset($_SESSION['msg']) && $_SESSION['msg'] != "") {
             </p><br>
 
             <?php
+            $i = 0;
             while ($row = $comments->fetch_assoc()) {
-                showComment($row, $idGauchada);
+                showComment($row, $idGauchada, $i);
+                $i++;
             }
         } else {
             ?>
