@@ -24,15 +24,15 @@
 	<?php
         $idUser = $_SESSION['idUsers'];
 
-        $AllHelps = getUserHelp($idUser);
+        $AllHelps = getUserHelp($idUser);		//Todas las gauchadas en las que me postule.
 
-        $accepted = array();
-        $rejected = array();
-        $pending = array();
+        $accepted = array();					//Las que me aceptaron.
+        $rejected = array();					//Las que me rechazaron.
+        $pending = array();						//Las que no tienen ningun aceptado.
 
         while ($help = $AllHelps->fetch_assoc()) {
             if ($hasAccepted = hasAccepted($help['idGauchada'])) {
-                if ($hasAccepted = $idUser) {
+                if ($hasAccepted == $idUser) {
                     $accepted[] = $help;
                 } else {
                     $rejected[] = $help;

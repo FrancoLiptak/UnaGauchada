@@ -13,6 +13,7 @@ function newHelp($idUser, $idGauchada, $description = "")
         $query = "INSERT INTO help (idUsers, idGauchada, description)";
         $query = $query."VALUES ($idUser, $idGauchada, '$description')";
         if ($result = $link->query($query)) {
+            $_SESSION['msg'] = "Te postulaste exitosamente!";
             return $result;
         }
         $_SESSION['msg'] = $link->error;
