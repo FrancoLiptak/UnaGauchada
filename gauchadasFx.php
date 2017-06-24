@@ -7,6 +7,8 @@ include_once 'fxCategory.php';
 include_once 'fxCity.php';
 include_once 'fxProvince.php';
 include_once 'fxHelp.php';
+include_once 'helped.php'; 
+
 function getGauchadas($limit, $first, $condition = "1 = 1")
 {
 // Retorna las proximas $limit gauchadas comenzando desde la tupla numero $first que cumplen la condicion $condition.
@@ -28,7 +30,7 @@ function getOneGauchada($idGauchadas)
 return getGauchadas(1, 0, "idGauchadas = $idGauchadas")->fetch_assoc();
 }
 
-function showGauchadaForAllPrueba($gauchada, $enabledLink = true)
+function showGauchadaForAllPrueba($gauchada, $enabledLink = true, $showState = false)
 {
 $user = getUser($gauchada['idUser'])->fetch_assoc();
 $cate = getCategory($gauchada['idCategory'])->fetch_assoc();
@@ -87,6 +89,13 @@ $title = $title . "...";
                         <?php echo $prov['name'].", ".$city['name'] ?> </p>
                 </div>
                 <?php
+                    if($showState == true){
+                        if(hasAccepted($gauchada['idGauchadas'])){
+                            echo "<div class= 'alert alert-success'>Has sido aceptado en esta gauchada. </div>";
+                        }else{
+                            echo "<div class= 'alert alert-warning'>Nadie ha sido elegido como gaucho aún. </div>";
+                            }
+                    }
                     if( $enabledLink == true ){
                     ?>
                          <p><a class="btn btn-default" id="submit" href="gauchadaVer.php?idGauchadas=<?php echo $gauchada['idGauchadas']; ?>"

@@ -42,8 +42,7 @@
             } else {
                 $pending[] = $help;
             }
-        }
-
+        }   
     ?>
 
 
@@ -73,7 +72,7 @@
                     function showGauchadas($state, $enabledLink = true){
                         foreach ($state as $i => $value) {
                             $gauchada = getOneGauchada($state[$i]['idGauchada']);
-                            showGauchadaForAllPrueba($gauchada, $enabledLink);
+                            showGauchadaForAllPrueba($gauchada, $enabledLink, true);
                         }
                     }
                     ?>
