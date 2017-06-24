@@ -5,6 +5,7 @@ include_once 'usersFx.php';
 include_once 'credits.php';
 include_once 'gauchadasFx.php';
 include_once 'fxScore.php';
+include_once 'fxLogros.php';
 
 function newHelp($idUser, $idGauchada, $description = "")
 {
