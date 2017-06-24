@@ -25,12 +25,13 @@
         $idUser = $_SESSION['idUsers'];
 
         $AllHelps = getUserHelp($idUser);		//Todas las gauchadas en las que me postule.
-
+		$all = array();
         $accepted = array();					//Las que me aceptaron.
         $rejected = array();					//Las que me rechazaron.
         $pending = array();						//Las que no tienen ningun aceptado.
 
         while ($help = $AllHelps->fetch_assoc()) {
+				$all[] = $help;
             if ($hasAccepted = hasAccepted($help['idGauchada'])) {
                 if ($hasAccepted == $idUser) {
                     $accepted[] = $help;
@@ -53,7 +54,7 @@
 	<button type="button" class="btn btn-danger btn-filter" href="#" id="buttonRejected">Rechazadas</button>
 </div>
 
-<div id="all" style="display:none"><?php showGauchadas($accepted); ?></div> <!-- SE ROMPE TODO CON ALLHELPS -->
+<div id="all" style="display:none"><?php showGauchadas($all); ?></div>
 <div id="accepted" style="display:none"><?php showGauchadas($accepted); ?></div>
 <div id="pending" style="display:none"><?php showGauchadas($pending); ?></div>
 <div id="rejected" style="display:none"><?php showGauchadas($rejected, false); ?></div>

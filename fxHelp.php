@@ -274,7 +274,7 @@ function getUserHelp($idUser){
         $link = connect();
         $query = "SELECT * FROM help WHERE idUsers = $idUser;";
         $result = $link->query($query);
-        return $result;
+        return ($result);
     }
     return false;
 }
