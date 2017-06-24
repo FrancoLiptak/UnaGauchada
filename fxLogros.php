@@ -24,5 +24,7 @@ function calculateLogro($user)
 }
 
 function logroConRep($user){
-    //return (calculateLogro($user))['name']." (".$user['reputation'].")";
+    $logro= calculateLogro($user);
+    $logro_name= $logro['name'];
+    return ($logro_name." (".$user['reputation'].")");
 }
