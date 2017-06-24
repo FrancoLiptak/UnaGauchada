@@ -64,9 +64,9 @@ function mailToHelper($user, $owner, $gauchada)
     $email = $user['email'];
     $name = $user['name']." ".$user['surname'];
 	$subject = 'Tu ayuda fue aceptada en unaGauchada.com.ar!';
-    $body = 'Tu ayuda fue aceptada para la gauchada "'.$gauchada['title'].'". Contactate con '.$owner['name']." ".$owner['surname']." enviandole un mail a ".$owner['email'].". ";
+    $body = 'Tu ayuda fue aceptada para la gauchada "'.$gauchada['title'].'". Contactate con '.$owner['name']." ".$owner['surname']." enviándole un mail a ".$owner['email'].". ";
     if ($owner['phone']) {
-        $body = $body."También podes comunicarte a su telefono: ".$owner['phone'];
+        $body = $body."También podés comunicarte a su teléfono: ".$owner['phone'];
     }
 
     sendMail($email, $name, $subject, $body);
@@ -78,9 +78,9 @@ function mailToOwner($user, $owner, $gauchada)
     $email = $owner['email'];
     $name = $owner['name']." ".$owner['surname'];
 	$subject = 'Aceptaste una ayuda en unaGauchada.com.ar!';
-    $body = 'Aceptaste una ayuda para la gauchada "'.$gauchada['title'].'". Contactate con '.$user['name']." ".$user['surname']." enviandole un mail a ".$user['email'].". ";
+    $body = 'Aceptaste una ayuda para la gauchada "'.$gauchada['title'].'". Contactate con '.$user['name']." ".$user['surname']." enviándole un mail a ".$user['email'].". ";
     if ($user['phone']) {
-        $body = $body."También podes comunicarte a su telefono: ".$user['phone'];
+        $body = $body."También podés comunicarte a su teléfono: ".$user['phone'];
     }
 
     sendMail($email, $name, $subject, $body);
