@@ -9,7 +9,7 @@ function newScore($idGauchada, $rep, $description)
         $query = "INSERT INTO score (idGauchadas, points, description)";
         $query = $query."VALUES ($idGauchada, $rep, '$description')";
         if ($result = $link->query($query)) {
-            $_SESSION['msg'] = "Se puntuo correctamente.";
+            $_SESSION['success'] = "Se puntuo correctamente.";
             return $result;
         }
     }

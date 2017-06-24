@@ -12,6 +12,15 @@ include_once 'fxHelp.php';
 include_once 'alert.php';
 ?>
     <div class="row center-block">
+      <?php   // MOVER DE LUGAR.
+if (isset($_SESSION['msg']) && $_SESSION['msg'] != "") {
+    hacerAlert($_SESSION['msg']);
+    $_SESSION['msg'] = "";
+}
+elseif (isset($_SESSION['success']) && $_SESSION['success'] != "") {
+    hacerAlert($_SESSION['success'], 'success');
+    $_SESSION['success'] = "";
+}?>
         <div class="container-fluid  col-md-6 col-md-offset-3 box-detail">
             <?php
             $idGauchada = $_GET['idGauchadas'];
@@ -28,16 +37,6 @@ include_once 'alert.php';
 
 
 <?php
-
-// MOVER DE LUGAR.
-if (isset($_SESSION['msg']) && $_SESSION['msg'] != "") {
-    hacerAlert($_SESSION['msg']);
-    $_SESSION['msg'] = "";
-}
-elseif (isset($_SESSION['success']) && $_SESSION['success'] != "") {
-    hacerAlert($_SESSION['success'], 'success');
-    $_SESSION['success'] = "";
-}
 
 
 ?>
