@@ -227,7 +227,7 @@ $hoy = date("Y-m-d");
                         <form action="newHelp.php" method="post" style="display:none" id="formAyuda">
                                 <div class="form-group col-md-9"> 
                                     <input type="text" name="idGauchadas" hidden value="<?php echo $gauchada['idGauchadas']; ?>">
-                                    <textarea style="width:100%;"class="form-control" name="description" placeholder="Envía una descripción opcional de por qué quieres ayudar"></textarea>
+                                    <textarea style="width:100%;"class="form-control" name="description" placeholder="Envía una descripción OPCIONAL de por qué quieres ayudar"></textarea>
                                 </div>
                                
                                 <button type="submit" class="btn btn-warning ir col-md-3"><span class="glyphicon glyphicon-thumbs-up"></span> Postularme</button>

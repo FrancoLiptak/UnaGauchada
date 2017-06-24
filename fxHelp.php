@@ -168,7 +168,7 @@ function listHelps($idGauchada)
                                     }
                                 }
                                 </script>
-                                <a href="#" class="btn btn-default" onclick="return switchDesc();">
+                                <a href="#!" class="btn btn-default" onclick="return switchDesc();">
                                 <?php 
                                 switch ($score['points']) {
                                     case -2:
@@ -178,7 +178,7 @@ function listHelps($idGauchada)
                                         break;
                                     case 0:
                                         ?>
-                                        <span style="color: orange" class="glyphicon glyphicon-thumbs-down"></span><span style="color: orange" class="glyphicon glyphicon-thumbs-down"></span>
+                                        <span style="color: orange" class="glyphicon glyphicon-thumbs-up"></span><span style="color: orange" class="glyphicon glyphicon-thumbs-down"></span>
                                         <?php
                                         break;
                                     case 1:
@@ -211,7 +211,7 @@ function listHelps($idGauchada)
                                     <div class="form-group col-md-6"> 
                                         <input type="text" name="idGauchadas" hidden value="<?php echo $gauchada['idGauchadas']; ?>">
                                         <input type="text" name="idUser" hidden value="<?php echo $help['idUsers']; ?>">
-                                        <textarea style="width:100%;"class="form-control" rows="3" name="description" placeholder="Envía una descripción opcional de la participación de <?php echo $user['name']." ".$user['surname']; ?>"></textarea>
+                                        <textarea style="width:100%;"class="form-control" rows="3" name="description" placeholder="Envía una descripción OPCIONAL acerca de la participación de <?php echo $user['name']." ".$user['surname']; ?>"></textarea>
                                     </div>
                                     <div class="form-group col-md-3"> 
                                         <input type="radio" name="score" value="0">&nbsp;&nbsp;&nbsp; <span style="color: red" class="glyphicon glyphicon-thumbs-down"></span> <br>

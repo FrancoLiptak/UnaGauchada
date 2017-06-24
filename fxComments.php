@@ -81,7 +81,7 @@ function showComment($comment, $idGauchada, $numComment, $isReply = false)
                     if ( validateLogin() && ( isAdmin() || $_SESSION['idUsers'] == $idUserGauchada || $_SESSION['idUsers'] == $comment['idUser']) ){
                         ?> 
                         <div class="col—md—6" >
-                            <a href="" class="btn btn-danger" onclick=""> Eliminar</a>
+                            <a href="" class="btn btn-danger" style="padding-right: 18px; padding-left: 18px;" onclick=""> <span class="glyphicon glyphicon-trash"></span> Eliminar </a>
                         </div>
                     <?php }
                     ?>
