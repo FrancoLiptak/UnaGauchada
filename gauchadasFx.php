@@ -27,7 +27,7 @@ function getOneGauchada($idGauchadas)
 return getGauchadas(1, 0, "idGauchadas = $idGauchadas")->fetch_assoc();
 }
 
-function showGauchadaForAllPrueba($gauchada)
+function showGauchadaForAllPrueba($gauchada, $enabledLink = true)
 {
 $user = getUser($gauchada['idUser'])->fetch_assoc();
 $cate = getCategory($gauchada['idCategory'])->fetch_assoc();
@@ -85,9 +85,14 @@ $title = $title . "...";
                     <p> <span class="glyphicon glyphicon-map-marker box-item"></span>
                         <?php echo $prov['name'].", ".$city['name'] ?> </p>
                 </div>
-                <p><a class="btn btn-default" id="submit" href="gauchadaVer.php?idGauchadas=<?php echo $gauchada['idGauchadas']; ?>"
+                <?php
+                    if( $enabledLink == true ){
+                    ?>
+                         <p><a class="btn btn-default" id="submit" href="gauchadaVer.php?idGauchadas=<?php echo $gauchada['idGauchadas']; ?>"
                         role="button">Ver detalle &raquo;</a></p>
-
+                    <?php
+                    }
+                ?>
             </div>
         </div>
         <!--/.col-xs-6.col-lg-4-->
