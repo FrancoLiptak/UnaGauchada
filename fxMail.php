@@ -78,7 +78,7 @@ function mailToOwner($user, $owner, $gauchada)
     $email = $owner['email'];
     $name = $owner['name']." ".$owner['surname'];
 	$subject = 'Aceptaste una ayuda en unaGauchada.com.ar!';
-    $body = 'Aceptaste una ayuda para la gauchada "'.$gauchada['title'].'". Contactate con '.$user['name']." ".$user['surname']." enviandole un mail a ".$user['email']." .";
+    $body = 'Aceptaste una ayuda para la gauchada "'.$gauchada['title'].'". Contactate con '.$user['name']." ".$user['surname']." enviandole un mail a ".$user['email'].". ";
     if ($user['phone']) {
         $body = $body."También podes comunicarte a su telefono: ".$user['phone'];
     }
