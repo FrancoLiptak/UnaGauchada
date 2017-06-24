@@ -7,9 +7,16 @@
         include_once 'alert.php';
         include("footer.html");
         ?>
-        <br><br><br><br>
     </head>
     <body>
+        <div class="row">
+            <div class="container-fluid  col-md-4 col-md-offset-4 ph">
+                <div class="page-header">
+                    <h3 style="text-align:center;">Mis gauchadas</h3>
+                </div>
+            </div>
+        </div>
+        <br>
         <?php
             $idUser = $_SESSION['idUsers'];
             $gauchadas = getGauchadas(10000, 0, $condition = "idUser='$idUser'");
