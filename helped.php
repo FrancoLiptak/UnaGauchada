@@ -53,7 +53,7 @@
 	<button type="button" class="btn btn-warning btn-filter" href="#" id="buttonPending">Pendientes</button>
 	<button type="button" class="btn btn-danger btn-filter" href="#" id="buttonRejected">Rechazadas</button>
 </div>
-
+<br>
 <div id="all" style="display:none"><?php showGauchadas($all); ?></div>
 <div id="accepted" style="display:none"><?php showGauchadas($accepted); ?></div>
 <div id="pending" style="display:none"><?php showGauchadas($pending); ?></div>
