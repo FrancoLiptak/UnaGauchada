@@ -46,7 +46,7 @@ function showComment($comment, $idGauchada, $numComment, $isReply = false)
     ?>
     <div <?php if(!($isReply)){ ?> class="well" style="margin-bottom: 10px; overflow: hidden; border-radius: 8px;"<?php } ?>>
 
-            <div class='col-md-12' style="margin-bottom: -40px;" <?php if($isReply){ ?>  "background-color: #f8f5f5;" <?php } ?>>
+            <div class='col-md-12' style="margin-bottom: -20px;" <?php if($isReply){ ?>  "background-color: #f8f5f5;" <?php } ?>>
                 <div class='col-sm-8' <?php if($isReply){ ?> style=" font-size: 12px; margin-bottom: -20px;"<?php } ?>>
                     <img class='img-circle <?php if($isReply){ ?>img-reply-user <?php }else{?>img-comment-user <?php } ?>    ' style="float: left;"height='65' width='65' src="<?php if ($userPhoto == null) {
                     echo " uploads/nophoto.png ";
@@ -59,7 +59,7 @@ function showComment($comment, $idGauchada, $numComment, $isReply = false)
 
                     <br>
                 </div>
-                <div class="col-sm-2" style="float:right;">
+                <div class="col-md-4" style="float: right; margin-right: 0px; padding-right: 0px;" >
                     <?php  
                     $link= connect();
                     $sql="select idUser from gauchadas where idGauchadas=$idGauchada;";
@@ -70,20 +70,18 @@ function showComment($comment, $idGauchada, $numComment, $isReply = false)
                     $notMyComment= $user['idUsers'] != $idUserGauchada;
                     $notRepliedYet=($reply->num_rows == 0);
                 
-                    ?>  <div class="col-sm-6"> <!-- este div siempre esta ocupando el lugar para mantener el diseño. Despues su boton interno puede mostrarse o no-->
+                    ?>  <div class="col-md-6"> <!-- este div siempre esta ocupando el lugar para mantener el diseño. Despues su boton interno puede mostrarse o no-->
                              <?php if (isset($_SESSION['idUsers']) and ($_SESSION['idUsers'] == $idUserGauchada) and $notRepliedYet and $notMyComment ){?>
 
-                                <div style="margin-bottom: 50px;">
                                     <a href="#" class="btn btn-info" onclick="style.display = 'none'; formReplyComment[<?php echo $numComment ?>].style.display = 'block'">Responder</a>
-                                </div>
 
                             <?php } ?>
                         </div>
                     <?php
                     if ( validateLogin() && ( isAdmin() || $_SESSION['idUsers'] == $idUserGauchada || $_SESSION['idUsers'] == $comment['idUser']) ){
                         ?> 
-                        <div class="col—md—offset—6" >
-                            <a href="" id="submit"  class="btn btn-danger" onclick=""> Eliminar</a>
+                        <div class="col—md—6" >
+                            <a href=""  class="btn btn-danger" onclick=""> Eliminar</a>
                         </div>
                     <?php }
                     ?>
