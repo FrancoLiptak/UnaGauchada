@@ -204,7 +204,7 @@ function listHelps($idGauchada)
                                 </a>
                                 <br><br>
                                 <div style="display:none" id="desc">
-                                    <p class="well"><?php  if($score['description'] == null) echo "No se ha hecho ningún comentario acerca de la participación de ".$user['name'];  else echo "Comentario acerca de la participación de ".$user['name'].": ".$score['description']; ?></p>
+                                    <p class="well"><?php  if($score['description'] == null) echo "No se ha hecho ningún comentario acerca de la participación de ".$user['name'];  else echo "Comentario acerca de la participación de ".$user['name'].": <br> ".$score['description']; ?></p>
                                 </div>
 
                             <?php 

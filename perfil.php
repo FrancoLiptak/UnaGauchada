@@ -104,7 +104,7 @@ include_once 'fxLogros.php';
                   
                 </div>
               </div>
-              <a class="btn btn-info" href=""><span class="glyphicon glyphicon-edit"></span> Editar Perfil</a>
+              <a class="btn btn-success" href=""><span class="glyphicon glyphicon-edit"></span> Editar Perfil</a>
             </div>
           </div>
         </div>
