@@ -25,7 +25,7 @@ if (acceptHelp($idGauchada, $idUser)) {
     $user = getUser($idUser)->fetch_assoc();
     $owner = getUser($gauchada['idUser'])->fetch_assoc();
 
-    sendMail($user, $owner, $gauchada);
+    mailsAyuda($user, $owner, $gauchada);
 }
 header('Location: gauchadaVer.php?idGauchadas='.$idGauchada);
 die;
