@@ -49,7 +49,11 @@ function deleteHelp($idGauchada, $idUser)
         $link = connect();
         $query = "DELETE FROM help WHERE idUsers=$idUser AND idGauchada=$idGauchada";
         $result = $link->query($query);
-        return $result;
+        if ($result = $link->query($query)) {
+            $_SESSION['msg'] = "Tu postulacion fue eliminada.";
+            return $result;
+        }
+        $_SESSION['msg'] = $link->error;
     }
     return false;
 }
@@ -60,8 +64,10 @@ function acceptHelp($idGauchada, $idUser)
         $link = connect();
         $query = "UPDATE help SET selected=1 WHERE idUsers=$idUser AND idGauchada=$idGauchada";
         if ($link->query($query)) {
-            finishGauchada($idGauchada);
-            return true;
+            if (finishGauchada($idGauchada)) {
+                $_SESSION['msg'] = "El comentario fue eliminado.";
+                return $result;
+            }
         }
     }
     $_SESSION['msg'] = $link->error;

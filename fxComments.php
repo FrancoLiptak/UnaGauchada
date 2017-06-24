@@ -131,10 +131,10 @@ function newComment($idUser, $idGauchada, $comment){
         $query = "INSERT INTO comments (idUser, idGauchada, text, date)";
         $query = $query."VALUES ($idUser, $idGauchada, '$comment', '$date')";
         if ($result = $link->query($query)) {
+            $_SESSION['msg'] = "Comentaste exitosamente.";
             return $result;
         }
         $_SESSION['msg'] = $link->error;
-        echo $_SESSION['msg'];
     }
     return false;
 }
@@ -143,8 +143,11 @@ function deleteComment($idGauchada, $idUser, $idComment){ //LLAMAR EN SHOWCOMMEN
     if (validateGauchada($idGauchada) && validateUser($idUser) && validateComment($idComment)) {
         $link = connect();
         $query = "DELETE FROM comments WHERE idUsers=$idUser AND idGauchada=$idGauchada AND idComment = $idComment";
-        $result = $link->query($query);
-        return $result;
+        if ($result = $link->query($query)) {
+            $_SESSION['msg'] = "El comentario fue eliminado.";
+            return $result;
+        }
+        $_SESSION['msg'] = $link->error;
     }
     return false;
 }
@@ -156,6 +159,7 @@ function replyComment($idGauchada, $idUser, $idComment, $reply){
         $query = "INSERT INTO comments (idUser, idGauchada, idReplied, text, date)";
         $query = $query."VALUES ($idUser, $idGauchada, $idComment, '$reply', '$date')";
         if ($result = $link->query($query)) {
+            $_SESSION['msg'] = "Respondiste exitosamente.";
             return $result;
         }
         $_SESSION['msg'] = $link->error;

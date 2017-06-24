@@ -4,7 +4,7 @@ include_once 'validate.php';
 function getLogros()
 {
     $link = connect();
-    $query = "SELECT * FROM logros ORDER BY min";
+    $query = "SELECT * FROM logros ORDER BY min DESC";
     if ($result = $link->query($query)) {
         return $result;
     }
@@ -14,11 +14,11 @@ function getLogros()
 
 function calculateLogro($user)
 {
-    $logros = getLogros();
-    $iLogros = $logros->num_rows;
-    while($row = $logros->fetch_assoc()) {
-        if ($user['reputation'] > $row['min']) {
-            return $row['idLogros'];
+    $allLogros = getLogros();
+    while($logro = $allLogros->fetch_assoc()) {
+        if ($user['reputation'] > $logro['min']) {
+            return $logro;
         }
     }
+    return false;
 }

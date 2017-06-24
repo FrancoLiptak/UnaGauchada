@@ -8,6 +8,7 @@ if (!(validate($_SESSION['idUsers']))){
 include_once "header.php";
 include_once 'usersFx.php';
 include_once 'alert.php';
+include_once 'fxLogros.php';
 ?>
 
 <html>
@@ -58,7 +59,7 @@ include_once 'alert.php';
                         <td>Reputación:</td>
                         <td>
                             <?php
-                                echo $user['reputation'];
+                                echo (calculateLogro($user))['name']." (".$user['reputation'].")";
                             ?>
                         </td>
                       </tr>
