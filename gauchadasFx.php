@@ -90,8 +90,12 @@ $title = $title . "...";
                 </div>
                 <?php
                     if($showState == true){
-                        if(hasAccepted($gauchada['idGauchadas'])){
-                            echo "<div class= 'alert alert-success'>Has sido aceptado en esta gauchada. </div>";
+                        if($idUserAccepted = hasAccepted($gauchada['idGauchadas'])){
+                            if($idUserAccepted == $_SESSION["idUsers"]){
+                                echo "<div class= 'alert alert-success'>Has sido aceptado en esta gauchada. </div>";
+                            }else{
+                                echo "<div class= 'alert alert-danger'>Tu ayuda ha sido rechazada. </div>";
+                            }
                         }else{
                             echo "<div class= 'alert alert-warning'>Nadie ha sido elegido como gaucho aún. </div>";
                             }
