@@ -3,6 +3,7 @@ session_start();
 include_once 'validate.php';
 include_once 'fxHelp.php';
 include_once 'credits.php';
+include_once 'fxMail.php';
 
 if (!isset($_POST['idGauchadas'])) {
     $_SESSION['msg'] = "No hay idGauchada para aceptar help.";
@@ -19,6 +20,13 @@ if (!isset($_POST['idUsers'])) {
 }
 
 $idUser = $_POST['idUsers'];
-acceptHelp($idGauchada, $idUser);
+if (acceptHelp($idGauchada, $idUser)) {
+    $gauchada = getOneGauchada($idGauchada);
+    $user = getUser($idUser)->fetch_assoc();
+    $owner = getUser($gauchada['idUser'])->fetch_assoc();
+
+    sendMail($user, $owner, $gauchada);
+}
+die;
 header('Location: gauchadaVer.php?idGauchadas='.$idGauchada);
 die;

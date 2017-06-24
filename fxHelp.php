@@ -64,7 +64,7 @@ function acceptHelp($idGauchada, $idUser)
     if (validateGauchada($idGauchada) && validateUser($idUser)) {
         $link = connect();
         $query = "UPDATE help SET selected=1 WHERE idUsers=$idUser AND idGauchada=$idGauchada";
-        if ($link->query($query)) {
+        if ($result = $link->query($query)) {
             if (finishGauchada($idGauchada)) {
                 $_SESSION['msg'] = "El comentario fue eliminado.";
                 return $result;
