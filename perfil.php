@@ -59,7 +59,7 @@ include_once 'fxLogros.php';
                         <td>Reputación:</td>
                         <td>
                             <?php
-                                echo (calculateLogro($user))['name']." (".$user['reputation'].")";
+                                echo logroConRep($user);
                             ?>
                         </td>
                       </tr>

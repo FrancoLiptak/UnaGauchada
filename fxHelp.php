@@ -122,6 +122,24 @@ function listHelps($idGauchada)
                             <?php echo $user['name']." ".$user['surname']; ?>
                         </p>
                     </div>
+
+
+
+                    <?php
+                    /*
+                        PARA MOSTRAR
+                        LOGRO CON REP
+                        USAR FUNCION
+                        logroConRep($user)
+                        O SINO
+                        echo (calculateLogro($user))['name']." (".$user['reputation'].")";
+                        O ALGO
+                        POR EL ESTILO
+                        BAI
+                    */
+                    ?>
+
+
                     <div class="col-md-4">
                         <p>
                             <?php if($help['description']) echo $help['description']; else echo "---";?>
