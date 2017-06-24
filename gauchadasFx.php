@@ -220,7 +220,7 @@ $hoy = date("Y-m-d");
                     ?>
 
                     <div style="margin-bottom: 50px;">
-                        <a href="#" class="col-md-6 col-md-offset-3 btn btn-warning" onclick="style.display = 'none'; formAyuda.style.display = 'block'">
+                        <a href="#!" class="col-md-6 col-md-offset-3 btn btn-warning" onclick="style.display = 'none'; formAyuda.style.display = 'block'">
                           Me interesa ayudar en ésta publicación
                         </a>
                         

@@ -203,7 +203,7 @@ function listHelps($idGauchada)
                                 ?>
 
                             <div>
-                                <a href="#" class="btn btn-warning" onclick="style.display = 'none'; formPuntuar.style.display = 'block'">Puntuar</a>
+                                <a href="#!" class="btn btn-warning" onclick="style.display = 'none'; formPuntuar.style.display = 'block'">Puntuar</a>
                             </div>
                             <div class="col-md-12">
                             <br>

@@ -73,7 +73,7 @@ function showComment($comment, $idGauchada, $numComment, $isReply = false)
                     ?>  <div class="col-md-6"> <!-- este div siempre esta ocupando el lugar para mantener el diseño. Despues su boton interno puede mostrarse o no-->
                              <?php if (isset($_SESSION['idUsers']) and ($_SESSION['idUsers'] == $idUserGauchada) and $notRepliedYet and $notMyComment ){?>
 
-                                    <a href="#" class="btn btn-info" onclick="style.display = 'none'; formReplyComment[<?php echo $numComment ?>].style.display = 'block'">Responder</a>
+                                    <a href="#!" class="btn btn-info" onclick="style.display = 'none'; formReplyComment[<?php echo $numComment ?>].style.display = 'block'">Responder</a>
 
                             <?php } ?>
                         </div>
@@ -81,7 +81,7 @@ function showComment($comment, $idGauchada, $numComment, $isReply = false)
                     if ( validateLogin() && ( isAdmin() || $_SESSION['idUsers'] == $idUserGauchada || $_SESSION['idUsers'] == $comment['idUser']) ){
                         ?> 
                         <div class="col—md—6" >
-                            <a href=""  class="btn btn-danger" onclick=""> Eliminar</a>
+                            <a href="" class="btn btn-danger" onclick=""> Eliminar</a>
                         </div>
                     <?php }
                     ?>
