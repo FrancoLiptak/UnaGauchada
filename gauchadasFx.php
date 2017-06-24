@@ -212,10 +212,10 @@ $hoy = date("Y-m-d");
             elseif (!isAdmin()){
                 if ($acceptedUser = hasAccepted($gauchadaId)) {
                     if ($acceptedUser == $loggedUser) {
-                        echo "Felicitaciones! Tu solicitud de ayuda fue aceptada.";
+                        hacerAlert("Felicitaciones! Tu solicitud de ayuda fue aceptada.", 'success');
                     }
                     elseif (getOneHelp($gauchadaId, $loggedUser)->num_rows > 0) {
-                        echo "Lo sentimos, otro postulante fue elegido para esta gauchada :(";                    
+                        hacerAlert("Lo sentimos, otro postulante fue elegido para esta gauchada.");                    
                     }
                 }
                 elseif (getOneHelp($gauchadaId, $loggedUser)->num_rows == 0) {
