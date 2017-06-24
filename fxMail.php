@@ -46,7 +46,10 @@ function sendMail($user, $owner, $gauchada)
     //Read an HTML message body from an external file, convert referenced images to embedded,
     //convert HTML into a basic plain-text alternative body
     //$mail->msgHTML(file_get_contents('contents.html'), dirname(__FILE__));
-    $body = 'Tu ayuda fue aceptada para la gauchada "'.$gauchada['title'].'". Contactate con '.$owner['name']." ".$owner['surname']." enviandole un mail a ".$owner['email'].".";
+    $body = 'Tu ayuda fue aceptada para la gauchada "'.$gauchada['title'].'". Contactate con '.$owner['name']." ".$owner['surname']." enviandole un mail a ".$owner['email'];
+    if ($owner['phone']) {
+        $body = $body.". También podes comunicarte a su telefono: ".$owner['phone'];
+    }
     $mail->Body = $body;
     //Replace the plain text body with one created manually
     //$mail->AltBody = 'Tu ayuda fue aceptada para la gauchada "'.$gauchada['title'].". Contactate con ".$owner['name']." ".$owner['surname']." enviandole un mail a ".$owner['email'].".";

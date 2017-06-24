@@ -27,6 +27,5 @@ if (acceptHelp($idGauchada, $idUser)) {
 
     sendMail($user, $owner, $gauchada);
 }
-die;
 header('Location: gauchadaVer.php?idGauchadas='.$idGauchada);
 die;
