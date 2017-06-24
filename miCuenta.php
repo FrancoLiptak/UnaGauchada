@@ -15,7 +15,7 @@
         }
 ?>
         <li><a target="_self" href="perfil.php"><span class="glyphicon glyphicon-user"></span> Ver perfil </a></li>
-        <li><a target="_self" href="helped.php"><span class="glyphicon glyphicon-thumbs-up"></span> Ver gauchadas en las que ayudé </a></li>
+        <li><a target="_self" href="helped.php"><span class="glyphicon glyphicon-thumbs-up"></span> Mis postulaciones </a></li>
         <li role="separator" class="divider"></li>
         <li><a target="_self" href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Cerrar sesion </a></a></li>
     </ul>
