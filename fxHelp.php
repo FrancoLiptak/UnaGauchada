@@ -66,7 +66,7 @@ function acceptHelp($idGauchada, $idUser)
         $query = "UPDATE help SET selected=1 WHERE idUsers=$idUser AND idGauchada=$idGauchada";
         if ($result = $link->query($query)) {
             if (finishGauchada($idGauchada)) {
-                $_SESSION['msg'] = "El comentario fue eliminado.";
+                $_SESSION['msg'] = "La ayuda fue aceptada.";
                 return $result;
             }
         }
@@ -119,7 +119,7 @@ function listHelps($idGauchada)
                 <div class="row">
                     <div class="col-md-4">
                         <p>
-                            <?php echo $user['name']." ".$user['surname']; ?>
+                            <?php echo $user['name']." ".$user['surname'].". ".logroConRep($user); ?>
                         </p>
                     </div>
                     <?php
@@ -235,6 +235,13 @@ function listHelps($idGauchada)
                                 </form> -->
                                 
                                 <?php
+                            }
+                            else {
+                                ?>
+                                <div class="col-md-4">
+                                    <p>Aca va algun texto que diga que vas a poder puntuarlo cuando caduque la gauchada.</p>
+                                </div>
+                                <?php 
                             }
 
                             /*
