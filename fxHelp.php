@@ -89,6 +89,16 @@ function hasAccepted($idGauchada){
     return false;
 }
 
+function hasHelps($idGauchada)
+{
+    $ayudas = getHelps($idGauchada);
+    $num_rows= $ayudas->num_rows;
+    if ($num_rows > 0) 
+        return true;
+    else
+        return false;
+
+}
 function listHelps($idGauchada)
 {
     $accepted = hasAccepted($idGauchada);
@@ -221,20 +231,7 @@ function listHelps($idGauchada)
                                     <button type="submit" name="submit" class="btn btn-warning ir col-md-3"> Calificar a <?php echo $user['name'] ?></button>
                             </form>
                             </div>
-
-
-                            <!--   <form method="post" action="score.php">
-                                    <input type="number" name="idGauchadas" value=<?php echo '"'.$idGauchada.'"' ?> hidden>
-                                    <input type="text" name="description" value="">
-                                    <select name="score">
-                                        <option value="0">Negativo</option>
-                                        <option value="1">Neutro</option>
-                                        <option value="2">Positivo</option>
-                                    </select>
-                                    <input type="submit" name="submit" value="submit">
-                                </form> -->
-                                
-                                <?php
+                            <?php
                             }
                             else {
                                 ?>
@@ -282,18 +279,4 @@ function getUserHelp($idUser){
 
 
 
-?><!--
-
-<div class="col-md-12">
-                            <form action="newHelp.php" method="post" style="display:none" id="formPuntuar">
-                                    <div class="form-group col-md-6"> 
-                                        <input type="text" name="idGauchadas" hidden value="<?php //echo $gauchada['idGauchadas']; ?>">
-                                        <textarea style="width:100%;"class="form-control" name="description" placeholder="Envía una descripción opcional de la participación de <?php echo $user['name']." ".$user['surname']; ?>"></textarea>
-                                    </div>
-                                    <div class="form-group col-md-3"> 
-                                        
-                                    </div>                                   
-                                    <button type="submit" class="btn btn-warning ir col-md-3"> Calificar a <?php //echo $user['name'] ?></button>
-                            </form>
-                            </div>
- -->
+?>

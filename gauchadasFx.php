@@ -166,10 +166,12 @@ $hoy = date("Y-m-d");
                     if ($_SESSION['idUsers']== $gauchada['idUser']) {
                         ?>
                         <div class="col-md-6">
-                            <a class="btn btn-success" id="submit" href="" role="button"><span class="glyphicon glyphicon-edit"></span> Editar </a>
+                            <a class="btn btn-success" id="submit" href="" role="button" <?php if (hasHelps($gauchada['idGauchadas'])){ ?> disabled <?php } ?>><span class="glyphicon glyphicon-edit"></span> Editar </a>
                         </div>
                         <div class="col-md-6">
-                            <a class="btn btn-danger" id="submit" href="" role="button"> <span class="glyphicon glyphicon-trash"></span> Eliminar </a>
+                             <?php  ?>
+                            <a class="btn btn-danger" id="submit" href="" role="button" <?php if (hasAccepted($gauchada['idGauchadas'])){ ?> disabled <?php } ?>> <span class="glyphicon glyphicon-trash"></span> Eliminar </a>
+                             <?php  ?>
                         </div>
                         <?php
                     }

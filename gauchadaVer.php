@@ -8,6 +8,7 @@ include_once "header.php";
 include_once 'validate.php';
 include_once 'gauchadasFx.php';
 include_once 'fxComments.php';
+include_once 'fxHelp.php';
 include_once 'alert.php';
 ?>
     <div class="row center-block">
@@ -16,7 +17,8 @@ include_once 'alert.php';
             $idGauchada = $_GET['idGauchadas'];
 
             if (validate($idGauchada)) {
-                showOneGauchada(getOneGauchada($idGauchada));
+                $gauchada=getOneGauchada($idGauchada);
+                showOneGauchada($gauchada);
             } else {
                 $_SESSION['msg'] = "No selecciono ninguna gauchada.";
                 header('Location: index.php');
@@ -77,7 +79,7 @@ if (isset($_SESSION['msg']) && $_SESSION['msg'] != "") {
             <?php
         }
 
-        if (isset($_SESSION['idUsers']) and ($_SESSION['idUsers'] != $idUsers) && (!($_SESSION['admin']))) {?>
+        if (isset($_SESSION['idUsers']) and ($_SESSION['idUsers'] != $idUsers) && (!($_SESSION['admin'])) && (!(hasAccepted($gauchada)))) {?>
             <br><br>
             <div>
                 <legend>Deja un comentario!</legend>
