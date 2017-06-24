@@ -7,7 +7,6 @@ include_once 'fxCategory.php';
 include_once 'fxCity.php';
 include_once 'fxProvince.php';
 include_once 'fxHelp.php';
-include_once 'helped.php'; 
 
 function getGauchadas($limit, $first, $condition = "1 = 1")
 {
