@@ -213,7 +213,7 @@ function listHelps($idGauchada)
                                 ?>
 
                             <div>
-                                <a href="#!" class="btn btn-warning" onclick="style.display = 'none'; formPuntuar.style.display = 'block'">Puntuar</a>
+                                <a href="#!" class="btn btn-warning" onclick="style.display = 'none'; formPuntuar.style.display = 'block'">Calificar</a>
                             </div>
                             <div class="col-md-12">
                             <br>
@@ -228,7 +228,7 @@ function listHelps($idGauchada)
                                         <input type="radio" name="score" value="1" checked> <span style="color: orange" class="glyphicon glyphicon-thumbs-up"></span><span style="color: orange" class="glyphicon glyphicon-thumbs-down"></span><br>
                                         <input type="radio" name="score" value="2">&nbsp;&nbsp;&nbsp; <span style="color: green" class="glyphicon glyphicon-thumbs-up"></span>
                                     </div>                                 
-                                    <button type="submit" name="submit" class="btn btn-warning ir col-md-3"> Calificar a <?php echo $user['name'] ?></button>
+                                    <button type="submit" name="submit" class="btn btn-warning ir col-md-3"> Calificar</button>
                             </form>
                             </div>
                             <?php
