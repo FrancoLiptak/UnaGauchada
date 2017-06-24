@@ -1,6 +1,7 @@
 <?php
 
 include_once 'connect.php';
+include_once 'alert.php';
 include_once 'usersFx.php';
 include_once 'fxCategory.php';
 include_once 'fxCity.php';
@@ -231,7 +232,6 @@ $hoy = date("Y-m-d");
                                
                                 <button type="submit" class="btn btn-warning ir col-md-3"><span class="glyphicon glyphicon-thumbs-up"></span> Postularme</button>
                         </form>
-
                     <?php
                 }
                 elseif (getOneHelp($gauchadaId, $loggedUser)->num_rows > 0) {

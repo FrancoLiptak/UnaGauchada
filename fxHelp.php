@@ -239,7 +239,7 @@ function listHelps($idGauchada)
                             else {
                                 ?>
                                 <div class="col-md-4">
-                                    <p>Aca va algun texto que diga que vas a poder puntuarlo cuando caduque la gauchada.</p>
+                                    <p>Podrás puntuar al 'gaucho' una vez caducada tu gauchada.</p>
                                 </div>
                                 <?php 
                             }
