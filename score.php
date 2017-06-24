@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once 'fxScore.php';
+include_once 'usersFx.php';
 
 if (!isset($_POST['idGauchadas'])) {
     $_SESSION['msg'] = "No hay idGauchada para dar score.";

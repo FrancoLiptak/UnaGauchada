@@ -122,11 +122,8 @@ function listHelps($idGauchada)
                             <?php echo $user['name']." ".$user['surname']; ?>
                         </p>
                     </div>
-
-
-
                     <?php
-                    /*
+                    /*  
                         PARA MOSTRAR
                         LOGRO CON REP
                         USAR FUNCION
@@ -136,10 +133,8 @@ function listHelps($idGauchada)
                         O ALGO
                         POR EL ESTILO
                         BAI
-                    */
+                    */  
                     ?>
-
-
                     <div class="col-md-4">
                         <p>
                             <?php if($help['description']) echo $help['description']; else echo "---";?>
@@ -204,7 +199,7 @@ function listHelps($idGauchada)
 
                             <?php 
                             }
-                            else {
+                            elseif (isExpired($gauchada)) {
                                 ?>
 
                             <div>
@@ -241,6 +236,15 @@ function listHelps($idGauchada)
                                 
                                 <?php
                             }
+
+                            /*
+                                FALTA ACA
+                                ALGO PARA
+                                CUANDO TODAVIA
+                                NO EXPIRO
+                                LA GAUCHADA
+                            */
+                            
                         }
                         else {?>
                            <div class="col-md-4">

@@ -260,4 +260,9 @@ function finishGauchada($idGauchada){
     $_SESSION['msg'] = $link->error;
     return false;
 }
+
+function isExpired($gauchada)
+{
+    return $gauchada['expiration'] < date('Y-m-d');
+}
 ?>
