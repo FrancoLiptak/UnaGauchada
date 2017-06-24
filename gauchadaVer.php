@@ -34,6 +34,10 @@ if (isset($_SESSION['msg']) && $_SESSION['msg'] != "") {
     hacerAlert($_SESSION['msg']);
     $_SESSION['msg'] = "";
 }
+elseif (isset($_SESSION['success']) && $_SESSION['success'] != "") {
+    hacerAlert($_SESSION['success'], 'success');
+    $_SESSION['success'] = "";
+}
 
 
 ?>

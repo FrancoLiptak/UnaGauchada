@@ -14,7 +14,7 @@ function newHelp($idUser, $idGauchada, $description = "")
         $query = "INSERT INTO help (idUsers, idGauchada, description)";
         $query = $query."VALUES ($idUser, $idGauchada, '$description')";
         if ($result = $link->query($query)) {
-            $_SESSION['msg'] = "Te postulaste exitosamente!";
+            $_SESSION['success'] = "Te postulaste exitosamente!";
             return $result;
         }
         $_SESSION['msg'] = $link->error;
@@ -51,7 +51,7 @@ function deleteHelp($idGauchada, $idUser)
         $query = "DELETE FROM help WHERE idUsers=$idUser AND idGauchada=$idGauchada";
         $result = $link->query($query);
         if ($result = $link->query($query)) {
-            $_SESSION['msg'] = "Tu postulacion fue eliminada.";
+            $_SESSION['success'] = "Tu postulacion fue eliminada.";
             return $result;
         }
         $_SESSION['msg'] = $link->error;
@@ -66,7 +66,7 @@ function acceptHelp($idGauchada, $idUser)
         $query = "UPDATE help SET selected=1 WHERE idUsers=$idUser AND idGauchada=$idGauchada";
         if ($result = $link->query($query)) {
             if (finishGauchada($idGauchada)) {
-                $_SESSION['msg'] = "La ayuda fue aceptada.";
+                $_SESSION['success'] = "La ayuda fue aceptada.";
                 return $result;
             }
         }
