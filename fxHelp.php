@@ -132,6 +132,9 @@ function listHelps($idGauchada)
                     <div class="col-md-3">
                         <p><strong>Descripcion: </strong></p>
                     </div>
+                    <div class="col-md-3">
+                    
+                    </div>
                 </div>
                 <?php
             }
@@ -162,7 +165,7 @@ function listHelps($idGauchada)
                                     <form action="acceptHelp.php" method="post" class="col-md-4">
                                         <input type="text" name="idUsers" value="<?php echo $help['idUsers'] ?>" hidden>
                                         <input type="text" name="idGauchadas" value="<?php echo $help['idGauchada'] ?>" hidden>
-                                        <button type="submit" class="btn btn-warning" style="<?php if(!($help['description'])) ?> margin-bottom: 20px;"><span class="glyphicon glyphicon-ok-circle"></span> Aceptar Ayuda</button>
+                                        <button type="submit" class="btn btn-warning col-md-3" style="<?php if(!($help['description'])) ?> margin-bottom: 20px;"><span class="glyphicon glyphicon-ok-circle"></span> Aceptar Ayuda</button>
                                     </form>
                             </div>
                             <?php
@@ -184,30 +187,35 @@ function listHelps($idGauchada)
                                     }
                                 }
                                 </script>
-                                <a href="#!" class="btn btn-default" onclick="return switchDesc();">
-                                <?php 
-                                switch ($score['points']) {
-                                    case -2:
-                                        ?>
-                                        <span style="color: red" class="glyphicon glyphicon-thumbs-down"></span>
-                                        <?php 
-                                        break;
-                                    case 0:
-                                        ?>
-                                        <span style="color: orange" class="glyphicon glyphicon-thumbs-up"></span><span style="color: orange" class="glyphicon glyphicon-thumbs-down"></span>
-                                        <?php
-                                        break;
-                                    case 1:
-                                        ?>
-                                        <span style="color: green" class="glyphicon glyphicon-thumbs-up"></span>
-                                        <?php
-                                        break;
-                                }
-                                ?>
-                                
-                                    <span style="display:inline"id="down" class="glyphicon glyphicon-chevron-down"></span>
-                                    <span style="display:none"id="up" class="glyphicon glyphicon-chevron-up"></span>
-                                </a>
+                                <div class="col-md-3">
+                                    <span class="col-md-6">
+                                    <?php 
+                                    switch ($score['points']) {
+                                        case -2:
+                                            ?>
+                                            <span style="color: red" class="glyphicon glyphicon-thumbs-down"></span>
+                                            <?php 
+                                            break;
+                                        case 0:
+                                            ?>
+                                            <span style="color: orange" class="glyphicon glyphicon-thumbs-up"></span><span style="color: orange" class="glyphicon glyphicon-thumbs-down"></span>
+                                            <?php
+                                            break;
+                                        case 1:
+                                            ?>
+                                            <span style="color: green" class="glyphicon glyphicon-thumbs-up"></span>
+                                            <?php
+                                            break;
+                                    }
+                                    ?>
+                                    </span>
+                                    <a href="#!" class="btn btn-default col-md-6" onclick="return switchDesc();">
+                                        <span>Desc.</span>
+                                        <span style="display:inline"id="down" class="glyphicon glyphicon-chevron-down"></span>
+                                        <span style="display:none"id="up" class="glyphicon glyphicon-chevron-up"></span>
+                                    </a>
+                                </div>
+
                                 <br><br>
                                 <div style="display:none" id="desc">
                                     <p class="well"><?php  if($score['description'] == null) echo "No se ha hecho ningún comentario acerca de la participación de ".$user['name'];  else echo "Comentario acerca de la participación de ".$user['name'].": <br> ".$score['description']; ?></p>
