@@ -31,22 +31,22 @@ return getGauchadas(1, 0, "idGauchadas = $idGauchadas")->fetch_assoc();
 
 function showGauchadaForAllPrueba($gauchada, $enabledLink = true, $showState = false)
 {
-$user = getUser($gauchada['idUser'])->fetch_assoc();
-$cate = getCategory($gauchada['idCategory'])->fetch_assoc();
-$city = getCity($gauchada['idCity'])->fetch_assoc();
-$prov = getProv($city['idProvince'])->fetch_assoc();
-$hoy = date("Y-m-d");
-$maxStrLength = 40;
-$largo = false;
+    $user = getUser($gauchada['idUser'])->fetch_assoc();
+    $cate = getCategory($gauchada['idCategory'])->fetch_assoc();
+    $city = getCity($gauchada['idCity'])->fetch_assoc();
+    $prov = getProv($city['idProvince'])->fetch_assoc();
+    $hoy = date("Y-m-d");
+    $maxStrLength = 40;
+    $largo = false;
 
-if (strlen($gauchada['title']) > $maxStrLength) {
-$largo=true;
-}
-$title = substr($gauchada['title'], 0, $maxStrLength);
-if ($largo) {
-$title = $title . "...";
-}
-?>
+    if (strlen($gauchada['title']) > $maxStrLength) {
+        $largo=true;
+    }
+    $title = substr($gauchada['title'], 0, $maxStrLength);
+    if ($largo) {
+        $title = $title . "...";
+    }
+    ?>
         <div class="col-md-4">
             <div class="col-md-11 gauchadaBox">
                 <div class="box-main" style="text-align:left;">
@@ -73,14 +73,7 @@ $title = $title . "...";
                     <p>
                         <span class="glyphicon glyphicon-hourglass box-item"></span>
                         <?php
-                        if ($gauchada['finished']){
-                            echo "Terminada";
-                        }
-                        else {
                             echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a'); ?> días restantes.
-                        <?php                            
-                        }
-                        ?>
                     </p>
                     <p> <span class="glyphicon glyphicon-tags box-item"></span>
                         <?php echo $cate['name']; ?> </p>
