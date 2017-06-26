@@ -123,13 +123,13 @@ function listHelps($idGauchada)
             ?>
             <div class="row" style="margin-bottom: 15"> 
                 <div class="col-md-3">
-                    <p>Usuario: </p>
+                    <p><strong>Usuario: </strong></p>
                 </div>
                 <div class="col-md-3">
-                    <p>Logro y reputacion: </p>
+                    <p><strong>Logro y reputacion: </strong></p>
                 </div>
                 <div class="col-md-3">
-                    <p>Descripcion: </p>
+                    <p><strong>Descripcion: </strong></p>
                 </div>
             </div>
             <?php
@@ -156,13 +156,13 @@ function listHelps($idGauchada)
                         <?php
                         if (!$accepted) {
                             ?>
-                    <div class="col-md-3">
-                            <form action="acceptHelp.php" method="post" class="col-md-4">
-                                <input type="text" name="idUsers" value="<?php echo $help['idUsers'] ?>" hidden>
-                                <input type="text" name="idGauchadas" value="<?php echo $help['idGauchada'] ?>" hidden>
-                                <button type="submit" class="btn btn-warning" style="<?php if(!($help['description'])) ?> margin-bottom: 20px;"><span class="glyphicon glyphicon-ok-circle"></span> Aceptar Ayuda</button>
-                            </form>
-                    </div>
+                            <div class="col-md-3">
+                                    <form action="acceptHelp.php" method="post" class="col-md-4">
+                                        <input type="text" name="idUsers" value="<?php echo $help['idUsers'] ?>" hidden>
+                                        <input type="text" name="idGauchadas" value="<?php echo $help['idGauchada'] ?>" hidden>
+                                        <button type="submit" class="btn btn-warning" style="<?php if(!($help['description'])) ?> margin-bottom: 20px;"><span class="glyphicon glyphicon-ok-circle"></span> Aceptar Ayuda</button>
+                                    </form>
+                            </div>
                             <?php
                         }
                         elseif ($help['idUsers'] == $accepted) {
