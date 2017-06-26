@@ -73,11 +73,10 @@ include_once 'fxLogros.php';
                       </tr>
                       <tr>
                         <td>Fecha de nacimiento:</td>
-                        <td><small>
+                        <td>
                             <?php
                                echo $user['birthDate'];
                             ?>
-                            </small>
                         </td>
                       </tr>
                       <tr>
@@ -104,7 +103,7 @@ include_once 'fxLogros.php';
                   
                 </div>
               </div>
-                 <a class="btn btn-success" href=""><span class="glyphicon glyphicon-edit"></span> Editar Perfil</a>
+                 <a class="btn btn-success col-md-3" href=""><span class="glyphicon glyphicon-edit"></span> Editar Perfil</a>
             </div>
           </div>
         </div>
