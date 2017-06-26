@@ -120,19 +120,21 @@ function listHelps($idGauchada)
             } else {
                  echo "No hay postulantes hasta el momento.";
             }
-            ?>
-            <div class="row" style="margin-bottom: 15"> 
-                <div class="col-md-3">
-                    <p><strong>Usuario: </strong></p>
+            if ($cant_ayudas > 0) {
+                ?>
+                <div class="row" style="margin-bottom: 15"> 
+                    <div class="col-md-3">
+                        <p><strong>Usuario: </strong></p>
+                    </div>
+                    <div class="col-md-3">
+                        <p><strong>Logro y reputacion: </strong></p>
+                    </div>
+                    <div class="col-md-3">
+                        <p><strong>Descripcion: </strong></p>
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    <p><strong>Logro y reputacion: </strong></p>
-                </div>
-                <div class="col-md-3">
-                    <p><strong>Descripcion: </strong></p>
-                </div>
-            </div>
-            <?php
+                <?php
+            }
             while ($help = $ayudas->fetch_assoc()) {
                 $gauchada = getOneGauchada($help['idGauchada']);
                 $user = getUser($help['idUsers'])->fetch_assoc();
