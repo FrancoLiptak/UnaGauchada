@@ -197,6 +197,19 @@ $hoy = date("Y-m-d");
                 }
             ?>
             </div>
+            <?php
+            if (isset($_SESSION['idUsers'])){
+                if (getOneHelp($gauchada['idGauchadas'], $_SESSION['idUsers'])->num_rows > 0) {
+                        ?>
+                        <form action="deleteHelp.php" method="post" style="margin-bottom: 22px;">
+                            <input type="text" name="idGauchadas" hidden value="<?php echo $gauchada['idGauchadas']; ?>"><br>
+                            <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle"></span> Cancelar Postulación</button>
+                        </form>
+
+                        <?php
+                    }
+            }
+            ?>
             <!-- de los botones -->
         </div>
         <div class="col-md-12" style="margin-bottom:">
@@ -246,15 +259,6 @@ $hoy = date("Y-m-d");
                                
                                 <button type="submit" class="btn btn-warning ir col-md-3"><span class="glyphicon glyphicon-thumbs-up"></span> Postularme</button>
                         </form>
-                    <?php
-                }
-                elseif (getOneHelp($gauchadaId, $loggedUser)->num_rows > 0) {
-                    ?>
-                    <form action="deleteHelp.php" method="post" style="margin-bottom: 22px;">
-                        <input type="text" name="idGauchadas" hidden value="<?php echo $gauchada['idGauchadas']; ?>"><br>
-                        <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle"></span> Cancelar Postulación</button>
-                    </form>
-
                     <?php
                 }
             }

@@ -120,45 +120,49 @@ function listHelps($idGauchada)
             } else {
                  echo "No hay postulantes hasta el momento.";
             }
-            ?> 
+            ?>
+            <div class="row" style="margin-bottom: 15"> 
+                <div class="col-md-3">
+                    <p>Usuario: </p>
+                </div>
+                <div class="col-md-3">
+                    <p>Logro y reputacion: </p>
+                </div>
+                <div class="col-md-3">
+                    <p>Descripcion: </p>
+                </div>
+            </div>
             <?php
             while ($help = $ayudas->fetch_assoc()) {
                 $gauchada = getOneGauchada($help['idGauchada']);
                 $user = getUser($help['idUsers'])->fetch_assoc();
                 ?>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <p>
-                            <?php echo $user['name']." ".$user['surname'].". ".logroConRep($user); ?>
+                            <?php echo $user['name']." ".$user['surname'].". " ?>
                         </p>
                     </div>
-                    <?php
-                    /*  
-                        PARA MOSTRAR
-                        LOGRO CON REP
-                        USAR FUNCION
-                        logroConRep($user)
-                        O SINO
-                        echo (calculateLogro($user))['name']." (".$user['reputation'].")";
-                        O ALGO
-                        POR EL ESTILO
-                        BAI
-                    */  
-                    ?>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
+                        <p>
+                            <?php echo logroConRep($user); ?>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
                         <p>
                             <?php if($help['description']) echo $help['description']; else echo "---";?>
                         </p>
                     </div>
-                  
                         <?php
                         if (!$accepted) {
                             ?>
+                    <div class="col-md-3">
                             <form action="acceptHelp.php" method="post" class="col-md-4">
                                 <input type="text" name="idUsers" value="<?php echo $help['idUsers'] ?>" hidden>
                                 <input type="text" name="idGauchadas" value="<?php echo $help['idGauchada'] ?>" hidden>
                                 <button type="submit" class="btn btn-warning" style="<?php if(!($help['description'])) ?> margin-bottom: 20px;"><span class="glyphicon glyphicon-ok-circle"></span> Aceptar Ayuda</button>
                             </form>
+                    </div>
                             <?php
                         }
                         elseif ($help['idUsers'] == $accepted) {
@@ -235,23 +239,14 @@ function listHelps($idGauchada)
                             }
                             else {
                                 ?>
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <p>Podrás puntuar al 'gaucho' una vez caducada tu gauchada.</p>
                                 </div>
                                 <?php 
                             }
-
-                            /*
-                                FALTA ACA
-                                ALGO PARA
-                                CUANDO TODAVIA
-                                NO EXPIRO
-                                LA GAUCHADA
-                            */
-                            
                         }
                         else {?>
-                           <div class="col-md-4">
+                           <div class="col-md-3">
                             <p>Rechazado/a</p>
                            </div>
                         <?php 
