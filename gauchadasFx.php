@@ -92,12 +92,30 @@ function showGauchadaForAllPrueba($gauchada, $enabledLink = true, $showState = f
                             echo "<div class= 'alert alert-warning'>Nadie ha sido elegido como gaucho aún. </div>";
                             }
                     }
+
+                    ?>
+                        <p><a class="btn btn-default" id="submit" href= 
+                            <?php 
+                            if ($enabledLink == true) {
+                                $toShow = '"gauchadaVer.php?idGauchadas='.$gauchada['idGauchadas'].'"';
+                            }
+                            else {
+                                $toShow = '"helped.php" disabled title="No puede ingresar porque fue rechazado."';
+                            }
+                            echo $toShow;
+                            ?>
+                        role="button">Ver detalle &raquo;</a></p>
+                    <?php
+
+
+/*
                     if( $enabledLink == true ){
                     ?>
                          <p><a class="btn btn-default" id="submit" href="gauchadaVer.php?idGauchadas=<?php echo $gauchada['idGauchadas']; ?>"
                         role="button">Ver detalle &raquo;</a></p>
                     <?php
                     }
+*/
                 ?>
             </div>
         </div>

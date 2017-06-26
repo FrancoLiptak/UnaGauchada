@@ -67,20 +67,32 @@
                 <div id="pending" style="display:none"><?php showGauchadas($pending); ?></div>
                 <div id="rejected" style="display:none"><?php showGauchadas($rejected, false); ?></div>
 
-                <?php
-                function showGauchadas($state, $enabledLink = true){
-                    foreach ($state as $i => $value) {
-                        $gauchada = getOneGauchada($state[$i]['idGauchada']);
-                        showGauchadaForAllPrueba($gauchada, $enabledLink, true);
-                    }
-                }
-                ?>
 
             </div>
         </div>
     </div>
 </body>
 <script type="text/javascript" src="js/helped.js"></script>
+
+<?php
+function showGauchadas($state, $enabledLink = true){
+    foreach ($state as $i => $value) {
+        
+        $gauchada = getOneGauchada($state[$i]['idGauchada']);
+        $accepted = hasAccepted($gauchada['idGauchadas']);
+        $idUser = $_SESSION['idUsers'];
+        $link = true;
+
+        if ($accepted) {
+            if ($accepted != $idUser) {
+                $link = false;
+            }
+        }
+
+        showGauchadaForAllPrueba($gauchada, $link, true);
+    }
+}
+?>
 
 <?php
     include_once "footer.html";
