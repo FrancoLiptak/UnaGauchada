@@ -81,7 +81,7 @@ function showComment($comment, $idGauchada, $numComment, $isReply = false)
                     if ( validateLogin() && ( isAdmin() || $_SESSION['idUsers'] == $idUserGauchada || $_SESSION['idUsers'] == $comment['idUser']) ){
                         ?> 
                         <div class="col—md—6" >
-                            <a href="" class="btn btn-danger" style="padding-right: 18px; padding-left: 18px;" onclick=""> <span class="glyphicon glyphicon-trash"></span> Eliminar </a>
+                            <a href="" class="btn btn-danger" style="padding-right: 18px; padding-left: 18px;" onclick="">Eliminar </a>
                         </div>
                     <?php }
                     ?>
@@ -92,14 +92,19 @@ function showComment($comment, $idGauchada, $numComment, $isReply = false)
                     if (!$isReply) {
                     ?>
                     <form action="replyComment.php" method="post" style="display:none;" id="formReplyComment">
-                                    <div class="form-group col-md-9"> 
+                                    <div class="form-group col-md-8"> 
                                         <input type="text" name="idGauchadas" hidden value="<?php echo $comment['idGauchadas']; ?>">
                                         <textarea style="width:100%;"class="form-control" name="replyComment" placeholder="Responde a <?php echo  $userName ?>." required></textarea>
                                         <input type="text" name="idUsers" value="<?php echo $_SESSION['idUsers'] ?>" hidden>
                                         <input type="text" name="idGauchadas" value="<?php echo $comment['idGauchada'] ?>" hidden>
                                         <input type="text" name="idComment" value="<?php echo $comment['idComment'] ?>" hidden>
                                     </div>
-                                    <button type="submit" class="btn btn-info col-md-3" id="submit" style="<?php if(!($replyComment['replyComment'])) ?> ;margin-bottom: 20px; float: right; width:14%;"> Responder </button>
+                                    <div class="form-group col-md-4"> 
+                                        <div class="col-md-6"></div>
+                                        <div class="col-md-6">
+                                             <button type="submit" class="btn btn-info" style=""> Responder </button>
+                                        </div>
+                                    </div>
                             </form>
                     <?php
                     }
