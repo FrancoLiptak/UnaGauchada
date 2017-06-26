@@ -11,6 +11,7 @@
         header('Location: index.php');
         die;
     }
+    include_once "header.php"; 
     ?>
 
     <link rel="stylesheet" href="css/verAyudas.css" type="text/css" media="all" />
@@ -18,7 +19,7 @@
     <script src='js/jquery.min.js' type='text/javascript'/>
     <script src="js/jquery-1.0.4.js"></script>
 </head>
-<body>
+<body id="body" style="display:none">
 	<?php
     $idUser = $_SESSION['idUsers'];
 
@@ -82,7 +83,6 @@
 <script type="text/javascript" src="js/helped.js"></script>
 
 <?php
-    include_once "header.php"; 
     include_once "footer.html";
 ?>
 

@@ -1,5 +1,6 @@
 $(document).ready(function(){ 
-    $('#all').show('slow');
+   $('#body').show();
+   $('#all').show('slow');
    $('#buttonAll').on('click',function(){
         $('#accepted').hide();
         $('#pending').hide();
