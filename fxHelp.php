@@ -188,10 +188,6 @@ function listHelps($idGauchada)
                                 }
                                 </script>
                                 <div class="col-md-3">
-                                    <?php 
-                                    
-                                    
-                                    ?>
                                     <a href="#!" class="btn btn-default" onclick="return switchDesc();">
                                         <span>Informacion</span>
                                         <span style="display:inline"id="down" class="glyphicon glyphicon-chevron-down"></span>
@@ -200,28 +196,30 @@ function listHelps($idGauchada)
                                 </div>
 
                                 <br><br>
-                                <div style="display:none" id="desc">
-                                    <p class="well">
-                                        <?php  if($score['description'] == null) echo "• No se ha hecho ningún comentario acerca de la participación de ".$user['name'];  else echo "• Comentario acerca de la participación de ".$user['name'].": <br> ".$score['description'];
+                                <div class="col-md-12 well" style="display:none; text-align:left;" id="desc">
+                                    <div Class="col-md-8 col-md-offset-2">
+                                    <p class="">
+                                        <?php  if($score['description'] == null) echo "• No se ha hecho ningún comentario acerca de la participación de ".$user['name'];  else echo "• Comentario acerca de la participación de ".$user['name'].": ".$score['description'];
                                         echo "<br>• Calificación: ";
                                         switch ($score['points']) {
                                         case -2:
                                             ?>
-                                            <span style="color: red" class="glyphicon glyphicon-thumbs-down"></span>
+                                            <span style="color: red" class="glyphicon glyphicon-thumbs-down"></span> <?php echo "(Mala)" ?>
                                             <?php 
                                             break;
                                         case 0:
                                             ?>
-                                            <span style="color: orange" class="glyphicon glyphicon-thumbs-up"></span><span style="color: orange" class="glyphicon glyphicon-thumbs-down"></span>
+                                            <span style="color: orange" class="glyphicon glyphicon-thumbs-up"></span><span style="color: orange" class="glyphicon glyphicon-thumbs-down"></span> <?php echo "(Neutra)" ?>
                                             <?php
                                             break;
                                         case 1:
                                             ?>
-                                            <span style="color: green" class="glyphicon glyphicon-thumbs-up"></span>
+                                            <span style="color: green" class="glyphicon glyphicon-thumbs-up"></span> <?php echo "(Buena)" ?>
                                             <?php
                                             break;}
                                         ?>
                                     </p>
+                                    </div>
                                 </div>
 
                             <?php 
