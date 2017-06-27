@@ -188,9 +188,23 @@ function listHelps($idGauchada)
                                 }
                                 </script>
                                 <div class="col-md-3">
-                                    <span class="col-md-6">
                                     <?php 
-                                    switch ($score['points']) {
+                                    
+                                    
+                                    ?>
+                                    <a href="#!" class="btn btn-info" onclick="return switchDesc();">
+                                        <span>Informacion</span>
+                                        <span style="display:inline"id="down" class="glyphicon glyphicon-chevron-down"></span>
+                                        <span style="display:none"id="up" class="glyphicon glyphicon-chevron-up"></span>
+                                    </a>
+                                </div>
+
+                                <br><br>
+                                <div style="display:none" id="desc">
+                                    <p class="well">
+                                        <?php  if($score['description'] == null) echo "• No se ha hecho ningún comentario acerca de la participación de ".$user['name'];  else echo "• Comentario acerca de la participación de ".$user['name'].": <br> ".$score['description'];
+                                        echo "<br>• Calificación: ";
+                                        switch ($score['points']) {
                                         case -2:
                                             ?>
                                             <span style="color: red" class="glyphicon glyphicon-thumbs-down"></span>
@@ -205,20 +219,9 @@ function listHelps($idGauchada)
                                             ?>
                                             <span style="color: green" class="glyphicon glyphicon-thumbs-up"></span>
                                             <?php
-                                            break;
-                                    }
-                                    ?>
-                                    </span>
-                                    <a href="#!" class="btn btn-default col-md-6" onclick="return switchDesc();">
-                                        <span>Desc.</span>
-                                        <span style="display:inline"id="down" class="glyphicon glyphicon-chevron-down"></span>
-                                        <span style="display:none"id="up" class="glyphicon glyphicon-chevron-up"></span>
-                                    </a>
-                                </div>
-
-                                <br><br>
-                                <div style="display:none" id="desc">
-                                    <p class="well"><?php  if($score['description'] == null) echo "No se ha hecho ningún comentario acerca de la participación de ".$user['name'];  else echo "Comentario acerca de la participación de ".$user['name'].": <br> ".$score['description']; ?></p>
+                                            break;}
+                                        ?>
+                                    </p>
                                 </div>
 
                             <?php 
