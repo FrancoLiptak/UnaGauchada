@@ -73,7 +73,13 @@ function showGauchadaForAllPrueba($gauchada, $enabledLink = true, $showState = f
                     <p>
                         <span class="glyphicon glyphicon-hourglass box-item"></span>
                         <?php
-                            echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a'); ?> días restantes.
+                        if ($gauchada['expiration'] > $hoy) {
+                            echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a')." días restantes"; 
+                        }
+                        else {
+                            echo "Terminada";
+                        }
+                        ?>
                     </p>
                     <p> <span class="glyphicon glyphicon-tags box-item"></span>
                         <?php echo $cate['name']; ?> </p>
@@ -173,14 +179,14 @@ $hoy = date("Y-m-d");
                 <?php echo $prov['name'].", ".$city['name']; ?>
                 <br>
                 <p><span class="glyphicon glyphicon-hourglass box-item"></span>
-                    <?php 
-                        if (($restantes = date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a')) >= 0) {
-                            echo $restantes." días restantes.";
+                        <?php
+                        if ($gauchada['expiration'] > $hoy) {
+                            echo date_diff(date_create($gauchada['expiration']), date_create($hoy))->format('%a')." días restantes"; 
                         }
                         else {
-                            echo "La gauchada ya expiro!";
+                            echo "Terminada";
                         }
-                    ?>
+                        ?>
                 </p>
             </p>
             <div class="col-md-12">
@@ -192,9 +198,7 @@ $hoy = date("Y-m-d");
                             <a class="btn btn-success" id="submit" href="" role="button" <?php if (hasHelps($gauchada['idGauchadas'])){ ?> disabled <?php } ?>><span class="glyphicon glyphicon-edit"></span> Editar </a>
                         </div>
                         <div class="col-md-6">
-                             <?php  ?>
                             <a class="btn btn-danger" id="submit" href="" role="button" <?php if (hasAccepted($gauchada['idGauchadas'])){ ?> disabled <?php } ?>> <span class="glyphicon glyphicon-trash"></span> Eliminar </a>
-                             <?php  ?>
                         </div>
                         <?php
                     }
@@ -249,7 +253,13 @@ $hoy = date("Y-m-d");
             elseif (!isAdmin()){
                 if ($acceptedUser = hasAccepted($gauchadaId)) {
                     if ($acceptedUser == $loggedUser) {
-                        hacerAlert("Felicitaciones! Tu solicitud de ayuda fue aceptada.", 'success');
+                        if ($score = hasScore($gauchadaId)) {
+                            showScore(getScoreForGauchada($gauchadaId)->fetch_assoc());
+                        }
+                        else {
+                            hacerAlert("Felicitaciones! Tu solicitud de ayuda fue aceptada.", 'success');
+                        }
+                        
                     }
                     elseif (getOneHelp($gauchadaId, $loggedUser)->num_rows > 0) {
                         hacerAlert("Lo sentimos, otro postulante fue elegido para esta gauchada.");                    

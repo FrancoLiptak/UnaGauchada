@@ -46,3 +46,14 @@ function getScore($idScore){
     $_SESSION['msg'] = $link->error;
     return false;
 }
+
+function showScore($score){
+    $idScore = $score['idScore'];           // Tiene el id del score, no lo van a necesitar.
+    $idGauchada = $score['idGauchadas'];    // Tiene el id de la gauchada, no lo van a necesitar.
+    $reputation = $score['points'];         // Puede ser -2, 0 o 1. Es el cambio en reputacion.
+    $description = $score['description'];   // Puede ser vacio o texto. Es la nota que va con el puntaje.
+
+    ?>
+    <h1>FALTA MOSTRAR EL SCORE.</h1>
+    <?php
+}

@@ -44,9 +44,16 @@ function showComment($comment, $idGauchada, $numComment, $isReply = false)
     $date = $comment['date'];
 
     ?>
-    <div <?php if(!($isReply)){ ?> class="well" style="margin-bottom: 10px; overflow: hidden; border-radius: 8px;"<?php } ?>>
-
-            <div class='col-md-12' style="margin-bottom: -20px;" <?php if($isReply){ ?>  "background-color: #f8f5f5;" <?php } ?>>
+    <div 
+        <?php 
+        if(!($isReply)) {
+            ?>
+            class="well" style="margin-bottom: 10px; overflow: hidden; border-radius: 8px;"
+            <?php
+        }
+        ?>
+    >
+            <div class='col-md-12' style="margin-bottom: -20px; <?php if($isReply){ ?>  background-color: #f8f5f5; <?php } ?>">
                 <div class='col-sm-8' <?php if($isReply){ ?> style=" font-size: 12px; margin-bottom: -20px;"<?php } ?>>
                     <img class='img-circle <?php if($isReply){ ?>img-reply-user <?php }else{?>img-comment-user <?php } ?>    ' style="float: left;"height='65' width='65' src="<?php if ($userPhoto == null) {
                     echo " uploads/nophoto.png ";
