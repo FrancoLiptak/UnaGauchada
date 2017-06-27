@@ -29,7 +29,7 @@ include_once 'fxLogros.php';
         <div class="container-fluid  col-md-6 col-md-offset-3 " >
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h3 class="panel-title">Información personal</h3>
+              <h3 class="panel-title" style="text-align:center;"><strong>Información personal</strong></h3>
             </div>
             <div class="panel-body">
               <div class="row">
@@ -73,11 +73,10 @@ include_once 'fxLogros.php';
                       </tr>
                       <tr>
                         <td>Fecha de nacimiento:</td>
-                        <td><small>
+                        <td>
                             <?php
                                echo $user['birthDate'];
                             ?>
-                            </small>
                         </td>
                       </tr>
                       <tr>
@@ -104,7 +103,7 @@ include_once 'fxLogros.php';
                   
                 </div>
               </div>
-              <a class="btn btn-success" href=""><span class="glyphicon glyphicon-edit"></span> Editar Perfil</a>
+                 <a class="btn btn-success col-md-3" href=""><span class="glyphicon glyphicon-edit"></span> Editar Perfil</a>
             </div>
           </div>
         </div>
