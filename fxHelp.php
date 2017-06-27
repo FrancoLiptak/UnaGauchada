@@ -162,10 +162,10 @@ function listHelps($idGauchada)
                         if (!$accepted) {
                             ?>
                             <div class="col-md-3">
-                                    <form action="acceptHelp.php" method="post" class="col-md-4">
+                                    <form action="acceptHelp.php" method="post" class="">
                                         <input type="text" name="idUsers" value="<?php echo $help['idUsers'] ?>" hidden>
                                         <input type="text" name="idGauchadas" value="<?php echo $help['idGauchada'] ?>" hidden>
-                                        <button type="submit" class="btn btn-warning col-md-3" style="<?php if(!($help['description'])) ?> margin-bottom: 20px;"><span class="glyphicon glyphicon-ok-circle"></span> Aceptar Ayuda</button>
+                                        <button type="submit" class="btn btn-warning" style="<?php if(!($help['description'])) {?> margin-bottom: 20px; <?php } ?>"><span class="glyphicon glyphicon-ok-circle"></span> Aceptar Ayuda</button>
                                     </form>
                             </div>
                             <?php
@@ -188,11 +188,7 @@ function listHelps($idGauchada)
                                 }
                                 </script>
                                 <div class="col-md-3">
-                                    <?php 
-                                    
-                                    
-                                    ?>
-                                    <a href="#!" class="btn btn-info" onclick="return switchDesc();">
+                                    <a href="#!" class="btn btn-default" onclick="return switchDesc();">
                                         <span>Informacion</span>
                                         <span style="display:inline"id="down" class="glyphicon glyphicon-chevron-down"></span>
                                         <span style="display:none"id="up" class="glyphicon glyphicon-chevron-up"></span>
@@ -200,28 +196,30 @@ function listHelps($idGauchada)
                                 </div>
 
                                 <br><br>
-                                <div style="display:none" id="desc">
-                                    <p class="well">
-                                        <?php  if($score['description'] == null) echo "• No se ha hecho ningún comentario acerca de la participación de ".$user['name'];  else echo "• Comentario acerca de la participación de ".$user['name'].": <br> ".$score['description'];
+                                <div class="col-md-12 well" style="display:none; text-align:left;" id="desc">
+                                    <div Class="col-md-8 col-md-offset-2">
+                                    <p class="">
+                                        <?php  if($score['description'] == null) echo "• No se ha hecho ningún comentario acerca de la participación de ".$user['name'];  else echo "• Comentario acerca de la participación de ".$user['name'].": ".$score['description'];
                                         echo "<br>• Calificación: ";
                                         switch ($score['points']) {
                                         case -2:
                                             ?>
-                                            <span style="color: red" class="glyphicon glyphicon-thumbs-down"></span>
+                                            <span style="color: red" class="glyphicon glyphicon-thumbs-down"></span> <?php echo "(Mala)" ?>
                                             <?php 
                                             break;
                                         case 0:
                                             ?>
-                                            <span style="color: orange" class="glyphicon glyphicon-thumbs-up"></span><span style="color: orange" class="glyphicon glyphicon-thumbs-down"></span>
+                                            <span style="color: orange" class="glyphicon glyphicon-thumbs-up"></span><span style="color: orange" class="glyphicon glyphicon-thumbs-down"></span> <?php echo "(Neutra)" ?>
                                             <?php
                                             break;
                                         case 1:
                                             ?>
-                                            <span style="color: green" class="glyphicon glyphicon-thumbs-up"></span>
+                                            <span style="color: green" class="glyphicon glyphicon-thumbs-up"></span> <?php echo "(Buena)" ?>
                                             <?php
                                             break;}
                                         ?>
                                     </p>
+                                    </div>
                                 </div>
 
                             <?php 
