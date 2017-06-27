@@ -162,10 +162,10 @@ function listHelps($idGauchada)
                         if (!$accepted) {
                             ?>
                             <div class="col-md-3">
-                                    <form action="acceptHelp.php" method="post" class="col-md-4">
+                                    <form action="acceptHelp.php" method="post" class="">
                                         <input type="text" name="idUsers" value="<?php echo $help['idUsers'] ?>" hidden>
                                         <input type="text" name="idGauchadas" value="<?php echo $help['idGauchada'] ?>" hidden>
-                                        <button type="submit" class="btn btn-warning col-md-3" style="<?php if(!($help['description'])) ?> margin-bottom: 20px;"><span class="glyphicon glyphicon-ok-circle"></span> Aceptar Ayuda</button>
+                                        <button type="submit" class="btn btn-warning" style="<?php if(!($help['description'])) {?> margin-bottom: 20px; <?php } ?>"><span class="glyphicon glyphicon-ok-circle"></span> Aceptar Ayuda</button>
                                     </form>
                             </div>
                             <?php
