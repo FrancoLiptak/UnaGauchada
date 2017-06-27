@@ -54,6 +54,19 @@ function showScore($score){
     $description = $score['description'];   // Puede ser vacio o texto. Es la nota que va con el puntaje.
 
     ?>
-    <h1>FALTA MOSTRAR EL SCORE.</h1>
+   <div class="panel panel-success">
+        <div class="panel-heading">Has sido calificado</div>
+            <table class="table table-bordered table-hover table-responsive">
+                <tr>
+                    <td>Descripción</td>
+                    <td><?php echo $description; ?></td>
+                </tr>
+                <tr>
+                    <td>Puntos</td>
+                    <td><?php echo $reputation; ?></td>
+                </tr>
+            </table>
+        </div>
+        
     <?php
 }
