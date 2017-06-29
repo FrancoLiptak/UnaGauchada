@@ -65,7 +65,7 @@
                     <button type="button" class="btn btn-success btn-filter" href="#" id="buttonAccepted">Aceptadas</button>
                     <button type="button" class="btn btn-warning btn-filter" href="#" id="buttonPending">Pendientes</button>
                     <button type="button" class="btn btn-danger btn-filter" href="#" id="buttonRejected">Rechazadas</button>
-                    <button type="button" class="btn btn-danger btn-filter" href="#" id="buttonCalificated">Calificadas</button>
+                    <button type="button" class="btn btn-info btn-filter" href="#" id="buttonCalificated">Calificadas</button>
                 </div>
                 <br>
                 <br>
