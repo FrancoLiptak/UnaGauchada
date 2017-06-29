@@ -114,22 +114,12 @@ function showGauchadaForAllPrueba($gauchada, $enabledLink = true, $showState = f
                     <?php
 
 
-/*
-                    if( $enabledLink == true ){
-                    ?>
-                         <p><a class="btn btn-default" id="submit" href="gauchadaVer.php?idGauchadas=<?php echo $gauchada['idGauchadas']; ?>"
-                        role="button">Ver detalle &raquo;</a></p>
-                    <?php
-                    }
-*/
+
                 ?>
             </div>
         </div>
         <!--/.col-xs-6.col-lg-4-->
-        <?php
-
-// <td><img class="img-thumbnail"src="<?php if($gauchada['image'] == null) { echo "uploads/63229-logoUnaGauchada.png"; }else { echo $gauchada['image']; }?>
-            <?php
+         <?php
 }
 
 function showOneGauchada($gauchada)

@@ -145,7 +145,18 @@ function listHelps($idGauchada)
                 <div class="row">
                     <div class="col-md-3">
                         <p>
-                            <?php echo $user['name']." ".$user['surname'].". " ?>
+                            <?php
+                            if($help['idUsers'] ==  $user['idUsers'] and $help['selected'] == 1){
+                                ?>
+                                <span class="delay-2 animated flash">
+                                    <span style="color: green; font-size:6px;" class="glyphicon glyphicon-pushpin"></span>
+                                    <span> <?php echo $user['name']." ".$user['surname'].". " ?></span>
+                                </span>
+                                <?php 
+                            }else{
+                             echo $user['name']." ".$user['surname'].". " ;
+                             }
+                             ?>
                         </p>
                     </div>
                     <div class="col-md-3">
@@ -165,7 +176,7 @@ function listHelps($idGauchada)
                                     <form action="acceptHelp.php" method="post" class="">
                                         <input type="text" name="idUsers" value="<?php echo $help['idUsers'] ?>" hidden>
                                         <input type="text" name="idGauchadas" value="<?php echo $help['idGauchada'] ?>" hidden>
-                                        <button type="submit" class="btn btn-warning" style="<?php if(!($help['description'])) {?> margin-bottom: 20px; <?php } ?>"><span class="glyphicon glyphicon-ok-circle"></span> Aceptar Ayuda</button>
+                                        <button type="submit" class="btn btn-warning" style="<?php if(!($help['description'])) {?> margin-bottom: 20px; <?php } else{?> margin-bottom: 8px; <?php } ?>"><span class="glyphicon glyphicon-ok-circle"></span> Aceptar Ayuda</button>
                                     </form>
                             </div>
                             <?php
@@ -248,10 +259,28 @@ function listHelps($idGauchada)
                             </div>
                             <?php
                             }
-                            else {
-                                ?>
+                            else {?>
+                            <script type="text/javascript">
+                                function switchInfoCalificar(){
+                                    if (infoCalificar.style.display == 'block') {
+                                        infoCalificar.style.display = 'none';
+                                    } else { 
+                                        infoCalificar.style.display = 'block';
+                                    }
+                                }
+                                </script>
+
                                 <div class="col-md-3">
-                                    <p>Podrás puntuar al 'gaucho' una vez caducada tu gauchada.</p>
+                                    <button onclick="return switchInfoCalificar();" type="submit" name="submit" class="btn btn-success" style="margin-bottom: 8px;" title="Click para ver info."> 
+                                        <span class="glyphicon glyphicon-ok-circle"></span>
+                                        Gaucho Elegido!
+                                </button>
+                                </div>
+                                <br><br>
+                                <div class="col-md-12 well" style="display:none; text-align:left;" id="infoCalificar">
+                                    <div Class="col-md-10 col-md-offset-1 centered">
+                                    <p class="">Podras calificar al gaucho elegido una vez caducada la gauchada.</p>
+                                    </div>
                                 </div>
                                 <?php 
                             }
