@@ -118,7 +118,12 @@ function listHelps($idGauchada)
             </legend>
             <?php 
             } else {
-                 echo "No hay postulantes hasta el momento.";
+                ?>
+                <div class="col-md-10 col-md-offset-1 alert alert-danger" style="">
+                    <span><strong><span class="glyphicon glyphicon-alert"></span> No hay postulantes hasta el momento. </strong></span>
+                </div>
+
+                <?php 
             }
             if ($cant_ayudas > 0) {
                 ?>
