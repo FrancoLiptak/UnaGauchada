@@ -105,5 +105,10 @@ elseif (isset($_SESSION['success']) && $_SESSION['success'] != "") {
 ?>
 
     </div>
+    <div id="formReplyComment"> 
+        <?php
+        // Fix villa para 1 solo comment
+        ?>
+    </div>
     <br><br><br><br>
     <?php include("footer.html");?>

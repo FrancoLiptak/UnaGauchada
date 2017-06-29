@@ -76,20 +76,26 @@
 
 <?php
 function showGauchadas($state, $enabledLink = true){
-    foreach ($state as $i => $value) {
+        if(sizeof($state) == 0){
+            echo "<br><br><br>";
+            hacerAlertV2("No hay gauchadas en esta seccion.");
         
-        $gauchada = getOneGauchada($state[$i]['idGauchada']);
-        $accepted = hasAccepted($gauchada['idGauchadas']);
-        $idUser = $_SESSION['idUsers'];
-        $link = true;
+        }else{
+        foreach ($state as $i => $value) {
+            
+            $gauchada = getOneGauchada($state[$i]['idGauchada']);
+            $accepted = hasAccepted($gauchada['idGauchadas']);
+            $idUser = $_SESSION['idUsers'];
+            $link = true;
 
-        if ($accepted) {
-            if ($accepted != $idUser) {
-                $link = false;
+            if ($accepted) {
+                if ($accepted != $idUser) {
+                    $link = false;
+                }
             }
-        }
 
-        showGauchadaForAllPrueba($gauchada, $link, true);
+            showGauchadaForAllPrueba($gauchada, $link, true);
+        }
     }
 }
 ?>
