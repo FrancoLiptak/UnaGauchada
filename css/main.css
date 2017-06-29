@@ -312,3 +312,23 @@ div .comments{
 .helped{
   margin-top: 5% !important;
 }
+.delay-1{
+    -webkit-animation-delay:1s;
+    animation-delay:1s;
+  }
+.delay-1.5{
+  -webkit-animation-delay:1.5s;
+  animation-delay:1.5s;
+}
+.delay-2{
+  -webkit-animation-delay:2s;
+  animation-delay:2s;
+}
+.delay-3{
+  -webkit-animation-delay:3s;
+  animation-delay:3s;
+}
+.delay-4{
+  -webkit-animation-delay:4s;
+  animation-delay:4s;
+}

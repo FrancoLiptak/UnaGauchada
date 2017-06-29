@@ -257,12 +257,12 @@ $hoy = date("Y-m-d");
                             showScore(getScoreForGauchada($gauchadaId)->fetch_assoc());
                         }
                         else {
-                            hacerAlert("Felicitaciones! Tu solicitud de ayuda fue aceptada.", 'success');
+                            hacerAlertV2("Felicitaciones! Tu solicitud de ayuda fue aceptada.", 'success', 'bell');
                         }
                         
                     }
                     elseif (getOneHelp($gauchadaId, $loggedUser)->num_rows > 0) {
-                        hacerAlert("Lo sentimos, otro postulante fue elegido para esta gauchada.");                    
+                        hacerAlertV2("Lo sentimos, otro postulante fue elegido para esta gauchada.");                    
                     }
                 }
                 elseif (getOneHelp($gauchadaId, $loggedUser)->num_rows == 0) {
