@@ -200,7 +200,7 @@ function listHelps($idGauchada)
                                 </script>
                                 <div class="col-md-3">
                                     <a href="#!" class="btn btn-default" onclick="return switchDesc();">
-                                        <span>Informacion</span>
+                                        <span>Calificación</span>
                                         <span style="display:inline"id="down" class="glyphicon glyphicon-chevron-down"></span>
                                         <span style="display:none"id="up" class="glyphicon glyphicon-chevron-up"></span>
                                     </a>
