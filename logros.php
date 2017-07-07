@@ -26,7 +26,7 @@
                 <div class="col-xs-6">
                   <div class="range range-warning">
                     <input type="range" name="range" min="1" max="100" value="50" onchange="rangeWarning.value=value">
-                    <output id="rangeWarning">50 /output>
+                    <output id="rangeWarning">50 </output>
                   </div>
                 </div>
                 
@@ -128,45 +128,6 @@
                 outline: none;
             }
 
-            .range.range-primary input[type="range"]::-webkit-slider-thumb {
-                background-color: rgb(66, 139, 202);
-            }
-            .range.range-primary input[type="range"]::-moz-slider-thumb {
-                background-color: rgb(66, 139, 202);
-            }
-            .range.range-primary output {
-                background-color: rgb(66, 139, 202);
-            }
-            .range.range-primary input[type="range"] {
-                outline-color: rgb(66, 139, 202);
-            }
-
-            .range.range-success input[type="range"]::-webkit-slider-thumb {
-                background-color: rgb(92, 184, 92);
-            }
-            .range.range-success input[type="range"]::-moz-slider-thumb {
-                background-color: rgb(92, 184, 92);
-            }
-            .range.range-success output {
-                background-color: rgb(92, 184, 92);
-            }
-            .range.range-success input[type="range"] {
-                outline-color: rgb(92, 184, 92);
-            }
-
-            .range.range-info input[type="range"]::-webkit-slider-thumb {
-                background-color: rgb(91, 192, 222);
-            }
-            .range.range-info input[type="range"]::-moz-slider-thumb {
-                background-color: rgb(91, 192, 222);
-            }
-            .range.range-info output {
-                background-color: rgb(91, 192, 222);
-            }
-            .range.range-info input[type="range"] {
-                outline-color: rgb(91, 192, 222);
-            }
-
             .range.range-warning input[type="range"]::-webkit-slider-thumb {
                 background-color: rgb(240, 173, 78);
             }
@@ -180,14 +141,6 @@
                 outline-color: rgb(240, 173, 78);
             }
 
-            .range.range-danger input[type="range"]::-webkit-slider-thumb {
-                background-color: rgb(217, 83, 79);
-            }
-            .range.range-danger input[type="range"]::-moz-slider-thumb {
-                background-color: rgb(217, 83, 79);
-            }
-            .range.range-danger output {
-                background-color: rgb(217, 83, 79);}
 
     </style>
 

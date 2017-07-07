@@ -12,7 +12,7 @@
         <div class="row">
             <div class="container-fluid  col-md-4 col-md-offset-4 ph">
                 <div class="page-header">
-                    <h3 style="text-align:center;">Logros</h3>
+                    <h3 style="text-align:center;">Editar Perfil</h3>
                 </div>
             </div>
         </div>
