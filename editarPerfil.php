@@ -83,15 +83,15 @@
             }
                     </style>
 
-
+<div class="row centered">
         <div class="container">
-            <div class="col-md-6">
+            <div class="col-md-6 col-md-offset-3">
                 <div class="form-group">
                     <label>Imagen de perfil</label>
                     <div class="input-group">
                         <span class="input-group-btn">
                             <span class="btn btn-default btn-file">
-                                Examinar... <input type="file" id="imgInp">
+                                Editar <input type="file" id="imgInp">
                             </span>
                         </span>
                         <input type="text" class="form-control" readonly>
@@ -100,3 +100,4 @@
                 </div>
             </div>
         </div>
+</div>
