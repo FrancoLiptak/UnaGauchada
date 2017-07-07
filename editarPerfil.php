@@ -12,7 +12,7 @@
         <div class="row">
             <div class="container-fluid  col-md-4 col-md-offset-4 ph">
                 <div class="page-header">
-                    <h3 style="text-align:center;">Editar Perfil</h3>
+                    <h3 style="text-align:center;">Logros</h3>
                 </div>
             </div>
         </div>
@@ -83,15 +83,15 @@
             }
                     </style>
 
-<div class="row centered">
+
         <div class="container">
-            <div class="col-md-6 col-md-offset-3">
+            <div class="col-md-6">
                 <div class="form-group">
                     <label>Imagen de perfil</label>
                     <div class="input-group">
                         <span class="input-group-btn">
                             <span class="btn btn-default btn-file">
-                                Editar <input type="file" id="imgInp">
+                                Examinar... <input type="file" id="imgInp">
                             </span>
                         </span>
                         <input type="text" class="form-control" readonly>
@@ -100,4 +100,3 @@
                 </div>
             </div>
         </div>
-</div>
