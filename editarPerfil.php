@@ -82,7 +82,7 @@
                 <div class="form-group" id="updatePass">
                     <div class="col-md-6">
                         <label><span class="glyphicon glyphicon-bookmark"></span> Contraseña: </label>
-                        <input class="form-control" type="text" name="pass1" placeholder="*********" disabled>
+                        <input class="form-control" type="text" name="pass1" value="*********" disabled>
                     </div>
                     <a name="update-pass" style="margin-top:25px;" class="btn btn-md btn-primary col-md-6" onclick="showConfirmPassDiv();"><i class="fa fa-lock"></i> Actualizar contraseña</a>
                 </div>  <!-- fin old pass update -->
@@ -92,6 +92,7 @@
                         <div class="col-md-6">
                             <label><span class="glyphicon glyphicon-bookmark"></span> Contraseña Actual:</label>
                             <input class="form-control" type="password" name="pass1" placeholder=" Contraseña" required>
+                            <input class="form-control" type="hidden" name="pass2" value="*********" >
                         </div>
                         <a name="update-pass" style="margin-top:25px;" class="btn btn-md btn-primary col-md-6" onclick="validatePass()"><i class="fa fa-lock"></i> Validar contraseña</a>
                 </div> <!-- fin old pass confirm -->
