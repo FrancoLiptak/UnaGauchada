@@ -23,6 +23,12 @@ function showWrongValidationDiv(){
     wrongValidation.style.display = 'block';
 
 }
+function showRealPassDiv(){
+                        
+    updatePass.style.display = 'block';
+    newPass.style.display = 'none';
+
+}
 
 $(document).ready( function() {
     $(document).on('change', '.btn-file :file', function() {
@@ -59,3 +65,12 @@ $(document).ready( function() {
         readURL(this);
     });     
 });
+
+function validateFormEditar(){
+    if (validatePass()) {
+        return true;
+    }
+    else{
+        return false;
+    }
+}

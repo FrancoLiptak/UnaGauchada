@@ -35,7 +35,7 @@
           $_SESSION['msg'] = "";
         }
         ?>
-       <form enctype="multipart/form-data" id="formEditar" class="col-md-4 col-md-offset-4" action="procesarEditarPerfil.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on" name="signUp_form" onsubmit="return validateFormSignUp()">
+       <form enctype="multipart/form-data" id="formEditar" class="col-md-4 col-md-offset-4" action="procesarEditarPerfil.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on" name="EditarForm" onsubmit="return validateFormEditar()">
             <div class="row">
                 <div class="form-group col-md-6">
                     <label>Foto de perfil:</label>
@@ -108,6 +108,9 @@
                     <div class="form-group col-md-6">
                         <label><span class="glyphicon glyphicon-bookmark"></span> Confirmar contraseña:</label>
                         <input class="form-control" type="password" name="pass2new" placeholder=" Comfirmar contraseña">
+                    </div>
+                    <div class="form-group">
+                      <a name="cancelar-pass"  class="btn btn-md btn-danger col-md-10 col-md-offset-1" onclick="showRealPassDiv()"><i class="fa fa-lock"></i> Cancelar cambio de contraseña</a>
                     </div>
                 </div> <!-- fin new pass -->
 
