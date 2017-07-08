@@ -5,7 +5,7 @@ function showConfirmPassDiv(){
 
 }
 function validatePass(){
-    if (realPass == insertedPass) {
+    if (realPass == document.getElementById("insertedPass").value) {
         oldPassConfirm.style.display = 'none';
         showNewPassDiv();
     } else { 
