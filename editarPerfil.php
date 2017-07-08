@@ -75,7 +75,7 @@
                     $nuevafecha = strtotime ( '-18 year' , strtotime ( $fecha ) ) ;
                     $nuevafecha = date ( 'Y-m-j' , $nuevafecha );
                    ?>
-                 <input class="form-control" type="date" value="<?php echo $user['birthDate'];?>" name="birthDate" max="<?php echo $nuevafecha;?>" min="1917-05-26" required>
+                 <input class="form-control" type="date" value="<?php echo $user['birthDate'];?>" name="birthDate" max="<?php echo $nuevafecha;?>" required>
                     </div>
           </div> <!-- fin row -->
           
@@ -94,8 +94,7 @@
                         <?php hacerAlertV2("Ingresa la contraseña actual para verificar que eres tu.","info","info-sign"); ?>
                         <div class="col-md-6">
                             <label><span class="glyphicon glyphicon-bookmark"></span> Contraseña Actual:</label>
-                            <input id="insertedPass" class="form-control" type="password" name="pass1" placeholder=" Contraseña" required onfocus="wrongValidation.style.display = 'none';">
-                            <input class="form-control" type="hidden" name="pass2" value="<?php echo $user['pass'];?>" >
+                            <input id="insertedPass" class="form-control" type="password" placeholder=" Contraseña" onfocus="wrongValidation.style.display = 'none';">
                         </div>
                         <a name="update-pass" style="margin-top:25px;" class="btn btn-md btn-primary col-md-6" onclick="validatePass()"><i class="fa fa-lock"></i> Validar contraseña</a>
                 </div> <!-- fin old pass confirm -->
@@ -104,11 +103,11 @@
                     <?php hacerAlertV2("Ingresa y luego confirma la nueva contraseña.","info","info-sign"); ?>
                     <div class="form-group col-md-6">
                         <label><span class="glyphicon glyphicon-bookmark"></span> Nueva Contraseña: </label>
-                        <input class="form-control" type="password" name="pass1" placeholder=" Contraseña" onfocus="nota()"required>
+                        <input class="form-control" type="password" name="pass1new" placeholder=" Contraseña">
                     </div>
                     <div class="form-group col-md-6">
                         <label><span class="glyphicon glyphicon-bookmark"></span> Confirmar contraseña:</label>
-                        <input class="form-control" type="password" name="pass2" placeholder=" Comfirmar contraseña"required>
+                        <input class="form-control" type="password" name="pass2new" placeholder=" Comfirmar contraseña">
                     </div>
                 </div> <!-- fin new pass -->
 
@@ -126,7 +125,6 @@
     </div>
 
 <!----------------------------------- Script para validar el Editar -->
-  <script rel="text/javascript" src="js/signUp.js"></script>
   <script rel="text/javascript" src="js/editarPerfil.js"></script>
 
   <?php Include("footer.html"); ?>
