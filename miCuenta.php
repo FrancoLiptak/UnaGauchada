@@ -17,6 +17,7 @@
         }
 ?>
         <li role="separator" class="divider"></li>
+        <li><a target="_self" href="editarPerfil.php"><span class="glyphicon glyphicon-cog"></span> Configurar perfil </a></li>
         <li><a target="_self" href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Cerrar sesion </a></a></li>
     </ul>
 </li>
