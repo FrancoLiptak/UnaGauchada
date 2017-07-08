@@ -106,7 +106,13 @@
                         <label><span class="glyphicon glyphicon-bookmark"></span> Confirmar contraseña:</label>
                         <input class="form-control" type="password" name="pass2" placeholder=" Comfirmar contraseña"required>
                     </div>
-                </div> <!-- fin new pass config -->
+                </div> <!-- fin new pass -->
+
+                <div id="wrongValidation" style="display:none;">
+                    <div style="margin-top: 100px;">
+                         <?php hacerAlertV2("Contraseña invalida. Vuelve a intentar."); ?>
+                    </div>
+                </div> <!-- fin wrong validation -->
 
               </div> <!-- fin panel body -->
           </div> <!-- fin panel deffault -->
