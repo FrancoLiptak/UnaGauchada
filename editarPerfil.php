@@ -11,13 +11,14 @@
     header('Location: index.php');
     die;
   }
+  include_once 'usersFx.php';
   include_once "header.php";
   include_once "alert.php";
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
   include_once "validate.php";
-
+  $user = mysqli_fetch_array(getUser($_SESSION['idUsers']));
   ?>
     <div class="row">
         <div class="container-fluid col-md-6 col-md-offset-3 ph">
@@ -44,26 +45,26 @@
                         </span>
                         <input type="text" class="form-control" readonly>
                     </div>
-                    <img id='img-upload' src=<?php echo "imgs/at1.jpg";?>/>
+                    <img id='img-upload' src= <?php echo $user['photo']; ?>/>
                 </div>
                 <div class="form-group col-md-6">
                     <label><span class="glyphicon glyphicon-bookmark"></span> Nombre:</label>
-                    <input class="form-control" type="text" name="name" placeholder=" Nombre" value="<?php echo "Camila";?>" required>
+                    <input class="form-control" type="text" name="name" placeholder=" Nombre" value="<?php echo $user['name'];?>" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label><span class="glyphicon glyphicon-bookmark"></span> Apellido:</label>
-                    <input class="form-control" type="text" name="surname" placeholder=" Apellido" value="<?php echo "Onofri";?>" required>
+                    <input class="form-control" type="text" name="surname" placeholder=" Apellido" value="<?php echo $user['surname'];?>" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label><span class="glyphicon glyphicon-bookmark"></span> Email:</label>
-                    <input class="form-control" type="email" name="email" placeholder=" E-mail" value="<?php echo "camila@gmail.com";?>" required>
+                    <input class="form-control" type="email" name="email" placeholder=" E-mail" value="<?php echo $user['email'];?>" required>
                 </div>
             </div> <!-- fin row -->
                     
           <div class="row ">
                     <div class="form-group col-md-6">
                         <label><span class="glyphicon glyphicon-bookmark"></span> Teléfono: <span class="form-note">(Sólo numeros)</span></label>
-                        <input class="form-control" type="tel" name="phone" placeholder=" Teléfono" value="<?php echo "4720998";?>" required>
+                        <input class="form-control" type="tel" name="phone" placeholder=" Teléfono" value="<?php echo $user['phone'];?>" required>
                     </div>
               <div class="form-group col-md-6">
                   <label><span class="glyphicon glyphicon-bookmark"></span> Fecha de Nacimiento:</label>
@@ -72,7 +73,7 @@
                     $nuevafecha = strtotime ( '-18 year' , strtotime ( $fecha ) ) ;
                     $nuevafecha = date ( 'Y-m-j' , $nuevafecha );
                    ?>
-                 <input class="form-control" type="date" value="<?php echo "2017-05-05";?>" name="birthDate" max="<?php echo $nuevafecha;?>" min="1917-05-26" required>
+                 <input class="form-control" type="date" value="<?php echo $user['birthDate'];?>" name="birthDate" max="<?php echo $nuevafecha;?>" min="1917-05-26" required>
                     </div>
           </div> <!-- fin row -->
           
@@ -82,7 +83,7 @@
                 <div class="form-group" id="updatePass">
                     <div class="col-md-6">
                         <label><span class="glyphicon glyphicon-bookmark"></span> Contraseña: </label>
-                        <input class="form-control" type="text" name="pass1" value="*********" disabled>
+                        <input class="form-control" type="password" name="pass1" value="<?php echo $user['pass'];?>" disabled>
                     </div>
                     <a name="update-pass" style="margin-top:25px;" class="btn btn-md btn-primary col-md-6" onclick="showConfirmPassDiv();"><i class="fa fa-lock"></i> Actualizar contraseña</a>
                 </div>  <!-- fin old pass update -->
@@ -92,7 +93,7 @@
                         <div class="col-md-6">
                             <label><span class="glyphicon glyphicon-bookmark"></span> Contraseña Actual:</label>
                             <input class="form-control" type="password" name="pass1" placeholder=" Contraseña" required>
-                            <input class="form-control" type="hidden" name="pass2" value="*********" >
+                            <input class="form-control" type="hidden" name="pass2" value="<?php echo $user['pass'];?>" >
                         </div>
                         <a name="update-pass" style="margin-top:25px;" class="btn btn-md btn-primary col-md-6" onclick="validatePass()"><i class="fa fa-lock"></i> Validar contraseña</a>
                 </div> <!-- fin old pass confirm -->
