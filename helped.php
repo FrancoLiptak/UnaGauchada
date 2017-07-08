@@ -16,8 +16,6 @@
 
     <link rel="stylesheet" href="css/verAyudas.css" type="text/css" media="all" />
     <title>Postulaciones</title>
-    <script src='js/jquery.min.js' type='text/javascript'/>
-    <script src="js/jquery-1.0.4.js"></script>
 </head>
 <body id="body" style="display:none">
 	<?php

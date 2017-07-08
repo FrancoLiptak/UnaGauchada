@@ -6,7 +6,7 @@ function showConfirmPassDiv(){
 }
 function validatePass(){
                         
-if (1 != 1) {
+if (1 == 1) {
     oldPassConfirm.style.display = 'none';
     showNewPassDiv();
 } else { 
