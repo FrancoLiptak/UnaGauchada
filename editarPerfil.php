@@ -20,6 +20,8 @@
   include_once "validate.php";
   $user = mysqli_fetch_array(getUser($_SESSION['idUsers']));
   ?>
+    <script> var realPass = "<?php echo $user['pass']; ?>"; </script>
+    
     <div class="row">
         <div class="container-fluid col-md-6 col-md-offset-3 ph">
         <div class="page-header">
@@ -92,7 +94,8 @@
                         <?php hacerAlertV2("Ingresa la contraseña actual para verificar que eres tu.","info","info-sign"); ?>
                         <div class="col-md-6">
                             <label><span class="glyphicon glyphicon-bookmark"></span> Contraseña Actual:</label>
-                            <input class="form-control" type="password" name="pass1" placeholder=" Contraseña" required>
+                            <input id="insertedPass" class="form-control" type="password" name="pass1" placeholder=" Contraseña" required>
+                            <script> var insertedPass = document.getElementById("insertedPass").value; document.write(insertedPass);</script>
                             <input class="form-control" type="hidden" name="pass2" value="<?php echo $user['pass'];?>" >
                         </div>
                         <a name="update-pass" style="margin-top:25px;" class="btn btn-md btn-primary col-md-6" onclick="validatePass()"><i class="fa fa-lock"></i> Validar contraseña</a>

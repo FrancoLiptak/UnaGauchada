@@ -5,13 +5,12 @@ function showConfirmPassDiv(){
 
 }
 function validatePass(){
-                        
-if (1 == 1) {
-    oldPassConfirm.style.display = 'none';
-    showNewPassDiv();
-} else { 
-    showWrongValidationDiv()
-}
+    if (realPass == insertedPass) {
+        oldPassConfirm.style.display = 'none';
+        showNewPassDiv();
+    } else { 
+        showWrongValidationDiv()
+    }
 
 }
 function showNewPassDiv(){
@@ -24,8 +23,6 @@ function showWrongValidationDiv(){
     wrongValidation.style.display = 'block';
 
 }
-
-
 
 $(document).ready( function() {
     $(document).on('change', '.btn-file :file', function() {
