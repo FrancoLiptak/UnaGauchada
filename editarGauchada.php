@@ -63,7 +63,8 @@
                 <div class="form-group col-md-6">
                   <label for="description"><span class="glyphicon glyphicon-bookmark"></span> Descripción:</label>
                   <textarea class="form-control" id="description" rows="10" name="description" placeholder="Descripcion" required><?php echo $gauchada["description"];?> </textarea>
-                </div>        
+                </div>    
+                <br clear="all">    
                 <div class="form-group">
                   <label for="title"><span class="glyphicon glyphicon-bookmark"></span> Título:</label>
                   <input type="text" class="form-control" id="title" name="title" placeholder="Titulo" value="<?php echo $gauchada["title"];?>" required>
