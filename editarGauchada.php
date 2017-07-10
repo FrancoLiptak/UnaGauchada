@@ -45,7 +45,7 @@
 
     ?>
     <form enctype="multipart/form-data" class="col-md-4 col-md-offset-4" action="procesarEditarGauchada.php" method="post" target="_self"
-      accept-charset="UTF-8" autocomplete="on" name="publicar_form" onsubmit="return validateFormEditarGauchada()">
+      accept-charset="UTF-8" autocomplete="on" name="publicar_form">
       <div class="row">
                 <div class="form-group col-md-6">
                     <label>Foto de perfil:</label>
