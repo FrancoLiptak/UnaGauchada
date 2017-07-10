@@ -21,7 +21,13 @@ include_once 'fxLogros.php';
 </head>
 
 <body>
-
+<div class="row">
+    <div class="container-fluid col-md-6 col-md-offset-3 ph">
+    <div class="page-header">
+      <h4 style="text-align:center;">Mi Perfil</h4> 
+    </div>
+</div>
+<br><br>
 
 <div class="perfil">
     <div class="container-fluid">
