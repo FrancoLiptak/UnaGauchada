@@ -1,12 +1,13 @@
 function showConfirmPassDiv(){
-                        
-    updatePass.style.display = 'none';
-    oldPassConfirm.style.display = 'block';
+    "Muestra el div para ingresar la contraseña actual antes de realizar un cambio sobre la misma. Esconde el div que te muestra la contraseña con asteriscos."
+    updatePassDiv.style.display = 'none';
+    oldPassConfirmDiv.style.display = 'block';
 
 }
 function validatePass(){
+    "Realiza la validacion de la contraseña actual. Si es correcta, te lleva al siguiente paso; sino, muestra un cartel de 'validacion icorrecta'."
     if (realPass == document.getElementById("insertedPass").value) {
-        oldPassConfirm.style.display = 'none';
+        oldPassConfirmDiv.style.display = 'none';
         showNewPassDiv();
     } else { 
         showWrongValidationDiv()
@@ -14,24 +15,35 @@ function validatePass(){
 
 }
 function showNewPassDiv(){
-                        
-    newPass.style.display = 'block';
+    "Muestra el div para ingresar la nueva contraseña."            
+    newPassDiv.style.display = 'block';
 
 }
 function showWrongValidationDiv(){
+    "Muestra el cartel de error al validar en el lugar que estaba el de info de 'ingresa la pass actual'."
     infoRealPassDiv.style.display = 'none';       
-    wrongValidation.style.display = 'block';
+    wrongValidationDiv.style.display = 'block';
 
 }
-function showRealPassDiv(toBeHidden){
-                        
-    updatePass.style.display = 'block';
+function cancelPassUpdating(toBeHidden){
+    "Cancela el cambio de contraseña por ende te vuelve a mostrar el div del principio, con la contraseña hasheada. Como estas en el paso 1 o 2 al llamar a esta funcion, mandas por parametro en cual estas para que ese div se esconda."    
+    updatePassDiv.style.display = 'block';
     toBeHidden.style.display = 'none';
-    wrongValidation.style.display = 'none';
+    wrongValidationDiv.style.display = 'none';
 
+}
+
+function validateFormEditar(){
+    if (validatePass()) {
+        return true;
+    }
+    else{
+        return false;
+    }
 }
 
 $(document).ready( function() {
+    "Funcion obtenida de Internet para el input de la img que previsualiza la foto elegida."
     $(document).on('change', '.btn-file :file', function() {
     var input = $(this),
         label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
@@ -50,6 +62,7 @@ $(document).ready( function() {
         }
     
     });
+    
     function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
@@ -66,12 +79,3 @@ $(document).ready( function() {
         readURL(this);
     });     
 });
-
-function validateFormEditar(){
-    if (validatePass()) {
-        return true;
-    }
-    else{
-        return false;
-    }
-}

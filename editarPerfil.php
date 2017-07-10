@@ -62,72 +62,70 @@
                     <input class="form-control" type="email" name="email" placeholder=" E-mail" value="<?php echo $user['email'];?>" required>
                 </div>
             </div> <!-- fin row -->
-                    
-          <div class="row ">
-                    <div class="form-group col-md-6">
-                        <label><span class="glyphicon glyphicon-bookmark"></span> Teléfono: <span class="form-note">(Sólo numeros)</span></label>
-                        <input class="form-control" type="tel" name="phone" placeholder=" Teléfono" value="<?php echo $user['phone'];?>" required>
-                    </div>
-              <div class="form-group col-md-6">
-                  <label><span class="glyphicon glyphicon-bookmark"></span> Fecha de Nacimiento:</label>
-                  <?php  
-                    $fecha = date('Y-m-d');
-                    $nuevafecha = strtotime ( '-18 year' , strtotime ( $fecha ) ) ;
-                    $nuevafecha = date ( 'Y-m-j' , $nuevafecha );
-                   ?>
-                 <input class="form-control" type="date" value="<?php echo $user['birthDate'];?>" name="birthDate" max="<?php echo $nuevafecha;?>" required>
-                    </div>
-          </div> <!-- fin row -->
+            <div class="row ">
+                      <div class="form-group col-md-6">
+                          <label><span class="glyphicon glyphicon-bookmark"></span> Teléfono: <span class="form-note">(Sólo numeros)</span></label>
+                          <input class="form-control" type="tel" name="phone" placeholder=" Teléfono" value="<?php echo $user['phone'];?>" required>
+                      </div>
+                      <div class="form-group col-md-6">
+                          <label><span class="glyphicon glyphicon-bookmark"></span> Fecha de Nacimiento:</label>
+                          <?php  
+                            $fecha = date('Y-m-d');
+                            $nuevafecha = strtotime ( '-18 year' , strtotime ( $fecha ) ) ;
+                            $nuevafecha = date ( 'Y-m-j' , $nuevafecha );
+                           ?>
+                         <input class="form-control" type="date" value="<?php echo $user['birthDate'];?>" name="birthDate" max="<?php echo $nuevafecha;?>" required>
+                      </div>
+            </div> <!-- fin row -->
           
+            <div class="panel panel-default">
+                <div class="panel-body">  
+                  <div class="form-group" id="updatePassDiv">
+                      <div class="col-md-6">
+                          <label><span class="glyphicon glyphicon-bookmark"></span> Contraseña: </label>
+                          <input class="form-control" type="password" value="<?php echo $user['pass'];?>" disabled>
+                      </div>
+                      <a style="margin-top:25px;" class="btn btn-md btn-primary col-md-6" onclick="showConfirmPassDiv();"><i class="fa fa-lock"></i> Actualizar contraseña</a>
+                  </div>  <!-- fin old pass update -->
+                
+                  <div style="display:none;" class="form-group" id="oldPassConfirmDiv">
+                          <div id="infoRealPassDiv">
+                             <?php hacerAlertV2("Ingresa la contraseña actual para verificar que eres tu.","info","info-sign"); ?>
+                          </div> <!-- fin wrong validation -->
+                          <div id="wrongValidationDiv" style="display:none;">
+                             <?php hacerAlertV2("Contraseña invalida. Vuelve a intentar."); ?>
+                          </div> <!-- fin wrong validation -->
 
-          <div class="panel panel-default">
-              <div class="panel-body">  
-                <div class="form-group" id="updatePass">
-                    <div class="col-md-6">
-                        <label><span class="glyphicon glyphicon-bookmark"></span> Contraseña: </label>
-                        <input class="form-control" type="password" name="pass1" value="<?php echo $user['pass'];?>" disabled>
-                    </div>
-                    <a name="update-pass" style="margin-top:25px;" class="btn btn-md btn-primary col-md-6" onclick="showConfirmPassDiv();"><i class="fa fa-lock"></i> Actualizar contraseña</a>
-                </div>  <!-- fin old pass update -->
-              
-                <div style="display:none;" class="form-group" id="oldPassConfirm">
-                        <div id="infoRealPassDiv">
-                           <?php hacerAlertV2("Ingresa la contraseña actual para verificar que eres tu.","info","info-sign"); ?>
-                        </div> <!-- fin wrong validation -->
-                        <div id="wrongValidation" style="display:none;">
-                           <?php hacerAlertV2("Contraseña invalida. Vuelve a intentar."); ?>
-                      </div> <!-- fin wrong validation -->
+                          <div class="col-md-6">
+                              <label><span class="glyphicon glyphicon-bookmark"></span> Contraseña Actual:</label>       
+                              <input id="insertedPass" class="form-control" type="password" placeholder=" Contraseña" onfocus="wrongValidationDiv.style.display = 'none'; infoRealPassDiv.style.display = 'block';">
+                          </div>
+                          <div class="col-md-6">
+                            <a style="margin-top:25px;" class="btn btn-md btn-primary col-md-12" onclick="validatePass()"><i class="fa fa-lock"></i> Validar contraseña</a>
+                          </div>
+                          <div class="form-group col-md-12" id="cancelarPassDiv">
+                            <br clear="all">
+                            <a name="cancelar-pass"  class="btn btn-md btn-danger col-md-12" onclick="cancelPassUpdating(oldPassConfirmDiv)"><i class="fa fa-lock"></i> Cancelar cambio de contraseña</a>
+                          </div>
+                  </div> <!-- fin old pass confirm -->
 
-                        <div class="col-md-6">
-                            <label><span class="glyphicon glyphicon-bookmark"></span> Contraseña Actual:</label>       
-                            <input id="insertedPass" class="form-control" type="password" placeholder=" Contraseña" onfocus="wrongValidation.style.display = 'none'; infoRealPassDiv.style.display = 'block';">
-                        </div>
-                        <div class="col-md-6">
-                          <a name="update-pass" style="margin-top:25px;" class="btn btn-md btn-primary col-md-12" onclick="validatePass()"><i class="fa fa-lock"></i> Validar contraseña</a>
-                        </div>
-                        <div class="form-group col-md-12" id="cancelarPassDiv">
-                          <br clear="all">
-                          <a name="cancelar-pass"  class="btn btn-md btn-danger col-md-12" onclick="showRealPassDiv(oldPassConfirm)"><i class="fa fa-lock"></i> Cancelar cambio de contraseña</a>
-                        </div>
-                </div> <!-- fin old pass confirm -->
+                  <div id="newPassDiv" style="display:none;">
+                      <?php hacerAlertV2("Ingresa y luego confirma la nueva contraseña.","info","info-sign"); ?>
+                      <div class="form-group col-md-6">
+                          <label><span class="glyphicon glyphicon-bookmark"></span> Nueva Contraseña: </label>
+                          <input class="form-control" type="password" name="pass1" placeholder=" Contraseña">
+                      </div>
+                      <div class="form-group col-md-6">
+                          <label><span class="glyphicon glyphicon-bookmark"></span> Confirmar contraseña:</label>
+                          <input class="form-control" type="password" name="pass2" placeholder=" Comfirmar contraseña">
+                      </div>
+                      <div class="form-group col-md-12">
+                        <a name="cancelar-pass"  class="btn btn-md btn-danger col-md-12" onclick="cancelPassUpdating(newPassDiv)"><i class="fa fa-lock"></i> Cancelar cambio de contraseña</a>
+                      </div>
+                  </div> <!-- fin new pass -->
 
-                <div id="newPass" style="display:none;">
-                    <?php hacerAlertV2("Ingresa y luego confirma la nueva contraseña.","info","info-sign"); ?>
-                    <div class="form-group col-md-6">
-                        <label><span class="glyphicon glyphicon-bookmark"></span> Nueva Contraseña: </label>
-                        <input class="form-control" type="password" name="pass1new" placeholder=" Contraseña">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label><span class="glyphicon glyphicon-bookmark"></span> Confirmar contraseña:</label>
-                        <input class="form-control" type="password" name="pass2new" placeholder=" Comfirmar contraseña">
-                    </div>
-                    <div class="form-group col-md-12">
-                      <a name="cancelar-pass"  class="btn btn-md btn-danger col-md-12" onclick="showRealPassDiv(newPass)"><i class="fa fa-lock"></i> Cancelar cambio de contraseña</a>
-                    </div>
-                </div> <!-- fin new pass -->
-
-              </div> <!-- fin panel body -->
-          </div> <!-- fin panel deffault -->
+                </div> <!-- fin panel body -->
+            </div> <!-- fin panel deffault -->
 
           <input type="submit" name="submit" id="submit" class="btn btn-warning center-block" value="Guardar Cambios">
        </form>
