@@ -19,14 +19,15 @@ function showNewPassDiv(){
 
 }
 function showWrongValidationDiv(){
-                        
+    infoRealPassDiv.style.display = 'none';       
     wrongValidation.style.display = 'block';
 
 }
-function showRealPassDiv(){
+function showRealPassDiv(toBeHidden){
                         
     updatePass.style.display = 'block';
-    newPass.style.display = 'none';
+    toBeHidden.style.display = 'none';
+    wrongValidation.style.display = 'none';
 
 }
 

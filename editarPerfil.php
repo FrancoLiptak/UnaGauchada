@@ -91,12 +91,24 @@
                 </div>  <!-- fin old pass update -->
               
                 <div style="display:none;" class="form-group" id="oldPassConfirm">
-                        <?php hacerAlertV2("Ingresa la contraseña actual para verificar que eres tu.","info","info-sign"); ?>
+                        <div id="infoRealPassDiv">
+                           <?php hacerAlertV2("Ingresa la contraseña actual para verificar que eres tu.","info","info-sign"); ?>
+                        </div> <!-- fin wrong validation -->
+                        <div id="wrongValidation" style="display:none;">
+                           <?php hacerAlertV2("Contraseña invalida. Vuelve a intentar."); ?>
+                      </div> <!-- fin wrong validation -->
+
                         <div class="col-md-6">
-                            <label><span class="glyphicon glyphicon-bookmark"></span> Contraseña Actual:</label>
-                            <input id="insertedPass" class="form-control" type="password" placeholder=" Contraseña" onfocus="wrongValidation.style.display = 'none';">
+                            <label><span class="glyphicon glyphicon-bookmark"></span> Contraseña Actual:</label>       
+                            <input id="insertedPass" class="form-control" type="password" placeholder=" Contraseña" onfocus="wrongValidation.style.display = 'none'; infoRealPassDiv.style.display = 'block';">
                         </div>
-                        <a name="update-pass" style="margin-top:25px;" class="btn btn-md btn-primary col-md-6" onclick="validatePass()"><i class="fa fa-lock"></i> Validar contraseña</a>
+                        <div class="col-md-6">
+                          <a name="update-pass" style="margin-top:25px;" class="btn btn-md btn-primary col-md-12" onclick="validatePass()"><i class="fa fa-lock"></i> Validar contraseña</a>
+                        </div>
+                        <div class="form-group col-md-12" id="cancelarPassDiv">
+                          <br clear="all">
+                          <a name="cancelar-pass"  class="btn btn-md btn-danger col-md-12" onclick="showRealPassDiv(oldPassConfirm)"><i class="fa fa-lock"></i> Cancelar cambio de contraseña</a>
+                        </div>
                 </div> <!-- fin old pass confirm -->
 
                 <div id="newPass" style="display:none;">
@@ -109,16 +121,10 @@
                         <label><span class="glyphicon glyphicon-bookmark"></span> Confirmar contraseña:</label>
                         <input class="form-control" type="password" name="pass2new" placeholder=" Comfirmar contraseña">
                     </div>
-                    <div class="form-group">
-                      <a name="cancelar-pass"  class="btn btn-md btn-danger col-md-10 col-md-offset-1" onclick="showRealPassDiv()"><i class="fa fa-lock"></i> Cancelar cambio de contraseña</a>
+                    <div class="form-group col-md-12">
+                      <a name="cancelar-pass"  class="btn btn-md btn-danger col-md-12" onclick="showRealPassDiv(newPass)"><i class="fa fa-lock"></i> Cancelar cambio de contraseña</a>
                     </div>
                 </div> <!-- fin new pass -->
-
-                <div id="wrongValidation" style="display:none;">
-                    <div style="margin-top: 100px;">
-                         <?php hacerAlertV2("Contraseña invalida. Vuelve a intentar."); ?>
-                    </div>
-                </div> <!-- fin wrong validation -->
 
               </div> <!-- fin panel body -->
           </div> <!-- fin panel deffault -->
