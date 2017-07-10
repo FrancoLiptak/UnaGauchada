@@ -7,7 +7,7 @@
     session_start();
   }
   if (!validateLogin()) {
-    $_SESSION['msg'] = "No puede ingresar a signUp.php si no tiene una sesion iniciada.";
+    $_SESSION['msg'] = "No puede ingresar a editarPerfil.php si no tiene una sesion iniciada.";
     header('Location: index.php');
     die;
   }
@@ -132,6 +132,7 @@
     </div>
 
 <!----------------------------------- Script para validar el Editar -->
+  <script rel="text/javascript" src="js/imagePreviewer.js"></script>
   <script rel="text/javascript" src="js/editarPerfil.js"></script>
   <script rel="text/javascript" src="js/signUp.js"></script>
 
