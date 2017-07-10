@@ -82,3 +82,26 @@ function  validatePasswords(){
 
     return true;
 }
+
+function validateFormEditarPerfil() {
+    if (validateName() && validateSurname() && validatePassEditarPerfil() && validatePhone() && validateBirthDate() && validateEmail() ){
+        return true;
+    }
+    else {
+        return false
+    }    
+}
+
+function validatePassEditarPerfil() {
+    "Hago una funcion en este archivo ya que me sirven las que estan aca!!"
+    var x = document.signUp_form.pass1.value;
+    var y = document.signUp_form.pass2.value;
+
+    if (newPassDiv.style.display == 'block') {
+       if (!validatePasswords()){    
+           return false;
+          } 
+    }
+    "Si el div para ingresar las nuevas contraseñas no es visible (osea, no se quizo cambiar eso), o bien si no paso nada de lo contemplado en la funcion validatePasswords llamada arriba, devuelve true."
+    return true;
+}

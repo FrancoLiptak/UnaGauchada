@@ -35,7 +35,7 @@
           $_SESSION['msg'] = "";
         }
         ?>
-       <form enctype="multipart/form-data" id="formEditar" class="col-md-4 col-md-offset-4" action="procesarEditarPerfil.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on" name="EditarForm" onsubmit="return validateFormEditar()">
+       <form enctype="multipart/form-data" id="signUp_form" class="col-md-4 col-md-offset-4" action="procesarEditarPerfil.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on" name="signUp_form" onsubmit="return validateFormEditarPerfil()">
             <div class="row">
                 <div class="form-group col-md-6">
                     <label>Foto de perfil:</label>
@@ -133,6 +133,7 @@
 
 <!----------------------------------- Script para validar el Editar -->
   <script rel="text/javascript" src="js/editarPerfil.js"></script>
+  <script rel="text/javascript" src="js/signUp.js"></script>
 
   <?php Include("footer.html"); ?>
   </body>

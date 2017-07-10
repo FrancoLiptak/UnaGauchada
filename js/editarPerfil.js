@@ -33,14 +33,6 @@ function cancelPassUpdating(toBeHidden){
 
 }
 
-function validateFormEditar(){
-    if (validatePass()) {
-        return true;
-    }
-    else{
-        return false;
-    }
-}
 
 $(document).ready( function() {
     "Funcion obtenida de Internet para el input de la img que previsualiza la foto elegida."

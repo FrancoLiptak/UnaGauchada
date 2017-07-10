@@ -77,7 +77,7 @@
           <div class="row ">
         			<div class="form-group col-md-6">
                 <label><span class="glyphicon glyphicon-bookmark"></span> Contraseña: <span class="form-note">(Maximo 20 chars)</span></label>
-                <input class="form-control" type="password" name="pass1" placeholder=" Contraseña" onfocus="nota()"required>
+                <input class="form-control" type="password" name="pass1" placeholder=" Contraseña" required>
         			</div>
               <div class="form-group col-md-6">
                 <label><span class="glyphicon glyphicon-bookmark"></span> Confirmar contraseña:</label>
