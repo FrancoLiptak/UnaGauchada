@@ -33,6 +33,29 @@ function cancelPassUpdating(toBeHidden){
 
 }
 
+function validateFormEditarPerfil() {
+    "Llamo a las fx de signUp.js. Para el checkeo de pass necesito otra fx porque aca el ingreso de pass es opcional."
+    if (validateName() && validateSurname() && validatePassEditarPerfil() && validatePhone() && validateBirthDate() && validateEmail() ){
+        return true;
+    }
+    else {
+        return false
+    }    
+}
+
+function validatePassEditarPerfil() {
+    var x = document.signUp_form.pass1.value;
+    var y = document.signUp_form.pass2.value;
+
+    if (newPassDiv.style.display == 'block') {
+       if (!validatePasswords()){    
+           return false;
+          } 
+    }
+    "Si el div para ingresar las nuevas contraseñas no es visible (osea, no se quizo cambiar eso), o bien si no paso nada de lo contemplado en la funcion validatePasswords llamada arriba, devuelve true."
+    return true;
+}
+
 
 $(document).ready( function() {
     "Funcion obtenida de Internet para el input de la img que previsualiza la foto elegida."
