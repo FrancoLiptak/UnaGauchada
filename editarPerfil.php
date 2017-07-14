@@ -47,7 +47,7 @@
                         </span>
                         <input type="text" class="form-control" readonly>
                     </div>
-                    <img id='img-upload' src= <?php echo $user['photo']; ?>/>
+                    <img id='img-upload' src= <?php if ($user['photo'] == null) echo "uploads/nophoto.png"; else echo $user['photo']; ?>/>
                 </div>
                 <div class="form-group col-md-6">
                     <label><span class="glyphicon glyphicon-bookmark"></span> Nombre:</label>

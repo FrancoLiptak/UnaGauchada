@@ -57,7 +57,7 @@
                         </span>
                         <input type="text" class="form-control" readonly>
                     </div>
-                    <img id='img-upload' src= <?php echo $gauchada['image']; ?>/>
+                    <img id='img-upload' src= <?php if ($gauchada['image'] == null) echo "imgs/logoUnaGauchada.png"; else echo $gauchada['image']; ?>/>
                 </div>
       
                 <div class="form-group col-md-6">

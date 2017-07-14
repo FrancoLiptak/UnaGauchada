@@ -40,7 +40,7 @@ include_once 'fxLogros.php';
             <div class="panel-body">
               <div class="row">
                 <div class="col-md-3 col-lg-3 " align="center"> 
-                    <img alt="User Pic" class="img-rounded img-responsive" src='<?php echo $user['photo']; ?>'>
+                    <img alt="User Pic" class="img-rounded img-responsive" src='<?php if ($user['photo'] == null) echo "uploads/nophoto.png"; else echo $user['photo']; ?>'>
                 </div>
                 <div class=" col-md-9 col-lg-9 "> 
                   <table class="table table-user-information">
