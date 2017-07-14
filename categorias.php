@@ -25,17 +25,13 @@
 </head>
 <body>
 
-<style>
-
-</style>
 <div class="row">
   <div class="col-md-6 col-md-offset-3" id="divCates"> 
       <div class="columns">
         <ul class="price">
           <li class="header"><small>CATEGORIAS</small> 
-            <button class="btn btn-warning btn-circle btn-md" id="btnCircle" style="float: right; padding-top:12px; margin-top: -8px; outline: none!important;" onclick="return showFormCreateCate();">
-              <i class="fa fa-plus" id="plus"></i>
-              <i style="display:none;" id="cross" class="fa fa-times"></i>
+            <button class="btn btn-warning btn-circle btn-md" id="btnCircle" style="float: right; padding-top:12px; margin-top: -8px; outline: none!important;" data-toggle="modal" data-target="#squarespaceModal">
+              <i class="fa fa-plus"  id="plus"></i>
             </button>
           </li>
           <?php 
@@ -57,43 +53,43 @@
         </ul>
       </div>
   </div> <!-- fin del div que contiene a la tabla de cates -->
- 
-  <div id="formCate" class="col-md-3" style="display:none; margin-top:15%;">
-    <div class="columns">
-      <form class="" action="procesarCate.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on"
-        name="formCate" onsubmit="return validateFormCate()">
-        <div class="form-group">
-          <label>Nombre de la nueva categoria:</label>
-          <input class="form-control" type="text" name="cate" placeholder=" Categoria..." required>
-        </div>
-        <div class="form-group">
-          <input type="submit" name="submit" id="submit" value="Crear" class="center-block btn btn-warning">
-        </div>
-      </form>
-    </div>
-  </div> <!-- fin del div que contiene al form -->
+
+
+<!-- line modal -->
+<div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+        <h3 class="modal-title" id="lineModalLabel">Añade una nueva categoría!</h3>
+      </div>
+      <div class="modal-body">
+           <!-- content goes here -->
+              <form class="" action="procesarCate.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on"
+                name="formCate">
+                <div class="form-group col-md-12">
+                  <label><span class="glyphicon glyphicon-bookmark"></span> Nombre:</label>
+                  <input class="form-control" type="text" name="cate" placeholder=" Categoria..." required>
+                </div>
+                <div class="form-group col-md-6">
+                  <input type="submit" name="submit" id="submit" value="Crear" class=" btn btn-warning col-md-6">
+                </div>
+                <div class="form-group col-md-6">
+                  <button type="button" id="submit" class="btn btn-danger" data-dismiss="modal"  role="button">Cancelar</button>
+                </div>
+              </form> <!-- fin del form -->
+      </div>
+      <div class="modal-footer" style="border:none;">
+        
+      </div>
+  </div>
+  </div>
+</div>
+
+  <!-- 
 
 </div> <!-- fin del row -->
 
+<?php include_once "footer.html"; ?>
 </body>
 </html>
-<script type="text/javascript">
-
-function showFormCreateCate(){
-
-      if (document.getElementById("formCate").style.display == 'none') {
-          document.getElementById("divCates").className = " col-md-offset-2 col-md-6";
-          document.getElementById("btnCircle").className = "btn btn-danger btn-circle btn-md";
-          document.getElementById("cross").style.display = 'inline';
-          document.getElementById("plus").style.display = 'none';
-          document.getElementById("formCate").style.display = 'block';
-      } else { 
-          document.getElementById("divCates").className = " col-md-offset-3 col-md-6";
-          document.getElementById("btnCircle").className = "btn btn-warning btn-circle btn-md";
-           document.getElementById("cross").style.display = 'none';
-          document.getElementById("plus").style.display = 'inline';
-          document.getElementById("formCate").style.display = 'none';
-      }
-}
-
-</script>
