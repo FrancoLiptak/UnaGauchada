@@ -76,7 +76,7 @@
         </div>
         <div class="modal-body">
              <!-- content goes here -->
-                <form class="" action="procesarCate.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on" name="formCate">
+                <form class="" action="procesarCate.php" method="get" target="_self" accept-charset="UTF-8" autocomplete="on" name="formCate">
                   <div class="form-group col-md-12">
                     <label><span class="glyphicon glyphicon-bookmark"></span> Nombre:</label>
                     <input class="form-control" type="text" name="cate" placeholder=" Categoria..." required>
