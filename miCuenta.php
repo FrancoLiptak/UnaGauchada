@@ -5,7 +5,7 @@
         <?php
         if ($_SESSION['admin']) {
                 ?>
-            <li><a target="_self" href=""><span class="glyphicon glyphicon-star-empty"></span> Ver logros </a></li>
+            <li><a target="_self" href="logros.php"><span class="glyphicon glyphicon-star-empty"></span> Ver logros </a></li>
             <li><a target="_self" href="categorias.php"><span class="glyphicon glyphicon-tags"></span> Ver categorias</a></li>
             <?php
         } else {
