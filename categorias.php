@@ -4,7 +4,7 @@
   <title>Categorias</title>
   <?php
   /* 
-  sebas: para hacer codigo php para borrar/editar una cate anda al form con submit 'Si, deseo eliminar' para ver como se manda el idCategory en un input hidden. 
+  sebas: para hacer codigo php para borrar una cate anda al form .form-eliminar para ver como se manda el idCategory en un input hidden a eliminarCate.php. Para el editar anda al form .form-editar para ver como se manda el se manda el idCategory en un input hidden a editarCate.php. 
 
   READ ME!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   Voy a explicar el funcionamiento del borrar/editar cates.
@@ -40,7 +40,7 @@
       <div class="columns">
         <ul class="price">
           <li class="header"><small>CATEGORIAS</small> 
-            <button class="btn btn-warning btn-circle btn-md" id="btnCircle" style="float: right; padding-top:12px; margin-top: -8px; outline: none!important;" data-toggle="modal" data-target="#squarespaceModal">
+            <button class="btn btn-warning btn-circle btn-md" id="btnCircle" style="float: right; padding-top:12px; margin-top: -8px; outline: none!important;" data-toggle="modal" data-target="#addCatModal">
               <i class="fa fa-plus"  id="plus"></i>
             </button>
           </li>
@@ -49,7 +49,7 @@
             while ($cate = $categorias->fetch_assoc()) { ?>
                <li> <?php echo $cate['name']; ?>
                   <span style="float: right;  ">
-                    <a href="editarCategoria.php?id=<?php echo $cate['idCategory']; ?>" role="button" class="btn btn-default btn-sm" >
+                    <a data-toggle="modal" data-target="#editModal" role="button" class="btn btn-default btn-sm openEditModal" data-id="<?php echo $cate['idCategory'].'/'.$cate['name']; ?>" id="editButton" href="#!">
                       <i class="fa fa-pencil-square-o"></i>
                     </a>
                     <a data-toggle="modal" data-target="#deleteModal" role="button" class="btn btn-default btn-sm openDeleteModal" data-id="<?php echo $cate['idCategory'].'/'.$cate['name']; ?>" id="deleteButton" href="#!">
@@ -66,7 +66,7 @@
 
 
   <!-- add cat modal -->
-  <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal fade" id="addCatModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
@@ -113,10 +113,42 @@
           <div class="col-md-6">
             <button  id="submit" style="float: left;" type="reset" class="btn btn-danger" data-dismiss="modal">Cancelar eliminacion</button>
           </div>
-          <form class="form-inline col-md-6" action="eliminarCate.php" method="get" target="_self" accept-charset="UTF-8" autocomplete="on" name="deleteCateForm">
+          <form class="form-inline form-eliminar col-md-6" action="eliminarCate.php" method="get" target="_self" accept-charset="UTF-8" autocomplete="on" name="deleteCateForm">
             <input type="number" id="idCategory" name="idCategory" hidden>
             <button type="submit" id="submit" class="btn btn-primary">Si, deseo eliminar</button>
           </form>
+        </div>
+    </div>
+    </div>
+  </div>
+
+
+  <!-- edit cat modal -->
+  <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+          <h3 class="modal-title" id="lineModalLabel">Editar categoria</h3>
+        </div>
+        <div class="modal-body">
+             <!-- content goes here -->
+                <form class="form-edit" action="editarCate.php" method="get" target="_self" accept-charset="UTF-8" autocomplete="on" name="formEdit">
+                  <div class="form-group col-md-12">
+                    <label><span class="glyphicon glyphicon-bookmark"></span> Nombre:</label>
+                    <input class="form-control" type="text" name="cate" id="nameCategory" placeholder=" Categoria..." required>
+                   <input type="number" id="idCategory" name="idCategory" hidden>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <input type="submit" name="submit" id="submit" value="Editar" class=" btn btn-warning col-md-6">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <button type="button" id="submit" class="btn btn-danger" data-dismiss="modal"  role="button">Cancelar edición</button>
+                  </div>
+                </form> <!-- fin del form -->
+        </div>
+        <div class="modal-footer" style="border:none;">
+          
         </div>
     </div>
     </div>
@@ -133,7 +165,14 @@
 $(document).on("click", ".openDeleteModal", function () {
 var idAndName = $(this).data('id').split("/", 2);
 $(".modal-body #nameCategory").val( idAndName[1] );
-$(".form-inline #idCategory").val( idAndName[0] );
+$(".form-eliminar #idCategory").val( idAndName[0] );
+});
+
+/* Para edditar cates ..*/
+$(document).on("click", ".openEditModal", function () {
+var idAndName = $(this).data('id').split("/", 2);
+$(".modal-body #nameCategory").val( idAndName[1] );
+$(".form-edit #idCategory").val( idAndName[0] );
 });
 </script>
 
