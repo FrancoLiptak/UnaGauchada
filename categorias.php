@@ -5,6 +5,7 @@
   <?php
   /* 
   sebas: para hacer codigo php para borrar una cate anda al form .form-eliminar para ver como se manda el idCategory en un input hidden a eliminarCate.php. Para el editar anda al form .form-editar para ver como se manda el se manda el idCategory en un input hidden a editarCate.php. 
+  Otra cosa, LOS CAMPOS DEL FORMULARIO SE PASAN POR GET. Lo hice para checkear que se mandaban.
 
   READ ME!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   Voy a explicar el funcionamiento del borrar/editar cates.
