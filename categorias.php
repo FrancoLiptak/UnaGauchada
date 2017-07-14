@@ -82,7 +82,7 @@
                     <input class="form-control" type="text" name="cate" placeholder=" Categoria..." required>
                   </div>
                   <div class="form-group col-md-6">
-                    <input type="submit" name="submit" id="submit" value="Crear" class=" btn btn-warning col-md-6">
+                    <button type="submit" id="submit" class=" btn btn-warning col-md-6">Crear</button>
                   </div>
                   <div class="form-group col-md-6">
                     <button type="button" id="submit" class="btn btn-danger" data-dismiss="modal"  role="button">Cancelar</button>
@@ -141,7 +141,7 @@
                    <input type="number" id="idCategory" name="idCategory" hidden>
                   </div>
                   <div class="form-group col-md-6">
-                    <input type="submit" name="submit" id="submit" value="Editar" class=" btn btn-warning col-md-6">
+                    <button type="submit" id="submit" class=" btn btn-warning col-md-6">Editar</button>
                   </div>
                   <div class="form-group col-md-6">
                     <button type="button" id="submit" class="btn btn-danger" data-dismiss="modal"  role="button">Cancelar edición</button>
