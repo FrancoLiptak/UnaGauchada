@@ -105,13 +105,15 @@
         </div>
         <div class="modal-body">
              <!-- content goes here -->
-                <p>Estas seguro que deseas eliminar la categoria <input type="text" class="form-control" style="display:inline; width: 20%;" id="nameCategory" disabled>?</p>
+                <p>Estas seguro que deseas eliminar la categoria 
+                  <input type="text" class="form-control" style="display:inline; width: 20%;" id="nameCategory" disabled>?
+                </p>
         </div>
         <div class="modal-footer" style="border:none;">
           <div class="col-md-6">
             <button  id="submit" style="float: left;" type="reset" class="btn btn-danger" data-dismiss="modal">Cancelar eliminacion</button>
           </div>
-          <form class="form-inline col-md-6" action="eliminarCate.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on" name="deleteCateForm">
+          <form class="form-inline col-md-6" action="eliminarCate.php" method="get" target="_self" accept-charset="UTF-8" autocomplete="on" name="deleteCateForm">
             <input type="number" id="idCategory" name="idCategory" hidden>
             <button type="submit" id="submit" class="btn btn-primary">Si, deseo eliminar</button>
           </form>
@@ -131,7 +133,7 @@
 $(document).on("click", ".openDeleteModal", function () {
 var idAndName = $(this).data('id').split("/", 2);
 $(".modal-body #nameCategory").val( idAndName[1] );
-$(".modal-body #idCategory").val( idAndName[0] );
+$(".form-inline #idCategory").val( idAndName[0] );
 });
 </script>
 
