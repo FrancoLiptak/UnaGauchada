@@ -27,7 +27,7 @@ function newGauchada($title, $description, $expiration, $category, $city, $img =
             return false;
         }
 
-        $target_file = "/uploads/3827-logoUnaGauchada.png";
+        $target_file = "uploads/3827-logoUnaGauchada.png";
         if (!$img['name'] == "") {
             $target_dir = "uploads/";
             $file = rand(1000, 100000)."-".$img['name'];

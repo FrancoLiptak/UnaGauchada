@@ -1,26 +1,25 @@
-// Mixins
-// --------------------------
-
-@mixin fa-icon() {
-  display: inline-block;
-  font: normal normal normal #{$fa-font-size-base}/#{$fa-line-height-base} FontAwesome; // shortening font declaration
-  font-size: inherit; // can't have font-size inherit on line above, so need to override
-  text-rendering: auto; // optimizelegibility throws things off #1094
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
+@mixin slider_background-image ($colorstart:#F5F5F5, $colorend:#F9F9F9, $backcolor: #F7F7F7) {
+  background-color: $backcolor;
+  background-image: -moz-linear-gradient(top, $colorstart, $colorend);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($colorstart), to($colorend));
+  background-image: -webkit-linear-gradient(top, $colorstart, $colorend);
+  background-image: -o-linear-gradient(top, $colorstart, $colorend);
+  background-image: linear-gradient(to bottom, $colorstart, $colorend);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$colorstart}', endColorstr='#{$colorend}',GradientType=0);
 }
-
-@mixin fa-icon-rotate($degrees, $rotation) {
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=#{$rotation});
-  -webkit-transform: rotate($degrees);
-      -ms-transform: rotate($degrees);
-          transform: rotate($degrees);
+@mixin slider_box-sizing ($value) {
+  -webkit-box-sizing: $value;
+  -moz-box-sizing: $value;
+  box-sizing: $value;
 }
-
-@mixin fa-icon-flip($horiz, $vert, $rotation) {
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=#{$rotation});
-  -webkit-transform: scale($horiz, $vert);
-      -ms-transform: scale($horiz, $vert);
-          transform: scale($horiz, $vert);
+@mixin slider_box-shadow ($value...) {
+  -webkit-box-shadow: $value;
+  -moz-box-shadow: $value;
+  box-shadow: $value;
+}
+@mixin slider_border-radius ($value) {
+  -webkit-border-radius: $value;
+  -moz-border-radius: $value;
+  border-radius: $value;
 }

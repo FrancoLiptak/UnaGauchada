@@ -1,7 +1,6 @@
 <?php
 
     function getCategory($idCate) {
-		// Retorna las proximas $limit gauchadas comenzando desde la tupla numero $first que cumplen la condicion $condition.
 
 		$link = connect();
 		$query = "SELECT * FROM category WHERE idCategory = $idCate;";
@@ -12,5 +11,16 @@
         }
 		return $result;
 	}
+
+    function getCategories(){
+        // Retorna las categorias
+        $link = connect();
+        $query = "SELECT * FROM category ";
+        if ($result = $link->query($query)) {
+            return $result;
+        }
+        $_SESSION['msg'] = $link->error;
+        return false;
+    }
 
 ?>
