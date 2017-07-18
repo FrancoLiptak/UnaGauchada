@@ -1,37 +1,57 @@
-function  validateFormEditarPerfil(){
-	if (document.editarPerfil_form.name.value  == null || document.editarPerfil_form.name.value.length == 0 || /^\s+$/.test(document.editarPerfil_form.name.value)) {
-      alert("El valor ' " + document.editarPerfil_form.name.value +" '"+" no parece válido para un Nombre"); //antes no andaban pq habia un * al final en vez del + que hay ahora;
-      return false;                                                                                   //el * significa 0 ó + elementos (por eso cuando no tomaba nada del campo te lo ponia como bien) y el + significa 1 ó mas elementos (si hay un campo vacio ahora si salta el alerta!!)
-    }
-    if (document.editarPerfil_form.name.value  == null || document.editarPerfil_form.surname.value.length == 0 || /^\s+$/.test(document.editarPerfil_form.surname.value)) {
-      alert("El valor ' " + document.editarPerfil_form.surname.value +" '"+" no parece válido para un Apellido ");
-      return false;
-    }
-    if (!/^([0-9]{7,11})+$/.test(document.editarPerfil_form.phone.value)) {
-      alert("El valor ' " + document.editarPerfil_form.phone.value + " ' no parece válido para un Número de Teléfono");
-      return false;
-    }
-    var email = document.editarPerfil_form.email.value;
-    if (email == null || email.length == 0 || /^\s*$/.test(email)){
-        alert("El campo 'Email' no puede estar vacio o contener sólo espacios en blanco");
-        return false;
-    }
-    var x = document.editarPerfil_form.pass1.value;
-    var y = document.editarPerfil_form.pass2.value;
+function showConfirmPassDiv(){
+    "Muestra el div para ingresar la contraseña actual antes de realizar un cambio sobre la misma. Esconde el div que te muestra la contraseña con asteriscos."
+    updatePassDiv.style.display = 'none';
+    oldPassConfirmDiv.style.display = 'block';
 
-    if (  (x == null) && (y != null)  ){    
-        alert("Falta ingresar una password!");
-        return false;
+}
+function validatePass(){
+    "Realiza la validacion de la contraseña actual. Si es correcta, te lleva al siguiente paso; sino, muestra un cartel de 'validacion icorrecta'."
+    if (realPass == document.getElementById("insertedPass").value) {
+        oldPassConfirmDiv.style.display = 'none';
+        showNewPassDiv();
+    } else { 
+        showWrongValidationDiv()
     }
-    else if(  (x != null) && (y == null)  ){    
-        alert("Falta ingresar una password!");
-        return false;
+
+}
+function showNewPassDiv(){
+    "Muestra el div para ingresar la nueva contraseña."            
+    newPassDiv.style.display = 'block';
+
+}
+function showWrongValidationDiv(){
+    "Muestra el cartel de error al validar en el lugar que estaba el de info de 'ingresa la pass actual'."
+    infoRealPassDiv.style.display = 'none';       
+    wrongValidationDiv.style.display = 'block';
+
+}
+function cancelPassUpdating(toBeHidden){
+    "Cancela el cambio de contraseña por ende te vuelve a mostrar el div del principio, con la contraseña hasheada. Como estas en el paso 1 o 2 al llamar a esta funcion, mandas por parametro en cual estas para que ese div se esconda."    
+    updatePassDiv.style.display = 'block';
+    toBeHidden.style.display = 'none';
+    wrongValidationDiv.style.display = 'none';
+
+}
+
+function validateFormEditarPerfil() {
+    "Llamo a las fx de signUp.js. Para el checkeo de pass necesito otra fx porque aca el ingreso de pass es opcional."
+    if (validateName() && validateSurname() && validatePassEditarPerfil() && validatePhone() && validateBirthDate() && validateEmail() ){
+        return true;
     }
-    else if (  (x != null) && (y != null) && (x != y)   ){
-    	 alert("Las passwords no coinciden!");
-    	 return false;
-    	}  
+    else {
+        return false
+    }    
+}
 
+function validatePassEditarPerfil() {
+    var x = document.signUp_form.pass1.value;
+    var y = document.signUp_form.pass2.value;
 
+    if (newPassDiv.style.display == 'block') {
+       if (!validatePasswords()){    
+           return false;
+          } 
+    }
+    "Si el div para ingresar las nuevas contraseñas no es visible (osea, no se quizo cambiar eso), o bien si no paso nada de lo contemplado en la funcion validatePasswords llamada arriba, devuelve true."
     return true;
 }

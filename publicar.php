@@ -45,7 +45,7 @@
         
             ?>
     <form enctype="multipart/form-data" class="col-md-4 col-md-offset-4" action="procesarPublicar.php" method="post" target="_self"
-      accept-charset="UTF-8" autocomplete="on" name="publucar_form" onsubmit="return validateFormPublicar()">
+      accept-charset="UTF-8" autocomplete="on" name="publicar_form">
       <div class="form-group">
         <label for="title"><span class="glyphicon glyphicon-bookmark"></span> Título:</label>
         <input type="text" class="form-control" id="title" name="title" placeholder="Titulo" required>

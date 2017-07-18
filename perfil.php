@@ -21,7 +21,13 @@ include_once 'fxLogros.php';
 </head>
 
 <body>
-
+<div class="row">
+    <div class="container-fluid col-md-6 col-md-offset-3 ph">
+    <div class="page-header">
+      <h4 style="text-align:center;">Mi Perfil</h4> 
+    </div>
+</div>
+<br><br>
 
 <div class="perfil">
     <div class="container-fluid">
@@ -34,7 +40,7 @@ include_once 'fxLogros.php';
             <div class="panel-body">
               <div class="row">
                 <div class="col-md-3 col-lg-3 " align="center"> 
-                    <img alt="User Pic" class="img-rounded img-responsive" src='<?php echo $user['photo']; ?>'>
+                    <img alt="User Pic" class="img-rounded img-responsive" src='<?php if ($user['photo'] == null) echo "uploads/nophoto.png"; else echo $user['photo']; ?>'>
                 </div>
                 <div class=" col-md-9 col-lg-9 "> 
                   <table class="table table-user-information">
@@ -103,7 +109,7 @@ include_once 'fxLogros.php';
                   
                 </div>
               </div>
-                 <a class="btn btn-success col-md-3" href=""><span class="glyphicon glyphicon-edit"></span> Editar Perfil</a>
+                 <a class="btn btn-warning col-md-3" href="editarPerfil.php"><span class="glyphicon glyphicon-edit"></span> Editar Perfil</a>
             </div>
           </div>
         </div>

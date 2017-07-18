@@ -89,15 +89,19 @@ function showGauchadaForAllPrueba($gauchada, $enabledLink = true, $showState = f
                 <?php
                     if($showState == true){
                         if($idUserAccepted = hasAccepted($gauchada['idGauchadas'])){
-                            if($idUserAccepted == $_SESSION["idUsers"]){
-                                echo "<div class= 'alert alert-success'>Has sido aceptado en esta gauchada. </div>";
+                            if(hasScore($gauchada['idGauchadas'])){
+                                echo "<div class= 'alert alert-info'>Has sido calificado en esta gauchada. </div>";
                             }else{
-                                echo "<div class= 'alert alert-danger'>Tu ayuda ha sido rechazada. </div>";
+                                if($idUserAccepted == $_SESSION["idUsers"]){
+                                echo "<div class= 'alert alert-success'>Has sido aceptado en esta gauchada. </div>";
+                                }else{
+                                    echo "<div class= 'alert alert-danger'>Tu ayuda ha sido rechazada. </div>";
+                                }
                             }
                         }else{
                             echo "<div class= 'alert alert-warning'>Nadie ha sido elegido como gaucho aún. </div>";
                             }
-                    }
+                        }
 
                     ?>
                         <p><a class="btn btn-default" id="submit" href= 
@@ -185,10 +189,37 @@ $hoy = date("Y-m-d");
                     if ($_SESSION['idUsers']== $gauchada['idUser']) {
                         ?>
                         <div class="col-md-6">
-                            <a class="btn btn-success" id="submit" href="" role="button" <?php if (hasHelps($gauchada['idGauchadas'])){ ?> disabled <?php } ?>><span class="glyphicon glyphicon-edit"></span> Editar </a>
+                            <a class="btn btn-success" id="submit" href="editarGauchada.php?id=<?php echo $gauchada['idGauchadas']; ?>" role="button" <?php if (hasHelps($gauchada['idGauchadas'])){ ?> disabled <?php } ?>><span class="glyphicon glyphicon-edit"></span> Editar </a>
                         </div>
                         <div class="col-md-6">
-                            <a class="btn btn-danger" id="submit" href="" role="button" <?php if (hasAccepted($gauchada['idGauchadas'])){ ?> disabled <?php } ?>> <span class="glyphicon glyphicon-trash"></span> Eliminar </a>
+                            <a class="btn btn-danger" id="submit" data-toggle="modal" data-target="#confirm-delete" role="button" <?php if (hasAccepted($gauchada['idGauchadas'])){ ?> disabled <?php } ?>> <span class="glyphicon glyphicon-trash"></span> Eliminar </a>
+
+                            <!-- CONFIRMAR ELIMINACION -->
+                            
+                            <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                    
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title" id="myModalLabel">Confirmar eliminación</h4>
+                                        </div>
+                                    
+                                        <div class="modal-body">
+                                            <p>Este proceso es irreversible.</p>
+                                            <p>¿Querés eliminar esta Gauchada de todos modos?</p>
+                                            <p class="debug-url"></p>
+                                        </div>
+                                        
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                            <a class="btn btn-danger btn-ok" >Eliminar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <!-- FIN CONFIRMAR ELIMINACION -->
                         </div>
                         <?php
                     }
@@ -300,4 +331,11 @@ function isExpired($gauchada)
 {
     return $gauchada['expiration'] < date('Y-m-d');
 }
+
 ?>
+
+
+
+<script src='js/jquery.min.js' type='text/javascript'/>
+<script src="js/jquery-1.0.4.js"></script>
+<script rel="text/javascript" src="js/eliminarGauchadaPropia.js"></script>

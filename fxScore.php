@@ -59,7 +59,12 @@ function showScore($score){
             <table class="table table-bordered table-hover table-responsive">
                 <tr>
                     <td>Descripción</td>
-                    <td><?php echo $description; ?></td>
+                    <td><?php if ($description != ''){
+                                echo $description;
+                                }else{
+                                    echo '---';
+                                } 
+                        ?></td>
                 </tr>
                 <tr>
                     <td>Puntos</td>

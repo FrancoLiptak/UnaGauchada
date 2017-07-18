@@ -71,13 +71,13 @@
                     $nuevafecha = strtotime ( '-18 year' , strtotime ( $fecha ) ) ;
                     $nuevafecha = date ( 'Y-m-j' , $nuevafecha );
                    ?>
-                 <input class="form-control" type="date" name="birthDate" max="<?php echo $nuevafecha;?>" min="1917-05-26"required>
+                 <input class="form-control" type="date" name="birthDate" max="<?php echo $nuevafecha;?>" required>
         			</div>
           </div> <!-- fin row -->
           <div class="row ">
         			<div class="form-group col-md-6">
                 <label><span class="glyphicon glyphicon-bookmark"></span> Contraseña: <span class="form-note">(Maximo 20 chars)</span></label>
-                <input class="form-control" type="password" name="pass1" placeholder=" Contraseña" onfocus="nota()"required>
+                <input class="form-control" type="password" name="pass1" placeholder=" Contraseña" required>
         			</div>
               <div class="form-group col-md-6">
                 <label><span class="glyphicon glyphicon-bookmark"></span> Confirmar contraseña:</label>
