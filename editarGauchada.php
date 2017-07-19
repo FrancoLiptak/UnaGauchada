@@ -98,11 +98,11 @@
 
 
 <!-------------------------------------------- Script para validar el publicar -->
-<script rel="text/javascript" src="js/imagePreviewer.js"></script>
-
-<script rel="text/javascript" src="js/publicar.js"></script>
 
 <?php include("footer.html"); ?>
+<script type="text/javascript" src="js/imagePreviewer.js"></script>
+<script type="text/javascript" src="js/publicar.js"></script>
+
 </body>
 
 </html>
