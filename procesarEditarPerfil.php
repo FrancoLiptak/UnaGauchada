@@ -35,7 +35,7 @@ elseif (isset($_POST['name'], $_POST['surname'], $_POST['email'], $_POST['birthD
 
 }
 else {
-    $_SESSION = "Dejó vacio alguno de los campos.";
+    $_SESSION['msg'] = "Dejó vacio alguno de los campos.";
 }
 
 header("Location: editarPerfil.php");
@@ -139,6 +139,7 @@ function editUser($name, $surname, $email, $birthDate, $phone, $modifyPass, $img
                 return false;
             }
         }
+        
         $query = "UPDATE users SET name='$name', surname='$surname', email='$email', birthDate='$birthDate', phone='$phone', photo='$target_file'";
         if ($modifyPass) {
             $query = $query.", pass=$modifyPass";

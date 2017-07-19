@@ -188,3 +188,25 @@ function validateComment($idComment){
         return false;
     }
 }
+function validateCate($idCate){
+    if (validate($idCate)) {
+        $link = connect();
+        $query = "SELECT idCategory FROM category WHERE idCategory = $idCate";
+        if ($result = $link->query($query)) {
+            return $result->num_rows == 1;
+        }
+        $_SESSION['msg'] = $link->error;
+        return false;
+    }
+}
+function validateCity($idCity){
+    if (validate($idCity)) {
+        $link = connect();
+        $query = "SELECT idCity FROM city WHERE idCity = $idCity";
+        if ($result = $link->query($query)) {
+            return $result->num_rows == 1;
+        }
+        $_SESSION['msg'] = $link->error;
+        return false;
+    }
+}
