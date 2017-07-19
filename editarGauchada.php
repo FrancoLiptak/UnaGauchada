@@ -100,8 +100,9 @@
 <!-------------------------------------------- Script para validar el publicar -->
 
 <?php include("footer.html"); ?>
-<script type="text/javascript" src="js/imagePreviewer.js"></script>
-<script type="text/javascript" src="js/publicar.js"></script>
+
+<script rel="text/javascript" src="js/imagePreviewer.js"></script>
+<script rel="text/javascript" src="js/publicar.js"></script>
 
 </body>
 
