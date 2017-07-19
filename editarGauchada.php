@@ -79,13 +79,13 @@
 					<div class="form-group col-md-6">
 						<label for="category"><span class="glyphicon glyphicon-bookmark"></span> Categoria:</label>
 						<select class="form-control example" id="category" name="cate">
-									<?php selectCates(); ?>
+									<?php selectCates($gauchada['idCategory']); ?>
 							</select>
 					</div>
 					<div class="form-group col-md-6">
 						<label for="city"><span class="glyphicon glyphicon-bookmark"></span> Ciudad:</label>
 						<select class="form-control example" id="city" name="city">
-									<?php selectCity(); ?>
+									<?php selectCity($gauchada['idCity']); ?>
 							</select>
 					</div>
 				</div>
