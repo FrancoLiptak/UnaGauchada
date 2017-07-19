@@ -27,6 +27,9 @@ function showWrongValidationDiv(){
 }
 function cancelPassUpdating(toBeHidden){
     "Cancela el cambio de contraseña por ende te vuelve a mostrar el div del principio, con la contraseña hasheada. Como estas en el paso 1 o 2 al llamar a esta funcion, mandas por parametro en cual estas para que ese div se esconda."    
+    document.getElementById("insertedPass").value = "";
+    document.getElementById("pass1").value = "";
+    document.getElementById("pass2").value = "";
     updatePassDiv.style.display = 'block';
     toBeHidden.style.display = 'none';
     wrongValidationDiv.style.display = 'none';

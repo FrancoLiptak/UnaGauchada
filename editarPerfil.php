@@ -37,7 +37,7 @@
 		<?php
 		/* a continuacion van todas las validaciones en php ... */
 		if (isset($_SESSION['msg']) && $_SESSION['msg'] != "" ) {
-			hacerAlert($_SESSION['msg']);
+			hacerAlert($_SESSION['msg'], 'success');
 			$_SESSION['msg'] = "";
 		}
 		?>
@@ -127,11 +127,11 @@
 						<?php hacerAlertV2("Ingresa y luego confirma la nueva contraseña.","info","info-sign"); ?>
 						<div class="form-group col-md-6">
 							<label><span class="glyphicon glyphicon-bookmark"></span> Nueva Contraseña: </label>
-							<input class="form-control" type="password" name="pass1" placeholder=" Contraseña">
+							<input class="form-control" type="password" name="pass1" id="pass1" placeholder=" Contraseña">
 						</div>
 						<div class="form-group col-md-6">
-							<label><span class="glyphicon glyphicon-bookmark"></span> Confirmar contraseña:</label>
-							<input class="form-control" type="password" name="pass2" placeholder=" Comfirmar contraseña">
+							<label><span class="glyphicon glyphicon-bookmark"></span> Confirmar:</label>
+							<input class="form-control" type="password" name="pass2" id="pass2" placeholder=" Comfirmar">
 						</div>
 						<div class="form-group col-md-12">
 							<a name="cancelar-pass" class="btn btn-md btn-danger col-md-12" onclick="cancelPassUpdating(newPassDiv)"><i class="fa fa-lock"></i> Cancelar cambio de contraseña</a>
