@@ -44,21 +44,14 @@ if (!isAdmin()) {
             <div class="panel panel-default panel-table">
                 <div class="panel-heading">
                     <div class="row">
-                        <div class="col-md-3"></div>
-                        <div class='col-md-3'>
-                            <p class="centered">Resultados por página<p>
+                        <div class="col-md-4"></div>
+                        <div class='col-md-4'>
+                            <p class="centered">Cantidad de resultados por página.<p>
                             <div class="form-group">
                                 <input type='number' class="form-control" placeholder="Ingrese cantidad" />
                             </div>
                         </div>
-                        <div class='col-md-3'>
-                            <p class="centered">Orden de visualización según reputación<p>
-                            <div class="form-group centered">
-                                <button type="button" title="Orden descendente" class="btn btn-default glyphicon glyphicon-arrow-down"></button>
-                                <button type="button" title="Orden ascendente" class="btn btn-default glyphicon glyphicon-arrow-up"></button>
-                            </div>
-                        </div>
-                        <div class="col-md-3"></div>
+                        <div class="col-md-4"></div>
                             
                 <div class="panel-body">
                     <table id="mytable" class="table table-striped table-bordered table-list">
@@ -67,7 +60,10 @@ if (!isAdmin()) {
                             <th class="col-text centered">Nombre</th>
                             <th class="col-text centered">Apellido</th>
                             <th class="col-text centered">Logro</th>
-                            <th class="col-text centered">Reputación</th>
+                            <th class="col-text centered">Reputación
+                                <button type="button" title="Orden descendente" class="btn btn-default glyphicon glyphicon-arrow-down"></button>
+                                <button type="button" title="Orden ascendente" class="btn btn-default glyphicon glyphicon-arrow-up"></button>
+                            </th>
                         </tr>
                         </thead>
                         <tbody>
