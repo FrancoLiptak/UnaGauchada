@@ -52,7 +52,7 @@ if (!isAdmin()) {
                             </div>
                         </div>
                         <div class='col-md-3'>
-                            <p class="centered">Orden de visualización<p>
+                            <p class="centered">Orden de visualización según reputación<p>
                             <div class="form-group centered">
                                 <button type="button" title="Orden descendente" class="btn btn-default glyphicon glyphicon-arrow-down"></button>
                                 <button type="button" title="Orden ascendente" class="btn btn-default glyphicon glyphicon-arrow-up"></button>
