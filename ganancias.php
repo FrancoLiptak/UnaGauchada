@@ -1,5 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php 
+include_once 'validate.php';
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+if (!(validateLogin())) {
+    $_SESSION['msg'] = "No puede ingresar a ganancias.php si no tiene una sesion iniciada.";
+    header('Location: index.php');
+    die;
+}
+if (!isAdmin()) {
+    $_SESSION['msg'] = "No puede ingresar a ganancias.php si no es administrador.";
+    header('Location: index.php');
+    die;
+}
+?>
+
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -127,7 +143,6 @@
 
 
 <script src="js/moment.min.js"></script>  
-
 <script src="js/bootstrap-datetimepicker.min.js"></script>
 <script src="js/jquery-1.0.4.js"></script>
 <script src="js/jquery.min.js"></script>
