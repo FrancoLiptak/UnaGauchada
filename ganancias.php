@@ -92,8 +92,8 @@
                 <div class="panel-footer">
                     <div class="row">
                         <nav class="navbar navbar-default">
-                            <div class="col-md-1"></div>
-                            <div class="col-md-11">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10">
                                 <div class="navbar-header">
                                     <span class="navbar-brand">GANANCIAS TOTALES</span>
                                 </div>
