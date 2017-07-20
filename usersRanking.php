@@ -45,8 +45,8 @@ if (!isAdmin()) {
                 <div class="panel-heading">
                     <div class="row">
                         <div class='col-md-12'>
-                                <p class="centered">Resultados por página<p>
-                                <div class="form-group">
+                                <span class="col-md-6">Resultados por página<span>
+                                <div class="form-group col-md-4">
                                     <input type='number' class="form-control" placeholder="Ingrese cantidad" />
                                 </div>
                             </div>
