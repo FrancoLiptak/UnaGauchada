@@ -1,55 +1,138 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="css/ganancias.css">    
+    <?php include_once "header.php";?>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-  <head>
-    <link data-require="bootstrap@3.3.2" data-semver="3.3.2" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
-    <script data-require="bootstrap@3.3.2" data-semver="3.3.2" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <script data-require="jquery@2.1.3" data-semver="2.1.3" src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
-    <link rel="stylesheet" href="style.css" />
-    <script src="moment-2.10.3.js"></script>
-    <script src="bootstrap-datetimepicker.js"></script>
-  </head>
-
-  <body>
-    <h3 id="linked-pickers">Linked Pickers 4.7.14</h3>
-    <div class="container">
-        <div class='col-md-5'>
-            <div class="form-group">
-                <label>Date To:</label>
-                <div class='input-group date' id='datetimepicker6'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
+      
+    <title>Ganancias</title>
+    <br><br><br><br><br>
+</head>
+<div class="container">
+    <div class="row">
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <span class="navbar-brand">Ganancias</span>
                 </div>
+                <p class="navbar-text">En esta sección, usted podrá ver las ganancias entre dos fechas elegidas. Por defecto, se muestran las ganancias desde el comienzo de unaGauchada.</p>
             </div>
-        </div>
-        <div class='col-md-5'>
-            <div class="form-group">
-                <label>Date From:</label>
-                <div class='input-group date' id='datetimepicker7'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default panel-table">
+                <div class="panel-heading">
+                    <div class="row">
+                        <!-- FECHAS -->
+                        <div class='col-md-2'>
+                                <p class="centered">Resultados por página<p>
+                                <div class="form-group">
+                                    <input type='number' class="form-control" placeholder="Ingrese cantidad" />
+                                </div>
+                            </div>
+                            <div class='col-md-5'>
+                                <p class="centered">Fecha mínima<p>
+                                <div class="form-group">
+                                    <div class='input-group date' id='datetimepicker6'>
+                                        <input type='text' class="form-control" placeholder="Seleccione una fecha mínima" />
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-5'>
+                                <p class="centered">Fecha máxima<p>
+                                <div class="form-group">
+                                    <div class='input-group date' id='datetimepicker7'>
+                                        <input type='text' class="form-control" placeholder="Seleccione una fecha máxima"/>
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- FIN FECHAS -->
+                <div class="panel-body">
+                    <table id="mytable" class="table table-striped table-bordered table-list">
+                        <thead>
+                        <tr>
+                            <th class="col-text centered">Nombre</th>
+                            <th class="col-text centered">Email</th>
+                            <th class="col-text centered">Cantidad de créditos</th>
+                            <th class="col-text centered">Valor total</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td align="center">
+                                    Franco Emanuel Liptak
+                                </td>
+                                <td align="center">
+                                    francoliptak@gmail.com
+                                </td>
+                                <td align="center">
+                                    2
+                                </td>
+                                <td align="center">
+                                    $ 100
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <nav class="navbar navbar-default">
+                                <div class="navbar-header">
+                                    <span class="navbar-brand">GANANCIAS TOTALES</span>
+                                </div>
+                                <p class="navbar-text">El monto total recaudado entre las dos fechas seleccionadas es: $1000.</p>
+                        </nav>
+                        <div class="col col-xs-offset-3 col-xs-6">
+                            <nav aria-label="Page navigation" class="text-center">
+                                <ul class="pagination">
+                                    <li>
+                                        <a href="#" aria-label="Previous">
+                                            <span aria-hidden="true">«</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" aria-label="Next">
+                                            <span aria-hidden="true">»</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    
-    <script type="text/javascript">
-        $(function () {
-            $('#datetimepicker6').datetimepicker();
-            $('#datetimepicker7').datetimepicker();
-            $("#datetimepicker6").on("dp.change", function (e) {
-                $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
-            });
-            $("#datetimepicker7").on("dp.change", function (e) {
-                $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
-            });
-        });
-    </script>
-  </body>
+</div>
+</body>
+<?php include_once "footer.html" ;?>
 
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>   
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+<script src="js/jquery-1.0.4.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/ganancias.js"></script>
 </html>
 
