@@ -92,10 +92,13 @@
                 <div class="panel-footer">
                     <div class="row">
                         <nav class="navbar navbar-default">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-11">
                                 <div class="navbar-header">
                                     <span class="navbar-brand">GANANCIAS TOTALES</span>
                                 </div>
                                 <p class="navbar-text">El monto total recaudado entre las dos fechas seleccionadas es: $1000.</p>
+                            </div>
                         </nav>
                         <div class="col col-xs-offset-3 col-xs-6">
                             <nav aria-label="Page navigation" class="text-center">
