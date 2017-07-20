@@ -4,12 +4,12 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 if (!(validateLogin())) {
-    $_SESSION['msg'] = "No puede ingresar a ganancias.php si no tiene una sesion iniciada.";
+    $_SESSION['msg'] = "No puede ingresar a usersRanking.php si no tiene una sesion iniciada.";
     header('Location: index.php');
     die;
 }
 if (!isAdmin()) {
-    $_SESSION['msg'] = "No puede ingresar a ganancias.php si no es administrador.";
+    $_SESSION['msg'] = "No puede ingresar a usersRanking.php si no es administrador.";
     header('Location: index.php');
     die;
 }
@@ -33,9 +33,9 @@ if (!isAdmin()) {
         <nav class="navbar navbar-default">
             <div class="container">
                 <div class="navbar-header">
-                    <span class="navbar-brand">Ganancias</span>
+                    <span class="navbar-brand">Ranking de usuarios</span>
                 </div>
-                <p class="navbar-text">En esta sección, usted podrá ver las ganancias entre dos fechas elegidas. Por defecto, se muestran las ganancias desde el comienzo de unaGauchada.</p>
+                <p class="navbar-text">En esta sección, usted podrá ver todos los usuarios registrados en unaGauchada, organizados según su logro.</p>
             </div>
         </nav>
     </div>
@@ -44,45 +44,21 @@ if (!isAdmin()) {
             <div class="panel panel-default panel-table">
                 <div class="panel-heading">
                     <div class="row">
-                        <!-- FECHAS -->
-                        <div class='col-md-2'>
+                        <div class='col-md-12'>
                                 <p class="centered">Resultados por página<p>
                                 <div class="form-group">
                                     <input type='number' class="form-control" placeholder="Ingrese cantidad" />
                                 </div>
                             </div>
-                            <div class='col-md-5'>
-                                <p class="centered">Fecha mínima<p>
-                                <div class="form-group">
-                                    <div class='input-group date' id='datetimepicker6'>
-                                        <input type='text' class="form-control" placeholder="Seleccione una fecha mínima" />
-                                        <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-calendar"></span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class='col-md-5'>
-                                <p class="centered">Fecha máxima<p>
-                                <div class="form-group">
-                                    <div class='input-group date' id='datetimepicker7'>
-                                        <input type='text' class="form-control" placeholder="Seleccione una fecha máxima"/>
-                                        <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-calendar"></span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <!-- FIN FECHAS -->
+                            
                 <div class="panel-body">
                     <table id="mytable" class="table table-striped table-bordered table-list">
                         <thead>
                         <tr>
                             <th class="col-text centered">Nombre</th>
                             <th class="col-text centered">Email</th>
-                            <th class="col-text centered">Cantidad de créditos</th>
-                            <th class="col-text centered">Valor total</th>
+                            <th class="col-text centered">Logro</th>
+                            <th class="col-text centered">Reputación</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -106,15 +82,6 @@ if (!isAdmin()) {
                 </div>
                 <div class="panel-footer">
                     <div class="row">
-                        <nav class="navbar navbar-default">
-                            <div class="col-md-2"></div>
-                            <div class="col-md-10">
-                                <div class="navbar-header">
-                                    <span class="navbar-brand">GANANCIAS TOTALES</span>
-                                </div>
-                                <p class="navbar-text">El monto total recaudado entre las dos fechas seleccionadas es: $1000.</p>
-                            </div>
-                        </nav>
                         <div class="col col-xs-offset-3 col-xs-6">
                             <nav aria-label="Page navigation" class="text-center">
                                 <ul class="pagination">
@@ -148,4 +115,3 @@ if (!isAdmin()) {
 <script src="js/bootstrap.min.js"></script>
 <script src="js/ganancias.js"></script>
 </html>
-
