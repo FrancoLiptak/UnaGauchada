@@ -35,7 +35,7 @@ if (!isAdmin()) {
                 <div class="navbar-header">
                     <span class="navbar-brand">Ranking de usuarios</span>
                 </div>
-                <p class="navbar-text">En esta sección, usted podrá ver todos los usuarios registrados en unaGauchada, organizados según su logro.</p>
+                <p class="navbar-text">En esta sección, usted podrá ver todos los usuarios registrados en unaGauchada, organizados según su reputación.</p>
             </div>
         </nav>
     </div>
@@ -44,19 +44,28 @@ if (!isAdmin()) {
             <div class="panel panel-default panel-table">
                 <div class="panel-heading">
                     <div class="row">
-                        <div class='col-md-12'>
-                                <span class="col-md-6">Resultados por página<span>
-                                <div class="form-group col-md-4">
-                                    <input type='number' class="form-control" placeholder="Ingrese cantidad" />
-                                </div>
+                        <div class="col-md-3"></div>
+                        <div class='col-md-3'>
+                            <p class="centered">Resultados por página<p>
+                            <div class="form-group">
+                                <input type='number' class="form-control" placeholder="Ingrese cantidad" />
                             </div>
+                        </div>
+                        <div class='col-md-3'>
+                            <p class="centered">Orden de visualización<p>
+                            <div class="form-group centered">
+                                <button type="button" title="Orden descendente" class="btn btn-default glyphicon glyphicon-arrow-down"></button>
+                                <button type="button" title="Orden ascendente" class="btn btn-default glyphicon glyphicon-arrow-up"></button>
+                            </div>
+                        </div>
+                        <div class="col-md-3"></div>
                             
                 <div class="panel-body">
                     <table id="mytable" class="table table-striped table-bordered table-list">
                         <thead>
                         <tr>
                             <th class="col-text centered">Nombre</th>
-                            <th class="col-text centered">Email</th>
+                            <th class="col-text centered">Apellido</th>
                             <th class="col-text centered">Logro</th>
                             <th class="col-text centered">Reputación</th>
                         </tr>
@@ -90,6 +99,11 @@ if (!isAdmin()) {
                                             <span aria-hidden="true">«</span>
                                         </a>
                                     </li>
+                                    <li class="active"><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
                                     <li>
                                         <a href="#" aria-label="Next">
                                             <span aria-hidden="true">»</span>

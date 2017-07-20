@@ -46,41 +46,41 @@ if (!isAdmin()) {
                     <div class="row">
                         <!-- FECHAS -->
                         <div class='col-md-2'>
-                                <p class="centered">Resultados por página<p>
-                                <div class="form-group">
-                                    <input type='number' class="form-control" placeholder="Ingrese cantidad" />
-                                </div>
+                            <p class="centered">Resultados por página<p>
+                            <div class="form-group">
+                                <input type='number' class="form-control" placeholder="Ingrese cantidad" />
                             </div>
-                            <div class='col-md-5'>
-                                <p class="centered">Fecha mínima<p>
-                                <div class="form-group">
-                                    <div class='input-group date' id='datetimepicker6'>
-                                        <input type='text' class="form-control" placeholder="Seleccione una fecha mínima" />
-                                        <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-calendar"></span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class='col-md-5'>
-                                <p class="centered">Fecha máxima<p>
-                                <div class="form-group">
-                                    <div class='input-group date' id='datetimepicker7'>
-                                        <input type='text' class="form-control" placeholder="Seleccione una fecha máxima"/>
-                                        <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-calendar"></span>
-                                        </span>
-                                    </div>
+                        </div>
+                        <div class='col-md-5'>
+                            <p class="centered">Fecha mínima<p>
+                            <div class="form-group">
+                                <div class='input-group date' id='datetimepicker6'>
+                                    <input type='text' class="form-control" placeholder="Seleccione una fecha mínima" />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
                                 </div>
                             </div>
                         </div>
+                        <div class='col-md-5'>
+                            <p class="centered">Fecha máxima<p>
+                            <div class="form-group">
+                                <div class='input-group date' id='datetimepicker7'>
+                                    <input type='text' class="form-control" placeholder="Seleccione una fecha máxima"/>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- FIN FECHAS -->
                 <div class="panel-body">
                     <table id="mytable" class="table table-striped table-bordered table-list">
                         <thead>
                         <tr>
                             <th class="col-text centered">Nombre</th>
-                            <th class="col-text centered">Email</th>
+                            <th class="col-text centered">Apellido</th>
                             <th class="col-text centered">Cantidad de créditos</th>
                             <th class="col-text centered">Valor total</th>
                         </tr>
@@ -123,6 +123,11 @@ if (!isAdmin()) {
                                             <span aria-hidden="true">«</span>
                                         </a>
                                     </li>
+                                    <li class="active"><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
                                     <li>
                                         <a href="#" aria-label="Next">
                                             <span aria-hidden="true">»</span>
