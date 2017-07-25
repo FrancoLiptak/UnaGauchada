@@ -210,3 +210,14 @@ function validateCity($idCity){
         return false;
     }
 }
+function validateLogro($idLogro){
+    if (validate($idLogro)) {
+        $link = connect();
+        $query = "SELECT idLogros FROM logros WHERE idLogros = $idLogro";
+        if ($result = $link->query($query)) {
+            return $result->num_rows == 1;
+        }
+        $_SESSION['msg'] = $link->error;
+        return false;
+    }
+}

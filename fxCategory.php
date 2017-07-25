@@ -70,4 +70,24 @@ function editCategory($id, $name){
     return false;
 }
 
+function cateByName($name) {
+    $link = connect();
+    $query = "SELECT * FROM category WHERE name = '$name'";
+    if ($result = $link->query($query)) {
+        return $result->fetch_assoc();
+    }
+    $_SESSION['msg'] = $link->error;
+    return false;
+}
+
+function activateCate($id) {
+    $link = connect();
+    $query = "UPDATE category SET deleted=0 WHERE idCategory=$id;";
+    if ($result = $link->query($query)) {
+        return $result;
+    }
+    $_SESSION['msg'] = $link->error;
+    return false;
+}
+
 ?>
