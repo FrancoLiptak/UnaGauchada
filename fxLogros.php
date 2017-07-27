@@ -34,6 +34,17 @@ function calculateLogro($user)
     return false;
 }
 
+function calculateLogroRep($rep)
+{
+    $allLogros = getLogros();
+    while($logro = $allLogros->fetch_assoc()) {
+        if ($rep > $logro['min']) {
+            return $logro;
+        }
+    }
+    return false;
+}
+
 function logroConRep($user){
     $logro= calculateLogro($user);
     $logro_name= $logro['name'];
@@ -103,4 +114,18 @@ function deleteLogro($id) {
     }
     $_SESSION['msg'] = $link->error;
     return false;
+}
+
+function getRanking() {
+    include_once 'usersFx.php';
+    $result = getForRanking();
+    $users = array();
+    while ($current = $result->fetch_assoc()) {
+        $user['nombre'] = $current['name'];
+        $user['apellido'] = $current['surname'];
+        $user['reputacion'] = $current['reputation'];
+        $user['logro'] = calculateLogroRep($current['reputation'])['name'];
+        $users[] = $user;
+    }
+    return $users;
 }

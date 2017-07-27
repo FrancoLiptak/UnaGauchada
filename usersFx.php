@@ -31,4 +31,17 @@ function updateRep($idUser, $rep, $creds)
     $_SESSION['msg'] = $link->error;
     return false;
 }
+
+function getForRanking(){
+    include_once 'connect.php';
+    $link = connect();
+    $query = "SELECT name, surname, reputation FROM users WHERE admin = 0;";
+    $result = $link->query($query);
+    if ($result = $link->query($query)) {
+        return $result;
+    }
+    $_SESSION['msg'] = $link->error;
+    return false;
+}
+
 ?>
