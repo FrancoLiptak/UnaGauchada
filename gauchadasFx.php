@@ -332,6 +332,22 @@ function isExpired($gauchada)
     return $gauchada['expiration'] < date('Y-m-d');
 }
 
+function ownsGauchada($id) {
+    $loggedId = $_SESSION['idUsers'];
+    $gauchada = getOneGauchada($id);
+    return ($gauchada['idUser'] == $loggedId);
+}
+
+function deleteGauchada($id) {
+    $link = connect();
+    $query = "DELETE FROM gauchadas WHERE idGauchadas = $id";
+    if ($result = $link->query($query)) {
+        return $result;
+    }
+    $_SESSION['msg'] = $link->error;
+    return false;
+}
+
 ?>
 
 
