@@ -21,10 +21,11 @@ if (!isAdmin()) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="css/ganancias.css">    
+    <link rel="stylesheet" type="text/css" href="css/ganancias.css">   
+    <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css">  
     <?php include_once "header.php";?>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="js/rankingDeUsuarios.js"></script>
+    <script src="js/ranking.js"></script>
 
       
     <title>Ranking de usuarios</title>
@@ -41,82 +42,48 @@ if (!isAdmin()) {
             </div>
         </nav>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default panel-table">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-md-4"></div>
-                        <div class='col-md-4'>
-                            <p class="centered">Cantidad de resultados por página.<p>
-                            <div class="form-group">
-                                <input type='number' class="form-control" placeholder="Ingrese cantidad" />
-                            </div>
-                        </div>
-                        <div class="col-md-4"></div>
-                            
-                <div class="panel-body">
-                    <table id="mytable" class="table table-striped table-bordered table-list">
-                        <thead>
-                        <tr>
-                            <th class="col-text centered">Nombre</th>
-                            <th class="col-text centered">Apellido</th>
-                            <th class="col-text centered">Logro</th>
-                            <th class="col-text centered">Reputación
-                            <button type="button" onclick="showResults2(arrayJS, 'descendente')" title="Orden descendente" class="btn btn-default glyphicon glyphicon-arrow-down"></button>
-                            <button type="button" onclick="showResults2(arrayJS, 'ascendente')" title="Orden ascendente" class="btn btn-default glyphicon glyphicon-arrow-up"></button>
-                            </th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                                <?php
-                                    $arrayPHP = getRanking();
-                                ?>
-                                <script type="text/javascript">
-                                    var arrayJS=<?php echo json_encode($arrayPHP);?>;
-                                    showResults(arrayJS, 'ascendente');
-                                </script>
-                        </tbody>
-                    </table>
+    <table id="example" class="display" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th><center>Nombre</center></th>
+                    <th><center>Apellido</center></th>
+                    <th><center>Logro</center></th>
+                    <th><center>Reputación</center></th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th><center>Nombre</center></th>
+                    <th><center>Apellido</center></th>
+                    <th><center>Logro</center></th>
+                    <th><center>Reputación</center></th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <?php 
+                    $ranking = getRanking();
+                    foreach ($ranking as $element){
+                        ?>
 
-                </div>
-                <div class="panel-footer">
-                    <div class="row">
-                        <div class="col col-xs-offset-3 col-xs-6">
-                            <nav aria-label="Page navigation" class="text-center">
-                                <ul class="pagination">
-                                    <li>
-                                        <a href="#" aria-label="Previous">
-                                            <span aria-hidden="true">«</span>
-                                        </a>
-                                    </li>
-                                    <li class="active"><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li>
-                                        <a href="#" aria-label="Next">
-                                            <span aria-hidden="true">»</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                        <tr>
+                            <td><center><?php echo $element['nombre']; ?></center></td>
+                            <td><center><?php echo $element['apellido']; ?></center></td>
+                            <td><center><?php echo $element['logro']; ?></center></td>
+                            <td><center><?php echo $element['reputacion']; ?></center></td>
+                        </tr>
+
+                        <?php
+                    }
+                ?>
+            </tbody>
+    </table>
 </div>
 </body>
 <?php include_once "footer.html" ;?>
-
-
 <script src="js/moment.min.js"></script>  
-<script src="js/bootstrap-datetimepicker.min.js"></script>
 <script src="js/jquery-1.0.4.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/ganancias.js"></script>
+<script src="js/jquery-1.12.4.js"></script>
+<script src="js/jquery.dataTables.min.js"></script>
 </html>
