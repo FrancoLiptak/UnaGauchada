@@ -24,6 +24,7 @@ if (!isAdmin()) {
     <link rel="stylesheet" type="text/css" href="css/ganancias.css">    
     <?php include_once "header.php";?>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/rankingDeUsuarios.js"></script>
 
       
     <title>Ranking de usuarios</title>
@@ -62,48 +63,18 @@ if (!isAdmin()) {
                             <th class="col-text centered">Apellido</th>
                             <th class="col-text centered">Logro</th>
                             <th class="col-text centered">Reputación
-                            <button type="button" title="Orden descendente" class="btn btn-default glyphicon glyphicon-arrow-down"></button>
-                            <button type="button" title="Orden ascendente" class="btn btn-default glyphicon glyphicon-arrow-up"></button>
+                            <button type="button" onclick="showResults(arrayJS, 'descendente')" title="Orden descendente" class="btn btn-default glyphicon glyphicon-arrow-down"></button>
+                            <button type="button" onclick="showResults(arrayJS, 'ascendente')" title="Orden ascendente" class="btn btn-default glyphicon glyphicon-arrow-up"></button>
                             </th>
                         </tr>
                         </thead>
                         <tbody>
                                 <?php
-
-                                // definimos un array de valores en php
-                                $arrayPHP = getRanking();
+                                    $arrayPHP = getRanking();
                                 ?>
                                 <script type="text/javascript">
-                                    // obtenemos el array de valores mediante la conversion a json del
-                                    // array de php
                                     var arrayJS=<?php echo json_encode($arrayPHP);?>;
-                                
-                                    arrayJS.sort(function (a, b){
-                                        return (b.reputacion - a.reputacion)
-                                    })
-
-                                    arrayJS.sort(function (a, b) {
-                                        return (a.reputacion - b.reputacion)
-                                    })
-                                    // Mostramos los valores del array
-                                    for(var i=0;i<arrayJS.length;i++){
-                                        document.write("<tr>");
-                                        document.write("<td align='center'>");
-                                        document.write(arrayJS[i]["nombre"]);
-                                        document.write("</td>");
-                                        document.write("<td align='center'>");
-                                        document.write(arrayJS[i]["apellido"]);
-                                        document.write("</td>");
-                                        document.write("<td align='center'>");
-                                        document.write(arrayJS[i]["reputacion"]);
-                                        document.write("</td>");
-                                        document.write("<td align='center'>");
-                                        document.write(arrayJS[i]["logro"]);
-                                        document.write("</td>");
-                                        document.write("</tr>");
-                                        
-
-                                    }
+                                    showResults(arrayJS, 'ascendente');
                                 </script>
                         </tbody>
                     </table>
