@@ -63,8 +63,8 @@ if (!isAdmin()) {
                             <th class="col-text centered">Apellido</th>
                             <th class="col-text centered">Logro</th>
                             <th class="col-text centered">Reputación
-                            <button type="button" onclick="showResults(arrayJS, 'descendente')" title="Orden descendente" class="btn btn-default glyphicon glyphicon-arrow-down"></button>
-                            <button type="button" onclick="showResults(arrayJS, 'ascendente')" title="Orden ascendente" class="btn btn-default glyphicon glyphicon-arrow-up"></button>
+                            <button type="button" onclick="showResults2(arrayJS, 'descendente')" title="Orden descendente" class="btn btn-default glyphicon glyphicon-arrow-down"></button>
+                            <button type="button" onclick="showResults2(arrayJS, 'ascendente')" title="Orden ascendente" class="btn btn-default glyphicon glyphicon-arrow-up"></button>
                             </th>
                         </tr>
                         </thead>
