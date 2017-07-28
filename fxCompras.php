@@ -8,14 +8,14 @@ function getVentas($end = null, $start = null) {
 		$end = date("y-m-d");
 	}
 	else {
-		$end = date("y-m-d", $end)
+		$end = date("y-m-d", $end);
 	}
 
 	if (is_null($start)) {
 		$start = date("y-m-d", strtotime("last month"));
 	}
 	else {
-		$start = date("y-m-d", $start)
+		$start = date("y-m-d", $start);
 	}
 	
 	$link = connect();

@@ -1,5 +1,6 @@
 <?php 
 include_once 'validate.php';
+include_once 'fxLogros.php';
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -25,7 +26,7 @@ if (!isAdmin()) {
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
       
-    <title>Ganancias</title>
+    <title>Ranking de usuarios</title>
     <br><br><br><br><br>
 </head>
 <div class="container">
@@ -61,26 +62,49 @@ if (!isAdmin()) {
                             <th class="col-text centered">Apellido</th>
                             <th class="col-text centered">Logro</th>
                             <th class="col-text centered">Reputación
-                                <button type="button" title="Orden descendente" class="btn btn-default glyphicon glyphicon-arrow-down"></button>
-                                <button type="button" title="Orden ascendente" class="btn btn-default glyphicon glyphicon-arrow-up"></button>
+                            <button type="button" title="Orden descendente" class="btn btn-default glyphicon glyphicon-arrow-down"></button>
+                            <button type="button" title="Orden ascendente" class="btn btn-default glyphicon glyphicon-arrow-up"></button>
                             </th>
                         </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td align="center">
-                                    Franco Emanuel Liptak
-                                </td>
-                                <td align="center">
-                                    francoliptak@gmail.com
-                                </td>
-                                <td align="center">
-                                    2
-                                </td>
-                                <td align="center">
-                                    $ 100
-                                </td>
-                            </tr>
+                                <?php
+
+                                // definimos un array de valores en php
+                                $arrayPHP = getRanking();
+                                ?>
+                                <script type="text/javascript">
+                                    // obtenemos el array de valores mediante la conversion a json del
+                                    // array de php
+                                    var arrayJS=<?php echo json_encode($arrayPHP);?>;
+                                
+                                    arrayJS.sort(function (a, b){
+                                        return (b.reputacion - a.reputacion)
+                                    })
+
+                                    arrayJS.sort(function (a, b) {
+                                        return (a.reputacion - b.reputacion)
+                                    })
+                                    // Mostramos los valores del array
+                                    for(var i=0;i<arrayJS.length;i++){
+                                        document.write("<tr>");
+                                        document.write("<td align='center'>");
+                                        document.write(arrayJS[i]["nombre"]);
+                                        document.write("</td>");
+                                        document.write("<td align='center'>");
+                                        document.write(arrayJS[i]["apellido"]);
+                                        document.write("</td>");
+                                        document.write("<td align='center'>");
+                                        document.write(arrayJS[i]["reputacion"]);
+                                        document.write("</td>");
+                                        document.write("<td align='center'>");
+                                        document.write(arrayJS[i]["logro"]);
+                                        document.write("</td>");
+                                        document.write("</tr>");
+                                        
+
+                                    }
+                                </script>
                         </tbody>
                     </table>
 
