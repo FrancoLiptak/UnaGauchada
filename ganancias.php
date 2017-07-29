@@ -1,6 +1,6 @@
 <?php 
 include_once 'validate.php';
-include_once 'fxLogros.php';
+include_once 'fxCompras.php';
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -102,15 +102,15 @@ if (!isAdmin()) {
             </tfoot>
             <tbody>
                 <?php 
-                    $ranking = getRanking();
-                    foreach ($ranking as $element){
+                    $ventas = getVentas();
+                    foreach ($ventas as $element){
                         ?>
 
                         <tr>
                             <td><center><?php echo $element['nombre']; ?></center></td>
                             <td><center><?php echo $element['apellido']; ?></center></td>
-                            <td><center><?php echo $element['logro']; ?></center></td>
-                            <td><center><?php echo $element['reputacion']; ?></center></td>
+                            <td><center><?php echo $element['cantidad']; ?></center></td>
+                            <td><center><?php echo $element['monto']; ?></center></td>
                         </tr>
 
                         <?php
