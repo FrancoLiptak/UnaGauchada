@@ -1,3 +1,7 @@
 $(document).ready(function() {
-    $('#example').DataTable();
+    $('#example').DataTable( {
+        "language": {
+            "url": "js/spanishRanking.json"
+        }
+    } );
 } );
