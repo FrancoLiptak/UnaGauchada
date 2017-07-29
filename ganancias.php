@@ -24,7 +24,7 @@ if (!isAdmin()) {
     <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css">  
     <?php include_once "header.php";?>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="js/ranking.js"></script>
+    <script src="js/verGanancias.js"></script>
 
       
     <title>Ganancias</title>
