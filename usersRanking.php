@@ -79,6 +79,8 @@ if (!isAdmin()) {
 </div>
 </body>
 <?php include_once "footer.html" ;?>
+<script src="js/jquery-1.0.4.js"></script>
+<script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-1.12.4.js"></script>
 <script src="js/jquery.dataTables.min.js"></script>
