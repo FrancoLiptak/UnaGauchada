@@ -1,15 +1,22 @@
 <?php 
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+
 include_once 'validate.php';
 include_once 'fxCompras.php';
 
 $fechaMinima = $_POST['fechaMinima'];
 $fechaMaxima = $_POST['fechaMaxima'];
 
-if( ! (getVentas($fechaMaxima, $fechaMinima))){
-   echo $_SESSION['msg'];
+if(!($ventas = getVentas($fechaMaxima, $fechaMinima))){
+    var_dump($_SESSION);
 }else{
     echo "la fecha maxima es: $fechaMaxima |";
     echo "la fecha minima es: $fechaMinima";
+    var_dump($ventas);
 }
 
 /*
