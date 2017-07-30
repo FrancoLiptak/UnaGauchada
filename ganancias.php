@@ -31,7 +31,6 @@ if (isset($_SESSION['fechaInvalida'])) {
     <?php include_once "header.php";?>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/verGanancias.js"></script>
-    <script src="js/alertGanancias.js"></script>
       
     <title>Ganancias</title>
     <br><br><br><br><br>
@@ -56,7 +55,7 @@ if (isset($_SESSION['fechaInvalida'])) {
                     <div class="row">
                         <!-- FECHAS -->
 
-                      <form name="fechas" action="ganancias.php?fechaMinima=fechaMinima&fechaMaxima=fechaMaxima" method="get">
+                      <form name="fechas" action="ganancias.php?fechaMinima=fechaMinima&fechaMaxima=fechaMaxima" method="get" onsubmit="return validarFechas()">
                             <div class='col-md-1'></div>
                             <div class='col-md-4'>
                                 <div class="form-group">
@@ -83,10 +82,9 @@ if (isset($_SESSION['fechaInvalida'])) {
                             <div class='col-md-2'>
                                 <br>
                                 <p></p>
-                                <input type="submit" id="submit" name="filtrar" value="Filtrar" class="btn btn-default" onclick="validarFechas()">
+                                <input type="submit" id="submit" name="filtrar" value="Filtrar" class="btn btn-default">
                             </div>
                         </form>
-                        <p class="errorFechas"><p>
                     </div>
                 </div>
             </div>
@@ -126,8 +124,8 @@ if (isset($_SESSION['fechaInvalida'])) {
                         $fechaMaxima = null;
                     }
 
-                    $ventas = getVentas($fechaMaxima, $fechaMinima);
-                    foreach ($ventas as $element){
+                    if($ventas = getVentas($fechaMaxima, $fechaMinima)){
+                        foreach ($ventas as $element){
                         ?>
 
                         <tr>
@@ -139,7 +137,15 @@ if (isset($_SESSION['fechaInvalida'])) {
                         </tr>
 
                         <?php
+                        }
+                    }else{
+                        ?>
+                        <tr>
+                            <?php hacerAlert("No se encontraron resultados"); ?>
+                        </tr>
+                        <?php
                     }
+                    
                 ?>
             </tbody>
     </table>
@@ -151,5 +157,6 @@ if (isset($_SESSION['fechaInvalida'])) {
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-1.12.4.js"></script>
 <script src="js/jquery.dataTables.min.js"></script>
+<script src="js/alertGanancias.js"></script>
 </html>
 
