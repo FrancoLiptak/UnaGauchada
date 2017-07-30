@@ -56,7 +56,7 @@ if (isset($_SESSION['mal_completado'])) {
                     <div class="row">
                         <!-- FECHAS -->
 
-                        <form action="procesarFiltroFechasGanancias.php" method="post">
+                      <form name="fechas" action="ganancias.php?fechaMinima=fechaMinima&fechaMaxima=fechaMaxima" method="get">
                             <div class='col-md-1'></div>
                             <div class='col-md-4'>
                                 <div class="form-group">
@@ -83,7 +83,7 @@ if (isset($_SESSION['mal_completado'])) {
                             <div class='col-md-2'>
                                 <br>
                                 <p></p>
-                                <button type="submit" class="btn btn-default">Filtrar</button>
+                                <input type="submit" id="submit" name="filtrar" value="Filtrar" class="btn btn-default">
                             </div>
                         </form>
                     </div>
@@ -115,8 +115,17 @@ if (isset($_SESSION['mal_completado'])) {
                 </tr>
             </tfoot>
             <tbody>
-                <?php 
-                    $ventas = getVentas();
+                <?php
+
+                    if (isset($_GET['filtrar'])){
+                        $fechaMinima=$_GET['fechaMinima'];
+                        $fechaMaxima=$_GET['fechaMaxima'];
+                    }else{
+                        $fechaMinima = null;
+                        $fechaMaxima = null;
+                    }
+
+                    $ventas = getVentas($fechaMaxima, $fechaMinima);
                     foreach ($ventas as $element){
                         ?>
 
