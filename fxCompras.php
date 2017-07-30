@@ -32,7 +32,7 @@ function getVentas($end = null, $start = null) {
 		$venta['apellido'] = $user['surname'];
 		$venta['cantidad'] = $current['quantity'];
 		$venta['monto'] = $current['quantity'] * $current['price'];
-		$venta['fechaHora'] = $current['date']
+		$venta['fechaHora'] = $current['date'];
 		$ventas[] = $venta;
 	}
 
