@@ -53,8 +53,9 @@ if (!isAdmin()) {
                         <div class='col-md-1'></div>
                         <div class='col-md-4'>
                             <div class="form-group">
-                                <div class='input-group date' id='datetimepicker6'>
-                                    <input type='text' class="form-control" placeholder="Seleccione una fecha mínima" />
+                                <p>Seleccione una fecha mínima</p>
+                                <div class='input-group date'>
+                                    <input type='date' class="form-control"/>
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
                                     </span>
@@ -63,8 +64,9 @@ if (!isAdmin()) {
                         </div>
                         <div class='col-md-4'>
                             <div class="form-group">
-                                <div class='input-group date' id='datetimepicker7'>
-                                    <input type='text' class="form-control" placeholder="Seleccione una fecha máxima"/>
+                                <p>Seleccione una fecha máxima</p>
+                                <div class='input-group date'>
+                                    <input type='date' class="form-control"/>
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
                                     </span>
@@ -72,7 +74,9 @@ if (!isAdmin()) {
                             </div>
                         </div>
                         <div class='col-md-2'>
-                        <button type="button" class="btn btn-default">Filtrar</button>
+                            <br>
+                            <p></p>
+                            <button type="button" class="btn btn-default">Filtrar</button>
                         </div>
                     </div>
                 </div>
@@ -86,6 +90,7 @@ if (!isAdmin()) {
     <table id="example" class="display" width="100%" cellspacing="0">
             <thead>
                 <tr>
+                    <th><center>Fecha y hora</center></th>
                     <th><center>Nombre</center></th>
                     <th><center>Apellido</center></th>
                     <th><center>Cantidad de créditos</center></th>
@@ -94,6 +99,7 @@ if (!isAdmin()) {
             </thead>
             <tfoot>
                 <tr>
+                    <th><center>Fecha y hora</center></th>
                     <th><center>Nombre</center></th>
                     <th><center>Apellido</center></th>
                     <th><center>Cantidad de créditos</center></th>
@@ -107,6 +113,7 @@ if (!isAdmin()) {
                         ?>
 
                         <tr>
+                            <td><center><?php echo $element['fechaHora']; ?></center></td>
                             <td><center><?php echo $element['nombre']; ?></center></td>
                             <td><center><?php echo $element['apellido']; ?></center></td>
                             <td><center><?php echo $element['cantidad']; ?></center></td>
