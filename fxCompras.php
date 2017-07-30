@@ -32,10 +32,29 @@ function getVentas($end = null, $start = null) {
 		$venta['apellido'] = $user['surname'];
 		$venta['cantidad'] = $current['quantity'];
 		$venta['monto'] = $current['quantity'] * $current['price'];
+		$venta['fechaHora'] = $current['date']
 		$ventas[] = $venta;
 	}
 
 	return $ventas;
+}
+
+function registerPurchase($user, $creds){
+	include_once 'connect.php';
+	include_once 'credits.php';
+
+	$link = connect();
+	$price = creditValue();
+	$date = date("Y-m-d H:i:s");
+
+	$query = "INSERT INTO purchases (idUser, quantity, price, date)";
+	$query = $query."VALUES ($user, $creds, $price, '$date')";
+	if ($result = $link->query($query)) {
+		return $result;
+	}
+	$_SESSION['msg'] = $link->error;
+	return false;
+
 }
 
 ?>
