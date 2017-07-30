@@ -213,7 +213,7 @@ $hoy = date("Y-m-d");
                                         
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                            <a class="btn btn-danger btn-ok" >Eliminar</a>
+                                            <a class="btn btn-danger btn-ok" href="procesarEliminarGauchada.php?id=<?php echo $gauchada['idGauchadas']; ?>">Eliminar</a>
                                         </div>
                                     </div>
                                 </div>
