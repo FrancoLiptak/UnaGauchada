@@ -1,6 +1,8 @@
 <?php 
 include_once 'validate.php';
 include_once 'fxCompras.php';
+include_once "alert.php";
+
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -14,6 +16,10 @@ if (!isAdmin()) {
     header('Location: index.php');
     die;
 }
+if (isset($_SESSION['mal_completado'])) {
+            hacerAlert($_SESSION['mal_completado']);
+            unset($_SESSION['mal_completado']);
+        }
 ?>
 
 <html lang="es">
@@ -50,34 +56,36 @@ if (!isAdmin()) {
                     <div class="row">
                         <!-- FECHAS -->
 
-                        <div class='col-md-1'></div>
-                        <div class='col-md-4'>
-                            <div class="form-group">
-                                <p>Seleccione una fecha mínima</p>
-                                <div class='input-group date'>
-                                    <input type='date' class="form-control"/>
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-calendar"></span>
-                                    </span>
+                        <form action="procesarFiltroFechasGanancias.php" method="post">
+                            <div class='col-md-1'></div>
+                            <div class='col-md-4'>
+                                <div class="form-group">
+                                    <p>Seleccione una fecha mínima</p>
+                                    <div class='input-group date'>
+                                        <input type='date' class="form-control" name="fechaMinima" id="fechaMinima"/>
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class='col-md-4'>
-                            <div class="form-group">
-                                <p>Seleccione una fecha máxima</p>
-                                <div class='input-group date'>
-                                    <input type='date' class="form-control"/>
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-calendar"></span>
-                                    </span>
+                            <div class='col-md-4'>
+                                <div class="form-group">
+                                    <p>Seleccione una fecha máxima</p>
+                                    <div class='input-group date'>
+                                        <input type='date' class="form-control" name="fechaMaxima" id="fechaMaxima"/>
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class='col-md-2'>
-                            <br>
-                            <p></p>
-                            <button type="button" class="btn btn-default">Filtrar</button>
-                        </div>
+                            <div class='col-md-2'>
+                                <br>
+                                <p></p>
+                                <button type="submit" class="btn btn-default">Filtrar</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
