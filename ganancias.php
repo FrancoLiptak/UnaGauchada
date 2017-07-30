@@ -16,9 +16,9 @@ if (!isAdmin()) {
     header('Location: index.php');
     die;
 }
-if (isset($_SESSION['mal_completado'])) {
-            hacerAlert($_SESSION['mal_completado']);
-            unset($_SESSION['mal_completado']);
+if (isset($_SESSION['fechaInvalida'])) {
+        hacerAlert($_SESSION['fechaInvalida']);
+        unset($_SESSION['fechaInvalida']);
         }
 ?>
 
@@ -31,7 +31,7 @@ if (isset($_SESSION['mal_completado'])) {
     <?php include_once "header.php";?>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/verGanancias.js"></script>
-
+    <script src="js/alertGanancias.js"></script>
       
     <title>Ganancias</title>
     <br><br><br><br><br>
@@ -83,9 +83,10 @@ if (isset($_SESSION['mal_completado'])) {
                             <div class='col-md-2'>
                                 <br>
                                 <p></p>
-                                <input type="submit" id="submit" name="filtrar" value="Filtrar" class="btn btn-default">
+                                <input type="submit" id="submit" name="filtrar" value="Filtrar" class="btn btn-default" onclick="validarFechas()">
                             </div>
                         </form>
+                        <p class="errorFechas"><p>
                     </div>
                 </div>
             </div>
