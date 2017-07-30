@@ -13,7 +13,10 @@ function getVentas($end = null, $start = null) {
 
 	$end = new DateTime($end);
 	$end->add(new DateInterval('P1D'));
-	$end = $end->format('Y-m-d H:m:s');
+	$end = $end->format('Y-m-d H:i:s');
+
+	var_dump($end);
+	die;
 
 	if (is_null($start)) {
 		$start = date("Y-m-d", strtotime("last month"));
