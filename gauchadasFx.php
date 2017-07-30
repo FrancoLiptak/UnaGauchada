@@ -186,13 +186,49 @@ $hoy = date("Y-m-d");
             <div class="col-md-12">
                 <?php
                 if (isset($_SESSION['idUsers'])) {
-                    if ($_SESSION['idUsers']== $gauchada['idUser']) {
+                    if ($_SESSION['idUsers']== $gauchada['idUser'] || ($_SESSION['admin'])) {
                         ?>
+
+
+                        <!-- BOTON EDITAR DESACTIVADO Y NO SE PUEDE PULSAR, CUANDO ES DEBIDO -->
                         <div class="col-md-6">
-                            <a class="btn btn-success" id="submit" href="editarGauchada.php?id=<?php echo $gauchada['idGauchadas']; ?>" role="button" <?php if (hasHelps($gauchada['idGauchadas'])){ ?> disabled <?php } ?>><span class="glyphicon glyphicon-edit"></span> Editar </a>
+
+                            <?php
+                                if (! ($_SESSION['admin'])) {
+                                    ?>
+
+                                        <a class="btn btn-success" id="submit" role="button" href=
+                                        
+                                        <?php 
+                                        if (! (hasHelps($gauchada['idGauchadas']))){
+                                            $toShow = ' "editarGauchada.php?id='.$gauchada['idGauchadas'].' " ';
+                                        }
+                                        else {
+                                            $toShow = ' "gauchadaVer.php?idGauchadas='.$gauchada['idGauchadas'].'" disabled ';
+                                        }
+                                        echo $toShow;
+                                        
+                                        ?>><span class="glyphicon glyphicon-edit"></span> Editar </a>
+                                    <?php
+                                }
+                            ?>
                         </div>
+
+                        <!-- FIN BOTON EDITAR DESACTIVADO Y NO SE PUEDE PULSAR, CUANDO ES DEBIDO -->
+
+                        <!-- BOTON ELIMINAR DESACTIVADO Y NO SE PUEDE PULSAR, CUANDO ES DEBIDO -->
                         <div class="col-md-6">
-                            <a class="btn btn-danger" id="submit" data-toggle="modal" data-target="#confirm-delete" role="button" <?php if (hasAccepted($gauchada['idGauchadas'])){ ?> disabled <?php } ?>> <span class="glyphicon glyphicon-trash"></span> Eliminar </a>
+                            <a class="btn btn-danger" id="submit" role="button" 
+                                <?php if (hasAccepted($gauchada['idGauchadas'])){
+                                    $toShow = ' " disabled href="gauchadaVer.php?idGauchadas='.$gauchada['idGauchadas'].' " ';
+                                    }else{
+                                        $toShow = ' data-toggle="modal" data-target="#confirm-delete" ';
+                                    }
+                                    echo $toShow; 
+                                ?>> <span class="glyphicon glyphicon-trash"></span> Eliminar </a>
+                        </div>
+
+                        <!-- FIN BOTON ELIMINAR DESACTIVADO Y NO SE PUEDE PULSAR, CUANDO ES DEBIDO -->
 
                             <!-- CONFIRMAR ELIMINACION -->
                             
@@ -220,13 +256,6 @@ $hoy = date("Y-m-d");
                             </div>
 
                         <!-- FIN CONFIRMAR ELIMINACION -->
-                        </div>
-                        <?php
-                    }
-                    elseif ($_SESSION['admin']) { 
-                        ?>
-                        <div>
-                            <a class="btn btn-danger" id="submit" href="" role="button"><span class="glyphicon glyphicon-trash"></span> Eliminar </a>
                         </div>
                         <?php
                     }
