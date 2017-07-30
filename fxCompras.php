@@ -5,21 +5,21 @@ function getVentas($end = null, $start = null) {
 	include_once "usersFx.php";
 
 	if (is_null($end)) {
-		$end = date("y-m-d");
+		$end = date("Y-m-d H:i:s");
 	}
 	else {
-		$end = date("y-m-d", $end);
+		$end = date("Y-m-d H:i:s", $end);
 	}
 
 	if (is_null($start)) {
-		$start = date("y-m-d", strtotime("last month"));
+		$start = date("Y-m-d H:i:s", strtotime("last month"));
 	}
 	else {
-		$start = date("y-m-d", $start);
+		$start = date("Y-m-d H:i:s", $start);
 	}
 	
 	$link = connect();
-	$query = "SELECT * FROM purchases WHERE date > '$start' AND date < '$end'";
+	$query = "SELECT * FROM purchases WHERE date >= '$start' AND date <= '$end'";
 	if (!$result = $link->query($query)) {
 		$_SESSION['msg'] = $link->error;
 		return false;
