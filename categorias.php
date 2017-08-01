@@ -72,8 +72,9 @@
 					while ($cate = $categorias->fetch_assoc()) { 
 					?>
 
-					<li>
-						<?php echo $cate['name']; ?>
+					<li><span <?php if ($cate['deleted'] == 1){ ?>style="color:red;" <?php } ?>>
+							<?php echo $cate['name']; ?>
+						</span>
 						<span style="float: right;  ">
 							<a data-toggle="modal" data-target="#editModal" role="button" class="btn btn-default btn-sm openEditModal" data-id="<?php echo $cate['idCategory'].'/'.$cate['name']; ?>" id="editButton" href="#!">
 								<i class="fa fa-pencil-square-o"></i>

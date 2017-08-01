@@ -54,7 +54,7 @@ function editGauchada($id, $cat, $city, $title, $desc, $exp, $img){
 
     $link = connect();
 
-    $user=(getUser($_SESSION['idUsers']))->fetch_assoc();
+    $user= mysqli_fetch_assoc(getUser($_SESSION['idUsers']));
 	$gauchada = (getOneGauchada($id));
     $title = trim($title);
     $desc = trim($desc);
