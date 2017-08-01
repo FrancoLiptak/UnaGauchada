@@ -35,11 +35,11 @@ $name = trim($_POST['logro']);
 $min = trim($_POST['min']);
 include_once 'fxLogros.php';
 
-if (logroNameExists($name)) {
+if (logroNameExistsNoId($name)) {
     $_SESSION['msg'] = "El nombre de logro ingresado ya esta en uso.";
     toLogros();
 }
-if (logroMinExists($min)) {
+if (logroMinExistsNoId($min)) {
     $_SESSION['msg'] = "El minimo de reputacion ingresado ya esta en uso.";
     toLogros();
 }

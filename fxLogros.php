@@ -62,12 +62,34 @@ function logroNameExists($id, $name) {
     return false;
 }
 
+function logroNameExistsNoId($name) {
+    $link = connect();
+    $query = "SELECT * FROM logros WHERE name = '$name'";
+    if ($result = $link->query($query)) {
+        $logro = $result->fetch_assoc();
+        return ($result->num_rows == 1);
+    }
+    $_SESSION['msg'] = $link->error;
+    return false;
+}
+
 function logroMinExists($id, $min) {
     $link = connect();
     $query = "SELECT * FROM logros WHERE min = $min";
     if ($result = $link->query($query)) {
         $logro = $result->fetch_assoc();
         return ($result->num_rows == 1 && !($logro['idLogros'] == $id));
+    }
+    $_SESSION['msg'] = $link->error;
+    return false;
+}
+
+function logroMinExistsNoId($min) {
+    $link = connect();
+    $query = "SELECT * FROM logros WHERE min = $min";
+    if ($result = $link->query($query)) {
+        $logro = $result->fetch_assoc();
+        return ($result->num_rows == 1);
     }
     $_SESSION['msg'] = $link->error;
     return false;
