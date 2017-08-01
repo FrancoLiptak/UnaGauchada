@@ -37,8 +37,12 @@
 		<?php
 		/* a continuacion van todas las validaciones en php ... */
 		if (isset($_SESSION['msg']) && $_SESSION['msg'] != "" ) {
-			hacerAlert($_SESSION['msg'], 'success');
+			hacerAlert($_SESSION['msg']);
 			$_SESSION['msg'] = "";
+		}
+		if (isset($_SESSION['success'])) {
+			hacerAlert($_SESSION['success'], "success");
+			unset($_SESSION['success']);
 		}
 		?>
 		<form enctype="multipart/form-data" id="signUp_form" class="col-md-4 col-md-offset-4" action="procesarEditarPerfil.php" method="post"
@@ -93,7 +97,7 @@
 					<div class="form-group" id="updatePassDiv">
 						<div class="col-md-6">
 							<label><span class="glyphicon glyphicon-bookmark"></span> Contraseña: </label>
-							<input class="form-control" type="password" value="<?php echo $user['pass'];?>" disabled>
+							<input class="form-control" type="password" value="12345678910" disabled>
 						</div>
 						<a style="margin-top:25px;" class="btn btn-md btn-primary col-md-6" onclick="showConfirmPassDiv();"><i class="fa fa-lock"></i> Actualizar contraseña</a>
 					</div>

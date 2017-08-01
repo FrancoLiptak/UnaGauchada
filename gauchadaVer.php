@@ -11,7 +11,16 @@ include_once 'fxComments.php';
 include_once 'fxHelp.php';
 include_once 'alert.php';
 ?>
-    <div class="row center-block">
+    <div class="row center-block over-box-detail">
+         <?php
+            if (isset($_SESSION['msg']) && $_SESSION['msg'] != "") {
+                hacerAlert($_SESSION['msg']);
+                $_SESSION['msg'] = "";
+            }
+            elseif (isset($_SESSION['success']) && $_SESSION['success'] != "") {
+                hacerAlert($_SESSION['success'], 'success');
+                $_SESSION['success'] = "";
+            }?>
      
         <div class="container-fluid  col-md-6 col-md-offset-3 box-detail">
             <?php
@@ -26,21 +35,7 @@ include_once 'alert.php';
                 die;
             }
 ?>
-
- <?php   // MOVER DE LUGAR.
-if (isset($_SESSION['msg']) && $_SESSION['msg'] != "") {
-    hacerAlert($_SESSION['msg']);
-    $_SESSION['msg'] = "";
-}
-elseif (isset($_SESSION['success']) && $_SESSION['success'] != "") {
-    hacerAlert($_SESSION['success'], 'success');
-    $_SESSION['success'] = "";
-}?>
-<?php
-
-
-?>
-        </div>
+    </div>
     </div>
     <BR><BR>
     <div class="container col-md-8 col-md-offset-2 comments">

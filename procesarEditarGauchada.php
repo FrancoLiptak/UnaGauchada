@@ -41,7 +41,7 @@ if (isset($_FILES['image'])){
 
 editGauchada($id, $cat, $city, $title, $desc, $exp, $img);
 
-header("Location: gauchadaVer.php?idGauchadas=$id");
+ header("Location: gauchadaVer.php?idGauchadas=$id");
 die;
 
 function editGauchada($id, $cat, $city, $title, $desc, $exp, $img){
@@ -116,7 +116,7 @@ function editGauchada($id, $cat, $city, $title, $desc, $exp, $img){
         $result = $link->query($query);
 
         if ($result) {
-            $_SESSION['msg']="Se actualizo su informacion.";
+            $_SESSION['success']="Se ha realizado la edicion con éxito.";
             return true;
         } else {
             $_SESSION['msg'] = $link->error;

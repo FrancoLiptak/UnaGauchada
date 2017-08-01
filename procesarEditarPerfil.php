@@ -148,7 +148,7 @@ function editUser($name, $surname, $email, $birthDate, $phone, $modifyPass, $img
         $result = $link->query($query);
 
         if ($result) {
-            $_SESSION['msg']="Se actualizo su informacion.";
+            $_SESSION['success']="Se actualizo su informacion.";
             return true;
         } else {
             $_SESSION['msg'] = $link->error;

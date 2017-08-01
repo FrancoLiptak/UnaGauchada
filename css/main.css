@@ -252,9 +252,12 @@ input[type=date]{
   width: 250px;
   height: auto;
 }
+.over-box-detail{
+  margin-top: 100px;
+}
+
 .box-detail{
   border: 1px solid #ddd;
-  margin-top: 100px;
 }
 .img-nav-user{
   width:20px;
