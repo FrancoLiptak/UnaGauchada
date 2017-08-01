@@ -5,7 +5,7 @@ if (session_status() == PHP_SESSION_NONE) {
 include_once 'connect.php';
 include_once 'usersFx.php';
 
-$user = (getUser($_SESSION['idUsers']))->fetch_assoc();
+$user = mysqli_fetch_assoc(getUser($_SESSION['idUsers']));
 
 if (isset($_POST['pass1'], $_POST['pass2']) && $_POST['pass1'] != $_POST['pass2']) {
     $_SESSION['msg'] = "Las contraseñas ingresadas no coinciden";
@@ -72,7 +72,7 @@ function editUser($name, $surname, $email, $birthDate, $phone, $modifyPass, $img
 
     $link = connect();
 
-    $user=(getUser($_SESSION['idUsers']))->fetch_assoc();
+    $user= mysqli_fetch_assoc(getUser($_SESSION['idUsers']));
     $loggedId=$user['idUsers'];
 
     $name = trim($name);
