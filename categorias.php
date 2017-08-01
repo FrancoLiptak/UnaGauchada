@@ -75,17 +75,21 @@
 					while ($cate = $categorias->fetch_assoc()) { 
 					?>
 
-					<li><span <?php if ($cate['deleted'] == 1){ ?>style="color:red;" <?php } ?>>
+					<li><span <?php if ($cate['deleted'] == 1){ ?> style="color:red;" <?php } ?>>
 							<?php echo $cate['name']; ?>
 						</span>
-						<span style="float: right;  ">
-							<a data-toggle="modal" data-target="#editModal" role="button" class="btn btn-default btn-sm openEditModal" data-id="<?php echo $cate['idCategory'].'/'.$cate['name']; ?>" id="editButton" href="#!">
-								<i class="fa fa-pencil-square-o"></i>
-							</a>
-							<a data-toggle="modal" data-target="#deleteModal" role="button" class="btn btn-default btn-sm openDeleteModal" data-id="<?php echo $cate['idCategory'].'/'.$cate['name']; ?>" id="deleteButton" href="#!">
-								<i class="fa fa-trash "></i>
-							</a>
-						</span>
+						<?php if ($cate['deleted'] == 0){ ?>
+								<span style="float: right;">
+									<a data-toggle="modal" data-target="#editModal" role="button" class="btn btn-default btn-sm openEditModal" data-id="<?php echo $cate['idCategory'].'/'.$cate['name']; ?>" id="editButton" href="#!">
+										<i class="fa fa-pencil-square-o"></i>
+									</a>
+									<a data-toggle="modal" data-target="#deleteModal" role="button" class="btn btn-default btn-sm openDeleteModal" data-id="<?php echo $cate['idCategory'].'/'.$cate['name']; ?>" id="deleteButton" href="#!">
+										<i class="fa fa-trash "></i>
+									</a>
+								</span>
+						<?php }else{ ?>
+								<span style="float: right; color: white;"><small>deshabilitadas</small></span>
+						<?php } ?>
 					</li>
 
 					<?php 
