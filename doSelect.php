@@ -45,5 +45,24 @@ function selectCates($actual = null)
 // Crea opciones para todas las categorias.
     doSelect('category', $actual);
 }
+function selectActiveCates($actual = null)
+{
+// IMPORTANTE Solo llamar dentro de un select.
+// Crea opciones para todas las categorias activas.
+    $link = connect();
+    $query = "SELECT * FROM category WHERE deleted=0";
+    if ($result = $link->query($query)) {
+        $i = $result->num_rows;
+
+        while ($row = $result->fetch_array(MYSQLI_NUM)) {
+            ?>
+
+            <option class="fondoGaucho" value="<?php echo($row[0]); ?>" <?php if ($actual == $row[0]) echo " selected "; ?> > <?php echo($row[1]); ?> </option>
+
+            <?php
+        }
+    }
+    mysqli_close($link);
+}
 
 ?>
