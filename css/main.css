@@ -398,9 +398,12 @@ Fork from a bootsnipp*/
     box-sizing: border-box;
 }
 
+#divCates, #divLogros{
+    margin-top: 85px;
+}
+
 .columns {
     padding: 8px;
-    margin-top: 100px;
     width: 95%;
 }
 

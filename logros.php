@@ -48,17 +48,16 @@
 
 		<?php
 		if (isset($_SESSION['msg']) && $_SESSION['msg'] != "" ) {
-			echo "<br><br><br><br>";
 			hacerAlert($_SESSION['msg']);
 			$_SESSION['msg'] = "";
 		}
 		if (isset($_SESSION['success'])) {
-			echo "<br><br><br><br>";
 			hacerAlert($_SESSION['success'], "success");
 			unset($_SESSION['success']);
 		}
 		?>
 
+		<br Clear="all">
 		<div class="columns">
 			<ul class="price">
 				<li class="header"><small>LOGROS</small> 

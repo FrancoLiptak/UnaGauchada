@@ -15,7 +15,7 @@
     function getCategories(){
         // Retorna las categorias
         $link = connect();
-        $query = "SELECT * FROM category ";
+        $query = "SELECT * FROM category ORDER BY name ASC";
         if ($result = $link->query($query)) {
             return $result;
         }
@@ -49,10 +49,12 @@ function cateExists($name) {
 }
 
 function deleteCategory($id){
+    /* falta diferenciar entre borrado logico y fisico */
     $link = connect();
+    $name= mysqli_fetch_assoc(getCategory($id))['name'];
     $query = "UPDATE category SET deleted=1 WHERE idCategory=$id;";
     if ($result = $link->query($query)) {
-        $_SESSION['success'] = "La categoria $id se elimino correctamente.";
+        $_SESSION['success'] = "La categoria $name se elimino correctamente.";
         return $result;
     }
     $_SESSION['msg'] = $link->error;
@@ -61,9 +63,10 @@ function deleteCategory($id){
 
 function editCategory($id, $name){
     $link = connect();
+    $oldCat= mysqli_fetch_assoc(getCategory($id))['name'];
     $query = "UPDATE category SET name='$name' WHERE idCategory=$id;";
     if ($result = $link->query($query)) {
-        $_SESSION['success'] = "La categoria $id se modifico correctamente. Nuevo nombre: $name.";
+        $_SESSION['success'] = "La categoria $oldCat se modifico correctamente.<br> Nuevo nombre: $name.";
         return $result;
     }
     $_SESSION['msg'] = $link->error;
