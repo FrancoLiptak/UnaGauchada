@@ -109,7 +109,7 @@ function newLogro($name, $min){
     $query = "INSERT INTO logros (name, min)";
     $query = $query."VALUES ('$name', $min)";
     if ($result = $link->query($query)) {
-        $_SESSION['msg'] = "El logro $name con minimo $min se creo correctamente.";
+        $_SESSION['success'] = "El logro $name con minimo $min se creo correctamente.";
         return $result;
     }
     $_SESSION['msg'] = $link->error;
@@ -119,7 +119,7 @@ function editLogro($id, $name, $min) {
     $link = connect();
     $query = "UPDATE logros SET name='$name', min=$min WHERE idLogros=$id;";
     if ($result = $link->query($query)) {
-        $_SESSION['msg'] = "El logro $id se modifico correctamente.";
+        $_SESSION['success'] = "El logro $id se modifico correctamente.";
         return $result;
     }
     $_SESSION['msg'] = $link->error;
@@ -131,7 +131,7 @@ function deleteLogro($id) {
     $link = connect();
     $query = "DELETE FROM logros WHERE idLogros=$id;";
     if ($result = $link->query($query)) {
-        $_SESSION['msg'] = "El logro $id se elimino correctamente.";
+        $_SESSION['success'] = "El logro $id se elimino correctamente.";
         return $result;
     }
     $_SESSION['msg'] = $link->error;
