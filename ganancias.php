@@ -42,7 +42,7 @@ if (isset($_SESSION['fechaInvalida'])) {
                 <div class="navbar-header">
                     <span class="navbar-brand">Ganancias</span>
                 </div>
-                <p class="navbar-text">En esta sección usted podrá ver todas las compras registradas en unaGauchada. Por defecto, se muestran las del último mes.</p>
+                <p class="navbar-text">En esta sección usted podrá ver todas las compras registradas en unaGauchada.<strong> Por defecto, se muestran las del último mes.</strong></p>
             </div>
         </nav>
     </div>
@@ -164,7 +164,7 @@ if (isset($_SESSION['fechaInvalida'])) {
                         if($cantidadTotalCreditos == 0){
                             $text = "No se han registrado ventas hasta el momento.";
                         }else{
-                            $text ="En el periodo ingresado, la cantidad de créditos vendidos fue: $cantidadTotalCreditos. Recaudación total: $ $dineroTotalRecaudado.";
+                            $text ="Créditos vendidos: $cantidadTotalCreditos. Recaudación total: ARS $dineroTotalRecaudado.";
                         }
                     ?>
                     <span class="navbar-brand textGanancias"><?php echo $text; ?></span>
