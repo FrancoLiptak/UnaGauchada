@@ -4,7 +4,7 @@ include_once 'validate.php';
 function getLogros()
 {
     $link = connect();
-    $query = "SELECT * FROM logros ORDER BY min DESC";
+    $query = "SELECT * FROM logros ORDER BY min ASC";
     if ($result = $link->query($query)) {
         return $result;
     }
@@ -109,7 +109,7 @@ function newLogro($name, $min){
     $query = "INSERT INTO logros (name, min)";
     $query = $query."VALUES ('$name', $min)";
     if ($result = $link->query($query)) {
-        $_SESSION['success'] = "El logro $name con minimo $min se creo correctamente.";
+        $_SESSION['success'] = "Se creo correctamente el logro $name con minimo $min.";
         return $result;
     }
     $_SESSION['msg'] = $link->error;
@@ -117,9 +117,10 @@ function newLogro($name, $min){
 
 function editLogro($id, $name, $min) {
     $link = connect();
+    $oldLogro= mysqli_fetch_assoc(getLogro($id))['name'];
     $query = "UPDATE logros SET name='$name', min=$min WHERE idLogros=$id;";
     if ($result = $link->query($query)) {
-        $_SESSION['success'] = "El logro $id se modifico correctamente.";
+        $_SESSION['success'] = "El logro $oldLogro se modifico correctamente.";
         return $result;
     }
     $_SESSION['msg'] = $link->error;
@@ -129,9 +130,10 @@ function editLogro($id, $name, $min) {
 
 function deleteLogro($id) {
     $link = connect();
+    $name= mysqli_fetch_assoc(getLogro($id))['name'];
     $query = "DELETE FROM logros WHERE idLogros=$id;";
     if ($result = $link->query($query)) {
-        $_SESSION['success'] = "El logro $id se elimino correctamente.";
+        $_SESSION['success'] = "El logro $name se elimino correctamente.";
         return $result;
     }
     $_SESSION['msg'] = $link->error;
