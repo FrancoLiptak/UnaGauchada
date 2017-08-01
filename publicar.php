@@ -38,7 +38,7 @@
     if (isset($_SESSION['mal_completado'])) {
         hacerAlert("No se ha podido publicar su gauchada ya que no se han completado todos los campos.");
         unset($_SESSION['mal_completado']);
-    }
+    } 
         
             include_once "connect.php";
             $link=connect();
@@ -62,7 +62,7 @@
         <div class="form-group col-md-6">
           <label for="category"><span class="glyphicon glyphicon-bookmark"></span> Categoria:</label>
           <select class="form-control example" id="category" name="category">
-                        <?php selectCates(); ?>
+                        <?php selectActiveCates(); ?>
                   </select>
         </div>
         <div class="form-group col-md-6">
