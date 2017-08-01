@@ -436,6 +436,19 @@ Fork from a bootsnipp*/
     padding-top: -20px;
 }
 
+.barraGanancias{
+  background-color: #4CAF50 !important;
+}
+
+.textGanancias{
+  color: black !important;
+  opacity: 1; 
+}
+
+.centrado{
+  margin-left: 33% !important;
+}
+
 @media only screen and (max-width: 600px) {
     .columns {
         width: 100%;

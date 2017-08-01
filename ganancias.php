@@ -7,12 +7,12 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 if (!(validateLogin())) {
-    $_SESSION['msg'] = "No puede ingresar a usersRanking.php si no tiene una sesion iniciada.";
+    $_SESSION['msg'] = "No puede ingresar a ganancias.php si no tiene una sesion iniciada.";
     header('Location: index.php');
     die;
 }
 if (!isAdmin()) {
-    $_SESSION['msg'] = "No puede ingresar a usersRanking.php si no es administrador.";
+    $_SESSION['msg'] = "No puede ingresar a ganancias.php si no es administrador.";
     header('Location: index.php');
     die;
 }
@@ -124,8 +124,14 @@ if (isset($_SESSION['fechaInvalida'])) {
                         $fechaMaxima = null;
                     }
 
+                    $cantidadTotalCreditos = 0;
+                    $dineroTotalRecaudado = 0;
+
                     if($ventas = getVentas($fechaMaxima, $fechaMinima)){
                         foreach ($ventas as $element){
+                            $cantidadTotalCreditos += $element['cantidad'];
+                            $dineroTotalRecaudado += $element['monto'];
+
                         ?>
 
                         <tr>
@@ -141,7 +147,7 @@ if (isset($_SESSION['fechaInvalida'])) {
                     }else{
                         ?>
                         <tr>
-                            <?php hacerAlert("No se encontraron resultados"); ?>
+                            <td colspan="5"><center><?php echo "No se encontraron resultados"; ?></center></td>
                         </tr>
                         <?php
                     }
@@ -149,6 +155,24 @@ if (isset($_SESSION['fechaInvalida'])) {
                 ?>
             </tbody>
     </table>
+    <br>
+    <div class="row">
+        <nav class="navbar navbar-default barraGanancias">
+            <div class="container">
+                <div class="navbar-header centrado">
+                    <?php 
+                        if($cantidadTotalCreditos == 0){
+                            $text = "No se han registrado ventas hasta el momento.";
+                        }else{
+                            $text ="En el periodo ingresado, la cantidad de créditos vendidos fue: $cantidadTotalCreditos. Recaudación total: $ $dineroTotalRecaudado.";
+                        }
+                    ?>
+                    <span class="navbar-brand textGanancias"><?php echo $text; ?></span>
+                </div>
+            </div>
+        </nav>
+    </div>
+
 </div>
 </body>
 <?php include_once "footer.html" ;?>
