@@ -32,7 +32,7 @@ function newCategory($name){
     $query = "INSERT INTO category (name)";
     $query = $query."VALUES ('$name')";
     if ($result = $link->query($query)) {
-        $_SESSION['msg'] = "La categoria $name se creo correctamente.";
+        $_SESSION['success'] = "La categoria $name se creo correctamente.";
         return $result;
     }
     $_SESSION['msg'] = $link->error;
@@ -52,7 +52,7 @@ function deleteCategory($id){
     $link = connect();
     $query = "UPDATE category SET deleted=1 WHERE idCategory=$id;";
     if ($result = $link->query($query)) {
-        $_SESSION['msg'] = "La categoria $id se elimino correctamente.";
+        $_SESSION['success'] = "La categoria $id se elimino correctamente.";
         return $result;
     }
     $_SESSION['msg'] = $link->error;
@@ -63,7 +63,7 @@ function editCategory($id, $name){
     $link = connect();
     $query = "UPDATE category SET name='$name' WHERE idCategory=$id;";
     if ($result = $link->query($query)) {
-        $_SESSION['msg'] = "La categoria $id se modifico correctamente. Nuevo nombre: $name.";
+        $_SESSION['success'] = "La categoria $id se modifico correctamente. Nuevo nombre: $name.";
         return $result;
     }
     $_SESSION['msg'] = $link->error;
