@@ -95,7 +95,7 @@ function mailsAyuda($user, $owner, $gauchada)
 function mailHelpDeleted($user, $gauchada) {
     $email = $owner['email'];
     $name = $owner['name']." ".$owner['surname'];
-	$subject = 'Falta este subject';
+	$subject = 'UnaGauchada - Gauchada eliminada.';
     $body = '¡Lo sentimos! La gauchada a la cual te psotulaste ha sido eliminada :(';
 
     sendMail($email, $name, $subject, $body);
