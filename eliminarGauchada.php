@@ -14,12 +14,12 @@ if (!validateLogin()) {
 
 $loggedId = $_SESSION['idUsers'];
 
-if (!isset($_POST['idGauchada'])) {
+if (!isset($_GET['idGauchada'])) {
 	$_SESSION['msg'] = "No se envio ningun id de gauchada a eliminar.";
 	toIndex();
 }
 
-$id = $_POST['idGauchada'];
+$id = $_GET['idGauchada'];
 
 if (!validateGauchada($id)) {
 	$_SESSION['msg'] = "El id de gauchada ingresado no existe.";
@@ -49,7 +49,7 @@ if (deleteGauchada($id)) {
 
 	if ($helps) {
 		while ($currentHelp = $helps->fetch_assoc()) {
-			$user = getUser($currentHelp['idUsers'])
+			$user = getUser($currentHelp['idUsers']);
 			mailHelpDeleted($user, $gauchada);
 		}
 	}
@@ -61,7 +61,7 @@ if (deleteGauchada($id)) {
 	include_once 'fxCategory.php';
 	$cate = getCategory($gauchada['idCategory']);
 	if (($cate['deleted']) && (!cateHasGauchadas($gauchada['idCategory']))) {
-		deleteCategoryFisico($gauchada['idCategory'])
+		deleteCategoryFisico($gauchada['idCategory']);
 	}
 
 } else {

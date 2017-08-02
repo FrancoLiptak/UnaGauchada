@@ -37,7 +37,7 @@ if (!isAdmin()) {
                 <div class="navbar-header">
                     <span class="navbar-brand">Ranking de usuarios</span>
                 </div>
-                <p class="navbar-text">En esta sección usted podrá ver todos los usuarios registrados en unaGauchad. Por defecto, organizados según su reputación.</p>
+                <p class="navbar-text">En esta sección usted podrá ver todos los usuarios registrados en unaGauchad. <strong> Por defecto, organizados según su reputación.</strong></p>
             </div>
         </nav>
     </div>

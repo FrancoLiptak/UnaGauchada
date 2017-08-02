@@ -54,7 +54,7 @@ function deleteCategoryFisico($id){
     $name= mysqli_fetch_assoc(getCategory($id))['name'];
     $query = "DELETE FROM category WHERE idCategory=$id;";
     if ($result = $link->query($query)) {
-        $_SESSION['success'] = "La categoria $name se elimino correctamente.";
+        $_SESSION['success'] = "La categoria $name ha eliminado de forma permanente.";
         return $result;
     }
     $_SESSION['msg'] = $link->error;
@@ -67,7 +67,7 @@ function deleteCategoryLogico($id){
     $name= mysqli_fetch_assoc(getCategory($id))['name'];
     $query = "UPDATE category SET deleted=1 WHERE idCategory=$id;";
     if ($result = $link->query($query)) {
-        $_SESSION['success'] = "La categoria $name se elimino correctamente.";
+        $_SESSION['success'] = "La categoria $name ya no podrá ser elegida al publicar pero sí podrá ser buscada para ver sus gauchadas asociadas.";
         return $result;
     }
     $_SESSION['msg'] = $link->error;
