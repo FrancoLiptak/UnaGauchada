@@ -54,7 +54,7 @@ function deleteCategoryFisico($id){
     $name= mysqli_fetch_assoc(getCategory($id))['name'];
     $query = "DELETE FROM category WHERE idCategory=$id;";
     if ($result = $link->query($query)) {
-        $_SESSION['success'] = "La categoria $name ha eliminado de forma permanente.";
+        $_SESSION['success'] = "La categoria $name se ha eliminado de forma permanente.";
         return $result;
     }
     $_SESSION['msg'] = $link->error;

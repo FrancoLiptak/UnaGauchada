@@ -50,7 +50,7 @@ if (deleteGauchada($id)) {
 	if ($helps) {
 		while ($currentHelp = $helps->fetch_assoc()) {
 			include_once 'usersFx.php';
-			$user = (getUser($currentHelp['idUsers']))->fetch_assoc();
+			$user = mysqli_fetch_assoc((getUser($currentHelp['idUsers'])));
 			mailHelpDeleted($user, $gauchada);
 		}
 	}
