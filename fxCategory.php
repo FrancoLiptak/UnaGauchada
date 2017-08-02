@@ -48,7 +48,20 @@ function cateExists($name) {
     return false;
 }
 
-function deleteCategory($id){
+function deleteCategoryFisico($id){
+    /* falta diferenciar entre borrado logico y fisico */
+    $link = connect();
+    $name= mysqli_fetch_assoc(getCategory($id))['name'];
+    $query = "DELETE FROM category WHERE idCategory=$id;";
+    if ($result = $link->query($query)) {
+        $_SESSION['success'] = "La categoria $name se elimino correctamente.";
+        return $result;
+    }
+    $_SESSION['msg'] = $link->error;
+    return false;
+}
+
+function deleteCategoryLogico($id){
     /* falta diferenciar entre borrado logico y fisico */
     $link = connect();
     $name= mysqli_fetch_assoc(getCategory($id))['name'];
@@ -88,6 +101,16 @@ function activateCate($id) {
     $query = "UPDATE category SET deleted=0 WHERE idCategory=$id;";
     if ($result = $link->query($query)) {
         return $result;
+    }
+    $_SESSION['msg'] = $link->error;
+    return false;
+}
+
+function cateHasGauchadas($id) {
+    $link = connect();
+    $query = "SELECT * FROM gauchadas WHERE idCategory = $id";
+    if ($result = $link->query($query)) {
+        return $result->num_rows >= 1;
     }
     $_SESSION['msg'] = $link->error;
     return false;

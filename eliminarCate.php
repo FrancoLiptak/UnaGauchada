@@ -33,6 +33,13 @@ if (!validateCate($id)) {
     $_SESSION['msg'] = "El id de categoria ingresado no existe.";
     toCate();
 }
-deleteCategory($id);
+
+if (cateHasGauchadas($id)) {
+    deleteCategoryLogico($id);
+}
+else {
+    deleteCategoryFisico($id);
+}
+
 toCate();
 die;
