@@ -40,18 +40,19 @@ if (isExpired($gauchada = getOneGauchada($id))) {
 
 $helps = null;
 include_once 'fxHelp.php';
+include_once 'fxMail.php';
 if (hasHelps($id)) {
 	$helps = getHelps($id);
 }
 
 if (deleteGauchada($id)) {
-	$_SESSION['success'] = "La gauchada se ha eliminado con éxito.";
 
 	if ($helps) {
 		while ($currentHelp = $helps->fetch_assoc()) {
 			$user = getUser($currentHelp['idUsers']);
 			mailHelpDeleted($user, $gauchada);
 		}
+	$_SESSION['success'] = "La gauchada se ha eliminado con éxito.";
 	}
 	else {
 		include_once 'credits.php';
@@ -59,7 +60,7 @@ if (deleteGauchada($id)) {
 	}
 
 	include_once 'fxCategory.php';
-	$cate = getCategory($gauchada['idCategory']);
+	$cate = mysqli_fetch_assoc(getCategory($gauchada['idCategory']));
 	if (($cate['deleted']) && (!cateHasGauchadas($gauchada['idCategory']))) {
 		deleteCategoryFisico($gauchada['idCategory']);
 	}
