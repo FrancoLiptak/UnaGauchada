@@ -65,6 +65,8 @@ if (deleteGauchada($id)) {
 		deleteCategoryFisico($gauchada['idCategory']);
 	}
 
+	$_SESSION['success'] = "La gauchada se ha eliminado con éxito.";
+
 } else {
 	$_SESSION['msg'] = "La gauchada no pudo ser eliminada. Por favor, intente mas tarde.";
 }
