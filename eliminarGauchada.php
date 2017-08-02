@@ -38,7 +38,7 @@ if (isExpired($gauchada = getOneGauchada($id))) {
 	toIndex();
 }
 
-$helps = null;
+$helps = false;
 include_once 'fxHelp.php';
 include_once 'fxMail.php';
 if (hasHelps($id)) {
@@ -49,7 +49,8 @@ if (deleteGauchada($id)) {
 
 	if ($helps) {
 		while ($currentHelp = $helps->fetch_assoc()) {
-			$user = getUser($currentHelp['idUsers']);
+			include_once 'usersFx.php';
+			$user = (getUser($currentHelp['idUsers']))->fetch_assoc();
 			mailHelpDeleted($user, $gauchada);
 		}
 	}
