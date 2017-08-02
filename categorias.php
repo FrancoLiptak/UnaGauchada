@@ -143,7 +143,7 @@
 					<div class="modal-body">
 						<!-- content goes here -->
 						<p>Estas seguro que deseas eliminar la categoria
-							<input type="text" class="form-control" style="display:inline; width: 20%;" id="nameCategory" disabled>?
+							<input type="text" class="form-control" style="display:inline; width: 25%;" id="nameCategory" disabled>?
 						</p>
 					</div>
 					<div class="modal-footer" style="border:none;">
