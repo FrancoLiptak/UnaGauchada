@@ -31,10 +31,12 @@ include_once 'fxCategory.php';
 
 if (cateExists($name)) {
     $cate = cateByName($name);
-    $_SESSION['msg'] = "El nombre de categoria ingresado ya esta en uso.";
     if ($cate['deleted']) {
-        $_SESSION['msg'] = $_SESSION['msg']." Estaba eliminada y fue reactivada.";
+        $_SESSION['success'] = " El nombre ingresado corresponde a una categoría que estaba eliminada y ahora fue reactivada.";
         activateCate($cate['idCategory']);
+    }
+    else{
+        $_SESSION['msg'] = "El nombre de categoria ingresado ya esta en uso.";
     }
     toCate();
 }
