@@ -1,0 +1,16 @@
+<br clear="all">
+
+<!------------------------------------------ Scripts 'globales' -->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-filestyle.min.js"></script>
+<script type="text/javascript" src="js/eliminar.js"></script>
+<script src="js/select2.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		$(".example").select2({language: {noResults: function (params) {
+			return "No se encontraron resultados."
+		}}});
+	});
+</script>
